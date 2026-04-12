@@ -1,0 +1,86 @@
+{
+  "_comment": "PWA Web App Manifest 規格（public/manifest.webmanifest）",
+  "_description": "此檔案定義 Love Talk Card Game 的 PWA 安裝體驗，由 vite-plugin-pwa 自動生成至 public/manifest.webmanifest",
+
+  "name": "Love Talk Card",
+  "short_name": "Love Talk",
+  "description": "情侶對話卡牌遊戲——深度連結的對話，從一張牌開始",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFF0F5",
+  "theme_color": "#E8A0BF",
+  "lang": "zh-TW",
+  "dir": "ltr",
+
+  "categories": ["games", "lifestyle", "social"],
+
+  "icons": [
+    {
+      "src": "/icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+
+  "screenshots": [],
+
+  "_vite_plugin_pwa_config": {
+    "_comment": "以下為 vite.config.ts 中 VitePWA() 的對應設定（供開發參考，非 manifest 標準欄位）",
+    "registerType": "autoUpdate",
+    "includeAssets": ["fonts/**", "icons/**", "sounds/**"],
+    "workbox": {
+      "globPatterns": ["**/*.{js,css,html,json,woff2,png,svg,ogg,mp3}"],
+      "runtimeCaching": [],
+      "_note": "所有資產均為靜態，使用 precache 策略，無需 runtimeCaching"
+    },
+    "devOptions": {
+      "enabled": true,
+      "type": "module"
+    }
+  }
+}

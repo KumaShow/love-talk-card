@@ -1,3 +1,5 @@
+# AGENTS.md
+
 - We're going to be using slash command from `.github\prompts\`
 - Replies must use the ZH-TW format.
 

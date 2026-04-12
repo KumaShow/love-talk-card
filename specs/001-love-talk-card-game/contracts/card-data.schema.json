@@ -1,0 +1,202 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://love-talk-card.github.io/schemas/card-data.schema.json",
+  "title": "CardsData",
+  "description": "Love Talk Card Game 靜態卡牌資料（src/data/cards.json）的 JSON Schema",
+  "type": "object",
+  "required": ["version", "themes", "cards"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "資料集版本號（Semantic Versioning）",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "examples": ["1.0.0"]
+    },
+    "themes": {
+      "type": "array",
+      "description": "主題清單，固定 4 個主題",
+      "minItems": 4,
+      "maxItems": 4,
+      "items": {
+        "$ref": "#/definitions/Theme"
+      }
+    },
+    "cards": {
+      "type": "array",
+      "description": "卡牌清單，固定 80 張",
+      "minItems": 80,
+      "maxItems": 80,
+      "items": {
+        "$ref": "#/definitions/Card"
+      }
+    }
+  },
+  "definitions": {
+    "ThemeId": {
+      "type": "string",
+      "description": "主題識別碼",
+      "enum": ["attraction", "self", "interaction", "trust"]
+    },
+    "CardLevel": {
+      "type": "integer",
+      "description": "問題深度等級（1=輕鬆, 2=深入, 3=深刻）",
+      "minimum": 1,
+      "maximum": 3
+    },
+    "LocalizedText": {
+      "type": "object",
+      "description": "雙語文字（ZH-TW + EN）",
+      "required": ["zh", "en"],
+      "additionalProperties": false,
+      "properties": {
+        "zh": {
+          "type": "string",
+          "description": "繁體中文",
+          "minLength": 1
+        },
+        "en": {
+          "type": "string",
+          "description": "英文",
+          "minLength": 1
+        }
+      }
+    },
+    "CardText": {
+      "type": "object",
+      "description": "卡牌四語言題目文字",
+      "required": ["zh", "en", "th", "ja"],
+      "additionalProperties": false,
+      "properties": {
+        "zh": {
+          "type": "string",
+          "description": "繁體中文（主語言，不得為空）",
+          "minLength": 1
+        },
+        "en": {
+          "type": "string",
+          "description": "英文",
+          "minLength": 1
+        },
+        "th": {
+          "type": "string",
+          "description": "泰文",
+          "minLength": 1
+        },
+        "ja": {
+          "type": "string",
+          "description": "日文",
+          "minLength": 1
+        }
+      }
+    },
+    "ThemeColors": {
+      "type": "object",
+      "description": "主題視覺色彩（CSS hex 值）",
+      "required": ["primary", "secondary", "background", "backgroundEnd", "text", "cardBack"],
+      "additionalProperties": false,
+      "properties": {
+        "primary": {
+          "type": "string",
+          "description": "主色（按鈕、強調元素）",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "secondary": {
+          "type": "string",
+          "description": "副色（邊框、裝飾元素）",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "background": {
+          "type": "string",
+          "description": "背景漸層起始色",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "backgroundEnd": {
+          "type": "string",
+          "description": "背景漸層結束色",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "text": {
+          "type": "string",
+          "description": "前景文字色（須符合 WCAG 2.1 AA 對比）",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        },
+        "cardBack": {
+          "type": "string",
+          "description": "卡背主色",
+          "pattern": "^#[0-9A-Fa-f]{6}$"
+        }
+      }
+    },
+    "EndMessage": {
+      "type": "object",
+      "description": "主題專屬結束語",
+      "required": ["zh", "en"],
+      "additionalProperties": false,
+      "properties": {
+        "zh": {
+          "type": "string",
+          "description": "繁體中文結束語",
+          "minLength": 1
+        },
+        "en": {
+          "type": "string",
+          "description": "英文結束語",
+          "minLength": 1
+        }
+      }
+    },
+    "Theme": {
+      "type": "object",
+      "description": "關係主題",
+      "required": ["id", "name", "description", "colors", "endMessage"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "$ref": "#/definitions/ThemeId"
+        },
+        "name": {
+          "$ref": "#/definitions/LocalizedText",
+          "description": "主題名稱"
+        },
+        "description": {
+          "$ref": "#/definitions/LocalizedText",
+          "description": "主題描述"
+        },
+        "colors": {
+          "$ref": "#/definitions/ThemeColors"
+        },
+        "endMessage": {
+          "$ref": "#/definitions/EndMessage"
+        }
+      }
+    },
+    "Card": {
+      "type": "object",
+      "description": "單張對話卡牌",
+      "required": ["id", "theme", "isIntimate", "level", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "卡牌識別碼（UUID v4 格式，全域唯一）",
+          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        },
+        "theme": {
+          "$ref": "#/definitions/ThemeId",
+          "description": "所屬主題"
+        },
+        "isIntimate": {
+          "type": "boolean",
+          "description": "是否為私密牌（true = 私密模式才出現）"
+        },
+        "level": {
+          "$ref": "#/definitions/CardLevel"
+        },
+        "text": {
+          "$ref": "#/definitions/CardText"
+        }
+      }
+    }
+  }
+}

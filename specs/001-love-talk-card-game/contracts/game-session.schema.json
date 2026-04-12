@@ -1,0 +1,69 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://love-talk-card.github.io/schemas/game-session.schema.json",
+  "title": "GameSessionSnapshot",
+  "description": "Love Talk Card Game sessionStorage 序列化格式（key: 'love-talk-game-session'）",
+  "type": "object",
+  "required": ["themeId", "deckOrder", "drawnCardIds", "intimateModeAtStart"],
+  "additionalProperties": false,
+  "properties": {
+    "themeId": {
+      "type": "string",
+      "description": "當前遊戲主題識別碼",
+      "enum": ["attraction", "self", "interaction", "trust"]
+    },
+    "deckOrder": {
+      "type": "array",
+      "description": "洗牌後的完整卡牌 ID 序列（決定抽牌順序）",
+      "items": {
+        "type": "string",
+        "description": "卡牌 UUID v4",
+        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+      },
+      "minItems": 15,
+      "maxItems": 20,
+      "uniqueItems": true
+    },
+    "drawnCardIds": {
+      "type": "array",
+      "description": "已抽出的卡牌 ID 列表（有序，最新抽出的在最後）",
+      "items": {
+        "type": "string",
+        "description": "已抽出卡牌的 UUID v4",
+        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+      },
+      "minItems": 0,
+      "uniqueItems": true
+    },
+    "intimateModeAtStart": {
+      "type": "boolean",
+      "description": "Session 開始時的私密模式狀態（固化，不隨後續設定變更）"
+    }
+  },
+  "examples": [
+    {
+      "themeId": "attraction",
+      "deckOrder": [
+        "att-003-base",
+        "att-012-base",
+        "att-001-intimate",
+        "att-007-base"
+      ],
+      "drawnCardIds": [
+        "att-003-base",
+        "att-012-base"
+      ],
+      "intimateModeAtStart": true
+    },
+    {
+      "themeId": "trust",
+      "deckOrder": [
+        "tru-005-base",
+        "tru-011-base",
+        "tru-002-base"
+      ],
+      "drawnCardIds": [],
+      "intimateModeAtStart": false
+    }
+  ]
+}
