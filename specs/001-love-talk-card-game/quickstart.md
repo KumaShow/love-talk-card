@@ -250,7 +250,7 @@ npm run build
 
 ### Q: sessionStorage 恢復進度時牌序不一致？
 
-`GameSessionSnapshot` 儲存 `deckOrder`（洗牌後完整 ID 序列），恢復時直接依此序列重建 `deck`，不重新洗牌。確認 `gameStore` 的 `restoreSession()` 方法使用 `deckOrder` 而非重新呼叫 `shuffleArray()`。
+`GameSessionSnapshot` 儲存 `deckOrder`（洗牌後完整卡牌 ID 序列），恢復時直接依此序列重建 `deck`，不重新洗牌。確認 `gameStore` 的 `restoreSession()` 方法使用 `deckOrder` 而非重新呼叫 `shuffleArray()`。
 
 ### Q: 背景音樂無法自動播放？
 

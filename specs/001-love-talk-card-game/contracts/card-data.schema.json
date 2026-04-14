@@ -179,8 +179,9 @@
       "properties": {
         "id": {
           "type": "string",
-          "description": "卡牌識別碼（UUID v4 格式，全域唯一）",
-          "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+          "description": "卡牌識別碼（可讀格式：{theme_prefix}-{序號}-{base|intimate}，全域唯一）",
+          "pattern": "^[a-z]+-[0-9]{3}-(base|intimate)$",
+          "examples": ["att-001-base", "att-001-intimate", "sel-015-base"]
         },
         "theme": {
           "$ref": "#/definitions/ThemeId",

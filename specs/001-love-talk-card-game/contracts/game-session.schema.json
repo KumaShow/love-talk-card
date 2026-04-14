@@ -17,8 +17,8 @@
       "description": "洗牌後的完整卡牌 ID 序列（決定抽牌順序）",
       "items": {
         "type": "string",
-        "description": "卡牌 UUID v4",
-        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        "description": "卡牌可讀 ID（如 att-001-base）",
+        "pattern": "^[a-z]+-[0-9]{3}-(base|intimate)$"
       },
       "minItems": 15,
       "maxItems": 20,
@@ -29,8 +29,8 @@
       "description": "已抽出的卡牌 ID 列表（有序，最新抽出的在最後）",
       "items": {
         "type": "string",
-        "description": "已抽出卡牌的 UUID v4",
-        "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+        "description": "已抽出卡牌的可讀 ID",
+        "pattern": "^[a-z]+-[0-9]{3}-(base|intimate)$"
       },
       "minItems": 0,
       "uniqueItems": true

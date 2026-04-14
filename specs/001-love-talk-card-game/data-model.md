@@ -53,7 +53,7 @@ SettingsState（執行期，Pinia settingsStore，session-only）
 
 | 欄位 | TypeScript 型別 | 限制 | 說明 |
 |------|----------------|------|------|
-| `id` | `string` | UUID v4 格式，全域唯一 | 卡牌識別碼 |
+| `id` | `string` | 可讀格式：`{prefix}-{序號}-{base\|intimate}`，全域唯一 | 卡牌識別碼 |
 | `theme` | `ThemeId` | 枚舉值之一 | 所屬主題 |
 | `isIntimate` | `boolean` | — | 是否為私密牌 |
 | `level` | `CardLevel` | 整數 1、2 或 3 | 問題深度等級 |
@@ -70,7 +70,7 @@ SettingsState（執行期，Pinia settingsStore，session-only）
 
 ### 驗證規則
 
-- `id` 必須為有效 UUID v4 格式，且在整個 `cards.json` 中唯一
+- `id` 必須符合可讀格式 `{prefix}-{序號:3位數}-{base|intimate}`，且在整個 `cards.json` 中唯一
 - `text.zh` 不得為空字串（主語言不允許空缺）
 - 各語言回退順序：`selectedLang → en → zh`
 - 每主題基礎牌（`isIntimate: false`）恰好 **15** 張
@@ -268,7 +268,7 @@ export interface CardText {
 
 /** 單張卡牌 */
 export interface Card {
-  id: string           // UUID v4，全域唯一
+  id: string           // 可讀格式：{prefix}-{序號}-{base|intimate}，全域唯一
   theme: ThemeId       // 所屬主題
   isIntimate: boolean  // 是否為私密牌
   level: CardLevel     // 問題深度（1–3）

@@ -73,12 +73,11 @@ specs/001-love-talk-card-game/
 ```text
 love-talk-card/                     # 專案根目錄
 ├── public/
-│   ├── icons/                      # PWA 圖示（72/96/128/144/152/192/384/512px PNG）
-│   └── sounds/                     # 音效（flip.ogg, flip.mp3, bgm.ogg, bgm.mp3）
+│   ├── icons/                      # PWA 圖示（emoji/圖示庫輸出，72/96/128/144/152/192/384/512px PNG）
+│   └── sounds/                     # 翻牌音效（AI 生成 flip.ogg, flip.mp3）；背景音樂（bgm.ogg, bgm.mp3，待後續補入）
 ├── src/
 │   ├── assets/
-│   │   ├── fonts/                  # Playfair Display WOFF2
-│   │   └── images/                 # 卡背 SVG、愛心浮水印 SVG
+│   │   └── images/                 # 卡背 SVG、愛心浮水印 SVG（取自 Google Fonts Icons / Heroicons）
 │   ├── components/
 │   │   ├── card/
 │   │   │   ├── CardStack.vue       # 牌堆容器，管理點擊事件與動畫封鎖
@@ -110,6 +109,8 @@ love-talk-card/                     # 專案根目錄
 │   │   └── settingsStore.ts        # Pinia：語言、音效、私密模式、剩餘牌數顯示
 │   ├── types/
 │   │   └── index.ts                # Card、Theme、GameSession TypeScript 型別
+│   ├── utils/
+│   │   └── shuffle.ts              # Fisher-Yates 洗牌演算法（src/utils/，可獨立測試）
 │   ├── views/
 │   │   ├── HomeView.vue            # 首頁（主題選擇、模式設定）
 │   │   ├── GameView.vue            # 遊戲畫面（抽牌主介面）
@@ -134,4 +135,14 @@ love-talk-card/                     # 專案根目錄
 └── tsconfig.json
 ```
 
-**Structure Decision**: 單一 Vue SPA 專案（無 backend）。所有卡牌資料以靜態 JSON 存放於 `src/data/`，PWA 全量預先快取。Composables 模式將核心邏輯（翻牌、洗牌、音效、橫屏）抽離為可獨立測試的函式單元，符合 TDD 要求。視圖層（HomeView / GameView / EndView）保持薄型，業務邏輯集中於 composables 與 stores。
+**Structure Decision**: 單一 Vue SPA 專案（無 backend）。所有卡牌資料以靜態 JSON 存放於 `src/data/`，PWA 全量預先快取。Composables 模式將核心邏輯（翻牌、洗牌、音效、橫屏）抽離為可獨立測試的函式單元，符合 TDD 要求。視圖層（HomeView / GameView / EndView）保持薄型，業務邏輯集中於 composables 與 stores。洗牌演算法抽取至 `src/utils/shuffle.ts`，與 store 解耦便於單元測試。
+
+## 設計決策摘要（與 research.md 對照）
+
+| 領域 | 決策 | 詳細說明 |
+|------|------|---------|
+| 字體 | 系統 serif 字體（中英文均用系統字體） | 無需載入外部字體，bundle 最小，PWA 離線零風險。取消 `src/assets/fonts/` 目錄。見 [R-002](./research.md#r-002-tailwind-css-樣式策略) |
+| Card ID | 可讀字串（如 `att-001-base`） | 人類可讀、易除錯、手動維護 JSON 直觀。`card-data.schema.json` 已更新為可讀格式驗證。見 [data-model.md](./data-model.md#1-card卡牌) |
+| 翻牌音效 | AI 生成（ogg + mp3 雙格式） | 低成本取得高品質音效，跨瀏覽器格式覆蓋 |
+| 背景音樂 | 待後續補入（tasks.md 占位符） | 不阻擋核心開發，後期統一處理授權與格式 |
+| PWA 圖示 / 愛心浮水印 | Google Fonts Icons / Heroicons SVG | 開源授權，SVG 轉 PNG 工具鏈成熟，無設計資源門檻 |
