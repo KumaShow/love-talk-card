@@ -96,7 +96,8 @@ love-talk-card/                     # 專案根目錄
 │   │   ├── useDeck.ts              # 洗牌（Fisher-Yates）、抽牌、進度追蹤
 │   │   ├── useAudio.ts             # 翻牌音效（Web Audio API）、背景音樂（<audio>）
 │   │   ├── useOrientation.ts       # 橫屏偵測（matchMedia + screen.orientation）
-│   │   └── useI18n.ts              # 輕量 UI 字串 i18n（無外部框架）
+│   │   ├── useI18n.ts              # 輕量 UI 字串 i18n（無外部框架）
+│   │   └── useTheme.ts             # 主題 CSS 變數套用與重設（氛圍過場）
 │   ├── data/
 │   │   └── cards.json              # 80 張卡牌靜態資料（版本化）
 │   ├── i18n/

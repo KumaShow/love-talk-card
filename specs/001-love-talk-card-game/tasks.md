@@ -153,9 +153,12 @@
 
 - [ ] T060 [US4] 在 src/composables/useTheme.ts 實作 useTheme composable：`applyTheme(themeId: ThemeId, themes: Theme[])` 依 id 找到主題並在 `document.documentElement` 上設定 6 個 CSS custom properties；`resetTheme()` 清除這些屬性；使 T059 通過
 - [ ] T061 [US4] 在 src/assets/main.css（由 main.ts 匯入）新增全域 CSS 過場：`body, #app { transition: background-color 500ms ease-in-out, background 500ms ease-in-out; }`，並在 `#app` 上設定 `background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-end));`
-- [ ] T062 [US4] 更新 src/views/HomeView.vue：在 mount 時呼叫 `useTheme().resetTheme()`（中性預設色）；滑鼠移到主題卡時暫時 `applyTheme(hoveredThemeId)` 作預覽；滑鼠離開時恢復中性；點擊後維持主題色供 session 轉場使用
+- [ ] T062 [US4] 更新 src/views/HomeView.vue：在 mount 時呼叫 `useTheme().resetTheme()`（中性預設色）；點擊主題卡時以 `applyTheme(selectedThemeId)` 套用主題色供路由轉場使用（桌面端可選擇性增加 hover 預覽作為漸進增強，但非核心需求）
+- [ ] T063 [US4] 更新 src/views/GameView.vue：在 mounted 時依 route params 中的 themeId 呼叫 `applyTheme()` 套用對應主題色（themeId 有效性已由 T016 導覽守衛與 T038 驗證邏輯確保，無效時導回首頁而非套用預設主題）；離開時不主動清除（由目標頁面自行處理）
+- [ ] T064 [US4] 更新 src/views/EndView.vue：在 mounted 時依 route params 中的 themeId 呼叫 `applyTheme()` 維持對應主題色（themeId 有效性同樣由導覽守衛確保）；從外部連結或瀏覽器重新整理直接進入時，守衛驗證通過後主題色仍正確套用；返回首頁時由 HomeView 的 `resetTheme()` 處理重設
+- [ ] T065 [US4] 新增 tests/e2e/playwright/us4-theme-ambiance.spec.ts E2E 測試：驗證 4 個主題切換時背景漸層正確且過場平滑（transition duration 介於 300–500ms）；至少涵蓋：(1) 首頁選擇主題後進入 GameView 時背景色正確、(2) 返回首頁改選其他主題後背景色更新、(3) 以有效 themeId URL 直接進入 GameView 時主題色正確套用、(4) 以有效 themeId URL 直接進入 EndView 時主題色正確套用、(5) 以無效 themeId URL 進入時被導回首頁而非顯示預設主題
 
-**檢查點**：4 個使用者故事皆可運作。執行 `npm run test && npm run test:e2e -- --grep us4`。
+**檢查點**：4 個使用者故事皆可運作。執行 `npm run test && npm run test:e2e -- --grep us4`，確認 T059 單元測試與 T065 E2E 測試皆通過。
 
 ---
 
@@ -223,7 +226,7 @@
 - **US1（P1）**：獨立 — 可在 Phase 2 之後立即開始
 - **US2（P2）**：獨立 — 會延伸既有 US1 檔案，但不需要等 US1 完成即可開發；合併時也能順利整合
 - **US3（P3）**：獨立 — 會延伸 US1 的 CardFace 與 AppHeader；useI18n 與 LanguageSelector 都是新檔案
-- **US4（P4）**：獨立 — 新增 useTheme composable；視圖更新僅是 CSS variable 綁定
+- **US4（P4）**：獨立 — 新增 useTheme composable；HomeView、GameView、EndView 皆整合 CSS variable 綁定與主題套用；含 E2E 測試
 - **US5（P5）**：獨立 — PWA 設定僅限 vite.config.ts；useAudio 與 useOrientation 都是新 composable
 
 ### 每個使用者故事內部
