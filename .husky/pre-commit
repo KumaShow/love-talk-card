@@ -1,0 +1,2 @@
+#!/usr/bin/env sh
+node ./node_modules/eslint/bin/eslint.js . --ext .vue,.ts

@@ -1,0 +1,53 @@
+{
+  "name": "love-talk-card",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "lint": "node ./node_modules/eslint/bin/eslint.js . --ext .vue,.ts",
+    "lint:fix": "node ./node_modules/eslint/bin/eslint.js . --ext .vue,.ts --fix",
+    "type-check": "vue-tsc --noEmit",
+    "test": "node -e \"require('node:fs').mkdirSync('coverage/.tmp', { recursive: true })\" && vitest run --coverage",
+    "test:watch": "vitest",
+    "test:coverage": "node -e \"require('node:fs').mkdirSync('coverage/.tmp', { recursive: true })\" && vitest run --coverage --reporter=html",
+    "test:e2e": "playwright test",
+    "test:all": "npm run test && npm run test:e2e",
+    "format": "prettier --write src/",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "pinia": "^2.3.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "@playwright/test": "^1.49.1",
+    "@tailwindcss/vite": "^4.1.7",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vue/eslint-config-typescript": "^14.3.0",
+    "@vue/test-utils": "^2.4.6",
+    "@vue/tsconfig": "^0.7.0",
+    "eslint": "^9.17.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-playwright": "^2.1.0",
+    "eslint-plugin-vue": "^9.32.0",
+    "husky": "^9.1.7",
+    "jsdom": "^25.0.1",
+    "prettier": "^3.4.2",
+    "tailwindcss": "^4.1.7",
+    "typescript": "~5.6.3",
+    "vite": "^5.4.14",
+    "vite-plugin-pwa": "^0.20.5",
+    "vitest": "^2.1.8",
+    "vue-tsc": "^2.2.0"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

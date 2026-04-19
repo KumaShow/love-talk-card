@@ -1,0 +1,68 @@
+{
+  "app": {
+    "title": "Love Talk — 對話卡牌",
+    "subtitle": "從一張牌開始，慢慢靠近彼此。"
+  },
+  "home": {
+    "title": "選擇今晚想聊的主題",
+    "description": "從四個關係主題中挑選最適合此刻心情的方向。",
+    "intimateMode": "私密模式",
+    "intimateModeHint": "加入 5 張更貼近身體與情感的題目。",
+    "startHint": "點選任一主題即可開始。"
+  },
+  "theme": {
+    "attraction": {
+      "name": "心動瞬間",
+      "description": "回到最初的火花與悸動。"
+    },
+    "self": {
+      "name": "自我探索",
+      "description": "更理解自己，也讓對方看見你。"
+    },
+    "interaction": {
+      "name": "互動理解",
+      "description": "把彼此的表達方式說得更清楚。"
+    },
+    "trust": {
+      "name": "信任成長",
+      "description": "聊聊信任、未來與一起變好的可能。"
+    }
+  },
+  "actions": {
+    "draw": "抽牌",
+    "back": "返回",
+    "confirm": "確認",
+    "cancel": "取消",
+    "finish": "返回首頁",
+    "continue": "繼續",
+    "start": "開始對話"
+  },
+  "labels": {
+    "secondaryLanguage": "副語言",
+    "remaining": "剩餘張數",
+    "intimate": "私密牌",
+    "theme": "主題",
+    "deck": "牌組",
+    "language": "語言",
+    "audio": "音效",
+    "music": "音樂"
+  },
+  "language": {
+    "label": "顯示語言",
+    "en": "EN",
+    "th": "ไทย",
+    "ja": "日"
+  },
+  "orientation": {
+    "title": "請將手機轉回直向",
+    "description": "為了最佳遊戲體驗，請使用直向模式。"
+  },
+  "end": {
+    "title": "這回合聊完了",
+    "cta": "回到首頁，再選一個主題繼續聊。"
+  },
+  "modal": {
+    "leaveTitle": "確定要離開嗎？",
+    "leaveDescription": "如果現在離開，這一回合的進度會被清除。"
+  }
+}

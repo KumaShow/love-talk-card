@@ -1,0 +1,42 @@
+@import 'tailwindcss';
+
+:root {
+  --color-bg: #fff7fa;
+  --color-bg-end: #ffe8f0;
+  --color-primary: #e8a0bf;
+  --color-secondary: #ffd6e0;
+  --color-text: #4a1528;
+  --color-card-back: #c76d8e;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-end));
+  color: var(--color-text);
+  font-family: ui-serif, Georgia, 'Times New Roman', serif;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}

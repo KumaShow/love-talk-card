@@ -1,0 +1,34 @@
+import process from 'node:process'
+import { defineConfig, devices } from '@playwright/test'
+
+export default defineConfig({
+  testDir: './tests/e2e/playwright',
+  timeout: 30 * 1000,
+  expect: {
+    timeout: 5000,
+  },
+  forbidOnly: !!process.env.CI,
+  retries: process.env.CI ? 2 : 0,
+  workers: process.env.CI ? 1 : undefined,
+  reporter: 'html',
+  use: {
+    actionTimeout: 0,
+    baseURL: 'http://localhost:5173',
+    trace: 'on-first-retry',
+    ...devices['iPhone 14'],
+  },
+  projects: [
+    {
+      name: 'iphone-14-portrait',
+      use: {
+        ...devices['iPhone 14'],
+        viewport: { width: 390, height: 844 },
+      },
+    },
+  ],
+  webServer: {
+    command: 'npm run dev',
+    port: 5173,
+    reuseExistingServer: !process.env.CI,
+  },
+})

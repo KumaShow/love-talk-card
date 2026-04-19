@@ -1,0 +1,1059 @@
+{
+  "version": "1.0.0",
+  "themes": [
+    {
+      "id": "attraction",
+      "name": {
+        "zh": "心動瞬間",
+        "en": "Attraction & Sparks"
+      },
+      "description": {
+        "zh": "探索彼此吸引的起點，回味那些讓心跳加速的時刻",
+        "en": "Explore the sparks that drew you together and the moments that made your heart race"
+      },
+      "colors": {
+        "primary": "#E8A0BF",
+        "secondary": "#FFD6E0",
+        "background": "#FFF0F5",
+        "backgroundEnd": "#FFE0EC",
+        "text": "#4A1528",
+        "cardBack": "#C76D8E"
+      },
+      "endMessage": {
+        "zh": "每一個心動，都是故事的開始。感謝你願意與我分享這一切。✨",
+        "en": "Every spark was the beginning of your story. Thank you for sharing it. ✨"
+      }
+    },
+    {
+      "id": "self",
+      "name": {
+        "zh": "自我探索",
+        "en": "Self & Exploration"
+      },
+      "description": {
+        "zh": "在關係中認識更真實的自己，也讓對方看見你內心的風景",
+        "en": "Discover your authentic self within the relationship and let your partner see your inner world"
+      },
+      "colors": {
+        "primary": "#A8D8EA",
+        "secondary": "#D4EEF7",
+        "background": "#F0F8FF",
+        "backgroundEnd": "#E0F4FF",
+        "text": "#1A3A4A",
+        "cardBack": "#5BA4C0"
+      },
+      "endMessage": {
+        "zh": "認識自己，是愛人最深的基礎。你今天又更了解自己一點了。🌊",
+        "en": "Knowing yourself is the deepest foundation of love. You know yourself a little better today. 🌊"
+      }
+    },
+    {
+      "id": "interaction",
+      "name": {
+        "zh": "互動理解",
+        "en": "Interaction & Understanding"
+      },
+      "description": {
+        "zh": "深入彼此的溝通方式與情感需求，讓理解成為連結的橋樑",
+        "en": "Dive into each other's communication styles and emotional needs, building bridges of understanding"
+      },
+      "colors": {
+        "primary": "#B8E0B8",
+        "secondary": "#D4F0D4",
+        "background": "#F0FFF0",
+        "backgroundEnd": "#E0FFE0",
+        "text": "#1A3A1A",
+        "cardBack": "#5BA05B"
+      },
+      "endMessage": {
+        "zh": "真正的理解，從願意傾聽開始。謝謝你今天的坦誠。🌿",
+        "en": "True understanding begins with the willingness to listen. Thank you for your honesty today. 🌿"
+      }
+    },
+    {
+      "id": "trust",
+      "name": {
+        "zh": "信任成長",
+        "en": "Trust & Growth"
+      },
+      "description": {
+        "zh": "探索共同的未來與深層的信任，在脆弱中建立更深的連結",
+        "en": "Explore your shared future and deep trust, building stronger bonds through vulnerability"
+      },
+      "colors": {
+        "primary": "#D4A8E8",
+        "secondary": "#E8D4F7",
+        "background": "#F8F0FF",
+        "backgroundEnd": "#F0E0FF",
+        "text": "#2A1A3A",
+        "cardBack": "#8B5BB5"
+      },
+      "endMessage": {
+        "zh": "信任是緩慢積累的禮物。感謝你今天選擇了脆弱與勇氣。💜",
+        "en": "Trust is a gift built slowly. Thank you for choosing vulnerability and courage today. 💜"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "id": "att-001-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "你第一次注意到我是什麼時候？當時心裡在想什麼？",
+        "en": "When did you first notice me, and what crossed your mind at that moment?",
+        "th": "When did you first notice me, and what crossed your mind at that moment?",
+        "ja": "When did you first notice me, and what crossed your mind at that moment?"
+      }
+    },
+    {
+      "id": "att-002-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "我哪一個小細節最先讓你心動？",
+        "en": "What small detail about me caught your heart first?",
+        "th": "What small detail about me caught your heart first?",
+        "ja": "What small detail about me caught your heart first?"
+      }
+    },
+    {
+      "id": "att-003-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "還記得我們第一次好好聊天時，你對我的第一印象嗎？",
+        "en": "Do you remember your first impression of me when we really talked for the first time?",
+        "th": "Do you remember your first impression of me when we really talked for the first time?",
+        "ja": "Do you remember your first impression of me when we really talked for the first time?"
+      }
+    },
+    {
+      "id": "att-004-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "如果把我們剛認識的氛圍變成一種天氣，會是什麼？",
+        "en": "If the mood of when we first met were weather, what would it be?",
+        "th": "If the mood of when we first met were weather, what would it be?",
+        "ja": "If the mood of when we first met were weather, what would it be?"
+      }
+    },
+    {
+      "id": "att-005-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "我現在還有哪些小習慣，會讓你不自覺地笑出來？",
+        "en": "What little habit of mine still makes you smile without trying?",
+        "th": "What little habit of mine still makes you smile without trying?",
+        "ja": "What little habit of mine still makes you smile without trying?"
+      }
+    },
+    {
+      "id": "att-006-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "你是從哪一刻開始，感覺和我相處變得很自然？",
+        "en": "At what moment did being with me start to feel natural to you?",
+        "th": "At what moment did being with me start to feel natural to you?",
+        "ja": "At what moment did being with me start to feel natural to you?"
+      }
+    },
+    {
+      "id": "att-007-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "有哪一個特質，是你越了解我越被吸引的？",
+        "en": "What quality drew you in even more as you got to know me better?",
+        "th": "What quality drew you in even more as you got to know me better?",
+        "ja": "What quality drew you in even more as you got to know me better?"
+      }
+    },
+    {
+      "id": "att-008-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "我們一起經歷過的哪個回憶，最像你心中的火花瞬間？",
+        "en": "Which memory of us still feels like a spark in your heart?",
+        "th": "Which memory of us still feels like a spark in your heart?",
+        "ja": "Which memory of us still feels like a spark in your heart?"
+      }
+    },
+    {
+      "id": "att-009-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "你是在什麼時候開始覺得，我們也許會變得很特別？",
+        "en": "When did you begin to feel that we could become something special?",
+        "th": "When did you begin to feel that we could become something special?",
+        "ja": "When did you begin to feel that we could become something special?"
+      }
+    },
+    {
+      "id": "att-010-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "我做過什麼事，會讓你覺得自己被喜歡、被看見？",
+        "en": "What have I done that made you feel desired and truly seen?",
+        "th": "What have I done that made you feel desired and truly seen?",
+        "ja": "What have I done that made you feel desired and truly seen?"
+      }
+    },
+    {
+      "id": "att-011-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "我曾給過你的哪一句稱讚，直到現在還留在你心裡？",
+        "en": "Which compliment from me has stayed with you until now?",
+        "th": "Which compliment from me has stayed with you until now?",
+        "ja": "Which compliment from me has stayed with you until now?"
+      }
+    },
+    {
+      "id": "att-012-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "和我在一起之後，你覺得自己哪一面被重新點亮了？",
+        "en": "Since being with me, what part of yourself feels more alive again?",
+        "th": "Since being with me, what part of yourself feels more alive again?",
+        "ja": "Since being with me, what part of yourself feels more alive again?"
+      }
+    },
+    {
+      "id": "att-013-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "關係剛開始時，你對靠近我曾經有過什麼擔心？",
+        "en": "What worry did you have about getting closer to me when this relationship began?",
+        "th": "What worry did you have about getting closer to me when this relationship began?",
+        "ja": "What worry did you have about getting closer to me when this relationship began?"
+      }
+    },
+    {
+      "id": "att-014-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "你覺得我們之間的吸引力，這段時間裡最美的改變是什麼？",
+        "en": "What is the most beautiful way our attraction has changed over time?",
+        "th": "What is the most beautiful way our attraction has changed over time?",
+        "ja": "What is the most beautiful way our attraction has changed over time?"
+      }
+    },
+    {
+      "id": "att-015-base",
+      "theme": "attraction",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "如果可以重溫一個讓你再次心動的早期片刻，你會選哪一幕？",
+        "en": "If you could relive one early moment that made your heart race again, which would you choose?",
+        "th": "If you could relive one early moment that made your heart race again, which would you choose?",
+        "ja": "If you could relive one early moment that made your heart race again, which would you choose?"
+      }
+    },
+    {
+      "id": "att-016-intimate",
+      "theme": "attraction",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "你在什麼時候最同時感受到和我的身體與情感都很靠近？",
+        "en": "When do you feel physically and emotionally closest to me at the same time?",
+        "th": "When do you feel physically and emotionally closest to me at the same time?",
+        "ja": "When do you feel physically and emotionally closest to me at the same time?"
+      }
+    },
+    {
+      "id": "att-017-intimate",
+      "theme": "attraction",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "哪一種觸碰方式最能讓你感到安心又被珍惜？",
+        "en": "What kind of touch makes you feel safest and most cherished?",
+        "th": "What kind of touch makes you feel safest and most cherished?",
+        "ja": "What kind of touch makes you feel safest and most cherished?"
+      }
+    },
+    {
+      "id": "att-018-intimate",
+      "theme": "attraction",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "你心裡有沒有一個還沒說出口、但很想和我分享的渴望？",
+        "en": "Is there a desire you have not said aloud yet but would like to share with me?",
+        "th": "Is there a desire you have not said aloud yet but would like to share with me?",
+        "ja": "Is there a desire you have not said aloud yet but would like to share with me?"
+      }
+    },
+    {
+      "id": "att-019-intimate",
+      "theme": "attraction",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "我們之間哪一段親密回憶，會讓你現在想起來還覺得溫熱？",
+        "en": "Which intimate memory between us still feels warm when you think about it now?",
+        "th": "Which intimate memory between us still feels warm when you think about it now?",
+        "ja": "Which intimate memory between us still feels warm when you think about it now?"
+      }
+    },
+    {
+      "id": "att-020-intimate",
+      "theme": "attraction",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "你希望我們怎麼一起創造更多期待感、溫柔感與靠近感？",
+        "en": "How would you like us to create more anticipation, tenderness, and closeness together?",
+        "th": "How would you like us to create more anticipation, tenderness, and closeness together?",
+        "ja": "How would you like us to create more anticipation, tenderness, and closeness together?"
+      }
+    },
+    {
+      "id": "sel-001-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "你最喜歡自己帶進這段關係裡的哪一個特質？",
+        "en": "What quality of yours are you proudest to bring into this relationship?",
+        "th": "What quality of yours are you proudest to bring into this relationship?",
+        "ja": "What quality of yours are you proudest to bring into this relationship?"
+      }
+    },
+    {
+      "id": "sel-002-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "你在什麼時候最能做自己？",
+        "en": "When do you feel most like yourself?",
+        "th": "When do you feel most like yourself?",
+        "ja": "When do you feel most like yourself?"
+      }
+    },
+    {
+      "id": "sel-003-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "最近什麼事情最能幫你重新充電？",
+        "en": "What has been helping you recharge lately?",
+        "th": "What has been helping you recharge lately?",
+        "ja": "What has been helping you recharge lately?"
+      }
+    },
+    {
+      "id": "sel-004-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "當你需要支持時，別人怎麼做最能幫到你？",
+        "en": "When you need support, what helps you most from another person?",
+        "th": "When you need support, what helps you most from another person?",
+        "ja": "When you need support, what helps you most from another person?"
+      }
+    },
+    {
+      "id": "sel-005-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "你最近有哪一個小小成就，值得被好好慶祝？",
+        "en": "What small recent win of yours deserves more celebration?",
+        "th": "What small recent win of yours deserves more celebration?",
+        "ja": "What small recent win of yours deserves more celebration?"
+      }
+    },
+    {
+      "id": "sel-006-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "現在的你，正在重新學習哪一個和愛有關的信念？",
+        "en": "What belief about love are you relearning right now?",
+        "th": "What belief about love are you relearning right now?",
+        "ja": "What belief about love are you relearning right now?"
+      }
+    },
+    {
+      "id": "sel-007-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "你最難開口說出自己需求的時候，通常是什麼情境？",
+        "en": "In what situations is it hardest for you to express your needs?",
+        "th": "In what situations is it hardest for you to express your needs?",
+        "ja": "In what situations is it hardest for you to express your needs?"
+      }
+    },
+    {
+      "id": "sel-008-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "你想為自己養成哪一個新習慣，讓生活更靠近理想的樣子？",
+        "en": "What habit would you like to build so life feels closer to what you want?",
+        "th": "What habit would you like to build so life feels closer to what you want?",
+        "ja": "What habit would you like to build so life feels closer to what you want?"
+      }
+    },
+    {
+      "id": "sel-009-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "對你來說，哪一條個人界線是很重要、不能被忽略的？",
+        "en": "What personal boundary matters deeply to you and should not be overlooked?",
+        "th": "What personal boundary matters deeply to you and should not be overlooked?",
+        "ja": "What personal boundary matters deeply to you and should not be overlooked?"
+      }
+    },
+    {
+      "id": "sel-010-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "當你沉默時，背後最常藏著哪一種擔心？",
+        "en": "When you go quiet, what fear is most often hiding underneath?",
+        "th": "When you go quiet, what fear is most often hiding underneath?",
+        "ja": "When you go quiet, what fear is most often hiding underneath?"
+      }
+    },
+    {
+      "id": "sel-011-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "過去哪一段經驗，最影響你現在看待自己的方式？",
+        "en": "What past experience most shaped the way you see yourself today?",
+        "th": "What past experience most shaped the way you see yourself today?",
+        "ja": "What past experience most shaped the way you see yourself today?"
+      }
+    },
+    {
+      "id": "sel-012-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "你最常在什麼時候感到自己被誤解？",
+        "en": "When do you most often feel misunderstood?",
+        "th": "When do you most often feel misunderstood?",
+        "ja": "When do you most often feel misunderstood?"
+      }
+    },
+    {
+      "id": "sel-013-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "有沒有一個你一直延後、但其實很重要的夢想？",
+        "en": "Is there a dream you have kept postponing even though it matters a lot to you?",
+        "th": "Is there a dream you have kept postponing even though it matters a lot to you?",
+        "ja": "Is there a dream you have kept postponing even though it matters a lot to you?"
+      }
+    },
+    {
+      "id": "sel-014-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "關於你自己，有哪一個真相是你很想被理解、卻不太容易說出口的？",
+        "en": "What truth about yourself do you wish were understood, yet find hard to say aloud?",
+        "th": "What truth about yourself do you wish were understood, yet find hard to say aloud?",
+        "ja": "What truth about yourself do you wish were understood, yet find hard to say aloud?"
+      }
+    },
+    {
+      "id": "sel-015-base",
+      "theme": "self",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "這段關係讓你看見了自己哪一種新的可能？",
+        "en": "What new possibility in yourself has this relationship helped you see?",
+        "th": "What new possibility in yourself has this relationship helped you see?",
+        "ja": "What new possibility in yourself has this relationship helped you see?"
+      }
+    },
+    {
+      "id": "sel-016-intimate",
+      "theme": "self",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "你很少向別人展示、但其實很脆弱的一面是什麼？",
+        "en": "What vulnerable side of you do you rarely show to other people?",
+        "th": "What vulnerable side of you do you rarely show to other people?",
+        "ja": "What vulnerable side of you do you rarely show to other people?"
+      }
+    },
+    {
+      "id": "sel-017-intimate",
+      "theme": "self",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "你有哪一個不安，需要被更溫柔地對待？",
+        "en": "What insecurity of yours needs more gentleness and care?",
+        "th": "What insecurity of yours needs more gentleness and care?",
+        "ja": "What insecurity of yours needs more gentleness and care?"
+      }
+    },
+    {
+      "id": "sel-018-intimate",
+      "theme": "self",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "關於未來的自己，或關於我們，你心裡有什麼祕密願望？",
+        "en": "What secret wish do you carry for your future self or for us?",
+        "th": "What secret wish do you carry for your future self or for us?",
+        "ja": "What secret wish do you carry for your future self or for us?"
+      }
+    },
+    {
+      "id": "sel-019-intimate",
+      "theme": "self",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "你曾在哪一刻最赤裸地做自己，卻仍然感到被愛？",
+        "en": "When have you felt most exposed as yourself and still deeply loved?",
+        "th": "When have you felt most exposed as yourself and still deeply loved?",
+        "ja": "When have you felt most exposed as yourself and still deeply loved?"
+      }
+    },
+    {
+      "id": "sel-020-intimate",
+      "theme": "self",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "如果你完全確定自己是安全的，你最想對我說哪一句話？",
+        "en": "If you felt completely safe, what would you most want to say to me?",
+        "th": "If you felt completely safe, what would you most want to say to me?",
+        "ja": "If you felt completely safe, what would you most want to say to me?"
+      }
+    },
+    {
+      "id": "int-001-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "當你分享事情時，什麼反應最讓你覺得自己被聽見？",
+        "en": "When you share something, what response helps you feel truly heard?",
+        "th": "When you share something, what response helps you feel truly heard?",
+        "ja": "When you share something, what response helps you feel truly heard?"
+      }
+    },
+    {
+      "id": "int-002-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "如果我們意見不同，你通常最需要我先做什麼？",
+        "en": "When we disagree, what do you usually need from me first?",
+        "th": "When we disagree, what do you usually need from me first?",
+        "ja": "When we disagree, what do you usually need from me first?"
+      }
+    },
+    {
+      "id": "int-003-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "我哪一種溝通方式，最讓你感到舒服？",
+        "en": "What communication style of mine feels most comfortable to you?",
+        "th": "What communication style of mine feels most comfortable to you?",
+        "ja": "What communication style of mine feels most comfortable to you?"
+      }
+    },
+    {
+      "id": "int-004-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "哪一種日常關心，最會讓你覺得被照顧到？",
+        "en": "What kind of everyday check-in makes you feel cared for?",
+        "th": "What kind of everyday check-in makes you feel cared for?",
+        "ja": "What kind of everyday check-in makes you feel cared for?"
+      }
+    },
+    {
+      "id": "int-005-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "你覺得我們在哪一種情境下最容易聊得很順？",
+        "en": "In what situation do our conversations flow most easily?",
+        "th": "In what situation do our conversations flow most easily?",
+        "ja": "In what situation do our conversations flow most easily?"
+      }
+    },
+    {
+      "id": "int-006-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "當你快要被情緒淹沒時，通常會出現什麼訊號？",
+        "en": "What signal usually appears when you are close to feeling overwhelmed?",
+        "th": "What signal usually appears when you are close to feeling overwhelmed?",
+        "ja": "What signal usually appears when you are close to feeling overwhelmed?"
+      }
+    },
+    {
+      "id": "int-007-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "別人怎麼道歉，最容易讓你真的感受到修復？",
+        "en": "What kind of apology helps you feel that repair is really happening?",
+        "th": "What kind of apology helps you feel that repair is really happening?",
+        "ja": "What kind of apology helps you feel that repair is really happening?"
+      }
+    },
+    {
+      "id": "int-008-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "有沒有哪個話題，是我們其實太容易繞開不談的？",
+        "en": "Is there a topic that we avoid too easily instead of talking through?",
+        "th": "Is there a topic that we avoid too easily instead of talking through?",
+        "ja": "Is there a topic that we avoid too easily instead of talking through?"
+      }
+    },
+    {
+      "id": "int-009-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "衝突裡什麼最容易讓你突然關起來？",
+        "en": "What tends to make you suddenly shut down during conflict?",
+        "th": "What tends to make you suddenly shut down during conflict?",
+        "ja": "What tends to make you suddenly shut down during conflict?"
+      }
+    },
+    {
+      "id": "int-010-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "如果我們之間出現緊張，你希望怎麼修復能更快一些？",
+        "en": "When tension shows up between us, how could we repair faster?",
+        "th": "When tension shows up between us, how could we repair faster?",
+        "ja": "When tension shows up between us, how could we repair faster?"
+      }
+    },
+    {
+      "id": "int-011-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "今天有沒有一個你想澄清、卻一直沒說出口的誤會？",
+        "en": "Is there a misunderstanding you want to clear up today but have not voiced yet?",
+        "th": "Is there a misunderstanding you want to clear up today but have not voiced yet?",
+        "ja": "Is there a misunderstanding you want to clear up today but have not voiced yet?"
+      }
+    },
+    {
+      "id": "int-012-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "你希望我怎麼問問題，會讓你更願意真實回答？",
+        "en": "How would you like me to ask questions so you feel safer answering honestly?",
+        "th": "How would you like me to ask questions so you feel safer answering honestly?",
+        "ja": "How would you like me to ask questions so you feel safer answering honestly?"
+      }
+    },
+    {
+      "id": "int-013-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "即使和我在一起，你什麼時候仍然會感到孤單？",
+        "en": "Even when you are with me, when do you still feel lonely?",
+        "th": "Even when you are with me, when do you still feel lonely?",
+        "ja": "Even when you are with me, when do you still feel lonely?"
+      }
+    },
+    {
+      "id": "int-014-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "我們之間哪一個互動模式，最值得一起慢慢調整？",
+        "en": "What interaction pattern between us feels most worth changing together?",
+        "th": "What interaction pattern between us feels most worth changing together?",
+        "ja": "What interaction pattern between us feels most worth changing together?"
+      }
+    },
+    {
+      "id": "int-015-base",
+      "theme": "interaction",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "如果現在要有一場能讓我們更理解彼此的對話，你最想聊什麼？",
+        "en": "If we could have one conversation that deepens understanding right now, what would it be about?",
+        "th": "If we could have one conversation that deepens understanding right now, what would it be about?",
+        "ja": "If we could have one conversation that deepens understanding right now, what would it be about?"
+      }
+    },
+    {
+      "id": "int-016-intimate",
+      "theme": "interaction",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "哪一種語氣或句子，最容易讓你在親密話題裡打開自己？",
+        "en": "What tone or wording helps you open up when the topic becomes intimate?",
+        "th": "What tone or wording helps you open up when the topic becomes intimate?",
+        "ja": "What tone or wording helps you open up when the topic becomes intimate?"
+      }
+    },
+    {
+      "id": "int-017-intimate",
+      "theme": "interaction",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "當你對我們感到不安時，什麼樣的安撫最能同時安定你的身體與心？",
+        "en": "When you feel insecure about us, what reassurance calms both your body and mind?",
+        "th": "When you feel insecure about us, what reassurance calms both your body and mind?",
+        "ja": "When you feel insecure about us, what reassurance calms both your body and mind?"
+      }
+    },
+    {
+      "id": "int-018-intimate",
+      "theme": "interaction",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "有沒有一個很難開口的需求，你其實一直希望能被我理解？",
+        "en": "Is there a difficult need you have hoped I would understand, even though it is hard to ask for?",
+        "th": "Is there a difficult need you have hoped I would understand, even though it is hard to ask for?",
+        "ja": "Is there a difficult need you have hoped I would understand, even though it is hard to ask for?"
+      }
+    },
+    {
+      "id": "int-019-intimate",
+      "theme": "interaction",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "我們曾在哪一刻，不用太多話就感受到很深的親密？",
+        "en": "When have we communicated deep intimacy without needing many words?",
+        "th": "When have we communicated deep intimacy without needing many words?",
+        "ja": "When have we communicated deep intimacy without needing many words?"
+      }
+    },
+    {
+      "id": "int-020-intimate",
+      "theme": "interaction",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "你希望我們怎麼談論渴望，才會更安全、更自在？",
+        "en": "How would you like us to talk about desire so it feels safer and more comfortable?",
+        "th": "How would you like us to talk about desire so it feels safer and more comfortable?",
+        "ja": "How would you like us to talk about desire so it feels safer and more comfortable?"
+      }
+    },
+    {
+      "id": "tru-001-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "你通常是怎麼一步一步把信任交給一個人的？",
+        "en": "How do you usually give trust to someone little by little?",
+        "th": "How do you usually give trust to someone little by little?",
+        "ja": "How do you usually give trust to someone little by little?"
+      }
+    },
+    {
+      "id": "tru-002-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "你曾在哪一個瞬間，感覺我真的贏得了你的信任？",
+        "en": "At what moment did you feel that I had truly earned your trust?",
+        "th": "At what moment did you feel that I had truly earned your trust?",
+        "ja": "At what moment did you feel that I had truly earned your trust?"
+      }
+    },
+    {
+      "id": "tru-003-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "對你來說，最重要的一個承諾是什麼？",
+        "en": "What is one promise that matters most to keep?",
+        "th": "What is one promise that matters most to keep?",
+        "ja": "What is one promise that matters most to keep?"
+      }
+    },
+    {
+      "id": "tru-004-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "可靠的愛，在你心裡長什麼樣子？",
+        "en": "What does dependable love look like to you?",
+        "th": "What does dependable love look like to you?",
+        "ja": "What does dependable love look like to you?"
+      }
+    },
+    {
+      "id": "tru-005-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "你最期待我們一起走到哪一個未來畫面？",
+        "en": "What future moment are you most excited for us to reach together?",
+        "th": "What future moment are you most excited for us to reach together?",
+        "ja": "What future moment are you most excited for us to reach together?"
+      }
+    },
+    {
+      "id": "tru-006-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "想到未來時，你心裡最常冒出的不確定感是什麼？",
+        "en": "When you think about the future, what uncertainty comes up most often?",
+        "th": "When you think about the future, what uncertainty comes up most often?",
+        "ja": "When you think about the future, what uncertainty comes up most often?"
+      }
+    },
+    {
+      "id": "tru-007-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "你最難向別人求助的時候，通常是為什麼？",
+        "en": "Why is it hardest for you to ask for help in certain moments?",
+        "th": "Why is it hardest for you to ask for help in certain moments?",
+        "ja": "Why is it hardest for you to ask for help in certain moments?"
+      }
+    },
+    {
+      "id": "tru-008-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "你希望哪一個共同價值，能一直成為我們做決定時的方向？",
+        "en": "What shared value would you like to guide our decisions again and again?",
+        "th": "What shared value would you like to guide our decisions again and again?",
+        "ja": "What shared value would you like to guide our decisions again and again?"
+      }
+    },
+    {
+      "id": "tru-009-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "什麼樣的承諾，對你來說是有力量而不只是形式？",
+        "en": "What kind of commitment feels meaningful instead of merely symbolic to you?",
+        "th": "What kind of commitment feels meaningful instead of merely symbolic to you?",
+        "ja": "What kind of commitment feels meaningful instead of merely symbolic to you?"
+      }
+    },
+    {
+      "id": "tru-010-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "當你想像更深的信任時，心裡會冒出哪一種害怕？",
+        "en": "When you imagine deeper trust, what fear rises up for you?",
+        "th": "When you imagine deeper trust, what fear rises up for you?",
+        "ja": "When you imagine deeper trust, what fear rises up for you?"
+      }
+    },
+    {
+      "id": "tru-011-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "如果信任受傷了，你覺得真正修復需要什麼？",
+        "en": "If trust were hurt, what would real repair require for you?",
+        "th": "If trust were hurt, what would real repair require for you?",
+        "ja": "If trust were hurt, what would real repair require for you?"
+      }
+    },
+    {
+      "id": "tru-012-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "你希望伴侶一起守護的夢想，是哪一個？",
+        "en": "What dream do you want a partner to help protect with you?",
+        "th": "What dream do you want a partner to help protect with you?",
+        "ja": "What dream do you want a partner to help protect with you?"
+      }
+    },
+    {
+      "id": "tru-013-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "一年後，你最希望我們一起成長成什麼樣子？",
+        "en": "One year from now, how do you most hope we will have grown together?",
+        "th": "One year from now, how do you most hope we will have grown together?",
+        "ja": "One year from now, how do you most hope we will have grown together?"
+      }
+    },
+    {
+      "id": "tru-014-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "有哪一個真相，你覺得雖然冒險，卻對信任很重要？",
+        "en": "What truth feels risky to say but necessary for trust to deepen?",
+        "th": "What truth feels risky to say but necessary for trust to deepen?",
+        "ja": "What truth feels risky to say but necessary for trust to deepen?"
+      }
+    },
+    {
+      "id": "tru-015-base",
+      "theme": "trust",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "對你來說，成為一個可以讓人安心依靠的人，代表什麼？",
+        "en": "What does it mean to you to become a person others can safely rely on?",
+        "th": "What does it mean to you to become a person others can safely rely on?",
+        "ja": "What does it mean to you to become a person others can safely rely on?"
+      }
+    },
+    {
+      "id": "tru-016-intimate",
+      "theme": "trust",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "承諾裡最讓你感到脆弱的一部分，是哪一個畫面？",
+        "en": "What part of commitment feels most vulnerable to you?",
+        "th": "What part of commitment feels most vulnerable to you?",
+        "ja": "What part of commitment feels most vulnerable to you?"
+      }
+    },
+    {
+      "id": "tru-017-intimate",
+      "theme": "trust",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "當你對我們感到沒有把握時，你最需要什麼樣的安定感？",
+        "en": "When you feel unsure about us, what kind of reassurance do you need most?",
+        "th": "When you feel unsure about us, what kind of reassurance do you need most?",
+        "ja": "When you feel unsure about us, what kind of reassurance do you need most?"
+      }
+    },
+    {
+      "id": "tru-018-intimate",
+      "theme": "trust",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "有沒有一個關於未來的親密想像，是你一直想溫柔地說出來的？",
+        "en": "Is there a tender future fantasy you have been wanting to share with me?",
+        "th": "Is there a tender future fantasy you have been wanting to share with me?",
+        "ja": "Is there a tender future fantasy you have been wanting to share with me?"
+      }
+    },
+    {
+      "id": "tru-019-intimate",
+      "theme": "trust",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "你曾在哪個時刻，願意讓我看見你最柔軟的一面？",
+        "en": "When did you let me see your softest side most clearly?",
+        "th": "When did you let me see your softest side most clearly?",
+        "ja": "When did you let me see your softest side most clearly?"
+      }
+    },
+    {
+      "id": "tru-020-intimate",
+      "theme": "trust",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "你希望我們如何在只有彼此的時刻，慢慢把信任再往前推一步？",
+        "en": "How would you like us to deepen trust one more step in our private moments together?",
+        "th": "How would you like us to deepen trust one more step in our private moments together?",
+        "ja": "How would you like us to deepen trust one more step in our private moments together?"
+      }
+    }
+  ]
+}

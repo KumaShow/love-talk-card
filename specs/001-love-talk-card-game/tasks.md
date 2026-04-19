@@ -19,17 +19,17 @@
 
 **目的**：初始化 Vue 3 + Vite + TypeScript 專案並設定所有開發工具。
 
-- [ ] T001 在儲存庫根目錄使用 `npm create vue@latest` 初始化 Vue 3 + Vite 5 + TypeScript 專案，並選取 Pinia、Vue Router、TypeScript、Vitest 選項
-- [ ] T002 [P] 在 package.json 設定所有必要依賴：vue@3.4+、vite@5、vue-router@4、pinia@2、tailwindcss@4、@tailwindcss/vite、vite-plugin-pwa、@vitejs/plugin-vue、typescript@5、vitest、@vitest/coverage-v8、@vue/test-utils、@playwright/test、eslint、@vue/eslint-config-typescript、prettier、commitlint、@commitlint/config-conventional
-- [ ] T003 [P] 設定 tsconfig.json 的嚴格 TypeScript 選項（strict: true、noUncheckedIndexedAccess: true），並為所有匯入設定路徑別名 `@` → `src/`
-- [ ] T004 [P] 設定 .gitattributes，依憲章要求強制所有來源檔（*.ts、*.vue、*.json、*.md）使用 LF 換行
-- [ ] T005 [P] 在 eslint.config.js 設定 .vue 與 .ts 檔案的 ESLint 規則；新增規則以標記英文為主的行內註解（依憲章，程式碼註解必須使用正體中文）
-- [ ] T006 [P] 在 .prettierrc 設定一致的格式化規則；並在 package.json 新增 `format` 腳本：`prettier --write src/`
-- [ ] T007 [P] 在 .commitlintrc.js 設定 @commitlint/config-conventional；並新增 Husky pre-commit hook，強制 commit 訊息主體包含正體中文內容
-- [ ] T008 [P] 在 tailwind.config.ts 設定 Tailwind CSS 4.x，content 路徑涵蓋 `./src/**/*.{vue,ts}`，並使用系統襯線字型堆疊：`ui-serif, Georgia, 'Times New Roman', serif`（不載入外部字型）
-- [ ] T009 [P] 在 vitest.config.ts 設定 Vitest 與 coverage provider v8，覆蓋率門檻：全域 lines/branches/functions ≥80%；另外將 src/composables/ 與 src/stores/ 的門檻提高至 ≥95%
-- [ ] T010 [P] 在 playwright.config.ts 設定 Playwright：baseURL `http://localhost:5173`、行動裝置 viewport 預設為 iPhone 14 直向（390×844px）、webServer 指向 `npm run dev`
-- [ ] T011 在 .github/workflows/deploy.yml 建立 GitHub Actions workflow：push 到 `main` 觸發，依序執行 lint → type-check → test → build → deploy，透過 `peaceiris/actions-gh-pages` 部署到 `gh-pages` 分支
+- [x] T001 在儲存庫根目錄使用 `npm create vue@latest` 初始化 Vue 3 + Vite 5 + TypeScript 專案，並選取 Pinia、Vue Router、TypeScript、Vitest 選項
+- [x] T002 [P] 在 package.json 設定所有必要依賴：vue@3.4+、vite@5、vue-router@4、pinia@2、tailwindcss@4、@tailwindcss/vite、vite-plugin-pwa、@vitejs/plugin-vue、typescript@5、vitest、@vitest/coverage-v8、@vue/test-utils、@playwright/test、eslint、@vue/eslint-config-typescript、prettier、commitlint、@commitlint/config-conventional
+- [x] T003 [P] 設定 tsconfig.json 的嚴格 TypeScript 選項（strict: true、noUncheckedIndexedAccess: true），並為所有匯入設定路徑別名 `@` → `src/`
+- [x] T004 [P] 設定 .gitattributes，依憲章要求強制所有來源檔（*.ts、*.vue、*.json、*.md）使用 LF 換行
+- [x] T005 [P] 在 eslint.config.js 設定 .vue 與 .ts 檔案的 ESLint 規則；新增規則以標記英文為主的行內註解（依憲章，程式碼註解必須使用正體中文）
+- [x] T006 [P] 在 .prettierrc 設定一致的格式化規則；並在 package.json 新增 `format` 腳本：`prettier --write src/`
+- [x] T007 [P] 在 .commitlintrc.js 設定 @commitlint/config-conventional；並新增 Husky pre-commit hook，強制 commit 訊息主體包含正體中文內容
+- [x] T008 [P] 在 tailwind.config.ts 設定 Tailwind CSS 4.x，content 路徑涵蓋 `./src/**/*.{vue,ts}`，並使用系統襯線字型堆疊：`ui-serif, Georgia, 'Times New Roman', serif`（不載入外部字型）
+- [x] T009 [P] 在 vitest.config.ts 設定 Vitest 與 coverage provider v8，覆蓋率門檻：全域 lines/branches/functions ≥80%；另外將 src/composables/ 與 src/stores/ 的門檻提高至 ≥95%
+- [x] T010 [P] 在 playwright.config.ts 設定 Playwright：baseURL `http://localhost:5173`、行動裝置 viewport 預設為 iPhone 14 直向（390×844px）、webServer 指向 `npm run dev`
+- [x] T011 在 .github/workflows/deploy.yml 建立 GitHub Actions workflow：push 到 `main` 觸發，依序執行 lint → type-check → test → build → deploy，透過 `peaceiris/actions-gh-pages` 部署到 `gh-pages` 分支
 
 ---
 
@@ -39,15 +39,15 @@
 
 **⚠️ 關鍵**：此階段完成前，不可開始任何使用者故事工作。
 
-- [ ] T012 在 src/types/index.ts 建立所有 TypeScript 型別定義：`ThemeId`、`SecondaryLang`、`CardLevel`、`CardText`、`Card`、`LocalizedText`、`ThemeColors`、`EndMessage`、`Theme`、`CardsData`、`GameSessionSnapshot` — 完全對應 data-model.md 第 5 節的介面
-- [ ] T013 [P] 建立專案目錄結構：src/components/card/、src/components/layout/、src/components/ui/、src/composables/、src/data/、src/i18n/、src/stores/、src/types/、src/utils/、src/assets/images/、tests/unit/composables/、tests/unit/stores/、tests/unit/utils/、tests/unit/components/、tests/e2e/playwright/
-- [ ] T014 [P] 建立 UI 字串檔 src/i18n/zh-TW.json 與 src/i18n/en.json，涵蓋約 30 個 UI 標籤：主題名稱/描述、按鈕文字（抽牌/Draw、返回/Back、確認/Confirm、取消/Cancel）、私密模式切換標籤、語言選擇器標籤（EN/ไทย/日）、橫向提示訊息、剩餘張數標籤、結束畫面 CTA
-- [ ] T015 建立 src/data/cards.json，包含全部 80 個對話提示：4 個主題 ×（15 張基礎 + 5 張私密）卡牌；每張卡牌包含 `id`（格式：`{prefix}-{000}-{base|intimate}`）、`theme`、`isIntimate`、`level`（1–3）與 `text`（{zh, en, th, ja}）；各主題基礎卡牌的 level 分布為：L1×5、L2×6、L3×4；私密卡牌僅為 L2–3；必須符合 contracts/card-data.schema.json
-- [ ] T016 [P] 建立 src/router/index.ts，使用 Vue Router 4 hash mode（`createWebHashHistory`）：3 條路由 — `/#/` → HomeView、`/#/game/:themeId` → GameView、`/#/end/:themeId` → EndView；導覽守衛需驗證 themeId 是否為 4 個有效 ThemeId 列舉值之一
-- [ ] T017 [P] 建立 src/utils/shuffle.ts，實作 Fisher-Yates `shuffleArray<T>(array: T[]): T[]`（建立副本、純函式、O(n)、無副作用）；依程式碼風格要求加入正體中文 JSDoc 註解區塊
-- [ ] T018 [P] 建立 Pinia store 檔案骨架：src/stores/gameStore.ts 與 src/stores/settingsStore.ts，內容先為空的 `defineStore` setup 函式，僅宣告有型別的 state refs，不加入任何商業邏輯
-- [ ] T019 建立 src/main.ts：建立 Vue app、安裝 Pinia、安裝 Vue Router、掛載到 `#app`；並建立 index.html，內容包含 `<html lang="zh-TW">`、title "Love Talk — 對話卡牌"，以及 `<div id="app">`
-- [ ] T020 [P] 建立 vite.config.ts，加入 `@vitejs/plugin-vue`、路徑別名 `@/` → `src/`，以及與 hash 相容的 base：`'./'`；PWA 外掛將於 Phase 7（US5）加入
+- [x] T012 在 src/types/index.ts 建立所有 TypeScript 型別定義：`ThemeId`、`SecondaryLang`、`CardLevel`、`CardText`、`Card`、`LocalizedText`、`ThemeColors`、`EndMessage`、`Theme`、`CardsData`、`GameSessionSnapshot` — 完全對應 data-model.md 第 5 節的介面
+- [x] T013 [P] 建立專案目錄結構：src/components/card/、src/components/layout/、src/components/ui/、src/composables/、src/data/、src/i18n/、src/stores/、src/types/、src/utils/、src/assets/images/、tests/unit/composables/、tests/unit/stores/、tests/unit/utils/、tests/unit/components/、tests/e2e/playwright/
+- [x] T014 [P] 建立 UI 字串檔 src/i18n/zh-TW.json 與 src/i18n/en.json，涵蓋約 30 個 UI 標籤：主題名稱/描述、按鈕文字（抽牌/Draw、返回/Back、確認/Confirm、取消/Cancel）、私密模式切換標籤、語言選擇器標籤（EN/ไทย/日）、橫向提示訊息、剩餘張數標籤、結束畫面 CTA
+- [x] T015 建立 src/data/cards.json，包含全部 80 個對話提示：4 個主題 ×（15 張基礎 + 5 張私密）卡牌；每張卡牌包含 `id`（格式：`{prefix}-{000}-{base|intimate}`）、`theme`、`isIntimate`、`level`（1–3）與 `text`（{zh, en, th, ja}）；各主題基礎卡牌的 level 分布為：L1×5、L2×6、L3×4；私密卡牌僅為 L2–3；必須符合 contracts/card-data.schema.json
+- [x] T016 [P] 建立 src/router/index.ts，使用 Vue Router 4 hash mode（`createWebHashHistory`）：3 條路由 — `/#/` → HomeView、`/#/game/:themeId` → GameView、`/#/end/:themeId` → EndView；導覽守衛需驗證 themeId 是否為 4 個有效 ThemeId 列舉值之一
+- [x] T017 [P] 建立 src/utils/shuffle.ts，實作 Fisher-Yates `shuffleArray<T>(array: T[]): T[]`（建立副本、純函式、O(n)、無副作用）；依程式碼風格要求加入正體中文 JSDoc 註解區塊
+- [x] T018 [P] 建立 Pinia store 檔案骨架：src/stores/gameStore.ts 與 src/stores/settingsStore.ts，內容先為空的 `defineStore` setup 函式，僅宣告有型別的 state refs，不加入任何商業邏輯
+- [x] T019 建立 src/main.ts：建立 Vue app、安裝 Pinia、安裝 Vue Router、掛載到 `#app`；並建立 index.html，內容包含 `<html lang="zh-TW">`、title "Love Talk — 對話卡牌"，以及 `<div id="app">`
+- [x] T020 [P] 建立 vite.config.ts，加入 `@vitejs/plugin-vue`、路徑別名 `@/` → `src/`，以及與 hash 相容的 base：`'./'`；PWA 外掛將於 Phase 7（US5）加入
 
 **檢查點**：基礎已就緒 — 型別、cards.json、路由、store 骨架與工具設定皆完成。現在可以開始使用者故事階段。
 

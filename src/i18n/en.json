@@ -1,0 +1,68 @@
+{
+  "app": {
+    "title": "Love Talk — Conversation Cards",
+    "subtitle": "Start with one card and move a little closer."
+  },
+  "home": {
+    "title": "Choose the theme for tonight",
+    "description": "Pick one of four relationship themes that fits your mood.",
+    "intimateMode": "Intimate Mode",
+    "intimateModeHint": "Add 5 prompts that go deeper into closeness and desire.",
+    "startHint": "Tap any theme card to begin."
+  },
+  "theme": {
+    "attraction": {
+      "name": "Attraction & Sparks",
+      "description": "Return to the earliest moments of excitement."
+    },
+    "self": {
+      "name": "Self & Exploration",
+      "description": "Know yourself better and let your partner see you."
+    },
+    "interaction": {
+      "name": "Interaction & Understanding",
+      "description": "Make your communication patterns easier to understand."
+    },
+    "trust": {
+      "name": "Trust & Growth",
+      "description": "Talk about trust, the future, and growing together."
+    }
+  },
+  "actions": {
+    "draw": "Draw",
+    "back": "Back",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "finish": "Back to Home",
+    "continue": "Continue",
+    "start": "Start Conversation"
+  },
+  "labels": {
+    "secondaryLanguage": "Secondary Language",
+    "remaining": "Remaining",
+    "intimate": "Intimate",
+    "theme": "Theme",
+    "deck": "Deck",
+    "language": "Language",
+    "audio": "Audio",
+    "music": "Music"
+  },
+  "language": {
+    "label": "Display Language",
+    "en": "EN",
+    "th": "ไทย",
+    "ja": "日"
+  },
+  "orientation": {
+    "title": "Please rotate your phone back to portrait",
+    "description": "For the best experience, play in portrait orientation."
+  },
+  "end": {
+    "title": "This round is complete",
+    "cta": "Go back home and pick another theme to continue."
+  },
+  "modal": {
+    "leaveTitle": "Are you sure you want to leave?",
+    "leaveDescription": "If you leave now, the progress of this round will be cleared."
+  }
+}
