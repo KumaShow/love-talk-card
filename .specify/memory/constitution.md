@@ -130,8 +130,9 @@ enforced alongside the core principles.
 
 - **Language of Code Comments**: All code comments MUST be in
   Traditional Chinese (ZH-TW).
-- **Commit Messages**: All Git commit messages MUST be written in
-  Traditional Chinese (ZH-TW).
+- **Commit Messages**: All Git commit messages MUST follow
+  Conventional Commits. AI-generated commit suggestions SHOULD be
+  written in Traditional Chinese (ZH-TW) before being formatted.
 - **Line Endings**: All files in the repository MUST use LF (`\n`)
   line endings. A `.gitattributes` file MUST enforce this.
 - **Internationalization**: The application MUST support at minimum
@@ -162,7 +163,8 @@ are met consistently.
    Reviewers MUST verify compliance with all four core principles.
 5. **Constitution Compliance**: Reviewers MUST check that:
    - Code comments are in ZH-TW.
-   - Commit messages are in ZH-TW.
+    - Commit messages follow Conventional Commits.
+    - AI-generated commit suggestions are written in ZH-TW.
    - All new user-facing strings are externalized.
    - New components meet accessibility and performance thresholds.
 6. **Continuous Integration**: The CI pipeline MUST run the full test

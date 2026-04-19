@@ -165,7 +165,7 @@ npm run test:watch
 
 # 3. 在 src/composables/ 實作最小代碼通過測試（綠燈）
 # 4. 重構並確認測試仍通過
-# 5. 提交（繁體中文 commit message）
+# 5. 提交（Conventional Commits）
 git commit -m "feat(useDeck): 實作 Fisher-Yates 洗牌演算法"
 ```
 

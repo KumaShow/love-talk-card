@@ -20,12 +20,12 @@
 **目的**：初始化 Vue 3 + Vite + TypeScript 專案並設定所有開發工具。
 
 - [x] T001 在儲存庫根目錄使用 `npm create vue@latest` 初始化 Vue 3 + Vite 5 + TypeScript 專案，並選取 Pinia、Vue Router、TypeScript、Vitest 選項
-- [x] T002 [P] 在 package.json 設定所有必要依賴：vue@3.4+、vite@5、vue-router@4、pinia@2、tailwindcss@4、@tailwindcss/vite、vite-plugin-pwa、@vitejs/plugin-vue、typescript@5、vitest、@vitest/coverage-v8、@vue/test-utils、@playwright/test、eslint、@vue/eslint-config-typescript、prettier、commitlint、@commitlint/config-conventional
+- [x] T002 [P] 在 package.json 設定所有必要依賴：vue@3.4+、vite@5、vue-router@4、pinia@2、tailwindcss@4、@tailwindcss/vite、vite-plugin-pwa、@vitejs/plugin-vue、typescript@5、vitest、@vitest/coverage-v8、@vue/test-utils、@playwright/test、eslint、@vue/eslint-config-typescript、prettier
 - [x] T003 [P] 設定 tsconfig.json 的嚴格 TypeScript 選項（strict: true、noUncheckedIndexedAccess: true），並為所有匯入設定路徑別名 `@` → `src/`
 - [x] T004 [P] 設定 .gitattributes，依憲章要求強制所有來源檔（*.ts、*.vue、*.json、*.md）使用 LF 換行
 - [x] T005 [P] 在 eslint.config.js 設定 .vue 與 .ts 檔案的 ESLint 規則；新增規則以標記英文為主的行內註解（依憲章，程式碼註解必須使用正體中文）
 - [x] T006 [P] 在 .prettierrc 設定一致的格式化規則；並在 package.json 新增 `format` 腳本：`prettier --write src/`
-- [x] T007 [P] 在 .commitlintrc.js 設定 @commitlint/config-conventional；並新增 Husky pre-commit hook，強制 commit 訊息主體包含正體中文內容
+- [x] T007 [P] 新增 Husky commit-msg hook，檢查 commit 訊息是否符合 Conventional Commits 格式；若由 AI 產生建議，請以繁體中文撰寫內容
 - [x] T008 [P] 在 tailwind.config.ts 設定 Tailwind CSS 4.x，content 路徑涵蓋 `./src/**/*.{vue,ts}`，並使用系統襯線字型堆疊：`ui-serif, Georgia, 'Times New Roman', serif`（不載入外部字型）
 - [x] T009 [P] 在 vitest.config.ts 設定 Vitest 與 coverage provider v8，覆蓋率門檻：全域 lines/branches/functions ≥80%；另外將 src/composables/ 與 src/stores/ 的門檻提高至 ≥95%
 - [x] T010 [P] 在 playwright.config.ts 設定 Playwright：baseURL `http://localhost:5173`、行動裝置 viewport 預設為 iPhone 14 直向（390×844px）、webServer 指向 `npm run dev`
@@ -234,7 +234,7 @@
 1. **先寫測試**：先完成所有 `[USn]` 測試任務 → 執行 `npm run test:watch` → 確認為 RED（失敗）
 2. **實作**：寫最少的程式碼讓測試變成 GREEN
 3. **重構**：在所有測試通過下整理程式碼
-4. **提交**：使用正體中文 commit 訊息（例如：`feat(useDeck): 實作 Fisher-Yates 洗牌演算法`）
+4. **提交**：使用 Conventional Commits 格式（例如：`feat(useDeck): 實作 Fisher-Yates 洗牌`）；若請 AI 代寫，請先用繁體中文構思
 
 ### 平行機會
 

@@ -26,7 +26,7 @@ Web-based 情侶對話卡牌遊戲，包含 80 張靜態卡牌（4 主題 × 20 
 | Gate | 規範要求 | 狀態 | 備註 |
 |------|---------|------|------|
 | 程式碼注釋語言 | 繁體中文（ZH-TW） | ✅ PASS | ESLint 自訂規則 + PR Review 強制執行 |
-| Commit 訊息語言 | 繁體中文（ZH-TW） | ✅ PASS | commitlint 設定強制 |
+| Commit 訊息格式 | Conventional Commits；AI 建議使用繁體中文 | ✅ PASS | Husky commit-msg hook 檢查 |
 | TDD 強制 | Red-Green-Refactor 週期 | ✅ PASS | Vitest + Playwright 已選定，CI 強制執行 |
 | 測試覆蓋率 | 整體 ≥ 80%，核心路徑 ≥ 95% | ✅ PASS | Vitest coverage thresholds 設定中強制 |
 | FCP < 1.5s | 4G 行動網路 | ✅ PASS | 靜態 SPA + PWA cache-first 策略，無 SSR overhead |
