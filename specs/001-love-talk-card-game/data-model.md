@@ -330,7 +330,54 @@ export interface GameSessionSnapshot {
 
 ---
 
-## 6. cards.json 完整結構範例
+## 6. UI State Machine（Phase 9）
+
+Phase 9 的 UX 重塑保留既有 `gameStore`、`useDeck`、`useCard` 與 `GameSessionSnapshot` schema，不新增 store 層持久化欄位；扇形牌堆與閱讀 overlay 的互動狀態僅存在於 `GameView`（或轉正後對應 View）實例內。
+
+### PickedPhase 定義
+
+```typescript
+type PickedPhase = 'idle' | 'flipping' | 'reading' | 'dismissing'
+```
+
+| 狀態 | 說明 |
+|------|------|
+| `idle` | 尚未點擊扇形中央卡；牌堆可互動 |
+| `flipping` | 已捕捉本次抽取卡片，overlay 進場並執行 3D 翻面 |
+| `reading` | 翻面完成，使用者正在閱讀題目內容 |
+| `dismissing` | 使用者確認進入下一張，overlay 卡片飛出右側 |
+
+### 狀態轉移
+
+```text
+idle
+  → [使用者點扇形中央卡]
+  → flipping（capture pickedCard = currentCard、呼叫 drawCard()）
+
+flipping
+  → [rotateY 600ms 動畫結束]
+  → reading
+
+reading
+  → [使用者點「下一張」CTA 或 backdrop]
+  → dismissing
+
+dismissing
+  → [飛出動畫 460ms 結束]
+  → idle（若 isComplete 則導向 EndView）
+```
+
+### 核心規則
+
+1. `drawCard()` 必須在進入 `flipping` 時立即呼叫，而不是等到翻面動畫結束後才推進。
+2. 這個時機點可確保 `drawnCardIds` 與 overlay 顯示的 `pickedCard` 同步，`remainingCount` 也會立即反映到 AppHeader。
+3. `visibleStart`（若 View 內有扇形 windowing 或等價 UI state）不得寫入 sessionStorage；重整後一律依 `drawnCount` 重新計算 next-to-draw 中央位置。
+4. `PickedPhase` 為純 UI state，不進 Pinia store，也不納入 `GameSessionSnapshot`。
+5. 若使用者在 `reading` 期間重整瀏覽器，session 只還原已抽進度，不還原 overlay；重新進入後直接看到下一張待抽卡位於扇形中央。
+
+---
+
+## 7. cards.json 完整結構範例
 
 ```json
 {
@@ -448,7 +495,7 @@ export interface GameSessionSnapshot {
 
 ---
 
-## 7. 洗牌演算法
+## 8. 洗牌演算法
 
 使用 **Fisher-Yates（Knuth）Shuffle** 確保均勻隨機分布，時間複雜度 O(n)：
 

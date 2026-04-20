@@ -7,6 +7,10 @@
 
 **組織方式**：依使用者故事分組，方便各故事獨立實作與測試。
 
+## 修訂紀錄
+
+- **2026-04-20**：Phase 3-4 MVP 於 commit `704fcee` 交付後，依使用者實測回饋啟動 Phase 9 UX 重塑。T001–T088 保留作為交付史實，不改；新增 T089–T098 於 Phase 9 執行 POC 轉正。部分舊任務對應的元件將於 T090–T092 被取代（`CardStack.vue` 刪除、`HomeView.vue` / `GameView.vue` 重寫），屬於 v2 演進而非舊任務失效。
+
 ## 格式：`[ID] [P?] [Story] 說明`
 
 - **[P]**：可平行執行（不同檔案、且不依賴未完成任務）
@@ -178,7 +182,7 @@
 - [ ] T068 [US5] 在 src/composables/useAudio.ts 實作 useAudio composable：第一次使用者互動時才懶載入 `AudioContext`、以 `fetch()` 與 `decodeAudioData()` 載入 flip.ogg（若無則回退 flip.mp3）、`playFlipSound()` 需遵守 `settingsStore.audioEnabled`；另提供由 `settingsStore.musicEnabled` 控制的 `<audio loop muted>` 背景音樂元素；使 T066 通過
 - [ ] T069 [US5] 在 src/composables/useOrientation.ts 實作 useOrientation composable：`const mq = window.matchMedia('(orientation: landscape)')`、`isLandscape` 為反應式 `ref(mq.matches)`、加入 `change` 事件監聽器更新 ref、`onUnmounted` cleanup 移除監聽器；使 T067 通過
 - [ ] T070 [US5] 在 src/components/layout/OrientationGuard.vue 實作 OrientationGuard：當 `useOrientation().isLandscape === true` 時顯示 fixed-position 全螢幕遮罩（z-index: 9999）；內容包含手機旋轉 SVG 圖示與雙語提示（"請旋轉手機 / Please rotate your device"）；且不會中斷底下的遊戲狀態
-- [ ] T071 [US5] 在 src/components/card/CardStack.vue 整合 useAudio：在呼叫 `useCard.flipCard()` 後立刻呼叫 `useAudio().playFlipSound()`（於翻牌處理函式內）；音效與動畫同時進行
+- [ ] T071 [US5] 在 `src/components/card/PickedCardView.vue` 整合 useAudio：於進入 `flipping` 階段並觸發 overlay 翻牌時立刻呼叫 `useAudio().playFlipSound()`；音效需與 3D 翻面動畫同步
 - [ ] T072 [US5] 在 src/App.vue 將 OrientationGuard 整合為 `<RouterView>` 的持續性 overlay sibling：`<OrientationGuard />` 會顯示在所有 route view 之上
 - [ ] T073 [US5] 新增音效資源：public/sounds/flip.ogg + public/sounds/flip.mp3（0.5 秒內、免版稅的卡片翻牌音效）；public/sounds/bgm.ogg + public/sounds/bgm.mp3（環境循環音樂占位）；並在 README 加入來源註記
 - [ ] T074 [US5] 在 public/icons/ 產生並加入 PWA icon：72×72、96×96、128×128、144×144、152×152、192×192、384×384、512×512 PNG 檔，來源為一個 SVG（愛心/卡牌主題、透明背景單色）
@@ -199,12 +203,69 @@
 - [ ] T080 執行 `npm run build`，再使用 rollup-plugin-visualizer 或 `npx vite-bundle-visualizer` 分析 bundle：確認初始 JS+CSS bundle ≤200KB gzip（不含 PWA 預快取資產）；並在 vite.config.ts 內以註解記錄結果
 - [ ] T081 [P] 檢查所有互動元素是否符合最小觸控區域：在 tests/e2e/playwright/a11y-touch-targets.spec.ts 加入 Playwright 無障礙檢查，確認 iPhone 14 viewport 下所有 `button`、`[role=button]`、`a` 元素的 bounding box 皆 ≥44×44px
 - [ ] T082 執行 `npm run test:coverage` 並檢視覆蓋率報告：確認 composables/ 與 stores/ 至少 95%、整體專案至少 80%；找出任何未覆蓋的分支
-- [ ] T083 [P] 針對 T082 找出的任何缺口補充單元測試 — 優先處理：session restore 邊界情況（損毀的 sessionStorage 資料 → 優雅重置）、CardStack 的快速連點動畫阻擋、語言回退鏈（th → en → zh）、ConfirmModal 取消流程
+- [ ] T083 [P] 針對 T082 找出的任何缺口補充單元測試 — 優先處理：session restore 邊界情況（損毀的 sessionStorage 資料 → 優雅重置）、`FanDeck` / `PickedCardView` 的快速連點與 phase 阻擋、語言回退鏈（th → en → zh）、ConfirmModal 取消流程
 - [ ] T084 執行完整 Playwright E2E 套件 `npm run test:e2e`，涵蓋全部 5 個 spec 檔（us1 through us5 + a11y）；若有 flaky 測試，透過加入明確的 `waitFor` 斷言修正
-- [ ] T085 [P] 效能煙霧測試：在 tests/e2e/playwright/perf.spec.ts 加入 Playwright 測試，使用 `page.evaluate(() => performance.getEntriesByType('navigation'))` 在模擬 4G（150ms latency、1.5Mbps）下測量 FCP < 1500ms；並確認卡片翻牌動畫 CSS duration 為 500ms（以 computed style 檢查）
+- [ ] T085 [P] 效能煙霧測試：在 tests/e2e/playwright/perf.spec.ts 加入 Playwright 測試，使用 `page.evaluate(() => performance.getEntriesByType('navigation'))` 在模擬 4G（150ms latency、1.5Mbps）下測量 FCP < 1500ms；並確認 overlay 翻牌動畫 CSS duration 為 600ms、dismiss 動畫 CSS duration 為 460ms（以 computed style 檢查）
 - [ ] T086 端到端驗證 quickstart.md：完整依照 specs/001-love-talk-card-game/quickstart.md 的每個步驟（clone、checkout、npm install、npm run dev、npm run test、npm run build、npm run preview、PWA 離線測試）；將任何差異記錄為 issue
 - [ ] T087 [P] 在儲存庫根目錄建立或更新 README.md：包含專案描述與截圖、技術堆疊、前置需求（Node 20 LTS）、安裝（`npm install`、`npm run dev`）、測試指令、建置與部署說明、specs/001-love-talk-card-game/ 連結、授權條款
 - [ ] T088 推送至 `main` 分支並驗證 .github/workflows/deploy.yml 的 GitHub Actions workflow 完整通過所有工作：lint → type-check → test → build → deploy；確認線上網址可載入帶有 Service Worker 的遊戲
+
+---
+
+## Phase 9：UX 重塑（T089–T098）
+
+- [ ] T094 [P] 先撰寫 failing 單元 / 整合測試（TDD）
+      - `tests/unit/components/FanDeck.test.ts`：visibleCards 切片、角度計算、z-index、`canInteract`
+      - `tests/unit/components/PickedCardView.test.ts`：phase 狀態轉移、flip class、backdrop dismiss、向右退場 460ms
+      - `tests/unit/components/ThemeCardDeck.test.ts`：色票注入、emit select
+      - `tests/unit/components/ThemePreview.test.ts`：sample card 顯示、darkened backdrop、CTA emit、主題色套用
+      - 必要時補 `HomeView` / `GameView` 整合測試，覆蓋 preview → CTA → fan deck 與最後一張 end flow
+      - 目標：先 RED，再進行 T089–T093 實作；單元覆蓋率維持 ≥95% (`composables/stores`)、≥80% (`overall`)
+- [ ] T089 [P] 將 POC 元件搬到正式目錄並重命名
+      - `src/components/poc/PocThemeCard.vue` → `src/components/home/ThemeCardDeck.vue`
+      - `src/components/poc/PocHomePreview.vue` → `src/components/home/ThemePreview.vue`
+      - `src/components/poc/PocFanCard.vue` → `src/components/card/FanCard.vue`
+      - `src/components/poc/PocFanDeck.vue` → `src/components/card/FanDeck.vue`
+      - `src/components/poc/PocPickedCardView.vue` → `src/components/card/PickedCardView.vue`
+      - 同步更新檔內相對路徑 import
+      - 註解中任何「POC」字樣改為正式描述
+- [ ] T090 替換 `src/views/HomeView.vue` 為卡堆 + 預覽浮層版本
+      - 以原 `PocHomeView.vue` 內容為基礎
+      - 保留既有 `data-test="intimate-toggle"`、`theme-grid` → 改為 `theme-deck-grid`
+      - 新增 `data-test="theme-deck-{themeId}"`、`home-preview`、`preview-cta`
+      - 預覽浮層需包含 sample card、darkened backdrop 與主題描述
+      - CTA、focus ring、hint text 需套用當前主題 `primary` / `secondary`
+      - i18n 字串由 inline 改為 `@/i18n/zh-TW.json` 鍵值（需新增 `home.preview.*`）
+- [ ] T091 替換 `src/views/GameView.vue` 為扇形版本
+      - 以原 `PocGameView.vue` 內容為基礎
+      - 繼續使用既有 `AppHeader` / `ConfirmModal`
+      - 新增 `data-test="fan-deck"`、`fan-card-{i}`、`picked-view`、`picked-next`
+      - 僅中央卡可互動；overlay 需支援 backdrop dismiss
+      - dismiss 動畫固定向右退場（`translateX(130vw) rotate(22deg)`）且持續 460ms
+      - flip 動畫持續 600ms；結束後自動推進下一張，最後一張進入 end flow
+      - 保留既有 route（`/game/:themeId`），不再需要 `/poc/fan/:themeId`
+- [ ] T092 刪除 `src/components/card/CardStack.vue` + 移除 POC route
+      - 刪除檔案
+      - `src/router/index.ts` 移除 `/poc/home` 與 `/poc/fan/:themeId` 兩條 route 與 import
+      - 刪除 `tests/unit/components/CardStack.test.ts`（由 T094 新測試取代）
+      - 將所有後續任務與文件中的 `CardStack` 引用改寫為 `FanDeck` / `PickedCardView`
+- [ ] T093 data-test 屬性正式化
+      - 所有 `poc-*` 前綴改為正式命名
+      - 保留既有 `intimate-watermark`、`intimate-indicator`（E2E 繼續使用）
+- [ ] T095 改寫 `tests/e2e/playwright/us1-core-gameplay.spec.ts`
+      - 新流程：首頁 → 4 副 `theme-deck-*` → 點 `theme-deck-attraction` → `home-preview` → 點 `preview-cta` → `/#/game/attraction` → `fan-deck`
+      - 迴圈抽完 15 張：點中央卡 → `picked-view` overlay → 讀文字 → 點 `picked-next`
+      - 驗證文字無重複、darkened backdrop、sample card、最後出現結束訊息
+- [ ] T096 改寫 `tests/e2e/playwright/us2-intimate-mode.spec.ts`
+      - 浮水印偵測 selector：改為 `picked-view` overlay 內的 `intimate-watermark`
+      - 統計邏輯不變（20 張中 5 張有浮水印、15 張無）
+- [ ] T097 更新 `specs/001-love-talk-card-game/quickstart.md`
+      - 手動驗證步驟依新 UX 改寫
+- [ ] T098 完整 smoke
+      - `npm run type-check`
+      - `npm run test`
+      - `npx playwright test`
+      - `npm run dev` 手動冒煙（iPhone 14 viewport + iOS Safari），確認 600ms flip、460ms 右退場、backdrop dismiss 與主題色 accents
 
 ---
 
@@ -218,8 +279,9 @@
 - **US2（Phase 4）**：相依於 Phase 2 — 會與 US1 元件（CardFace、HomeView、gameStore）整合
 - **US3（Phase 5）**：相依於 Phase 2 — 會與 US1 元件（CardFace、AppHeader）整合
 - **US4（Phase 6）**：相依於 Phase 2 — 會與 US1 視圖（GameView、HomeView、EndView）整合
-- **US5（Phase 7）**：相依於 Phase 2 — 新增 PWA 層；useAudio 會整合到 US1 的 CardStack；OrientationGuard 為獨立元件
+- **US5（Phase 7）**：相依於 Phase 2 — 新增 PWA 層；useAudio 在 Phase 9 後應整合到 `PickedCardView`；OrientationGuard 為獨立元件
 - **優化（Phase 8）**：相依於所有預期的使用者故事階段完成
+- **UX 重塑（Phase 9）**：相依於 Phase 3–4 已交付的核心流程與本次 spec 同步完成；會覆寫 US1/US2/US4 的互動表層，但不改動 `gameStore` / `useDeck` / `useCard` / session schema
 
 ### 使用者故事相依性
 
@@ -228,6 +290,7 @@
 - **US3（P3）**：獨立 — 會延伸 US1 的 CardFace 與 AppHeader；useI18n 與 LanguageSelector 都是新檔案
 - **US4（P4）**：獨立 — 新增 useTheme composable；HomeView、GameView、EndView 皆整合 CSS variable 綁定與主題套用；含 E2E 測試
 - **US5（P5）**：獨立 — PWA 設定僅限 vite.config.ts；useAudio 與 useOrientation 都是新 composable
+- **Phase 9（P1 v2）**：延續已完成的 US1 / US2 / US4，專注於互動語言重塑；需先完成 failing tests，再進行元件搬移、View 取代與 E2E 改寫
 
 ### 每個使用者故事內部
 
@@ -246,25 +309,23 @@
 
 ---
 
-## 平行範例：使用者故事 1
+## 平行範例：Phase 9 UX 重塑
 
 ```bash
-# 步驟 1 — 平行啟動所有測試撰寫任務（皆為不同檔案）：
-Task: "T021 — tests/unit/utils/shuffle.test.ts"
-Task: "T022 — tests/unit/composables/useDeck.test.ts"
-Task: "T023 — tests/unit/composables/useCard.test.ts"
-Task: "T024 — tests/unit/stores/gameStore.test.ts"
-Task: "T025 — tests/unit/components/CardStack.test.ts"
-# → 執行 npm run test:watch → 確認全部為 RED（失敗）
+# 步驟 1 — 平行啟動 failing tests（皆為不同檔案）：
+Task: "T094 — tests/unit/components/FanDeck.test.ts"
+Task: "T094 — tests/unit/components/PickedCardView.test.ts"
+Task: "T094 — tests/unit/components/ThemeCardDeck.test.ts"
+Task: "T094 — tests/unit/components/ThemePreview.test.ts"
+# → 執行 npm run test -- --run → 確認新增測試為 RED（失敗）
 
-# 步驟 2 — 依序實作（部分任務之間有相依）：
-#   T026 (shuffle.ts) → T027 (useDeck，依賴 shuffle) → T028 (useCard) → T029 (gameStore，依賴 useDeck)
+# 步驟 2 — 平行搬移與 View 取代：
+Task: "T089 — 元件搬移與重命名"
+Task: "T090 — HomeView 卡堆 + 預覽浮層"
+Task: "T091 — GameView 扇形 + overlay 翻面"
 
-# 步驟 3 — 平行啟動獨立的元件實作：
-Task: "T031 — src/components/card/CardBack.vue"
-Task: "T032 — src/components/card/CardFace.vue"
-Task: "T034 — src/components/ui/EndMessage.vue"
-Task: "T035 — src/components/ui/ConfirmModal.vue"
+# 步驟 3 — 清理與驗收：
+#   T092（刪舊檔與 route）→ T093（data-test 正式化）→ T095/T096（E2E 改寫）→ T098（smoke）
 ```
 
 ---
@@ -287,12 +348,19 @@ Task: "T035 — src/components/ui/ConfirmModal.vue"
 4. + US3 → 多語言：擴大至雙語情侶受眾
 5. + US4 → 主題氛圍：每個主題都有完整視覺沉浸
 6. + US5 → 完整 PWA：離線 + 可安裝到首頁
+7. + Phase 9 → 將 MVP 升級為「主題卡堆 + 預覽浮層 + 扇形抽牌 + overlay 翻面」正式互動語言
 
 ### 平行團隊策略（3 位開發者，Phase 2 後）
 
 - **Dev A**：US1（T021–T040）— 優先順序最高，能立即支援 Demo
 - **Dev B**：US2（T041–T049）— 可與 ToggleSwitch + settingsStore 平行開始
 - **Dev C**：US3（T050–T058）— 可與 useI18n + LanguageSelector 平行開始
+
+### Phase 9 文件同步後的執行策略
+
+- **先測試**：T094 先建立 failing tests，滿足憲章 TDD 要求
+- **再轉正**：T089–T093 完成元件搬移、View 取代、舊檔清理與 selector 正式化
+- **最後驗證**：T095–T098 驗證完整新 UX、私密浮水印位置、iOS Safari 動畫品質與 smoke 結果
 
 ---
 
