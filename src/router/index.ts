@@ -2,6 +2,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import EndView from '@/views/EndView.vue'
 import GameView from '@/views/GameView.vue'
 import HomeView from '@/views/HomeView.vue'
+import PocGameView from '@/views/PocGameView.vue'
+import PocHomeView from '@/views/PocHomeView.vue'
 import { isValidThemeId, validThemeIds } from '@/utils/theme'
 
 const router = createRouter({
@@ -24,6 +26,19 @@ const router = createRouter({
       path: '/end/:themeId',
       name: 'end',
       component: EndView,
+      meta: {
+        requiresValidThemeId: true,
+      },
+    },
+    {
+      path: '/poc/home',
+      name: 'poc-home',
+      component: PocHomeView,
+    },
+    {
+      path: '/poc/fan/:themeId',
+      name: 'poc-game',
+      component: PocGameView,
       meta: {
         requiresValidThemeId: true,
       },
