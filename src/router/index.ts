@@ -1,15 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import type { ThemeId } from '@/types'
 import EndView from '@/views/EndView.vue'
 import GameView from '@/views/GameView.vue'
 import HomeView from '@/views/HomeView.vue'
-
-const validThemeIds: ThemeId[] = ['attraction', 'self', 'interaction', 'trust']
-
-/** 檢查路由參數中的主題識別碼是否有效。 */
-function isValidThemeId(themeId: unknown): themeId is ThemeId {
-  return typeof themeId === 'string' && validThemeIds.includes(themeId as ThemeId)
-}
+import { isValidThemeId, validThemeIds } from '@/utils/theme'
 
 const router = createRouter({
   history: createWebHashHistory(),

@@ -1,37 +1,89 @@
 <template>
-  <main class="min-h-screen px-6 py-10">
-    <section class="mx-auto max-w-xl space-y-6 text-center">
-      <article class="rounded-[2rem] bg-white/75 p-8 shadow-sm">
-        <p class="text-sm uppercase tracking-[0.2em] text-[color:var(--color-primary)]">
-          {{ zhTw.end.title }}
-        </p>
-        <h1 class="mt-3 text-3xl font-semibold">{{ currentTheme?.name.zh }}</h1>
-        <p class="mt-4 text-base text-[color:var(--color-text)]/80">
-          {{ currentTheme?.endMessage.zh }}
-        </p>
-        <RouterLink
-          :to="{ name: 'home' }"
-          class="mt-6 inline-flex min-h-11 min-w-11 items-center justify-center rounded-full bg-[color:var(--color-primary)] px-6 py-3 text-sm font-medium text-white shadow-sm"
-        >
-          {{ zhTw.actions.finish }}
-        </RouterLink>
-      </article>
+  <main class="end-view">
+    <section class="end-view__inner">
+      <p class="end-view__eyebrow">{{ zhTw.end.title }}</p>
+      <h1 class="end-view__title">{{ currentTheme?.name.zh }}</h1>
+      <EndMessage
+        v-if="currentTheme"
+        :theme="currentTheme"
+        :eyebrow="zhTw.app.title"
+        :cta-label="zhTw.actions.finish"
+        @back="handleBack"
+      />
     </section>
   </main>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { RouterLink, useRoute } from 'vue-router'
+import { computed, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
+import EndMessage from '@/components/ui/EndMessage.vue'
 import cardsData from '@/data/cards.json'
 import zhTw from '@/i18n/zh-TW.json'
+import { useGameStore } from '@/stores/gameStore'
+import type { CardsData } from '@/types'
+import { isValidThemeId } from '@/utils/theme'
 
 const route = useRoute()
+const router = useRouter()
+const gameStore = useGameStore()
 
-const routeThemeId = computed(() => String(route.params.themeId ?? ''))
+const dataset = cardsData as CardsData
 
-const currentTheme = computed(() =>
-  cardsData.themes.find((theme) => theme.id === routeThemeId.value),
-)
+const routeThemeId = computed(() => {
+  const raw = route.params.themeId
+  return Array.isArray(raw) ? raw[0] : raw
+})
+
+const currentTheme = computed(() => {
+  const id = routeThemeId.value
+  if (!isValidThemeId(id)) {
+    return null
+  }
+  return dataset.themes.find((theme) => theme.id === id) ?? null
+})
+
+onMounted(() => {
+  if (!isValidThemeId(routeThemeId.value)) {
+    void router.replace({ name: 'home' })
+  }
+})
+
+function handleBack() {
+  gameStore.$reset()
+  void router.push({ name: 'home' })
+}
 </script>
+
+<style scoped>
+.end-view {
+  min-height: 100vh;
+  padding: 2.5rem 1.25rem 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.end-view__inner {
+  max-width: 28rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.end-view__eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+}
+
+.end-view__title {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+</style>

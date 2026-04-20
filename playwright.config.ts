@@ -15,6 +15,8 @@ export default defineConfig({
     actionTimeout: 0,
     baseURL: 'http://localhost:5173',
     trace: 'on-first-retry',
+    /** 對齊專案 Vue 元件慣例：使用 data-test 而非 data-testid。 */
+    testIdAttribute: 'data-test',
     ...devices['iPhone 14'],
   },
   projects: [

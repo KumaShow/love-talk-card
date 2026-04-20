@@ -1,14 +1,18 @@
 import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
+import { createPinia, setActivePinia } from 'pinia'
 
 import router from '@/router'
 import EndView from '@/views/EndView.vue'
 import GameView from '@/views/GameView.vue'
 import HomeView from '@/views/HomeView.vue'
+import { useGameStore } from '@/stores/gameStore'
 
-/** 驗證三個基礎頁面骨架已成功建立。 */
-describe('phase 2 views', () => {
+/** 驗證三個頁面骨架（Phase 3 整合後仍能渲染預期字串）。 */
+describe('phase 3 views', () => {
   beforeEach(async () => {
+    setActivePinia(createPinia())
+    sessionStorage.clear()
     await router.push('/')
   })
 
@@ -23,8 +27,11 @@ describe('phase 2 views', () => {
     expect(wrapper.text()).toContain('心動瞬間')
   })
 
-  it('遊戲頁顯示目前主題與預覽卡牌', async () => {
+  it('遊戲頁顯示目前主題與抽牌提示', async () => {
     await router.push('/game/attraction')
+
+    const gameStore = useGameStore()
+    gameStore.startSession('attraction', false)
 
     const wrapper = mount(GameView, {
       global: {

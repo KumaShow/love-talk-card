@@ -61,29 +61,29 @@
 
 ### 使用者故事 1 的測試（TDD — 必須先寫，先確認失敗再實作）
 
-- [ ] T021 [P] [US1] 在 tests/unit/utils/shuffle.test.ts 撰寫會失敗的 shuffleArray() 單元測試：分布均勻（每個元素皆只出現一次）、回傳新陣列（原陣列不變）、處理空陣列 → []、處理單一元素陣列 → [element]
-- [ ] T022 [P] [US1] 在 tests/unit/composables/useDeck.test.ts 撰寫會失敗的 useDeck composable 單元測試：`buildDeck(themeId, cards, false)` 回傳 15 張卡、`drawCard()` 會把 ID 加入 drawnCardIds 並推進索引、同一場 session 不會重複出現相同 card ID、當 drawnCardIds.length === deck.length 時 `isComplete` 為 true
-- [ ] T023 [P] [US1] 在 tests/unit/composables/useCard.test.ts 撰寫會失敗的 useCard composable 單元測試：`flipCard()` 會設為 isFlipped=true、`isAnimating` 在 500ms 期間為 true、動畫中第二次呼叫 `flipCard()` 會被忽略/阻擋、500ms 後 isAnimating 會重設為 false
-- [ ] T024 [P] [US1] 在 tests/unit/stores/gameStore.test.ts 撰寫會失敗的 gameStore 單元測試：`startSession(themeId, false)` 會設定 themeId 並建立 15 張牌堆、`drawCard()` 會更新 drawnCardIds 並寫入 sessionStorage key `love-talk-game-session`、`restoreSession()` 會依 stored deckOrder 重建牌堆而不重新洗牌、以及 `remainingCount`、`currentCard`、`isComplete` getters
-- [ ] T025 [P] [US1] 在 tests/unit/components/CardStack.test.ts 撰寫會失敗的 CardStack 元件測試：單次點擊會觸發 draw event 並顯示翻轉卡片；動畫中第二次點擊會被吃掉；動畫結束後新的點擊可以被接受
+- [x] T021 [P] [US1] 在 tests/unit/utils/shuffle.test.ts 撰寫會失敗的 shuffleArray() 單元測試：分布均勻（每個元素皆只出現一次）、回傳新陣列（原陣列不變）、處理空陣列 → []、處理單一元素陣列 → [element]
+- [x] T022 [P] [US1] 在 tests/unit/composables/useDeck.test.ts 撰寫會失敗的 useDeck composable 單元測試：`buildDeck(themeId, cards, false)` 回傳 15 張卡、`drawCard()` 會把 ID 加入 drawnCardIds 並推進索引、同一場 session 不會重複出現相同 card ID、當 drawnCardIds.length === deck.length 時 `isComplete` 為 true
+- [x] T023 [P] [US1] 在 tests/unit/composables/useCard.test.ts 撰寫會失敗的 useCard composable 單元測試：`flipCard()` 會設為 isFlipped=true、`isAnimating` 在 500ms 期間為 true、動畫中第二次呼叫 `flipCard()` 會被忽略/阻擋、500ms 後 isAnimating 會重設為 false
+- [x] T024 [P] [US1] 在 tests/unit/stores/gameStore.test.ts 撰寫會失敗的 gameStore 單元測試：`startSession(themeId, false)` 會設定 themeId 並建立 15 張牌堆、`drawCard()` 會更新 drawnCardIds 並寫入 sessionStorage key `love-talk-game-session`、`restoreSession()` 會依 stored deckOrder 重建牌堆而不重新洗牌、以及 `remainingCount`、`currentCard`、`isComplete` getters
+- [x] T025 [P] [US1] 在 tests/unit/components/CardStack.test.ts 撰寫會失敗的 CardStack 元件測試：單次點擊會觸發 draw event 並顯示翻轉卡片；動畫中第二次點擊會被吃掉；動畫結束後新的點擊可以被接受
 
 ### 使用者故事 1 的實作
 
-- [ ] T026 [US1] 在 src/utils/shuffle.ts 實作 Fisher-Yates `shuffleArray<T>()` 使 T021 測試通過；保留正體中文 JSDoc
-- [ ] T027 [US1] 在 src/composables/useDeck.ts 實作 useDeck composable：`buildDeck(themeId, cards, intimateMode)` 先依主題與 intimateMode 過濾再洗牌，`drawCard()` 將抽到的 card ID 加入 drawnCardIds，並提供 `remainingCount` 與 `isComplete` computed；使 T022 通過
-- [ ] T028 [US1] 在 src/composables/useCard.ts 實作 useCard composable：`isFlipped` ref、`isAnimating` ref、`flipCard()` 先設 isAnimating=true → 翻牌 → setTimeout 500ms → isAnimating=false，並提供在動畫期間會阻擋的 `canFlip` computed；使 T023 通過
-- [ ] T029 [US1] 在 src/stores/gameStore.ts 實作 gameStore：`startSession(themeId, intimateModeAtStart)` 透過 useDeck 建立並洗牌牌堆，`drawCard()` 推進牌堆並將 `{themeId, deckOrder, drawnCardIds, intimateModeAtStart}` 序列化至 sessionStorage key `love-talk-game-session`，`restoreSession()` 讀取快照並依 deckOrder 重建牌堆，getters 包含 currentCard、lastDrawnCard、remainingCount、isComplete；使 T024 通過
-- [ ] T030 [US1] 在 src/stores/settingsStore.ts 實作初始狀態：`secondaryLang: 'en'`、`intimateMode: false`、`audioEnabled: true`、`musicEnabled: false`、`showRemainingCount: true`；僅維持 session 內狀態（不寫入 localStorage）
-- [ ] T031 [P] [US1] 在 src/components/card/CardBack.vue 實作卡片背面：使用 `var(--color-card-back)` CSS custom property 的統一視覺設計、裝飾圖樣、backface-visibility: hidden、-webkit-backface-visibility: hidden（iOS Safari）
-- [ ] T032 [P] [US1] 在 src/components/card/CardFace.vue 實作卡片正面：以大字襯線字體顯示 ZH-TW 主要文字、次要語言文字（較小，置於下方）、暫留的私密指示 slot（供 US2 填入）、backface-visibility: hidden、初始 transform: rotateY(180deg)
-- [ ] T033 [US1] 在 src/components/card/CardStack.vue 實作 CardStack：外層 wrapper 使用 `perspective: 1000px`，內層 `.card-inner` 使用 `transform-style: preserve-3d`、`transition: transform 500ms ease-in-out`、`will-change: transform`，`.is-flipped` 加上 `transform: rotateY(180deg)`；點擊處理會呼叫 useCard.flipCard() 並 emit `draw` 事件；使 T025 通過
-- [ ] T034 [P] [US1] 在 src/components/ui/EndMessage.vue 實作結束訊息：顯示 `theme.endMessage.zh` 與 `theme.endMessage.en`、使用 CSS custom properties 的主題化樣式、返回首頁按鈕具備 min-w-[44px] min-h-[44px]
-- [ ] T035 [P] [US1] 在 src/components/ui/ConfirmModal.vue 實作確認對話框：全螢幕背板遮罩、含確認/取消按鈕（≥44×44px）的對話框、當 drawnCardIds.length ≥ 8 且按下返回時顯示、emit `confirm` 與 `cancel` 事件、依主題色彩樣式化
-- [ ] T036 [US1] 在 src/components/layout/AppHeader.vue 實作 AppHeader：返回按鈕（min-h-[44px]）、剩餘張數顯示（依 settingsStore.showRemainingCount 決定）、左右 slot 版位供未來控制項使用；當 drawnCardIds.length ≥ 8 時，返回按鈕會觸發 ConfirmModal
-- [ ] T037 [US1] 在 src/views/HomeView.vue 實作 HomeView：以 mobile-first 直向網格顯示 4 張主題卡，每張卡顯示主題名稱（ZH-TW）與描述；點擊後呼叫 `gameStore.startSession(themeId, settingsStore.intimateMode)` 並導向 `/#/game/:themeId`；所有可點擊區域皆 ≥44×44px
-- [ ] T038 [US1] 在 src/views/GameView.vue 實作 GameView：從 route params 讀取 `themeId`、在 mounted 時驗證 themeId（若無效則導回 /）、渲染 AppHeader + CardStack、將 CardStack 的 `draw` 事件接到 `gameStore.drawCard()`、監聽 `gameStore.isComplete` 並導向 `/#/end/:themeId`
-- [ ] T039 [US1] 在 src/views/EndView.vue 實作 EndView：從 route params 讀取 `themeId`、使用 cards.json 中的 theme 資料渲染 EndMessage、返回首頁按鈕會呼叫 `gameStore.$reset()` 並導向 `/`
-- [ ] T040 [US1] 在 tests/e2e/playwright/us1-core-gameplay.spec.ts 撰寫完整 US1 流程的 E2E 測試：iPhone 14 viewport → 開啟 app → 選擇 "Attraction & Sparks" → 抽完 15 張卡 → 驗證沒有重複提示文字 → 驗證結束訊息可見 → 驗證返回首頁會導回 /
+- [x] T026 [US1] 在 src/utils/shuffle.ts 實作 Fisher-Yates `shuffleArray<T>()` 使 T021 測試通過；保留正體中文 JSDoc
+- [x] T027 [US1] 在 src/composables/useDeck.ts 實作 useDeck composable：`buildDeck(themeId, cards, intimateMode)` 先依主題與 intimateMode 過濾再洗牌，`drawCard()` 將抽到的 card ID 加入 drawnCardIds，並提供 `remainingCount` 與 `isComplete` computed；使 T022 通過
+- [x] T028 [US1] 在 src/composables/useCard.ts 實作 useCard composable：`isFlipped` ref、`isAnimating` ref、`flipCard()` 先設 isAnimating=true → 翻牌 → setTimeout 500ms → isAnimating=false，並提供在動畫期間會阻擋的 `canFlip` computed；使 T023 通過
+- [x] T029 [US1] 在 src/stores/gameStore.ts 實作 gameStore：`startSession(themeId, intimateModeAtStart)` 透過 useDeck 建立並洗牌牌堆，`drawCard()` 推進牌堆並將 `{themeId, deckOrder, drawnCardIds, intimateModeAtStart}` 序列化至 sessionStorage key `love-talk-game-session`，`restoreSession()` 讀取快照並依 deckOrder 重建牌堆，getters 包含 currentCard、lastDrawnCard、remainingCount、isComplete；使 T024 通過
+- [x] T030 [US1] 在 src/stores/settingsStore.ts 實作初始狀態：`secondaryLang: 'en'`、`intimateMode: false`、`audioEnabled: true`、`musicEnabled: false`、`showRemainingCount: true`；僅維持 session 內狀態（不寫入 localStorage）
+- [x] T031 [P] [US1] 在 src/components/card/CardBack.vue 實作卡片背面：使用 `var(--color-card-back)` CSS custom property 的統一視覺設計、裝飾圖樣、backface-visibility: hidden、-webkit-backface-visibility: hidden（iOS Safari）
+- [x] T032 [P] [US1] 在 src/components/card/CardFace.vue 實作卡片正面：以大字襯線字體顯示 ZH-TW 主要文字、次要語言文字（較小，置於下方）、暫留的私密指示 slot（供 US2 填入）、backface-visibility: hidden、初始 transform: rotateY(180deg)
+- [x] T033 [US1] 在 src/components/card/CardStack.vue 實作 CardStack：外層 wrapper 使用 `perspective: 1000px`，內層 `.card-inner` 使用 `transform-style: preserve-3d`、`transition: transform 500ms ease-in-out`、`will-change: transform`，`.is-flipped` 加上 `transform: rotateY(180deg)`；點擊處理會呼叫 useCard.flipCard() 並 emit `draw` 事件；使 T025 通過
+- [x] T034 [P] [US1] 在 src/components/ui/EndMessage.vue 實作結束訊息：顯示 `theme.endMessage.zh` 與 `theme.endMessage.en`、使用 CSS custom properties 的主題化樣式、返回首頁按鈕具備 min-w-[44px] min-h-[44px]
+- [x] T035 [P] [US1] 在 src/components/ui/ConfirmModal.vue 實作確認對話框：全螢幕背板遮罩、含確認/取消按鈕（≥44×44px）的對話框、當 drawnCardIds.length ≥ 8 且按下返回時顯示、emit `confirm` 與 `cancel` 事件、依主題色彩樣式化
+- [x] T036 [US1] 在 src/components/layout/AppHeader.vue 實作 AppHeader：返回按鈕（min-h-[44px]）、剩餘張數顯示（依 settingsStore.showRemainingCount 決定）、左右 slot 版位供未來控制項使用；當 drawnCardIds.length ≥ 8 時，返回按鈕會觸發 ConfirmModal
+- [x] T037 [US1] 在 src/views/HomeView.vue 實作 HomeView：以 mobile-first 直向網格顯示 4 張主題卡，每張卡顯示主題名稱（ZH-TW）與描述；點擊後呼叫 `gameStore.startSession(themeId, settingsStore.intimateMode)` 並導向 `/#/game/:themeId`；所有可點擊區域皆 ≥44×44px
+- [x] T038 [US1] 在 src/views/GameView.vue 實作 GameView：從 route params 讀取 `themeId`、在 mounted 時驗證 themeId（若無效則導回 /）、渲染 AppHeader + CardStack、將 CardStack 的 `draw` 事件接到 `gameStore.drawCard()`、監聽 `gameStore.isComplete` 並導向 `/#/end/:themeId`
+- [x] T039 [US1] 在 src/views/EndView.vue 實作 EndView：從 route params 讀取 `themeId`、使用 cards.json 中的 theme 資料渲染 EndMessage、返回首頁按鈕會呼叫 `gameStore.$reset()` 並導向 `/`
+- [x] T040 [US1] 在 tests/e2e/playwright/us1-core-gameplay.spec.ts 撰寫完整 US1 流程的 E2E 測試：iPhone 14 viewport → 開啟 app → 選擇 "Attraction & Sparks" → 抽完 15 張卡 → 驗證沒有重複提示文字 → 驗證結束訊息可見 → 驗證返回首頁會導回 /
 
 **檢查點**：使用者故事 1 完整可用。執行 `npm run test && npm run test:e2e -- --grep us1` 以獨立驗證 MVP。
 
