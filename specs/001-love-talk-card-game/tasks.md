@@ -97,18 +97,18 @@
 
 ### 使用者故事 2 的測試（TDD — 必須先寫，先確認失敗再實作）
 
-- [ ] T041 [P] [US2] 在 tests/unit/stores/gameStore.intimate.test.ts 撰寫會失敗的私密模式邏輯單元測試：`startSession(themeId, true)` 會建立 20 張卡牌堆並包含 5 張私密卡、私密卡會隨機分布（不會全部排在最後）、即使之後切換開關，sessionStorage 快照中的 `intimateModeAtStart` 仍會反映 session 開始時的模式
-- [ ] T042 [P] [US2] 在 tests/unit/components/ToggleSwitch.test.ts 撰寫會失敗的 ToggleSwitch 元件測試：正確渲染 aria-checked 狀態、點擊會 emit `update:modelValue` 並切換布林值、disabled 屬性會阻止點擊事件、觸控區域 ≥44×44px
+- [x] T041 [P] [US2] 在 tests/unit/stores/gameStore.intimate.test.ts 撰寫會失敗的私密模式邏輯單元測試：`startSession(themeId, true)` 會建立 20 張卡牌堆並包含 5 張私密卡、私密卡會隨機分布（不會全部排在最後）、即使之後切換開關，sessionStorage 快照中的 `intimateModeAtStart` 仍會反映 session 開始時的模式
+- [x] T042 [P] [US2] 在 tests/unit/components/ToggleSwitch.test.ts 撰寫會失敗的 ToggleSwitch 元件測試：正確渲染 aria-checked 狀態、點擊會 emit `update:modelValue` 並切換布林值、disabled 屬性會阻止點擊事件、觸控區域 ≥44×44px
 
 ### 使用者故事 2 的實作
 
-- [ ] T043 [US2] 在 src/components/ui/ToggleSwitch.vue 實作 ToggleSwitch：動畫膠囊式切換、`v-model` 搭配 `modelValue: boolean`、label slot、`disabled` 屬性、aria-checked 屬性、min-w-[44px] min-h-[44px] 觸控區域；使 T042 通過
-- [ ] T044 [US2] 更新 src/stores/settingsStore.ts：新增 `toggleIntimateMode()` action — 只有在 `gameStore.themeId === null`（沒有進行中的 session）時才可作用，符合 data-model.md 的商業規則
-- [ ] T045 [US2] 更新 src/composables/useDeck.ts：當 `intimateModeAtStart=true` 時，將 `card.isIntimate === true` 的卡牌納入 `buildDeck()` 結果，再對全部 20 張卡一起執行 `shuffleArray()`；使 T041 通過
-- [ ] T046 [US2] 更新 src/stores/gameStore.ts：在 `startSession()` 被呼叫的當下，精準擷取 `settingsStore.intimateMode` 作為 `intimateModeAtStart`；並將 `intimateModeAtStart` 納入 sessionStorage 快照；使 T041 通過
-- [ ] T047 [US2] 更新 src/components/card/CardFace.vue：新增愛心浮水印 `<img>` 或內嵌 SVG（Heroicons heart，opacity-15），僅在 `card.isIntimate === true` 時顯示；作為裝飾性背景覆蓋層，不遮擋主要文字
-- [ ] T048 [US2] 更新 src/views/HomeView.vue：加入 ToggleSwitch 元件，透過 `toggleIntimateMode()` action 綁定 `settingsStore.intimateMode`；標籤："私密模式 / Intimate Mode"；放在主題網格上方
-- [ ] T049 [US2] 在 tests/e2e/playwright/us2-intimate-mode.spec.ts 撰寫 E2E 測試：開啟切換 → 選擇主題 → 抽 20 張卡 → 驗證有 5 張卡具有愛心浮水印 class/element → 驗證其餘 15 張沒有 → 不開啟切換重新開始 session → 驗證仍為 15 張牌堆
+- [x] T043 [US2] 在 src/components/ui/ToggleSwitch.vue 實作 ToggleSwitch：動畫膠囊式切換、`v-model` 搭配 `modelValue: boolean`、label slot、`disabled` 屬性、aria-checked 屬性、min-w-[44px] min-h-[44px] 觸控區域；使 T042 通過
+- [x] T044 [US2] 更新 src/stores/settingsStore.ts：新增 `toggleIntimateMode()` action — 只有在 `gameStore.themeId === null`（沒有進行中的 session）時才可作用，符合 data-model.md 的商業規則
+- [x] T045 [US2] 更新 src/composables/useDeck.ts：當 `intimateModeAtStart=true` 時，將 `card.isIntimate === true` 的卡牌納入 `buildDeck()` 結果，再對全部 20 張卡一起執行 `shuffleArray()`；使 T041 通過
+- [x] T046 [US2] 更新 src/stores/gameStore.ts：在 `startSession()` 被呼叫的當下，精準擷取 `settingsStore.intimateMode` 作為 `intimateModeAtStart`；並將 `intimateModeAtStart` 納入 sessionStorage 快照；使 T041 通過
+- [x] T047 [US2] 更新 src/components/card/CardFace.vue：新增愛心浮水印 `<img>` 或內嵌 SVG（Heroicons heart，opacity-15），僅在 `card.isIntimate === true` 時顯示；作為裝飾性背景覆蓋層，不遮擋主要文字
+- [x] T048 [US2] 更新 src/views/HomeView.vue：加入 ToggleSwitch 元件，透過 `toggleIntimateMode()` action 綁定 `settingsStore.intimateMode`；標籤："私密模式 / Intimate Mode"；放在主題網格上方
+- [x] T049 [US2] 在 tests/e2e/playwright/us2-intimate-mode.spec.ts 撰寫 E2E 測試：開啟切換 → 選擇主題 → 抽 20 張卡 → 驗證有 5 張卡具有愛心浮水印 class/element → 驗證其餘 15 張沒有 → 不開啟切換重新開始 session → 驗證仍為 15 張牌堆
 
 **檢查點**：使用者故事 1 與 2 都可運作。執行 `npm run test && npm run test:e2e -- --grep us2`。
 

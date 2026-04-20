@@ -15,7 +15,20 @@ export function useDeck() {
   const deck = ref<Card[]>([])
   const drawnCardIds = ref<string[]>([])
 
-  /** 建立主題牌堆：私密模式開啟時額外納入 5 張 intimate 卡並重新洗牌。 */
+  /**
+   * 建立主題牌堆（對應 data-model.md §4 牌組建立流程）。
+   *
+   * 流程：
+   * 1. 先以 `themeId` 與 `intimateMode` 過濾 `allCards`：
+   *    - `intimateMode = false`：排除 `isIntimate: true` 的卡（基礎 15 張）。
+   *    - `intimateMode = true`：保留該主題全部 20 張（含 5 張 intimate）。
+   * 2. 對過濾後的整體陣列執行一次 `shuffleArray`；
+   *    因此 `intimateMode = true` 時，5 張 intimate 卡會與 15 張基礎卡
+   *    **一起洗牌**、均勻分布，而不是「append 到尾端後再顯示」。
+   *
+   * 此順序（filter → shuffle）是避免「intimate 卡永遠落在最後 5 格」bug 的關鍵，
+   * 對應 tests/unit/stores/gameStore.intimate.test.ts 案例 2 的隨機分布驗證。
+   */
   function buildDeck(themeId: ThemeId, allCards: Card[], intimateMode: boolean): Card[] {
     const filtered = allCards.filter((card) => {
       if (card.theme !== themeId) {
@@ -27,6 +40,7 @@ export function useDeck() {
       return true
     })
 
+    // 對包含 intimate 卡的整體陣列洗牌，確保隨機分布（而非尾端 append）。
     return shuffleArray(filtered)
   }
 

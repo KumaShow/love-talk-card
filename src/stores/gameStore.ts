@@ -53,7 +53,14 @@ export const useGameStore = defineStore('game', () => {
     sessionStorage.setItem(SESSION_KEY, JSON.stringify(snapshot))
   }
 
-  /** 啟動新 session，建立並洗牌牌堆。 */
+  /**
+   * 啟動新 session，建立並洗牌牌堆。
+   *
+   * 依 data-model.md §4 業務規則，`intimateMode` 於此處**固化**為
+   * `intimateModeAtStart`，並隨 sessionStorage snapshot 序列化；
+   * 進入 GameView 後即使 `settingsStore.intimateMode` 有變動，
+   * 也不會影響當前 session 的牌組內容或 snapshot 內容。
+   */
   function startSession(nextThemeId: ThemeId, intimateMode: boolean): void {
     const built = deckController.buildDeck(nextThemeId, cardsDataset.cards, intimateMode)
     deckController.setDeck(built)
