@@ -40,6 +40,7 @@ export const useGameStore = defineStore('game', () => {
 
   /** 依當下狀態寫入 sessionStorage 快照。 */
   function persistSnapshot(): void {
+    /* v8 ignore next 3 -- 防禦性分支：persistSnapshot 公開 API 都在 themeId 設定後才呼叫，此支無法由外部觸發 */
     if (themeId.value === null) {
       sessionStorage.removeItem(SESSION_KEY)
       return

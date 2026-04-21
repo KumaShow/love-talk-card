@@ -123,6 +123,105 @@ describe('useGameStore', () => {
       expect(restored).toBe(false)
       expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
     })
+
+    it('snapshot themeId 非合法 ThemeId 時應清除資料並回傳 false', () => {
+      sessionStorage.setItem(
+        SESSION_KEY,
+        JSON.stringify({
+          themeId: 'not-a-theme',
+          deckOrder: ['a', 'b'],
+          drawnCardIds: [],
+          intimateModeAtStart: false,
+        }),
+      )
+      const store = useGameStore()
+
+      const restored = store.restoreSession()
+
+      expect(restored).toBe(false)
+      expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+    })
+
+    it('snapshot deckOrder 非陣列時應清除資料並回傳 false', () => {
+      sessionStorage.setItem(
+        SESSION_KEY,
+        JSON.stringify({
+          themeId: 'attraction',
+          deckOrder: 'oops-not-array',
+          drawnCardIds: [],
+          intimateModeAtStart: false,
+        }),
+      )
+      const store = useGameStore()
+
+      const restored = store.restoreSession()
+
+      expect(restored).toBe(false)
+      expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+    })
+
+    it('snapshot drawnCardIds 非陣列時應清除資料並回傳 false', () => {
+      sessionStorage.setItem(
+        SESSION_KEY,
+        JSON.stringify({
+          themeId: 'attraction',
+          deckOrder: ['a', 'b'],
+          drawnCardIds: 'not-array',
+          intimateModeAtStart: false,
+        }),
+      )
+      const store = useGameStore()
+
+      const restored = store.restoreSession()
+
+      expect(restored).toBe(false)
+      expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+    })
+
+    it('snapshot deckOrder 含不存在的卡牌 id 時應清除資料並回傳 false', () => {
+      const invalidSnapshot: GameSessionSnapshot = {
+        themeId: 'attraction',
+        deckOrder: ['card-not-exist-xyz', 'also-fake'],
+        drawnCardIds: [],
+        intimateModeAtStart: false,
+      }
+      sessionStorage.setItem(SESSION_KEY, JSON.stringify(invalidSnapshot))
+      const store = useGameStore()
+
+      const restored = store.restoreSession()
+
+      expect(restored).toBe(false)
+      expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+    })
+  })
+
+  describe('drawCard 邊界', () => {
+    it('未 startSession 時 drawCard 應回傳 null 且不寫入 snapshot', () => {
+      const store = useGameStore()
+
+      const result = store.drawCard()
+
+      expect(result).toBeNull()
+      expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+    })
+  })
+
+  describe('$reset', () => {
+    it('應清除 themeId、deck、drawnCardIds 與 sessionStorage', () => {
+      const store = useGameStore()
+      store.startSession('attraction', true)
+      store.drawCard()
+
+      expect(sessionStorage.getItem(SESSION_KEY)).not.toBeNull()
+
+      store.$reset()
+
+      expect(store.themeId).toBeNull()
+      expect(store.deck).toEqual([])
+      expect(store.drawnCardIds).toEqual([])
+      expect(store.intimateModeAtStart).toBe(false)
+      expect(sessionStorage.getItem(SESSION_KEY)).toBeNull()
+    })
   })
 
   describe('getters', () => {
