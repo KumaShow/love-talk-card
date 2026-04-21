@@ -67,6 +67,9 @@
     "title": "這回合聊完了",
     "cta": "回到首頁，再選一個主題繼續聊。"
   },
+  "game": {
+    "fanHint": "點擊中央牌翻開內容"
+  },
   "modal": {
     "leaveTitle": "確定要離開嗎？",
     "leaveDescription": "如果現在離開，這一回合的進度會被清除。"

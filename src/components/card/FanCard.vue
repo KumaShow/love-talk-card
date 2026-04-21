@@ -6,7 +6,7 @@
     :tabindex="isActive ? 0 : -1"
     :role="isActive ? 'button' : undefined"
     :aria-label="isActive ? '翻開中央這張牌' : undefined"
-    :data-test="`poc-fan-card-${index}`"
+    :data-test="`fan-card-${index}`"
     @click="handleActivate"
     @keydown.enter.prevent="handleActivate"
     @keydown.space.prevent="handleActivate"

@@ -3,7 +3,7 @@
     <div
       v-if="showBackdrop"
       class="picked-backdrop"
-      data-test="poc-picked-backdrop"
+      data-test="picked-backdrop"
       aria-hidden="true"
       @click="handleBackdropClick"
     ></div>
@@ -14,7 +14,7 @@
       v-if="card && visible"
       class="picked"
       :class="{ 'is-dismissing': phase === 'dismissing' }"
-      data-test="poc-picked-view"
+      data-test="picked-view"
       role="dialog"
       aria-modal="true"
     >
@@ -28,7 +28,7 @@
           v-if="phase === 'reading'"
           class="picked__cta"
           type="button"
-          data-test="poc-picked-next"
+          data-test="picked-next"
           @click="$emit('dismiss')"
         >
           下一張

@@ -1,5 +1,5 @@
 <template>
-  <div class="poc-fan-deck" data-test="poc-fan-deck">
+  <div class="poc-fan-deck" data-test="fan-deck">
     <p v-if="visibleCards.length === 0" class="poc-fan-deck__empty">已抽完所有牌</p>
     <FanCard
       v-for="(card, i) in visibleCards"
