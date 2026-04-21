@@ -17,7 +17,7 @@
         <p class="poc-game__hint">點擊中央牌翻開內容</p>
       </header>
 
-      <PocFanDeck
+      <FanDeck
         :deck="gameStore.deck"
         :drawn-count="gameStore.drawnCardIds.length"
         :card-back="themeCardBack"
@@ -26,7 +26,7 @@
       />
     </section>
 
-    <PocPickedCardView :card="pickedCard" :phase="phase" @dismiss="handleDismiss" />
+    <PickedCardView :card="pickedCard" :phase="phase" @dismiss="handleDismiss" />
 
     <ConfirmModal
       :open="confirmOpen"
@@ -46,10 +46,10 @@ import { useRoute, useRouter } from 'vue-router'
 
 import AppHeader from '@/components/layout/AppHeader.vue'
 import ConfirmModal from '@/components/ui/ConfirmModal.vue'
-import PocFanDeck from '@/components/poc/PocFanDeck.vue'
-import PocPickedCardView, {
+import FanDeck from '@/components/card/FanDeck.vue'
+import PickedCardView, {
   type PickedPhase,
-} from '@/components/poc/PocPickedCardView.vue'
+} from '@/components/card/PickedCardView.vue'
 import cardsData from '@/data/cards.json'
 import zhTw from '@/i18n/zh-TW.json'
 import { useGameStore } from '@/stores/gameStore'

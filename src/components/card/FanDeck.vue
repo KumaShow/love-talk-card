@@ -1,7 +1,7 @@
 <template>
   <div class="poc-fan-deck" data-test="poc-fan-deck">
     <p v-if="visibleCards.length === 0" class="poc-fan-deck__empty">已抽完所有牌</p>
-    <PocFanCard
+    <FanCard
       v-for="(card, i) in visibleCards"
       :key="card.id"
       :index="i"
@@ -17,7 +17,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
-import PocFanCard from './PocFanCard.vue'
+import FanCard from './FanCard.vue'
 import type { Card } from '@/types'
 
 const WINDOW_SIZE = 5
@@ -33,7 +33,7 @@ const props = defineProps<{
 defineEmits<{ 'draw-center': [] }>()
 
 /**
- * POC CP3 簡化：window 固定為「未抽 deck 的前 5 張」，不做 swipe window shift。
+ * 扇形 window 固定為「未抽 deck 的前 5 張」，不做 swipe window shift。
  * 理由：避免「中央卡 ID」與 gameStore.drawCard() 實際拉取的卡 ID 不一致。
  */
 const visibleCards = computed(() => props.deck.slice(props.drawnCount, props.drawnCount + WINDOW_SIZE))

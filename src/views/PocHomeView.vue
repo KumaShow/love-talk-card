@@ -19,7 +19,7 @@
 
       <ul class="poc-home__grid" data-test="poc-home-grid">
         <li v-for="theme in dataset.themes" :key="theme.id">
-          <PocThemeCard :theme="theme" @select="handleSelect" />
+          <ThemeCardDeck :theme="theme" @select="handleSelect" />
         </li>
       </ul>
 
@@ -28,7 +28,7 @@
       </footer>
     </section>
 
-    <PocHomePreview
+    <ThemePreview
       :theme="selectedTheme"
       @start="handleStart"
       @dismiss="selectedTheme = null"
@@ -40,8 +40,8 @@
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
-import PocHomePreview from '@/components/poc/PocHomePreview.vue'
-import PocThemeCard from '@/components/poc/PocThemeCard.vue'
+import ThemePreview from '@/components/home/ThemePreview.vue'
+import ThemeCardDeck from '@/components/home/ThemeCardDeck.vue'
 import ToggleSwitch from '@/components/ui/ToggleSwitch.vue'
 import cardsData from '@/data/cards.json'
 import { useGameStore } from '@/stores/gameStore'
