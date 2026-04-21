@@ -55,7 +55,12 @@ import { useSettingsStore } from '@/stores/settingsStore'
 import type { Card, CardsData, ThemeId } from '@/types'
 import { isValidThemeId } from '@/utils/theme'
 
-const FLIP_DURATION_MS = 650
+/**
+ * Phase timer 時長：需對齊 PickedCardView 內 CSS transition。
+ * - flip：picked__inner 3D rotateY 600ms
+ * - dismiss：picked is-dismissing translateX 460ms
+ */
+const FLIP_DURATION_MS = 600
 const DISMISS_DURATION_MS = 460
 
 const route = useRoute()
@@ -67,6 +72,19 @@ const dataset = cardsData as CardsData
 const confirmOpen = ref(false)
 const phase = ref<PickedPhase>('idle')
 const pickedCard = ref<Card | null>(null)
+
+/**
+ * phase 切換的延遲 timer id；保留以便離開頁面時 clearTimeout，
+ * 避免 View 卸載後 callback 仍寫入 phase/pickedCard 或觸發 router 轉場。
+ */
+let phaseTimerId: number | null = null
+
+function clearPhaseTimer(): void {
+  if (phaseTimerId !== null) {
+    window.clearTimeout(phaseTimerId)
+    phaseTimerId = null
+  }
+}
 
 const routeThemeId = computed<string | undefined>(() => {
   const raw = route.params.themeId
@@ -135,7 +153,9 @@ function handleDrawCenter() {
   pickedCard.value = card
   phase.value = 'flipping'
   gameStore.drawCard()
-  window.setTimeout(() => {
+  clearPhaseTimer()
+  phaseTimerId = window.setTimeout(() => {
+    phaseTimerId = null
     if (phase.value === 'flipping') {
       phase.value = 'reading'
     }
@@ -151,7 +171,9 @@ function handleDismiss() {
     return
   }
   phase.value = 'dismissing'
-  window.setTimeout(() => {
+  clearPhaseTimer()
+  phaseTimerId = window.setTimeout(() => {
+    phaseTimerId = null
     phase.value = 'idle'
     pickedCard.value = null
     if (gameStore.isComplete && gameStore.themeId !== null) {
@@ -161,6 +183,10 @@ function handleDismiss() {
 }
 
 function handleBack() {
+  // 取消進行中的 phase timer，避免離開後延遲寫入 phase 或誤觸 router.replace
+  clearPhaseTimer()
+  phase.value = 'idle'
+  pickedCard.value = null
   gameStore.$reset()
   void router.push({ name: 'home' })
 }
@@ -171,6 +197,8 @@ function confirmLeave() {
 }
 
 onBeforeUnmount(() => {
+  // 避免離開此 View 後 setTimeout callback 寫入 phase/pickedCard 或觸發 router 轉場
+  clearPhaseTimer()
   confirmOpen.value = false
 })
 </script>

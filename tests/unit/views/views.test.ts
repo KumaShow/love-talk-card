@@ -197,7 +197,7 @@ describe('GameView — phase state machine', () => {
     expect(wrapper.find('[data-test="picked-next"]').exists()).toBe(false)
 
     // 等 flip 動畫 650ms，phase 由 flipping 切換至 reading，picked-next 出現
-    vi.advanceTimersByTime(650)
+    vi.advanceTimersByTime(600)
     await flushPromises()
 
     expect(wrapper.find('[data-test="picked-next"]').exists()).toBe(true)
@@ -213,7 +213,7 @@ describe('GameView — phase state machine', () => {
     await flushPromises()
 
     await wrapper.find('[data-test="fan-deck"] .is-active').trigger('click')
-    vi.advanceTimersByTime(650)
+    vi.advanceTimersByTime(600)
     await flushPromises()
 
     const drawnBeforeDismiss = gameStore.drawnCardIds.length
@@ -242,7 +242,7 @@ describe('GameView — phase state machine', () => {
     await flushPromises()
 
     await wrapper.find('[data-test="fan-deck"] .is-active').trigger('click')
-    vi.advanceTimersByTime(650)
+    vi.advanceTimersByTime(600)
     await flushPromises()
 
     await wrapper.find('[data-test="picked-next"]').trigger('click')
@@ -270,5 +270,36 @@ describe('GameView — phase state machine', () => {
 
     // phase=flipping 時，fan-deck canInteract=false，.is-active 應不存在
     expect(wrapper.find('[data-test="fan-deck"] .is-active').exists()).toBe(false)
+  })
+
+  it('unmount 後應清除 phase timer，避免 callback 於離開後觸發 router 轉場', async () => {
+    const gameStore = useGameStore()
+    // 先抽 14 張讓下一張抽取會讓 isComplete=true
+    gameStore.startSession('attraction', false)
+    for (let i = 0; i < 14; i += 1) {
+      gameStore.drawCard()
+    }
+
+    const wrapper = mount(GameView, {
+      global: { plugins: [router] },
+    })
+    await flushPromises()
+
+    // 抽最後一張並進入 reading
+    await wrapper.find('[data-test="fan-deck"] .is-active').trigger('click')
+    vi.advanceTimersByTime(600)
+    await flushPromises()
+
+    // 點 picked-next 進入 dismissing，此時 setTimeout 已排程但尚未執行
+    await wrapper.find('[data-test="picked-next"]').trigger('click')
+
+    // 離開 GameView（unmount）→ 應清除 timer
+    wrapper.unmount()
+
+    // 即使 timer 應執行的時間點已過，router 也不應被切到 end
+    vi.advanceTimersByTime(460)
+    await flushPromises()
+
+    expect(router.currentRoute.value.name).not.toBe('end')
   })
 })
