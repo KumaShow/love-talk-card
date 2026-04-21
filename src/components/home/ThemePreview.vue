@@ -3,7 +3,7 @@
     <div
       v-if="theme"
       class="poc-home-preview__backdrop"
-      data-test="poc-home-preview-backdrop"
+      data-test="preview-backdrop"
       aria-hidden="true"
       @click="$emit('dismiss')"
     ></div>
@@ -13,14 +13,14 @@
       v-if="theme"
       class="poc-home-preview"
       :style="themeStyle"
-      data-test="poc-home-preview"
+      data-test="home-preview"
       role="dialog"
       aria-modal="true"
     >
       <div class="poc-home-preview__card-wrap">
         <Transition name="preview-card" mode="out-in" appear>
           <article :key="theme.id" class="poc-home-preview__card">
-            <p class="poc-home-preview__card-eyebrow">今晚主題</p>
+            <p class="poc-home-preview__card-eyebrow">{{ zhTw.home.preview.eyebrow }}</p>
             <h2 class="poc-home-preview__card-name">{{ theme.name.zh }}</h2>
             <p class="poc-home-preview__card-desc">{{ theme.description.zh }}</p>
           </article>
@@ -30,19 +30,19 @@
       <button
         type="button"
         class="poc-home-preview__cta"
-        data-test="poc-preview-cta"
+        data-test="preview-cta"
         @click="$emit('start', theme)"
       >
-        開始對話
+        {{ zhTw.home.preview.startCta }}
       </button>
       <button
         type="button"
         class="poc-home-preview__dismiss"
-        data-test="poc-preview-dismiss"
-        aria-label="收起預覽"
+        data-test="preview-dismiss"
+        :aria-label="zhTw.home.preview.dismissAriaLabel"
         @click="$emit('dismiss')"
       >
-        收起
+        {{ zhTw.home.preview.dismissLabel }}
       </button>
     </section>
   </Transition>
@@ -51,6 +51,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+import zhTw from '@/i18n/zh-TW.json'
 import type { Theme } from '@/types'
 
 const props = defineProps<{ theme: Theme | null }>()

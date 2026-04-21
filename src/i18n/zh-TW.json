@@ -4,11 +4,17 @@
     "subtitle": "從一張牌開始，慢慢靠近彼此。"
   },
   "home": {
-    "title": "選擇今晚想聊的主題",
-    "description": "從四個關係主題中挑選最適合此刻心情的方向。",
+    "title": "挑選一副牌堆",
+    "description": "四個主題，四副蓋著的卡牌，點選一副就開始今晚的對話。",
     "intimateMode": "私密模式",
     "intimateModeHint": "加入 5 張更貼近身體與情感的題目。",
-    "startHint": "點選任一主題即可開始。"
+    "startHint": "點選任一主題即可開始。",
+    "preview": {
+      "eyebrow": "今晚主題",
+      "startCta": "開始對話",
+      "dismissLabel": "收起",
+      "dismissAriaLabel": "收起預覽"
+    }
   },
   "theme": {
     "attraction": {

@@ -7,7 +7,6 @@
         <p class="home-view__description">{{ zhTw.home.description }}</p>
       </header>
 
-      <!-- T048：以 ToggleSwitch 取代 inline checkbox，並委派給 settingsStore.toggleIntimateMode action。 -->
       <div class="home-view__toggle">
         <ToggleSwitch
           :model-value="settingsStore.intimateMode"
@@ -18,62 +17,61 @@
         <p class="home-view__toggle-hint">{{ zhTw.home.intimateModeHint }}</p>
       </div>
 
-      <ul class="home-view__themes" data-test="theme-grid">
-        <li v-for="theme in cardsData.themes" :key="theme.id">
-          <button
-            type="button"
-            class="home-view__theme"
-            :data-test="`theme-card-${theme.id}`"
-            @click="handleStart(theme.id)"
-          >
-            <span class="home-view__theme-eyebrow">{{ zhTw.labels.theme }}</span>
-            <span class="home-view__theme-name">{{ theme.name.zh }}</span>
-            <span class="home-view__theme-desc">{{ theme.description.zh }}</span>
-            <span class="home-view__theme-cta">{{ zhTw.actions.start }}</span>
-          </button>
+      <ul class="home-view__deck-grid" data-test="theme-deck-grid">
+        <li v-for="theme in dataset.themes" :key="theme.id">
+          <ThemeCardDeck :theme="theme" @select="handleSelect" />
         </li>
       </ul>
 
       <footer class="home-view__footer">{{ zhTw.home.startHint }}</footer>
     </section>
+
+    <ThemePreview
+      :theme="selectedTheme"
+      @start="handleStart"
+      @dismiss="selectedTheme = null"
+    />
   </main>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
+import ThemeCardDeck from '@/components/home/ThemeCardDeck.vue'
+import ThemePreview from '@/components/home/ThemePreview.vue'
 import ToggleSwitch from '@/components/ui/ToggleSwitch.vue'
 import cardsData from '@/data/cards.json'
 import zhTw from '@/i18n/zh-TW.json'
 import { useGameStore } from '@/stores/gameStore'
 import { useSettingsStore } from '@/stores/settingsStore'
-import type { CardsData, ThemeId } from '@/types'
+import type { CardsData, Theme } from '@/types'
 
 const router = useRouter()
 const gameStore = useGameStore()
 const settingsStore = useSettingsStore()
 
 const dataset = cardsData as CardsData
+const selectedTheme = ref<Theme | null>(null)
 
 /**
- * T048：處理私密模式切換。
- *
- * 依商業規則（data-model.md §4），`intimateMode` 的切換僅在 HomeView 有效；
- * 進入 GameView 後必須固化為 `gameStore.intimateModeAtStart`。
+ * 依商業規則（data-model.md §4），`intimateMode` 切換僅在 HomeView 有效；
+ * 進入 GameView 後會固化為 `gameStore.intimateModeAtStart`。
  * 因此此處不直接覆寫 `settingsStore.intimateMode`，而是呼叫 action，
- * 由 store 內部判斷「有 session 時 no-op」。ToggleSwitch emit 的目標值
- * 不需採用，實際切換由 store 決定。
+ * 由 store 內部判斷「有 session 時 no-op」。
  */
 function handleToggleIntimate(): void {
   settingsStore.toggleIntimateMode()
 }
 
-function handleStart(themeId: ThemeId) {
-  gameStore.startSession(themeId, settingsStore.intimateMode)
-  void router.push({ name: 'game', params: { themeId } })
+function handleSelect(theme: Theme): void {
+  selectedTheme.value = theme
 }
 
-void dataset
+function handleStart(theme: Theme): void {
+  gameStore.startSession(theme.id, settingsStore.intimateMode)
+  void router.push({ name: 'game', params: { themeId: theme.id } })
+}
 </script>
 
 <style scoped>
@@ -94,28 +92,28 @@ void dataset
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 0.6rem;
+  gap: 0.55rem;
 }
 
 .home-view__eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
+  font-size: 0.72rem;
+  letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--color-primary);
 }
 
 .home-view__title {
+  font-family: ui-serif, Georgia, 'Times New Roman', serif;
   font-size: clamp(1.75rem, 6vw, 2.25rem);
   font-weight: 600;
 }
 
 .home-view__description {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--color-text) 75%, transparent);
+  color: color-mix(in srgb, var(--color-text) 70%, transparent);
 }
 
-/* T048：整組私密模式切換容器，保留「標籤 + hint」雙行排版。 */
 .home-view__toggle {
   display: flex;
   flex-direction: column;
@@ -133,65 +131,18 @@ void dataset
   color: color-mix(in srgb, var(--color-text) 70%, transparent);
 }
 
-.home-view__themes {
+.home-view__deck-grid {
   list-style: none;
-  padding: 0;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.home-view__theme {
-  width: 100%;
-  min-height: 44px;
-  padding: 1.1rem 1.25rem;
-  border: none;
-  border-radius: 1.5rem;
-  background: rgba(255, 255, 255, 0.85);
-  color: var(--color-text);
-  text-align: left;
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  cursor: pointer;
-  box-shadow: 0 12px 30px -20px rgba(0, 0, 0, 0.25);
-  transition: transform 200ms ease, box-shadow 200ms ease;
-}
-
-.home-view__theme:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 20px 36px -22px rgba(0, 0, 0, 0.35);
-}
-
-.home-view__theme-eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-}
-
-.home-view__theme-name {
-  font-size: 1.4rem;
-  font-weight: 600;
-}
-
-.home-view__theme-desc {
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: color-mix(in srgb, var(--color-text) 70%, transparent);
-}
-
-.home-view__theme-cta {
-  margin-top: 0.4rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--color-primary);
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
 }
 
 .home-view__footer {
   text-align: center;
-  font-size: 0.85rem;
-  color: color-mix(in srgb, var(--color-text) 65%, transparent);
+  font-size: 0.8rem;
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
 }
 </style>
