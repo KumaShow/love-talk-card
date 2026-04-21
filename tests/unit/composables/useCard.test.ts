@@ -69,4 +69,23 @@ describe('useCard', () => {
     expect(card.isFlipped.value).toBe(false)
     expect(card.isAnimating.value).toBe(false)
   })
+
+  it('動畫未完成時 resetCard() 應 clearTimeout 並立即允許再次翻面', () => {
+    const card = useCard()
+
+    card.flipCard()
+    // 動畫時鎖尚未解除（< 500ms）
+    vi.advanceTimersByTime(100)
+    expect(card.isAnimating.value).toBe(true)
+
+    card.resetCard()
+
+    expect(card.isFlipped.value).toBe(false)
+    expect(card.isAnimating.value).toBe(false)
+    expect(card.canFlip.value).toBe(true)
+
+    // 確認 reset 已取消原 timer（再等原本 500ms 狀態不會被二次切換）
+    vi.advanceTimersByTime(500)
+    expect(card.isAnimating.value).toBe(false)
+  })
 })

@@ -116,7 +116,7 @@ npm run preview
 ```text
 love-talk-card/
 ├── src/
-│   ├── components/     ← Vue 元件（card/, layout/, ui/）
+│   ├── components/     ← Vue 元件（home/, card/, layout/, ui/）
 │   ├── composables/    ← 可測試邏輯單元（useCard, useDeck, useAudio...）
 │   ├── data/
 │   │   └── cards.json  ← 80 張卡牌靜態資料（修改此檔案更新卡牌內容）
@@ -183,8 +183,8 @@ git commit -m "feat(useDeck): 實作 Fisher-Yates 洗牌演算法"
 
 | 路徑 | 視圖 | 說明 |
 |------|------|------|
-| `/#/` | `HomeView.vue` | 主題選擇、模式設定（私密模式、語言） |
-| `/#/game/:themeId` | `GameView.vue` | 遊戲主介面（抽牌、翻牌、剩餘計數） |
+| `/#/` | `HomeView.vue` | 2×2 主題卡堆 + 預覽浮層 + 私密模式 Toggle |
+| `/#/game/:themeId` | `GameView.vue` | 扇形抽牌畫面 + `PickedCardView` overlay 翻面 |
 | `/#/end/:themeId` | `EndView.vue` | 結束訊息（主題專屬結束語、返回首頁） |
 
 ---
@@ -199,6 +199,46 @@ git commit -m "feat(useDeck): 實作 Fisher-Yates 洗牌演算法"
 | 信任成長 | `trust` | `#D4A8E8` | `#F8F0FF` | `#8B5BB5` |
 
 > **完整色碼規格**請參閱 `src/data/cards.json` 中各主題的 `colors` 欄位。
+
+---
+
+## 手動驗證 UX（Phase 9 扇形抽牌）
+
+在 iPhone 14 viewport（Chrome DevTools `Ctrl+Shift+M` → iPhone 14，390×844）下依序確認：
+
+1. **首頁 `/#/`**
+   - 顯示標題「挑選一副牌堆」與描述
+   - 2×2 卡堆網格（`data-test="theme-deck-grid"`），四副卡背顏色對應主題 `cardBack`
+   - 私密模式 Toggle 初始為關（`aria-checked="false"`）
+
+2. **預覽浮層**
+   - 點任一卡堆 → backdrop 暗化、底部 slide-up 浮層 420ms
+   - 示意卡 rotateY 翻入（180ms delay，520ms 翻動）
+   - 顯示主題名與描述 + 「開始對話」CTA + 「收起」按鈕
+   - 點 backdrop 或「收起」會收起浮層
+
+3. **扇形抽牌 `/#/game/:themeId`**
+   - `AppHeader` 顯示剩餘張數與返回按鈕
+   - 扇形 5 張展開（±24°）；僅中央卡可點（其他 `pointer-events: none`）
+   - 剩餘張數少於 5 時角度收窄
+
+4. **翻面 overlay**
+   - 點中央卡 → `PickedCardView` 從中央 scale 彈出
+   - 3D rotateY 翻面 600ms；backdrop 暗化
+   - 翻完後「下一張」CTA 淡入
+
+5. **飛出 + 補位**
+   - 點「下一張」或 backdrop → 卡片 translateX(130vw) rotate(22°) 飛出 460ms
+   - 扇形自動補位下一張至中央
+
+6. **結束流程**
+   - 最後一張飛出後自動導向 `/#/end/:themeId`
+   - 顯示 EndView，點「回到首頁」CTA 回 `/#/`
+
+7. **私密模式**
+   - 首頁開啟 Toggle 後進入主題抽牌
+   - 部分卡片 overlay（20 張中 5 張，各主題固定比例）顯示心形浮水印
+     （`[data-test="picked-view"] [data-test="intimate-watermark"]`）
 
 ---
 

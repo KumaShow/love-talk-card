@@ -40,10 +40,12 @@ export const useGameStore = defineStore('game', () => {
 
   /** 依當下狀態寫入 sessionStorage 快照。 */
   function persistSnapshot(): void {
+    /* c8 ignore start -- 防禦性分支：公開 API 都在 themeId 設定後才呼叫，此支無法由外部觸發 */
     if (themeId.value === null) {
       sessionStorage.removeItem(SESSION_KEY)
       return
     }
+    /* c8 ignore stop -- 防禦性分支結束 */
     const snapshot: GameSessionSnapshot = {
       themeId: themeId.value,
       deckOrder: deck.value.map((card) => card.id),

@@ -3,7 +3,7 @@
     type="button"
     class="poc-theme-card"
     :style="{ '--color-card-back': theme.colors.cardBack }"
-    :data-test="`poc-theme-card-${theme.id}`"
+    :data-test="`theme-deck-${theme.id}`"
     :aria-label="`${zhName} 主題卡堆`"
     @click="$emit('select', theme)"
   >

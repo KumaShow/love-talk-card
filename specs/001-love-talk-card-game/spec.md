@@ -9,18 +9,20 @@
 
 ### User Story 1 - Choose a Theme and Draw Cards (Priority: P1)
 
-A couple opens the game on their phone. They browse four relationship themes on the homepage — Attraction & Sparks, Self & Exploration, Interaction & Understanding, and Trust & Growth — and pick the one that fits their current mood. Once inside, they see a stack of face-down cards. They tap the top card, watch it flip over with a smooth animation, read the conversation prompt aloud, and discuss it together. They keep drawing cards one at a time. When they finish the deck, the game shows a warm closing message and guides them back to the homepage.
+A couple opens the game on their phone and sees four face-down theme decks on the homepage — Attraction & Sparks, Self & Exploration, Interaction & Understanding, and Trust & Growth. Each deck uses its theme-specific card-back color, creating a stronger sense of ritual before the game begins. They tap one deck, and a preview overlay slides up with a sample card, a short theme description, and a clear "Start Conversation" CTA. After confirming, they enter the game and see the remaining deck presented as a fan of up to five face-down cards. Only the center card is interactive. They tap it, an enlarged overlay appears from the center of the screen, the card performs a 3D flip, and the prompt is revealed for them to read aloud and discuss together. When they continue, the card exits to the right, the fan closes in, and the next card automatically moves into the center. When they finish the deck, the game shows a warm closing message and guides them back to the homepage.
 
-**Why this priority**: This is the core gameplay loop. Without the ability to select a theme, draw cards, and see prompts, no other feature has value. This alone delivers a complete, usable product.
+**Why this priority**: This is the core gameplay loop. Without the ability to select a theme, preview it, draw cards, and see prompts, no other feature has value. This alone delivers a complete, usable product.
 
-**Independent Test**: Can be fully tested by selecting any theme, drawing all cards in the deck, and verifying prompts appear — delivers the core conversational experience.
+**Independent Test**: Can be fully tested by selecting any theme deck, opening the preview overlay, entering the game, drawing all cards from the fan layout, and verifying prompts appear without duplication until the end-state message is shown.
 
 **Acceptance Scenarios**:
 
-1. **Given** the user is on the homepage, **When** they select the "Attraction & Sparks" theme, **Then** they are taken to the card-drawing screen showing a stack of face-down cards for that theme.
-2. **Given** the user is on the card-drawing screen, **When** they tap the top card, **Then** the card flips over with a smooth animation revealing the conversation prompt on the front.
-3. **Given** a card has been drawn, **When** the user draws additional cards, **Then** previously drawn cards do not reappear in the same session.
-4. **Given** all 15 cards in the theme have been drawn, **When** the user attempts to draw again, **Then** a warm closing message is displayed and the user is guided back to the homepage.
+1. **Given** the user is on the homepage, **When** they view the theme selection area, **Then** they see four face-down theme decks labeled in Traditional Chinese and styled with each theme's card-back color.
+2. **Given** the user taps a theme deck, **When** the theme preview opens, **Then** a slide-up preview overlay appears with a darkened backdrop, the theme description, and a "Start Conversation" CTA.
+3. **Given** the preview overlay is open, **When** the user taps the "Start Conversation" CTA, **Then** they are taken to the card-drawing screen showing a fan of up to five face-down cards for that theme.
+4. **Given** the user is on the card-drawing screen, **When** they tap the center card in the fan, **Then** an enlarged overlay appears and the selected card flips with a smooth 3D animation revealing the conversation prompt.
+5. **Given** the user has finished reading the revealed prompt, **When** they tap the "Next Card" action or the backdrop, **Then** the revealed card exits to the right and the next card automatically fills the center position in the fan.
+6. **Given** all 15 cards in the theme have been drawn, **When** the user completes the final card, **Then** a warm closing message is displayed together with a CTA that guides the user back to the homepage.
 
 ---
 
@@ -36,7 +38,7 @@ Before selecting a theme, one partner notices the "Intimate / Tipsy Mode" toggle
 
 1. **Given** the user is on the homepage, **When** they enable the "Intimate / Tipsy Mode" toggle, **Then** the toggle state is visually confirmed as active.
 2. **Given** intimate mode is enabled, **When** the user enters any theme, **Then** the deck contains 20 cards (15 base + 5 intimate).
-3. **Given** intimate mode is enabled and a private card is drawn, **When** the card flips over, **Then** a subtle visual indicator (e.g., decorative heart watermark) is visible on the card face.
+3. **Given** intimate mode is enabled and a private card is drawn, **When** the card flips over in the enlarged reading overlay, **Then** a subtle visual indicator (e.g., decorative heart watermark) is visible on the revealed card face within that overlay.
 4. **Given** intimate mode is disabled, **When** the user enters a theme, **Then** the deck contains only 15 base cards and no intimate cards appear.
 
 ---
@@ -60,7 +62,7 @@ A bilingual couple wants to play together but one partner is more comfortable re
 
 ### User Story 4 - Immersive Theme Ambiance (Priority: P4)
 
-A couple playing late at night selects the "Trust & Growth" theme. The background smoothly transitions to a deep warm tone. When they go back and switch to "Attraction & Sparks," the background transitions to a soft pink. The ambiance changes give each theme a distinct emotional atmosphere.
+A couple playing late at night selects the "Trust & Growth" theme. The background smoothly transitions to a deep warm tone. The preview overlay, CTA button, focus ring, and supporting hint text also inherit the active theme's primary and secondary colors, so the atmosphere feels cohesive from homepage selection to in-game reading. When they go back and switch to "Attraction & Sparks," the background and supporting UI accents transition together to a soft pink. The ambiance changes give each theme a distinct emotional atmosphere.
 
 **Why this priority**: Visual immersion enhances the emotional experience and differentiates themes, but the game is fully playable without it.
 
@@ -68,9 +70,10 @@ A couple playing late at night selects the "Trust & Growth" theme. The backgroun
 
 **Acceptance Scenarios**:
 
-1. **Given** the user selects the "Attraction & Sparks" theme, **When** the card-drawing screen loads, **Then** the background displays the theme's associated warm/pink color palette.
+1. **Given** the user selects the "Attraction & Sparks" theme, **When** the preview or card-drawing screen loads, **Then** the background displays the theme's associated warm/pink color palette.
 2. **Given** the user is in one theme, **When** they navigate back and select a different theme, **Then** the background color transitions smoothly to the new theme's palette.
-3. **Given** the user is on a mobile device, **When** viewing any theme, **Then** the ambiance and layout are optimized for portrait (vertical) orientation and single-hand operation.
+3. **Given** a theme is active, **When** the user views the preview overlay, CTA button, focus ring, or supporting hint text, **Then** those UI accents inherit the theme's primary and secondary colors.
+4. **Given** the user is on a mobile device, **When** viewing any theme, **Then** the ambiance and layout are optimized for portrait (vertical) orientation and single-hand operation.
 
 ---
 
@@ -97,14 +100,17 @@ A couple is on a camping trip with no cell signal. They had previously visited t
 - What happens when the user toggles intimate mode while a game session is already in progress? The toggle should only take effect for the next theme entry, not mid-session.
 - How does the system handle the language switch if a card has no translation available for the selected language? The system should fall back to English for the secondary text.
 - What happens if the user switches themes without finishing the previous deck? The previous session is discarded and a fresh deck is dealt for the new theme.
+- What happens when fewer than five cards remain in the fan deck? The fan angle should dynamically narrow as the remaining card count decreases (for example, 3 cards → ±16°, 2 cards → ±8°, 1 card → 0°) so the layout remains visually centered.
+- What happens if the user presses back while the revealed-card overlay is visible? The system should remain in the reading phase, and the leave-confirmation modal should still follow the existing `drawnCount >= 8` rule.
+- What happens if the user refreshes the browser during the revealed-card reading phase? The session should preserve already-drawn progress in sessionStorage, but the reading overlay should not be restored; instead, the next-to-draw card should appear centered in the fan based on the updated drawn count.
 
 ## Requirements *(mandatory)*
 
 ### Functional Requirements
 
 - **FR-001**: System MUST present four distinct relationship themes on the homepage: Attraction & Sparks, Self & Exploration, Interaction & Understanding, and Trust & Growth.
-- **FR-002**: System MUST display a stack of face-down cards after the user selects a theme, with all card backs showing a unified visual design.
-- **FR-003**: System MUST play a 3D flip animation when the user taps the top card, revealing the conversation prompt on the card face.
+- **FR-002**: System MUST display the remaining deck as a fan of up to five face-down cards after the user starts a theme, and the fan angle MUST narrow automatically when fewer than five cards remain.
+- **FR-003**: System MUST allow only the center card in the fan to trigger card reading, and MUST present the reveal as a dedicated overlay with a 3D rotateY flip animation.
 - **FR-004**: System MUST track drawn cards within a single game session and prevent any card from appearing more than once per session.
 - **FR-005**: System MUST display a warm closing message and provide navigation back to the homepage when all cards in a theme's deck have been drawn.
 - **FR-006**: System MUST provide an "Intimate / Tipsy Mode" toggle on the homepage that adds 5 private cards to each theme's deck when enabled (15 base → 20 total).
@@ -113,11 +119,15 @@ A couple is on a camping trip with no cell signal. They had previously visited t
 - **FR-009**: System MUST display card content with Traditional Chinese as the primary (large) text and a secondary language (default English) in smaller text below.
 - **FR-010**: System MUST provide a language-switch control that allows the user to change the secondary display language among English, Thai, and Japanese.
 - **FR-011**: System MUST apply the selected secondary language to all subsequently drawn cards within the same session.
-- **FR-012**: System MUST transition the background color/ambiance smoothly when switching between themes, with each theme having a distinct visual identity.
+- **FR-012**: System MUST transition the background color/ambiance smoothly when switching between themes, with each theme having a distinct visual identity, and MUST apply the active theme's primary/secondary colors to related UI accents such as preview overlays, CTA buttons, focus rings, and hint text.
 - **FR-013**: System MUST be optimized for mobile portrait orientation, with touch-friendly tap targets suitable for single-hand use.
 - **FR-014**: System MUST support offline usage after the initial load, allowing users to play the full game without an active internet connection.
 - **FR-015**: System MUST be installable to the user's home screen and launch in a standalone app-like mode without browser navigation chrome.
 - **FR-016**: System MUST contain a total of 80 conversation prompts: 15 base cards + 5 intimate cards per theme × 4 themes.
+- **FR-017**: System MUST present the four homepage themes as face-down deck visuals, and each deck MUST use that theme's `theme.colors.cardBack` palette.
+- **FR-018**: System MUST show a theme preview overlay before entering gameplay, including the theme description, a "Start Conversation" CTA, and a darkened backdrop.
+- **FR-019**: System MUST disable pointer interaction on all non-center cards within the fan layout.
+- **FR-020**: System MUST dismiss the revealed-card overlay by animating the card off-screen to the right and automatically advancing the fan to the next card; after the final card, the system MUST transition to the end-of-deck message flow.
 
 ### Key Entities
 
@@ -138,6 +148,7 @@ A couple is on a camping trip with no cell signal. They had previously visited t
 - **SC-006**: The intimate mode toggle correctly modifies deck size from 15 to 20 cards per theme, and intimate cards are visually distinguishable.
 - **SC-007**: 90% of first-time users can complete a full round (draw all cards in a theme) without confusion or needing external instructions.
 - **SC-008**: Background ambiance transitions between themes complete smoothly within 1 second without jarring visual breaks.
+- **SC-009**: The five-card fan layout and revealed-card overlay animations maintain 60fps on mid-range iOS Safari devices, with the flip animation completing in 600ms and the dismissal animation completing in 460ms without visible dropped frames.
 
 ## Assumptions
 

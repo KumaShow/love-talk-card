@@ -80,9 +80,14 @@ love-talk-card/                     # 專案根目錄
 │   │   └── images/                 # 卡背 SVG、愛心浮水印 SVG（取自 Google Fonts Icons / Heroicons）
 │   ├── components/
 │   │   ├── card/
-│   │   │   ├── CardStack.vue       # 牌堆容器，管理點擊事件與動畫封鎖
+│   │   │   ├── FanCard.vue         # 扇形牌堆中的單張蓋牌
+│   │   │   ├── FanDeck.vue         # 扇形牌堆容器，管理中央卡互動與角度布局
+│   │   │   ├── PickedCardView.vue  # 抽中卡的 overlay 翻面與退場動畫
 │   │   │   ├── CardFace.vue        # 卡牌正面：題目文字、私密指示器
 │   │   │   └── CardBack.vue        # 卡牌背面：統一卡背設計
+│   │   ├── home/
+│   │   │   ├── ThemeCardDeck.vue   # 首頁主題卡堆
+│   │   │   └── ThemePreview.vue    # 主題預覽浮層（sample card + backdrop + CTA）
 │   │   ├── layout/
 │   │   │   ├── AppHeader.vue       # 頂部列（語言切換、剩餘牌數、返回）
 │   │   │   └── OrientationGuard.vue # 橫屏遮罩覆蓋層
@@ -147,3 +152,35 @@ love-talk-card/                     # 專案根目錄
 | 翻牌音效 | AI 生成（ogg + mp3 雙格式） | 低成本取得高品質音效，跨瀏覽器格式覆蓋 |
 | 背景音樂 | 待後續補入（tasks.md 占位符） | 不阻擋核心開發，後期統一處理授權與格式 |
 | PWA 圖示 / 愛心浮水印 | Google Fonts Icons / Heroicons SVG | 開源授權，SVG 轉 PNG 工具鏈成熟，無設計資源門檻 |
+
+## Phase 9 — UX 重塑（依據 US1 v2 互動重寫）
+
+### 動機
+
+Phase 3/4 交付的 MVP 使用「條列主題清單 + 單張翻面」互動；使用者實測後回饋「沒有抽卡的儀式感」。於 `poc/fan-deck-ux` 分支驗證「卡堆選擇 + 扇形抽牌 + overlay 翻面」三層互動後，使用者確認方向可行，進入轉正階段。
+
+### 範圍
+
+- HomeView：條列主題 → 2×2 卡堆 + 預覽浮層
+- HomeView 補充：預覽浮層需含 sample card、darkened backdrop、主題色 CTA / hint / focus ring
+- GameView：既有單張翻面流程 → 扇形 `FanDeck` + `PickedCardView` overlay
+- GameView 補充：overlay 必須支援 backdrop dismiss、向右退場 460ms、自動推進下一張與最後一張 end flow
+- 保留 `gameStore` / `useDeck` / `useCard` / `cards.json` / 既有 session snapshot schema
+- 新增 UI state machine（`PickedPhase`，純 View 內 state）
+
+### 技術決策
+
+- 不引入手勢套件（`@vueuse/gesture` / `hammerjs`）— 原生 pointer events 足夠
+- 不做 swipe windowing（語意衝突；視覺中央卡必須與實際抽牌 ID 一致）
+- 不擴 sessionStorage schema（`visibleStart` 為純 UI state）
+- overlay dismiss 固定為向右退場，持續 460ms；翻面動畫持續 600ms
+- `ThemePreview`、CTA、focus ring、hint text 全部透過 CSS custom properties 套用主題 primary / secondary
+- 遵循既有 Constitution：scoped CSS + CSS custom properties 注入主題色
+
+### Constitution Check
+
+- ✅ Mobile-first：所有動畫需在 iPhone 14 viewport 與 iOS Safari 手動驗證 60fps
+- ✅ TDD：Phase 9 必須先撰寫 failing tests（T094）再進行轉正實作（T089–T093）
+- ✅ 繁體中文註解：轉正實作維持既有規範
+- ✅ 字串外部化：POC 的 inline 中文轉正時外部化至 `i18n/*.json`
+- ✅ 無外部動畫函式庫：僅使用 CSS `transform` / `transition`

@@ -1,27 +1,32 @@
 <template>
   <main class="game-view">
-    <section class="game-view__inner">
-      <AppHeader
-        :back-label="zhTw.actions.back"
-        :remaining-label="`${zhTw.labels.remaining} `"
-        :remaining-count="remainingCount"
-        :show-remaining="settingsStore.showRemainingCount"
-        :require-confirm="requireConfirm"
-        @back="handleBack"
-        @request-confirm-back="confirmOpen = true"
-      />
+    <AppHeader
+      :back-label="zhTw.actions.back"
+      :remaining-label="`${zhTw.labels.remaining} `"
+      :remaining-count="remainingCount"
+      :show-remaining="settingsStore.showRemainingCount"
+      :require-confirm="requireConfirm"
+      @back="handleBack"
+      @request-confirm-back="confirmOpen = true"
+    />
 
-      <section class="game-view__meta" aria-live="polite">
+    <section class="game-view__inner" :style="themeStyle">
+      <header class="game-view__meta" aria-live="polite">
         <p class="game-view__eyebrow">{{ zhTw.labels.theme }}</p>
-        <h1 class="game-view__title">{{ currentTheme?.name.zh }}</h1>
-        <p class="game-view__description">{{ currentTheme?.description.zh }}</p>
-      </section>
+        <h1 class="game-view__title">{{ currentTheme?.name.zh ?? '' }}</h1>
+        <p class="game-view__hint">{{ zhTw.game.fanHint }}</p>
+      </header>
 
-      <section class="game-view__stack" aria-label="牌堆">
-        <CardStack :aria-label="zhTw.actions.draw" @draw="handleDraw" />
-        <p class="game-view__hint">{{ zhTw.actions.draw }}</p>
-      </section>
+      <FanDeck
+        :deck="gameStore.deck"
+        :drawn-count="gameStore.drawnCardIds.length"
+        :card-back="themeCardBack"
+        :can-interact="phase === 'idle'"
+        @draw-center="handleDrawCenter"
+      />
     </section>
+
+    <PickedCardView :card="pickedCard" :phase="phase" @dismiss="handleDismiss" />
 
     <ConfirmModal
       :open="confirmOpen"
@@ -36,18 +41,27 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
+import FanDeck from '@/components/card/FanDeck.vue'
+import PickedCardView, { type PickedPhase } from '@/components/card/PickedCardView.vue'
 import AppHeader from '@/components/layout/AppHeader.vue'
-import CardStack from '@/components/card/CardStack.vue'
 import ConfirmModal from '@/components/ui/ConfirmModal.vue'
 import cardsData from '@/data/cards.json'
 import zhTw from '@/i18n/zh-TW.json'
 import { useGameStore } from '@/stores/gameStore'
 import { useSettingsStore } from '@/stores/settingsStore'
-import type { CardsData, ThemeId } from '@/types'
+import type { Card, CardsData, ThemeId } from '@/types'
 import { isValidThemeId } from '@/utils/theme'
+
+/**
+ * Phase timer 時長：需對齊 PickedCardView 內 CSS transition。
+ * - flip：picked__inner 3D rotateY 600ms
+ * - dismiss：picked is-dismissing translateX 460ms
+ */
+const FLIP_DURATION_MS = 600
+const DISMISS_DURATION_MS = 460
 
 const route = useRoute()
 const router = useRouter()
@@ -56,8 +70,23 @@ const settingsStore = useSettingsStore()
 
 const dataset = cardsData as CardsData
 const confirmOpen = ref(false)
+const phase = ref<PickedPhase>('idle')
+const pickedCard = ref<Card | null>(null)
 
-const routeThemeId = computed(() => {
+/**
+ * phase 切換的延遲 timer id；保留以便離開頁面時 clearTimeout，
+ * 避免 View 卸載後 callback 仍寫入 phase/pickedCard 或觸發 router 轉場。
+ */
+let phaseTimerId: number | null = null
+
+function clearPhaseTimer(): void {
+  if (phaseTimerId !== null) {
+    window.clearTimeout(phaseTimerId)
+    phaseTimerId = null
+  }
+}
+
+const routeThemeId = computed<string | undefined>(() => {
   const raw = route.params.themeId
   return Array.isArray(raw) ? raw[0] : raw
 })
@@ -70,10 +99,22 @@ const currentTheme = computed(() => {
   return dataset.themes.find((theme) => theme.id === id) ?? null
 })
 
+const themeCardBack = computed(() => currentTheme.value?.colors.cardBack ?? '#c76d8e')
+
+const themeStyle = computed(() => {
+  const colors = currentTheme.value?.colors
+  if (!colors) {
+    return {}
+  }
+  return {
+    '--color-primary': colors.primary,
+    '--color-secondary': colors.secondary,
+  } as Record<string, string>
+})
+
 const remainingCount = computed(() => gameStore.remainingCount)
 const requireConfirm = computed(() => gameStore.drawnCardIds.length >= 8 && !gameStore.isComplete)
 
-/** 若 gameStore 還沒啟動此 session，依 route 建立。 */
 function ensureSession(targetThemeId: ThemeId) {
   if (gameStore.themeId === targetThemeId) {
     return
@@ -95,27 +136,57 @@ onMounted(() => {
   ensureSession(id)
 })
 
-watch(
-  () => gameStore.isComplete,
-  (complete) => {
-    if (!complete) {
-      return
+/**
+ * 使用者點擊扇形中央卡 → 進入 flipping phase。
+ *
+ * 依 plan：drawCard 於 flipping 起始即呼叫（不等翻面動畫結束），
+ * 讓 gameStore.drawnCardIds 立即推進；PickedCardView 以獨立 overlay 渲染被翻的 card。
+ */
+function handleDrawCenter() {
+  if (phase.value !== 'idle') {
+    return
+  }
+  const card = gameStore.currentCard
+  if (card === null) {
+    return
+  }
+  pickedCard.value = card
+  phase.value = 'flipping'
+  gameStore.drawCard()
+  clearPhaseTimer()
+  phaseTimerId = window.setTimeout(() => {
+    phaseTimerId = null
+    if (phase.value === 'flipping') {
+      phase.value = 'reading'
     }
-    const id = gameStore.themeId
-    if (id === null) {
-      return
-    }
-    void router.replace({ name: 'end', params: { themeId: id } })
-  },
-)
+  }, FLIP_DURATION_MS)
+}
 
-function handleDraw(_cardId: string) {
-  // 抽牌邏輯已由 CardStack 內部呼叫 gameStore.drawCard()
-  // 保留 emit 以利未來埋點、音效整合（US5）
-  void _cardId
+/**
+ * 使用者點「下一張」CTA 或 backdrop → 卡片飛出右側並歸零 phase。
+ * 若已抽完最後一張，導向 EndView。
+ */
+function handleDismiss() {
+  if (phase.value !== 'reading') {
+    return
+  }
+  phase.value = 'dismissing'
+  clearPhaseTimer()
+  phaseTimerId = window.setTimeout(() => {
+    phaseTimerId = null
+    phase.value = 'idle'
+    pickedCard.value = null
+    if (gameStore.isComplete && gameStore.themeId !== null) {
+      void router.replace({ name: 'end', params: { themeId: gameStore.themeId } })
+    }
+  }, DISMISS_DURATION_MS)
 }
 
 function handleBack() {
+  // 取消進行中的 phase timer，避免離開後延遲寫入 phase 或誤觸 router.replace
+  clearPhaseTimer()
+  phase.value = 'idle'
+  pickedCard.value = null
   gameStore.$reset()
   void router.push({ name: 'home' })
 }
@@ -126,6 +197,8 @@ function confirmLeave() {
 }
 
 onBeforeUnmount(() => {
+  // 避免離開此 View 後 setTimeout callback 寫入 phase/pickedCard 或觸發 router 轉場
+  clearPhaseTimer()
   confirmOpen.value = false
 })
 </script>
@@ -134,11 +207,15 @@ onBeforeUnmount(() => {
 .game-view {
   min-height: 100vh;
   padding: 1rem 1.25rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .game-view__inner {
   max-width: 30rem;
   margin: 0 auto;
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
@@ -159,25 +236,15 @@ onBeforeUnmount(() => {
 }
 
 .game-view__title {
+  font-family: ui-serif, Georgia, 'Times New Roman', serif;
   font-size: 1.75rem;
   font-weight: 600;
-}
-
-.game-view__description {
-  font-size: 0.95rem;
-  line-height: 1.55;
-  color: color-mix(in srgb, var(--color-text) 70%, transparent);
-}
-
-.game-view__stack {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  margin: 0;
 }
 
 .game-view__hint {
   font-size: 0.85rem;
-  color: color-mix(in srgb, var(--color-text) 65%, transparent);
+  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  margin: 0;
 }
 </style>
