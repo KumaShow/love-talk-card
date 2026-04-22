@@ -24,12 +24,16 @@ pnpm-debug.log*
 Thumbs.db
 *.tmp
 *.swp
+*.stackdump
 .idea/
 .vscode/*
 !.vscode/settings.json
 
 # Tool caches
 .eslintcache
+
+# Claude Code 本地設定
+.claude/
 
 # Vite runtime files
 *.timestamp-*-*.mjs
