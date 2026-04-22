@@ -83,4 +83,37 @@ describe('useSettingsStore', () => {
       expect(settingsStore.intimateMode).toBe(!locked)
     })
   })
+
+  /**
+   * T054：setSecondaryLang action 行為測試。
+   * 副語言切換不受 session 狀態影響（與 intimateMode 不同），
+   * 進入 GameView 後仍可切換並反應到 CardFace 次要文字渲染。
+   */
+  describe('setSecondaryLang', () => {
+    it('呼叫 setSecondaryLang 應更新 secondaryLang 且立即可讀', () => {
+      const settingsStore = useSettingsStore()
+
+      expect(settingsStore.secondaryLang).toBe('en')
+
+      settingsStore.setSecondaryLang('th')
+      expect(settingsStore.secondaryLang).toBe('th')
+
+      settingsStore.setSecondaryLang('ja')
+      expect(settingsStore.secondaryLang).toBe('ja')
+
+      settingsStore.setSecondaryLang('en')
+      expect(settingsStore.secondaryLang).toBe('en')
+    })
+
+    it('進行中 session 時呼叫 setSecondaryLang 仍應生效（與 intimateMode 規則不同）', () => {
+      const settingsStore = useSettingsStore()
+      const gameStore = useGameStore()
+
+      gameStore.startSession('attraction', false)
+      expect(gameStore.themeId).toBe('attraction')
+
+      settingsStore.setSecondaryLang('th')
+      expect(settingsStore.secondaryLang).toBe('th')
+    })
+  })
 })

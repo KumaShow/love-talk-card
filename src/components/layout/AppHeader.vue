@@ -5,10 +5,10 @@
       class="app-header__back"
       data-test="app-header-back"
       :aria-label="backLabel"
+      :title="backLabel"
       @click="handleBack"
     >
       <span aria-hidden="true">←</span>
-      <span class="app-header__back-text">{{ backLabel }}</span>
     </button>
     <div class="app-header__center">
       <slot name="center">
@@ -63,20 +63,17 @@ function handleBack() {
 .app-header__back {
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0.5rem 1rem;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
   border: none;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.75);
   color: var(--color-text);
+  font-size: 1.2rem;
   font-weight: 500;
   cursor: pointer;
-}
-
-.app-header__back-text {
-  font-size: 0.95rem;
 }
 
 .app-header__center {

@@ -24,15 +24,22 @@
       </div>
 
       <Transition name="picked-cta">
-        <button
-          v-if="phase === 'reading'"
-          class="picked__cta"
-          type="button"
-          data-test="picked-next"
-          @click="$emit('dismiss')"
-        >
-          下一張
-        </button>
+        <div v-if="phase === 'reading'" class="picked__actions">
+          <button
+            class="picked__cta"
+            type="button"
+            data-test="picked-next"
+            @click="$emit('dismiss')"
+          >
+            下一張
+          </button>
+          <LanguageSelector
+            class="picked__lang"
+            :selected-lang="settingsStore.secondaryLang"
+            data-test="picked-language-selector"
+            @select="settingsStore.setSecondaryLang"
+          />
+        </div>
       </Transition>
     </div>
   </Transition>
@@ -43,8 +50,13 @@ import { computed, nextTick, watch } from 'vue'
 
 import CardBack from '@/components/card/CardBack.vue'
 import CardFace from '@/components/card/CardFace.vue'
+import LanguageSelector from '@/components/ui/LanguageSelector.vue'
 import { useCard } from '@/composables/useCard'
+import { useSettingsStore } from '@/stores/settingsStore'
 import type { Card } from '@/types'
+
+/** PickedCardView 內就近供 LanguageSelector 連動 settingsStore，避免父層多寫一層轉發。 */
+const settingsStore = useSettingsStore()
 
 export type PickedPhase = 'idle' | 'flipping' | 'reading' | 'dismissing'
 
@@ -132,11 +144,28 @@ function handleBackdropClick() {
   /* reserved for future scoped overrides if needed */
 }
 
-.picked__cta {
+/*
+ * picked__actions：CTA + LanguageSelector 的 flex column wrapper。
+ *
+ * 設計動機（回應 Copilot review）：
+ * 原本 CTA 與 LanguageSelector 各自 position:absolute，且 LanguageSelector
+ * 用 `top: calc(100% + 1.25rem + 48px + 0.75rem)` 硬推 CTA 高度（48px 來自
+ * `min-height` 而非實際渲染高度），任何字體/縮放微調都會撞重疊。
+ * 改用單一 absolute wrapper + flex column + gap，讓兩者堆疊間距由瀏覽器
+ * 依實際內容尺寸計算，不再依賴硬編碼數字。
+ */
+.picked__actions {
   position: absolute;
   left: 50%;
   top: calc(100% + 1.25rem);
   transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.picked__cta {
   min-width: 140px;
   min-height: 48px;
   padding: 0.75rem 1.5rem;

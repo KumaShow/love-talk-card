@@ -1,5 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
+import { createPinia, setActivePinia } from 'pinia'
 
 import PickedCardView from '@/components/card/PickedCardView.vue'
 import cardsData from '@/data/cards.json'
@@ -25,6 +26,9 @@ function getSampleCard(): Card {
 
 describe('PickedCardView', () => {
   beforeEach(() => {
+    // CardFace 在 T057 後依賴 settingsStore.secondaryLang 計算次要文字，
+    // 因此本元件測試必須先掛上 Pinia 才能完成子元件初始化。
+    setActivePinia(createPinia())
     vi.useFakeTimers()
   })
 
