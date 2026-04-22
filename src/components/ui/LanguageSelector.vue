@@ -7,20 +7,25 @@
  * - 觸控區 ≥44×44px（憲章可存取性要求）。
  * - 啟用按鈕以 var(--color-primary) 作為主題化視覺提示。
  * - emit 'select' 攜帶 SecondaryLang，讓父層接到 settingsStore.setSecondaryLang。
- *   採用 emit 而非 v-model 是為了保留語意（這是「動作」而非雙向綁定）。
+ *   採用 emit 而非 v-model 是為了保留語意（這是「動作」而非雙向綁定）—
+ *   故 prop 命名為 `selectedLang` 而非 `modelValue`，以免與本 repo 其他
+ *   v-model 元件（例如 ToggleSwitch）的契約混淆。
  */
+import { useI18n } from '@/composables/useI18n'
 import type { SecondaryLang } from '@/types'
 
 defineOptions({ name: 'LanguageSelector' })
 
 defineProps<{
   /** 目前啟用的副語言；對齊 settingsStore.secondaryLang */
-  modelValue: SecondaryLang
+  selectedLang: SecondaryLang
 }>()
 
 const emit = defineEmits<{
   (e: 'select', lang: SecondaryLang): void
 }>()
+
+const { t } = useI18n()
 
 interface LangOption {
   value: SecondaryLang
@@ -41,14 +46,19 @@ function handleClick(lang: SecondaryLang): void {
 </script>
 
 <template>
-  <div class="language-selector" role="group" data-test="language-selector">
+  <div
+    class="language-selector"
+    role="group"
+    :aria-label="t('labels.secondaryLanguage')"
+    data-test="language-selector"
+  >
     <button
       v-for="option in options"
       :key="option.value"
       type="button"
       class="language-selector__btn"
-      :class="{ 'language-selector__btn--active': modelValue === option.value }"
-      :aria-pressed="modelValue === option.value ? 'true' : 'false'"
+      :class="{ 'language-selector__btn--active': selectedLang === option.value }"
+      :aria-pressed="selectedLang === option.value ? 'true' : 'false'"
       :aria-label="option.ariaLabel"
       :data-test="option.testId"
       :style="{ minWidth: '44px', minHeight: '44px' }"

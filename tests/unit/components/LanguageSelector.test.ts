@@ -15,7 +15,7 @@ import type { SecondaryLang } from '@/types'
  */
 describe('LanguageSelector', () => {
   it('渲染 3 顆按鈕並對應 EN / ไทย / 日 標籤', () => {
-    const wrapper = mount(LanguageSelector, { props: { modelValue: 'en' } })
+    const wrapper = mount(LanguageSelector, { props: { selectedLang: 'en' } })
 
     const buttons = wrapper.findAll('button')
     expect(buttons).toHaveLength(3)
@@ -25,7 +25,7 @@ describe('LanguageSelector', () => {
   })
 
   it('啟用中的按鈕 aria-pressed 為 "true"，其餘為 "false"', () => {
-    const wrapper = mount(LanguageSelector, { props: { modelValue: 'th' } })
+    const wrapper = mount(LanguageSelector, { props: { selectedLang: 'th' } })
 
     const enBtn = wrapper.get('[data-test="lang-en"]')
     const thBtn = wrapper.get('[data-test="lang-th"]')
@@ -37,7 +37,7 @@ describe('LanguageSelector', () => {
   })
 
   it('點擊按鈕應 emit "select" 並攜帶對應 SecondaryLang', async () => {
-    const wrapper = mount(LanguageSelector, { props: { modelValue: 'en' } })
+    const wrapper = mount(LanguageSelector, { props: { selectedLang: 'en' } })
 
     await wrapper.get('[data-test="lang-th"]').trigger('click')
     await wrapper.get('[data-test="lang-ja"]').trigger('click')
@@ -49,7 +49,7 @@ describe('LanguageSelector', () => {
   })
 
   it('每顆按鈕應符合 44×44px 觸控區最小尺寸', () => {
-    const wrapper = mount(LanguageSelector, { props: { modelValue: 'en' } })
+    const wrapper = mount(LanguageSelector, { props: { selectedLang: 'en' } })
 
     const buttons = wrapper.findAll('button')
     for (const btn of buttons) {
