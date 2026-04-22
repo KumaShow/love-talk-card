@@ -26,6 +26,17 @@ export default defineConfig({
         ...devices['iPhone 14'],
         viewport: { width: 390, height: 844 },
       },
+      /** WebKit 對 Service Worker + setOffline 組合有相容性問題，PWA 離線測試改用 chromium project。 */
+      testIgnore: ['**/us5-offline-pwa.spec.ts'],
+    },
+    {
+      name: 'chromium-mobile-pwa',
+      use: {
+        ...devices['Pixel 7'],
+        browserName: 'chromium',
+        viewport: { width: 390, height: 844 },
+      },
+      testMatch: ['**/us5-offline-pwa.spec.ts'],
     },
   ],
   webServer: {
