@@ -10,6 +10,7 @@
 ## 修訂紀錄
 
 - **2026-04-20**：Phase 3-4 MVP 於 commit `704fcee` 交付後，依使用者實測回饋啟動 Phase 9 UX 重塑。T001–T088 保留作為交付史實，不改；新增 T089–T098 於 Phase 9 執行 POC 轉正。部分舊任務對應的元件將於 T090–T092 被取代（`CardStack.vue` 刪除、`HomeView.vue` / `GameView.vue` 重寫），屬於 v2 演進而非舊任務失效。
+- **2026-04-22**：Phase 9 UX 重塑全部完成並隨 PR #2 合併進 `main`（merge commit `38e0584`）。T089–T098 實作、測試、文件與 smoke 皆已交付，下一優先為 Phase 5 US3 語言切換。
 
 ## 格式：`[ID] [P?] [Story] 說明`
 
@@ -214,14 +215,14 @@
 
 ## Phase 9：UX 重塑（T089–T098）
 
-- [ ] T094 [P] 先撰寫 failing 單元 / 整合測試（TDD）
+- [x] T094 [P] 先撰寫 failing 單元 / 整合測試（TDD）
       - `tests/unit/components/FanDeck.test.ts`：visibleCards 切片、角度計算、z-index、`canInteract`
       - `tests/unit/components/PickedCardView.test.ts`：phase 狀態轉移、flip class、backdrop dismiss、向右退場 460ms
       - `tests/unit/components/ThemeCardDeck.test.ts`：色票注入、emit select
       - `tests/unit/components/ThemePreview.test.ts`：sample card 顯示、darkened backdrop、CTA emit、主題色套用
       - 必要時補 `HomeView` / `GameView` 整合測試，覆蓋 preview → CTA → fan deck 與最後一張 end flow
       - 目標：先 RED，再進行 T089–T093 實作；單元覆蓋率維持 ≥95% (`composables/stores`)、≥80% (`overall`)
-- [ ] T089 [P] 將 POC 元件搬到正式目錄並重命名
+- [x] T089 [P] 將 POC 元件搬到正式目錄並重命名
       - `src/components/poc/PocThemeCard.vue` → `src/components/home/ThemeCardDeck.vue`
       - `src/components/poc/PocHomePreview.vue` → `src/components/home/ThemePreview.vue`
       - `src/components/poc/PocFanCard.vue` → `src/components/card/FanCard.vue`
@@ -229,14 +230,14 @@
       - `src/components/poc/PocPickedCardView.vue` → `src/components/card/PickedCardView.vue`
       - 同步更新檔內相對路徑 import
       - 註解中任何「POC」字樣改為正式描述
-- [ ] T090 替換 `src/views/HomeView.vue` 為卡堆 + 預覽浮層版本
+- [x] T090 替換 `src/views/HomeView.vue` 為卡堆 + 預覽浮層版本
       - 以原 `PocHomeView.vue` 內容為基礎
       - 保留既有 `data-test="intimate-toggle"`、`theme-grid` → 改為 `theme-deck-grid`
       - 新增 `data-test="theme-deck-{themeId}"`、`home-preview`、`preview-cta`
       - 預覽浮層需包含 sample card、darkened backdrop 與主題描述
       - CTA、focus ring、hint text 需套用當前主題 `primary` / `secondary`
       - i18n 字串由 inline 改為 `@/i18n/zh-TW.json` 鍵值（需新增 `home.preview.*`）
-- [ ] T091 替換 `src/views/GameView.vue` 為扇形版本
+- [x] T091 替換 `src/views/GameView.vue` 為扇形版本
       - 以原 `PocGameView.vue` 內容為基礎
       - 繼續使用既有 `AppHeader` / `ConfirmModal`
       - 新增 `data-test="fan-deck"`、`fan-card-{i}`、`picked-view`、`picked-next`
@@ -244,24 +245,24 @@
       - dismiss 動畫固定向右退場（`translateX(130vw) rotate(22deg)`）且持續 460ms
       - flip 動畫持續 600ms；結束後自動推進下一張，最後一張進入 end flow
       - 保留既有 route（`/game/:themeId`），不再需要 `/poc/fan/:themeId`
-- [ ] T092 刪除 `src/components/card/CardStack.vue` + 移除 POC route
+- [x] T092 刪除 `src/components/card/CardStack.vue` + 移除 POC route
       - 刪除檔案
       - `src/router/index.ts` 移除 `/poc/home` 與 `/poc/fan/:themeId` 兩條 route 與 import
       - 刪除 `tests/unit/components/CardStack.test.ts`（由 T094 新測試取代）
       - 將所有後續任務與文件中的 `CardStack` 引用改寫為 `FanDeck` / `PickedCardView`
-- [ ] T093 data-test 屬性正式化
+- [x] T093 data-test 屬性正式化
       - 所有 `poc-*` 前綴改為正式命名
       - 保留既有 `intimate-watermark`、`intimate-indicator`（E2E 繼續使用）
-- [ ] T095 改寫 `tests/e2e/playwright/us1-core-gameplay.spec.ts`
+- [x] T095 改寫 `tests/e2e/playwright/us1-core-gameplay.spec.ts`
       - 新流程：首頁 → 4 副 `theme-deck-*` → 點 `theme-deck-attraction` → `home-preview` → 點 `preview-cta` → `/#/game/attraction` → `fan-deck`
       - 迴圈抽完 15 張：點中央卡 → `picked-view` overlay → 讀文字 → 點 `picked-next`
       - 驗證文字無重複、darkened backdrop、sample card、最後出現結束訊息
-- [ ] T096 改寫 `tests/e2e/playwright/us2-intimate-mode.spec.ts`
+- [x] T096 改寫 `tests/e2e/playwright/us2-intimate-mode.spec.ts`
       - 浮水印偵測 selector：改為 `picked-view` overlay 內的 `intimate-watermark`
       - 統計邏輯不變（20 張中 5 張有浮水印、15 張無）
-- [ ] T097 更新 `specs/001-love-talk-card-game/quickstart.md`
+- [x] T097 更新 `specs/001-love-talk-card-game/quickstart.md`
       - 手動驗證步驟依新 UX 改寫
-- [ ] T098 完整 smoke
+- [x] T098 完整 smoke
       - `npm run type-check`
       - `npm run test`
       - `npx playwright test`
