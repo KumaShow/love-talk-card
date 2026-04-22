@@ -4,8 +4,7 @@
       v-if="isLandscape"
       class="orientation-guard"
       data-test="orientation-guard"
-      role="alertdialog"
-      aria-modal="true"
+      role="alert"
       :aria-labelledby="titleId"
       :aria-describedby="descId"
     >
@@ -59,7 +58,7 @@ import { useOrientation } from '@/composables/useOrientation'
  * - 不中斷底層 RouterView：僅以 fixed overlay 遮蓋畫面，遊戲狀態（gameStore / sessionStorage）不受影響。
  * - 回直向後 useOrientation 會將 isLandscape 設回 false，Transition 自動移除 overlay。
  * - 採雙語提示（ZH-TW 主、EN 輔），符合 research.md R-009。
- * - 使用 role="alertdialog" + aria-modal 以讓 a11y tree 理解此為阻擋性提示。
+ * - 使用 role="alert" 宣告方向提示，避免誤用需焦點管理的 alertdialog。
  */
 const { isLandscape } = useOrientation()
 

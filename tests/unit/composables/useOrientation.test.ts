@@ -16,33 +16,60 @@ describe('useOrientation', () => {
   type ChangeListener = (event: { matches: boolean }) => void
 
   let matchesState = false
-  let listeners: ChangeListener[] = []
+  let modernListeners: ChangeListener[] = []
+  let legacyListeners: ChangeListener[] = []
+  let useLegacyOnlyApi = false
   let addEventListenerSpy: ReturnType<typeof vi.fn>
   let removeEventListenerSpy: ReturnType<typeof vi.fn>
+  let addListenerSpy: ReturnType<typeof vi.fn>
+  let removeListenerSpy: ReturnType<typeof vi.fn>
 
   beforeEach(() => {
     matchesState = false
-    listeners = []
+    modernListeners = []
+    legacyListeners = []
+    useLegacyOnlyApi = false
 
     addEventListenerSpy = vi.fn((event: string, cb: ChangeListener) => {
-      if (event === 'change') listeners.push(cb)
+      if (event === 'change') modernListeners.push(cb)
     })
     removeEventListenerSpy = vi.fn((event: string, cb: ChangeListener) => {
       if (event === 'change') {
-        listeners = listeners.filter((existing) => existing !== cb)
+        modernListeners = modernListeners.filter((existing) => existing !== cb)
       }
+    })
+    addListenerSpy = vi.fn((cb: ChangeListener) => {
+      legacyListeners.push(cb)
+    })
+    removeListenerSpy = vi.fn((cb: ChangeListener) => {
+      legacyListeners = legacyListeners.filter((existing) => existing !== cb)
     })
 
     vi.stubGlobal(
       'matchMedia',
-      vi.fn().mockImplementation((query: string) => ({
-        matches: matchesState,
-        media: query,
-        addEventListener: addEventListenerSpy,
-        removeEventListener: removeEventListenerSpy,
-        onchange: null,
-        dispatchEvent: () => false,
-      })),
+      vi.fn().mockImplementation((query: string) => {
+        if (useLegacyOnlyApi) {
+          return {
+            matches: matchesState,
+            media: query,
+            addListener: addListenerSpy,
+            removeListener: removeListenerSpy,
+            onchange: null,
+            dispatchEvent: () => false,
+          }
+        }
+
+        return {
+          matches: matchesState,
+          media: query,
+          addEventListener: addEventListenerSpy,
+          removeEventListener: removeEventListenerSpy,
+          addListener: addListenerSpy,
+          removeListener: removeListenerSpy,
+          onchange: null,
+          dispatchEvent: () => false,
+        }
+      }),
     )
     vi.stubGlobal('window', {
       ...globalThis,
@@ -86,7 +113,7 @@ describe('useOrientation', () => {
     const wrapper = mount(Host)
     expect(wrapper.text()).toBe('portrait')
 
-    listeners.forEach((cb) => cb({ matches: true }))
+    modernListeners.forEach((cb) => cb({ matches: true }))
     await wrapper.vm.$nextTick()
 
     expect(wrapper.text()).toBe('landscape')
@@ -110,5 +137,31 @@ describe('useOrientation', () => {
     wrapper.unmount()
 
     expect(removeEventListenerSpy).toHaveBeenCalledWith('change', expect.any(Function))
+  })
+
+  it('舊版 Safari 僅支援 addListener/removeListener 時仍可更新與清理', async () => {
+    useLegacyOnlyApi = true
+
+    const Host = defineComponent({
+      setup() {
+        const { isLandscape } = useOrientation()
+        return { isLandscape }
+      },
+      render() {
+        return h('span', this.isLandscape ? 'landscape' : 'portrait')
+      },
+    })
+
+    const wrapper = mount(Host)
+    expect(addListenerSpy).toHaveBeenCalledWith(expect.any(Function))
+
+    legacyListeners.forEach((cb) => cb({ matches: true }))
+    await wrapper.vm.$nextTick()
+
+    expect(wrapper.text()).toBe('landscape')
+
+    wrapper.unmount()
+
+    expect(removeListenerSpy).toHaveBeenCalledWith(expect.any(Function))
   })
 })

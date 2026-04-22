@@ -1,5 +1,6 @@
 import { setActivePinia, createPinia } from 'pinia'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { nextTick } from 'vue'
 
 /**
  * T066：useAudio composable 單元測試。
@@ -7,7 +8,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
  * 涵蓋：
  * - playFlipSound() 在 audioEnabled=true 時透過 AudioContext 播放音效
  * - playFlipSound() 在 audioEnabled=false 時 no-op（不建立 AudioContext）
- * - 背景音樂 <audio> 元素預設為 muted
+ * - bgmMuted 預設為 true，並與 settingsStore.musicEnabled 連動
  * - fetch 失敗 swallow 不拋例外
  * - AudioContext 不存在時 playFlipSound() swallow 不拋例外
  * - 第一個來源 decode 失敗時會 fallback 到下一個來源
@@ -129,22 +130,33 @@ describe('useAudio', () => {
     expect(sourceInstances).toHaveLength(0)
   })
 
-  it('背景音樂 bgmMuted 預設應為 true（符合 Autoplay Policy）', async () => {
+  it('背景音樂 bgmMuted 預設應為 true，且 musicEnabled=true 時應同步解除 muted', async () => {
     const { useAudio } = await import('@/composables/useAudio')
+    const { useSettingsStore } = await import('@/stores/settingsStore')
+    const settings = useSettingsStore()
     const audio = useAudio()
 
     expect(audio.bgmMuted.value).toBe(true)
+
+    settings.musicEnabled = true
+    await nextTick()
+
+    expect(audio.bgmMuted.value).toBe(false)
   })
 
-  it('toggleBgmMute() 應翻轉 bgmMuted', async () => {
+  it('toggleBgmMute() 應翻轉 bgmMuted，並同步更新 musicEnabled', async () => {
     const { useAudio } = await import('@/composables/useAudio')
+    const { useSettingsStore } = await import('@/stores/settingsStore')
+    const settings = useSettingsStore()
     const audio = useAudio()
 
     audio.toggleBgmMute()
     expect(audio.bgmMuted.value).toBe(false)
+    expect(settings.musicEnabled).toBe(true)
 
     audio.toggleBgmMute()
     expect(audio.bgmMuted.value).toBe(true)
+    expect(settings.musicEnabled).toBe(false)
   })
 
   it('playFlipSound() 在 fetch 失敗時應 swallow 錯誤不拋例外', async () => {

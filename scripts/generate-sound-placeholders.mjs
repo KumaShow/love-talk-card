@@ -2,13 +2,13 @@
  * 產生音效 placeholder（silent WAV，PCM 8-bit 8kHz mono）。
  *
  * 輸出：
- * - public/sounds/flip.wav （0.5 秒靜音）
+ * - public/sounds/flip.wav （0.4 秒靜音）
  * - public/sounds/bgm.wav  （3 秒靜音循環用佔位）
  *
  * 背景：
  *   T073 規格要求 flip.ogg/mp3 與 bgm.ogg/mp3，但 OGG Vorbis / MP3 需要專屬編碼器，
  *   pure Node 無法在合理工作量內產生。改以 silent WAV 作為可 decode 的佔位，
- *   useAudio 的 FLIP_SOUND_SOURCES 會依 ogg → mp3 → wav 順序嘗試，
+ *   useAudio 的 FLIP_SOUND_FILENAMES 會依 ogg → mp3 → wav 順序嘗試，
  *   正式 ogg/mp3 放入後即無縫升級，不需修改程式碼。
  */
 import { mkdirSync, writeFileSync } from 'node:fs'

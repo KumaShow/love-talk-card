@@ -1,4 +1,4 @@
-import { spawn, type ChildProcessWithoutNullStreams } from 'node:child_process'
+import { spawn, type ChildProcess } from 'node:child_process'
 import { setTimeout as delay } from 'node:timers/promises'
 
 import { expect, test, type Page } from '@playwright/test'
@@ -21,7 +21,7 @@ import { expect, test, type Page } from '@playwright/test'
 const PREVIEW_PORT = 4173
 const PREVIEW_URL = `http://localhost:${PREVIEW_PORT}`
 
-let previewProcess: ChildProcessWithoutNullStreams | null = null
+let previewProcess: ChildProcess | null = null
 
 function runCommand(command: string, args: readonly string[]): Promise<void> {
   return new Promise((resolvePromise, rejectPromise) => {
@@ -79,6 +79,8 @@ test.describe.configure({ mode: 'serial' })
 
 test.describe('US5 — PWA 離線遊玩', () => {
   test.beforeAll(async () => {
+    test.setTimeout(60_000)
+
     // 1. 建置 production bundle（vue-tsc + vite build）
     await runCommand('npm', ['run', 'build'])
 
@@ -86,7 +88,7 @@ test.describe('US5 — PWA 離線遊玩', () => {
     previewProcess = spawn(
       'npm',
       ['run', 'preview', '--', '--port', String(PREVIEW_PORT), '--strictPort'],
-      { cwd: process.cwd(), shell: true, stdio: ['ignore', 'pipe', 'pipe'] },
+      { cwd: process.cwd(), shell: true, stdio: 'inherit' },
     )
 
     await waitForPreviewReady(30_000)

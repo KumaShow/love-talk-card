@@ -1,5 +1,10 @@
 import { onBeforeUnmount, ref } from 'vue'
 
+type LegacyMediaQueryList = MediaQueryList & {
+  addListener?: (listener: (event: MediaQueryListEvent) => void) => void
+  removeListener?: (listener: (event: MediaQueryListEvent) => void) => void
+}
+
 /**
  * useOrientation：以 window.matchMedia('(orientation: landscape)') 追蹤橫/直屏狀態。
  *
@@ -19,17 +24,25 @@ export function useOrientation() {
     return { isLandscape }
   }
 
-  const mql = window.matchMedia('(orientation: landscape)')
+  const mql = window.matchMedia('(orientation: landscape)') as LegacyMediaQueryList
   isLandscape.value = mql.matches
 
   const handleChange = (event: MediaQueryListEvent | { matches: boolean }) => {
     isLandscape.value = event.matches
   }
 
-  mql.addEventListener('change', handleChange as (event: MediaQueryListEvent) => void)
+  if (typeof mql.addEventListener === 'function') {
+    mql.addEventListener('change', handleChange as (event: MediaQueryListEvent) => void)
+  } else {
+    mql.addListener?.(handleChange as (event: MediaQueryListEvent) => void)
+  }
 
   onBeforeUnmount(() => {
-    mql.removeEventListener('change', handleChange as (event: MediaQueryListEvent) => void)
+    if (typeof mql.removeEventListener === 'function') {
+      mql.removeEventListener('change', handleChange as (event: MediaQueryListEvent) => void)
+    } else {
+      mql.removeListener?.(handleChange as (event: MediaQueryListEvent) => void)
+    }
   })
 
   return { isLandscape }

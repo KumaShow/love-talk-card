@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 
 import { useSettingsStore } from '@/stores/settingsStore'
 
@@ -7,7 +7,7 @@ import { useSettingsStore } from '@/stores/settingsStore'
  *
  * 設計決策（參見 research.md R-008）：
  * - 翻牌音效以 Web Audio API（AudioContext）播放，延遲 < 10ms，高頻觸發無 reset 開銷。
- * - 背景音樂以 <audio loop muted> 元素承載；初始 muted 以符合 Autoplay Policy。
+ * - 背景音樂以 App.vue 掛載的 <audio loop> 元素承載；mute 狀態與 settingsStore.musicEnabled 連動。
  * - AudioContext 與 flip buffer 皆「懶載入」：直到 playFlipSound() 第一次被呼叫才建立，
  *   避免對未互動的使用者觸發 Autoplay Policy 警告。
  * - 音效完全受 settingsStore.audioEnabled 控制；disabled 時 playFlipSound() 立即 no-op。
@@ -23,6 +23,7 @@ import { useSettingsStore } from '@/stores/settingsStore'
  *   正式 ogg/mp3 加入後 fetch 會命中前面的項目，wav 自動降為最後 fallback。
  */
 const FLIP_SOUND_FILENAMES = ['flip.ogg', 'flip.mp3', 'flip.wav'] as const
+const BGM_SOUND_FILENAMES = ['bgm.ogg', 'bgm.mp3', 'bgm.wav'] as const
 
 function resolveSoundUrl(filename: string): string {
   // Vite 保證 import.meta.env.BASE_URL 存在且以 '/' 結尾（含 base:'./' 會解析為相對路徑基底）。
@@ -34,6 +35,7 @@ function resolveSoundUrl(filename: string): string {
 let sharedContext: AudioContext | null = null
 let flipBuffer: AudioBuffer | null = null
 let flipBufferLoading: Promise<AudioBuffer | null> | null = null
+const sharedBgmMuted = ref(true)
 
 /** 取得或建立 AudioContext；環境不支援時回傳 null。 */
 function getAudioContext(): AudioContext | null {
@@ -46,7 +48,7 @@ function getAudioContext(): AudioContext | null {
   return sharedContext
 }
 
-/** 依序嘗試載入 flip.ogg → flip.mp3；任一成功即 decode 並快取 buffer。 */
+/** 依 FLIP_SOUND_FILENAMES 順序載入（目前為 flip.ogg → flip.mp3 → flip.wav）；任一成功即 decode 並快取 buffer。 */
 async function loadFlipBuffer(context: AudioContext): Promise<AudioBuffer | null> {
   if (flipBuffer) return flipBuffer
   if (flipBufferLoading) return flipBufferLoading
@@ -76,9 +78,18 @@ async function loadFlipBuffer(context: AudioContext): Promise<AudioBuffer | null
 
 export function useAudio() {
   const settings = useSettingsStore()
+  const bgmSourceUrls = BGM_SOUND_FILENAMES.map(resolveSoundUrl)
 
   /** 背景音樂 mute 狀態（預設 true，避免自動播放被瀏覽器阻擋）。 */
-  const bgmMuted = ref(true)
+  const bgmMuted = sharedBgmMuted
+
+  watch(
+    () => settings.musicEnabled,
+    (musicEnabled) => {
+      bgmMuted.value = !musicEnabled
+    },
+    { immediate: true },
+  )
 
   /**
    * 播放翻牌音效。
@@ -108,11 +119,14 @@ export function useAudio() {
 
   /** 切換背景音樂 mute；需由使用者互動觸發才能解除瀏覽器限制。 */
   function toggleBgmMute(): void {
-    bgmMuted.value = !bgmMuted.value
+    const nextMuted = !bgmMuted.value
+    bgmMuted.value = nextMuted
+    settings.musicEnabled = !nextMuted
   }
 
   return {
     bgmMuted,
+    bgmSourceUrls,
     playFlipSound,
     toggleBgmMute,
   }
