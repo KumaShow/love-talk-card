@@ -1,3 +1,4 @@
+import { createPinia } from 'pinia'
 import { mount } from '@vue/test-utils'
 import { describe, expect, it } from 'vitest'
 import App from '@/App.vue'
@@ -7,6 +8,7 @@ describe('App', () => {
   it('渲染 RouterView 位置', () => {
     const wrapper = mount(App, {
       global: {
+        plugins: [createPinia()],
         stubs: {
           RouterView: {
             template: '<div data-test="router-view" />',

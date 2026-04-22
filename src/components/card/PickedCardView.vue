@@ -51,12 +51,16 @@ import { computed, nextTick, watch } from 'vue'
 import CardBack from '@/components/card/CardBack.vue'
 import CardFace from '@/components/card/CardFace.vue'
 import LanguageSelector from '@/components/ui/LanguageSelector.vue'
+import { useAudio } from '@/composables/useAudio'
 import { useCard } from '@/composables/useCard'
 import { useSettingsStore } from '@/stores/settingsStore'
 import type { Card } from '@/types'
 
 /** PickedCardView 內就近供 LanguageSelector 連動 settingsStore，避免父層多寫一層轉發。 */
 const settingsStore = useSettingsStore()
+
+/** 翻面音效；phase 進入 flipping 時與 CSS 翻面動畫同步觸發。 */
+const { playFlipSound } = useAudio()
 
 export type PickedPhase = 'idle' | 'flipping' | 'reading' | 'dismissing'
 
@@ -83,6 +87,8 @@ watch(
       await nextTick()
       requestAnimationFrame(() => {
         flipCard()
+        // 與 3D 翻面動畫同步播放翻牌音效；audioEnabled=false 時 useAudio 內部自動 no-op。
+        void playFlipSound()
       })
     }
     if (next === 'idle') {

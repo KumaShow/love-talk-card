@@ -12,6 +12,7 @@
 - **2026-04-20**：Phase 3-4 MVP 於 commit `704fcee` 交付後，依使用者實測回饋啟動 Phase 9 UX 重塑。T001–T088 保留作為交付史實，不改；新增 T089–T098 於 Phase 9 執行 POC 轉正。部分舊任務對應的元件將於 T090–T092 被取代（`CardStack.vue` 刪除、`HomeView.vue` / `GameView.vue` 重寫），屬於 v2 演進而非舊任務失效。
 - **2026-04-22**：Phase 9 UX 重塑全部完成並隨 PR #2 合併進 `main`（merge commit `38e0584`）。T089–T098 實作、測試、文件與 smoke 皆已交付，下一優先為 Phase 5 US3 語言切換。
 - **2026-04-22**：Phase 5 US3 副語言切換完成（T050–T058）。實作期間發現原規格 T056「LanguageSelector 放 AppHeader 右側 slot」會在 iPhone 14 直向 viewport（390px 寬）擠到中文直書，故採 A+C 方案：(A) AppHeader 返回鈕去文字只留 ←；(C) LanguageSelector 移到 PickedCardView CTA 下方，僅 reading phase 顯示，方便單手切換。資料層 cards.json 80 張中目前僅 sel-001~003 有真泰文翻譯，其餘 th/ja 仍為英文佔位，留待後續階段統一翻譯。
+- **2026-04-22**：Phase 7 US5 PWA / 離線 / 音效 / 橫向提示完成（T066–T076）。音效資源（T073）因無免版稅素材，暫以 `public/sounds/{flip,bgm}.wav` silent placeholder 取代規格要求的 ogg/mp3；`useAudio.ts` 依 ogg → mp3 → wav 順序 fetch，正式素材放入即無縫升級。PWA icons（T074）以 `scripts/generate-pwa-icons.mjs` 產生純 Node PNG 編碼器的 heart-on-pink placeholder，最終應由設計師以向量原稿重匯。vite.config.ts 的 VitePWA 設為 `autoUpdate` + `generateSW`，globPatterns 加入 `wav` 以 precache 佔位音效，devOptions.enabled=false 避免干擾 HMR。
 
 ## 格式：`[ID] [P?] [Story] 說明`
 
@@ -176,20 +177,20 @@
 
 ### 使用者故事 5 的測試（TDD — 必須先寫，先確認失敗再實作）
 
-- [ ] T066 [P] [US5] 在 tests/unit/composables/useAudio.test.ts 撰寫會失敗的 useAudio composable 單元測試：`playFlipSound()` 會呼叫 `AudioContext.createBufferSource()` 並開始播放（以 mock AudioContext），當 `audioEnabled=false` 時 `playFlipSound()` 不做任何事，背景音樂 `<audio>` 元素預設為 muted
-- [ ] T067 [P] [US5] 在 tests/unit/composables/useOrientation.test.ts 撰寫會失敗的 useOrientation composable 單元測試：當 `matchMedia('(orientation: landscape)')` 命中（mock）時 `isLandscape` 為 true、`isLandscape` 具反應性並會在 MediaQueryList change 事件時更新、unmount 時會移除事件監聽器
+- [x] T066 [P] [US5] 在 tests/unit/composables/useAudio.test.ts 撰寫會失敗的 useAudio composable 單元測試：`playFlipSound()` 會呼叫 `AudioContext.createBufferSource()` 並開始播放（以 mock AudioContext），當 `audioEnabled=false` 時 `playFlipSound()` 不做任何事，背景音樂 `<audio>` 元素預設為 muted
+- [x] T067 [P] [US5] 在 tests/unit/composables/useOrientation.test.ts 撰寫會失敗的 useOrientation composable 單元測試：當 `matchMedia('(orientation: landscape)')` 命中（mock）時 `isLandscape` 為 true、`isLandscape` 具反應性並會在 MediaQueryList change 事件時更新、unmount 時會移除事件監聽器
 
 ### 使用者故事 5 的實作
 
-- [ ] T068 [US5] 在 src/composables/useAudio.ts 實作 useAudio composable：第一次使用者互動時才懶載入 `AudioContext`、以 `fetch()` 與 `decodeAudioData()` 載入 flip.ogg（若無則回退 flip.mp3）、`playFlipSound()` 需遵守 `settingsStore.audioEnabled`；另提供由 `settingsStore.musicEnabled` 控制的 `<audio loop muted>` 背景音樂元素；使 T066 通過
-- [ ] T069 [US5] 在 src/composables/useOrientation.ts 實作 useOrientation composable：`const mq = window.matchMedia('(orientation: landscape)')`、`isLandscape` 為反應式 `ref(mq.matches)`、加入 `change` 事件監聽器更新 ref、`onUnmounted` cleanup 移除監聽器；使 T067 通過
-- [ ] T070 [US5] 在 src/components/layout/OrientationGuard.vue 實作 OrientationGuard：當 `useOrientation().isLandscape === true` 時顯示 fixed-position 全螢幕遮罩（z-index: 9999）；內容包含手機旋轉 SVG 圖示與雙語提示（"請旋轉手機 / Please rotate your device"）；且不會中斷底下的遊戲狀態
-- [ ] T071 [US5] 在 `src/components/card/PickedCardView.vue` 整合 useAudio：於進入 `flipping` 階段並觸發 overlay 翻牌時立刻呼叫 `useAudio().playFlipSound()`；音效需與 3D 翻面動畫同步
-- [ ] T072 [US5] 在 src/App.vue 將 OrientationGuard 整合為 `<RouterView>` 的持續性 overlay sibling：`<OrientationGuard />` 會顯示在所有 route view 之上
-- [ ] T073 [US5] 新增音效資源：public/sounds/flip.ogg + public/sounds/flip.mp3（0.5 秒內、免版稅的卡片翻牌音效）；public/sounds/bgm.ogg + public/sounds/bgm.mp3（環境循環音樂占位）；並在 README 加入來源註記
-- [ ] T074 [US5] 在 public/icons/ 產生並加入 PWA icon：72×72、96×96、128×128、144×144、152×152、192×192、384×384、512×512 PNG 檔，來源為一個 SVG（愛心/卡牌主題、透明背景單色）
-- [ ] T075 [US5] 更新 vite.config.ts 加入 vite-plugin-pwa：`registerType: 'autoUpdate'`、Workbox `generateSW` 模式、`globPatterns: ['**/*.{js,css,html,json,png,svg,ogg,mp3}']`、manifest 屬性取自 contracts/pwa-manifest.json（name、short_name、display: 'standalone'、orientation: 'portrait'、background_color、theme_color、icons list）
-- [ ] T076 [US5] 在 tests/e2e/playwright/us5-offline-pwa.spec.ts 撰寫 E2E 測試：`npm run build && npm run preview` → 開啟 app → 等待 Service Worker 進入 `activated` 狀態 → 將瀏覽器設為離線 → 導向 / → 選擇主題 → 抽 5 張卡 → 驗證卡片文字在 zh 與 th 都可渲染 → 驗證 console 沒有 network errors
+- [x] T068 [US5] 在 src/composables/useAudio.ts 實作 useAudio composable：第一次使用者互動時才懶載入 `AudioContext`、以 `fetch()` 與 `decodeAudioData()` 載入 flip.ogg（若無則回退 flip.mp3）、`playFlipSound()` 需遵守 `settingsStore.audioEnabled`；另提供由 `settingsStore.musicEnabled` 控制的 `<audio loop muted>` 背景音樂元素；使 T066 通過
+- [x] T069 [US5] 在 src/composables/useOrientation.ts 實作 useOrientation composable：`const mq = window.matchMedia('(orientation: landscape)')`、`isLandscape` 為反應式 `ref(mq.matches)`、加入 `change` 事件監聽器更新 ref、`onUnmounted` cleanup 移除監聽器；使 T067 通過
+- [x] T070 [US5] 在 src/components/layout/OrientationGuard.vue 實作 OrientationGuard：當 `useOrientation().isLandscape === true` 時顯示 fixed-position 全螢幕遮罩（z-index: 9999）；內容包含手機旋轉 SVG 圖示與雙語提示（"請旋轉手機 / Please rotate your device"）；且不會中斷底下的遊戲狀態
+- [x] T071 [US5] 在 `src/components/card/PickedCardView.vue` 整合 useAudio：於進入 `flipping` 階段並觸發 overlay 翻牌時立刻呼叫 `useAudio().playFlipSound()`；音效需與 3D 翻面動畫同步
+- [x] T072 [US5] 在 src/App.vue 將 OrientationGuard 整合為 `<RouterView>` 的持續性 overlay sibling：`<OrientationGuard />` 會顯示在所有 route view 之上
+- [x] T073 [US5] ~~原規格：新增 flip.ogg/mp3 + bgm.ogg/mp3 免版稅音效~~ 以 `scripts/generate-sound-placeholders.mjs` 生成 silent WAV placeholder 取代，並建立 `public/sounds/README.md` 說明需由設計人員補入正式 ogg/mp3（詳見修訂紀錄 2026-04-22）；useAudio 實作依 ogg → mp3 → wav fallback，可無縫升級
+- [x] T074 [US5] 在 public/icons/ 產生並加入 PWA icon：72×72、96×96、128×128、144×144、152×152、192×192、384×384、512×512 PNG 檔，以 `scripts/generate-pwa-icons.mjs` 用 pure-Node PNG encoder 產出 heart-on-pink placeholder（待設計稿以向量源檔重匯）
+- [x] T075 [US5] 更新 vite.config.ts 加入 vite-plugin-pwa：`registerType: 'autoUpdate'`、Workbox `generateSW` 模式、`globPatterns: ['**/*.{js,css,html,json,png,svg,ico,ogg,mp3,wav,webmanifest}']`、manifest 屬性取自 contracts/pwa-manifest.json（name、short_name、display: 'standalone'、orientation: 'portrait'、background_color、theme_color、icons list）；devOptions.enabled=false 避免干擾 dev HMR
+- [x] T076 [US5] 在 tests/e2e/playwright/us5-offline-pwa.spec.ts 撰寫 E2E 測試：`npm run build && npm run preview` → 開啟 app → 等待 Service Worker 進入 `activated` 狀態 → 將瀏覽器設為離線 → 導向 / → 選擇主題 → 抽 5 張卡 → 驗證卡片文字在 zh 與 th 都可渲染 → 驗證 console 沒有 network errors
 
 **檢查點**：5 個使用者故事全部完成。執行 `npm run test:all` 進行完整驗證。
 
