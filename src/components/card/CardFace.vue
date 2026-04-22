@@ -26,27 +26,48 @@
         <slot name="intimate-indicator">♥</slot>
       </span>
     </div>
-    <p class="card-face__primary" data-test="card-primary-text">
+    <p class="card-face__primary" data-test="card-primary-text" lang="zh-TW">
       {{ card.text.zh }}
     </p>
-    <p v-if="secondaryText" class="card-face__secondary" data-test="card-secondary-text">
+    <p
+      v-if="secondaryText"
+      class="card-face__secondary"
+      data-test="card-secondary-text"
+      :lang="secondaryHtmlLang"
+    >
       {{ secondaryText }}
     </p>
   </article>
 </template>
 
 <script setup lang="ts">
+import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
-import type { Card } from '@/types'
+import { useSettingsStore } from '@/stores/settingsStore'
+import type { Card, SecondaryLang } from '@/types'
+import { getCardText } from '@/utils/card-text'
 
 const props = defineProps<{
   card: Card
-  /** 副語言預覽文字。由父層（US3 實作後）注入；為空時僅顯示主語言。 */
-  secondaryText?: string
 }>()
 
-const secondaryText = computed(() => props.secondaryText?.trim() || '')
+/**
+ * T057：次要語言文字改由 getCardText() 計算，依 settingsStore.secondaryLang 反應式更新。
+ * 切換 LanguageSelector 後，正在顯示的卡片次要文字會立即同步變更。
+ *
+ * 採用 storeToRefs 取出 secondaryLang ref 確保 computed 對 store 變更的依賴追蹤穩定。
+ */
+const { secondaryLang } = storeToRefs(useSettingsStore())
+const secondaryText = computed(() => getCardText(props.card, secondaryLang.value))
+
+/** SecondaryLang ('en' | 'th' | 'ja') 對應 BCP 47 lang code，作為次要 <p> 的 HTML lang 屬性。 */
+const HTML_LANG_MAP: Record<SecondaryLang, string> = {
+  en: 'en',
+  th: 'th',
+  ja: 'ja',
+}
+const secondaryHtmlLang = computed(() => HTML_LANG_MAP[secondaryLang.value])
 </script>
 
 <style scoped>

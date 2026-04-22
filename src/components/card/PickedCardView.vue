@@ -34,6 +34,16 @@
           下一張
         </button>
       </Transition>
+
+      <Transition name="picked-cta">
+        <LanguageSelector
+          v-if="phase === 'reading'"
+          class="picked__lang"
+          :model-value="settingsStore.secondaryLang"
+          data-test="picked-language-selector"
+          @select="settingsStore.setSecondaryLang"
+        />
+      </Transition>
     </div>
   </Transition>
 </template>
@@ -43,8 +53,13 @@ import { computed, nextTick, watch } from 'vue'
 
 import CardBack from '@/components/card/CardBack.vue'
 import CardFace from '@/components/card/CardFace.vue'
+import LanguageSelector from '@/components/ui/LanguageSelector.vue'
 import { useCard } from '@/composables/useCard'
+import { useSettingsStore } from '@/stores/settingsStore'
 import type { Card } from '@/types'
+
+/** PickedCardView 內就近供 LanguageSelector 連動 settingsStore，避免父層多寫一層轉發。 */
+const settingsStore = useSettingsStore()
 
 export type PickedPhase = 'idle' | 'flipping' | 'reading' | 'dismissing'
 
@@ -154,6 +169,14 @@ function handleBackdropClick() {
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 10px 22px -10px color-mix(in srgb, var(--color-primary) 60%, #000);
   cursor: pointer;
+}
+
+/* LanguageSelector 緊貼 CTA 下方，方便單手切換正在閱讀卡片的副語言 */
+.picked__lang {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 1.25rem + 48px + 0.75rem);
+  transform: translateX(-50%);
 }
 
 .picked-backdrop-enter-active,

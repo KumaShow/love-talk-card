@@ -127,18 +127,18 @@
 
 ### 使用者故事 3 的測試（TDD — 必須先寫，先確認失敗再實作）
 
-- [ ] T050 [P] [US3] 在 tests/unit/composables/useI18n.test.ts 撰寫會失敗的 useI18n composable 單元測試：`t('home.title')` 會從 zh-TW.json 回傳 ZH-TW 字串、切換 locale 為 `'en'` 後會回傳英文、缺少 key 時回傳 key 字串（不崩潰）、composable 具備反應性（locale 變更時模板會重新渲染）
-- [ ] T051 [P] [US3] 在 tests/unit/utils/card-text.test.ts 撰寫會失敗的語言回退單元測試：`getCardText(card, 'th')` 會回傳 `card.text.th`、當 `card.text.th === ''` 時回傳 `card.text.en`、當 ja 為空時 `getCardText(card, 'ja')` 會回傳 `card.text.en`、最終回退為 `card.text.zh`
+- [x] T050 [P] [US3] 在 tests/unit/composables/useI18n.test.ts 撰寫會失敗的 useI18n composable 單元測試：`t('home.title')` 會從 zh-TW.json 回傳 ZH-TW 字串、切換 locale 為 `'en'` 後會回傳英文、缺少 key 時回傳 key 字串（不崩潰）、composable 具備反應性（locale 變更時模板會重新渲染）
+- [x] T051 [P] [US3] 在 tests/unit/utils/card-text.test.ts 撰寫會失敗的語言回退單元測試：`getCardText(card, 'th')` 會回傳 `card.text.th`、當 `card.text.th === ''` 時回傳 `card.text.en`、當 ja 為空時 `getCardText(card, 'ja')` 會回傳 `card.text.en`、最終回退為 `card.text.zh`
 
 ### 使用者故事 3 的實作
 
-- [ ] T052 [US3] 在 src/composables/useI18n.ts 實作 useI18n composable：反應式 `currentLocale` ref（預設為 'zh-TW'）、`t(key: string): string` 從載入的 JSON 讀取、`switchLocale(locale)` 更新 currentLocale；總實作少於 50 行；不依賴 vue-i18n；使 T050 通過
-- [ ] T053 [US3] 建立 src/utils/card-text.ts，提供 `getCardText(card: Card, lang: SecondaryLang): string`：若 `card.text[lang]` 為非空字串則回傳該值，否則回退到 `card.text.en`，再否則回退 `card.text.zh`；使 T051 通過
-- [ ] T054 [US3] 更新 src/stores/settingsStore.ts：新增 `setSecondaryLang(lang: SecondaryLang)` action 以更新 `secondaryLang` ref；此變更僅限 session 且立即具備反應性
-- [ ] T055 [US3] 在 src/components/ui/LanguageSelector.vue 實作 LanguageSelector：3 顆按鈕群組（EN / ไทย / 日）、啟用中的按鈕以主題 primary 色彩樣式化、每個按鈕 ≥44×44px、aria-pressed 屬性、emit `select` 並帶出 SecondaryLang 值
-- [ ] T056 [US3] 更新 src/components/layout/AppHeader.vue：將 LanguageSelector 整合到右側 slot，並連接到 `settingsStore.setSecondaryLang()`
-- [ ] T057 [US3] 更新 src/components/card/CardFace.vue：次要文字改由 `getCardText(props.card, settingsStore.secondaryLang)` 計算；具反應性 — 在語言切換時（包含目前正在顯示的卡片）會立即更新
-- [ ] T058 [US3] 在 tests/e2e/playwright/us3-language-switch.spec.ts 撰寫 E2E 測試：抽卡時為 EN → 次要文字為英文 → 點 ไทย 按鈕 → 次要文字在 1 秒內變成泰文 → 抽下一張卡 → 泰文仍持續 → 點 EN → 回復英文 → 抽出 Thai 為空文字的卡片 → 回退為英文
+- [x] T052 [US3] 在 src/composables/useI18n.ts 實作 useI18n composable：反應式 `currentLocale` ref（預設為 'zh-TW'）、`t(key: string): string` 從載入的 JSON 讀取、`switchLocale(locale)` 更新 currentLocale；總實作少於 50 行；不依賴 vue-i18n；使 T050 通過
+- [x] T053 [US3] 建立 src/utils/card-text.ts，提供 `getCardText(card: Card, lang: SecondaryLang): string`：若 `card.text[lang]` 為非空字串則回傳該值，否則回退到 `card.text.en`，再否則回退 `card.text.zh`；使 T051 通過
+- [x] T054 [US3] 更新 src/stores/settingsStore.ts：新增 `setSecondaryLang(lang: SecondaryLang)` action 以更新 `secondaryLang` ref；此變更僅限 session 且立即具備反應性
+- [x] T055 [US3] 在 src/components/ui/LanguageSelector.vue 實作 LanguageSelector：3 顆按鈕群組（EN / ไทย / 日）、啟用中的按鈕以主題 primary 色彩樣式化、每個按鈕 ≥44×44px、aria-pressed 屬性、emit `select` 並帶出 SecondaryLang 值
+- [x] T056 [US3] 更新 src/components/layout/AppHeader.vue：將 LanguageSelector 整合到右側 slot，並連接到 `settingsStore.setSecondaryLang()`
+- [x] T057 [US3] 更新 src/components/card/CardFace.vue：次要文字改由 `getCardText(props.card, settingsStore.secondaryLang)` 計算；具反應性 — 在語言切換時（包含目前正在顯示的卡片）會立即更新
+- [x] T058 [US3] 在 tests/e2e/playwright/us3-language-switch.spec.ts 撰寫 E2E 測試：抽卡時為 EN → 次要文字為英文 → 點 ไทย 按鈕 → 次要文字在 1 秒內變成泰文 → 抽下一張卡 → 泰文仍持續 → 點 EN → 回復英文 → 抽出 Thai 為空文字的卡片 → 回退為英文（資料註：cards.json 的 th/ja 欄位目前皆為英文佔位文字，E2E 採 `<p lang>` 屬性與 `aria-pressed` 同步性作為反應性證明，文字回退鏈邏輯由 T051 單元測試覆蓋）
 
 **檢查點**：使用者故事 1、2、3 都可運作。執行 `npm run test && npm run test:e2e -- --grep us3`。
 

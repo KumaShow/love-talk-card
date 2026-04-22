@@ -42,6 +42,15 @@ export const useSettingsStore = defineStore('settings', () => {
     intimateMode.value = !intimateMode.value
   }
 
+  /**
+   * 設定卡牌副語言；變更僅限 session（不寫入 localStorage），且立即具反應性。
+   * 與 intimateMode 不同，副語言切換在 GameView 進行中也允許 —
+   * 副語言僅影響 CardFace 的次要文字渲染，不會影響牌組組成。
+   */
+  function setSecondaryLang(lang: SecondaryLang): void {
+    secondaryLang.value = lang
+  }
+
   return {
     secondaryLang,
     intimateMode,
@@ -49,5 +58,6 @@ export const useSettingsStore = defineStore('settings', () => {
     musicEnabled,
     showRemainingCount,
     toggleIntimateMode,
+    setSecondaryLang,
   }
 })
