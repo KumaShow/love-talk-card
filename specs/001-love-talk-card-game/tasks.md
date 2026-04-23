@@ -15,6 +15,7 @@
 - **2026-04-22**：Phase 7 US5 PWA / 離線 / 音效 / 橫向提示完成（T066–T076）。音效資源（T073）因無免版稅素材，暫以 `public/sounds/{flip,bgm}.wav` silent placeholder 取代規格要求的 ogg/mp3；`useAudio.ts` 依 ogg → mp3 → wav 順序 fetch，正式素材放入即無縫升級。PWA icons（T074）以 `scripts/generate-pwa-icons.mjs` 產生純 Node PNG 編碼器的 heart-on-pink placeholder，最終應由設計師以向量原稿重匯。vite.config.ts 的 VitePWA 設為 `autoUpdate` + `generateSW`，globPatterns 加入 `wav` 以 precache 佔位音效，devOptions.enabled=false 避免干擾 HMR。
 - **2026-04-23**：Phase 6 US4 沉浸式主題氛圍完成（T059–T065）。`useTheme` 以 `document.documentElement` inline style 注入 6 個 CSS 變數，HomeView `resetTheme()` / GameView 與 EndView `applyTheme()` 串接；全站 transition 由 `#app` 承載（body 移除 gradient 以避免雙層疊色）。GameView 的 `themeStyle` computed 被移除，改由 onMounted 內 `applyTheme` 一次寫到 documentElement。開發環境 5173 port 時常被其他 Vue 專案佔用，將 Playwright webServer 與 baseURL 改為 5174 以隔離。T065 新增 10 條 E2E 全數通過；完整 `npx playwright test` 中 US1/US2/US3/US4 共 14 條綠，US5 beforeAll build + preview 超過 Playwright 預設 60s 屬環境壓力既有議題，與 Phase 6 無涉。
 - **2026-04-23（PR #7 第二輪 Copilot review）**：T061 原規格寫「body, #app 雙選擇器加 transition」但實作只保留 `#app`，以 strike through 方式在任務文字中明示偏移並補說明；T062 原規格要求 HomeView 點擊主題卡時呼叫 `applyTheme()`（讓色彩在 route push 前即開始 morph），先前實作漏掉，此輪補在 `HomeView.handleStart` 內。另將 US4 E2E 中的 `page.locator('[data-test="X"]')` 統一為 `page.getByTestId('X')` 以對齊 us1–us5 既有風格（Playwright config 已設 `testIdAttribute: 'data-test'`）。
+- **2026-04-23**：Phase 8 優化與跨切面（T077–T087）以 commit `dd522e9` 單一提交落地；T088 待推 `main` 後由 GitHub Actions 觀察結果再勾選。實作重點：(1) T077/T078 導入 `ajv@^8` 以 Draft-07 schema 驗證 `cards.json` 與 sessionStorage round-trip，避免契約漂移；(2) T079 以 WCAG 2.1 相對亮度公式驗證 4 主題 text vs background/backgroundEnd 對比比率；(3) T080 實測 bundle 為 65.3 KB gzip（JS 58.75 + CSS 6.12 + HTML 0.38），遠低於 200KB 上限，已在 `vite.config.ts` 註解留存；(4) T081 a11y spec 走訪首頁 / 預覽 / 遊戲 / overlay 四狀態全元件 ≥44×44；(5) T083 補 ConfirmModal 獨立元件測試（backdrop click = cancel）；(6) T084 鎖 `playwright.config.ts workers: 1` 解決本地並行時 dev server port 競用造成的 flaky，CI 原本即 `workers: 1` 不受影響；(7) T085 perf spec 自行 spawn 獨立 port 4174 的 production preview，用 Chromium CDP 模擬 4G 驗證 FCP <1500ms、並以 `transitionProperty` 對齊 transform 欄位精確讀取 flip 600ms / dismiss 460ms；(8) T086 同步 quickstart.md 為實際 `package.json` scripts（含 coverage/.tmp 前置與 5174 E2E port 註記）；(9) T087 新增根目錄 `README.md`。目前 lint 僅剩 2 條 Playwright plugin 警告（`no-eval`、`no-wait-for-timeout`），不阻擋 CI。
 
 ## 格式：`[ID] [P?] [Story] 說明`
 
@@ -202,17 +203,17 @@
 
 **目的**：在所有故事之間進行品質驗證、無障礙、效能檢查與最終整合檢查。
 
-- [ ] T077 [P] 在 Vitest 測試 tests/unit/utils/cards-schema.test.ts 中使用 ajv 驗證 src/data/cards.json 是否符合 contracts/card-data.schema.json：總卡數 80、4 個主題各自皆有 15 張基礎 + 5 張私密、所有 ID 符合 `^[a-z]+-[0-9]{3}-(base|intimate)$`、所有 `text.zh` 皆非空
-- [ ] T078 [P] 在 tests/unit/stores/session-snapshot.test.ts 中使用 ajv 驗證 sessionStorage round-trip 是否符合 contracts/game-session.schema.json：開始 session → 抽 3 張卡 → 讀取 sessionStorage → 以 ajv 驗證 JSON 是否符合 schema（deckOrder 15–20 個不重複項目、drawnCardIds ⊆ deckOrder）
-- [ ] T079 [P] 在 tests/unit/utils/wcag-contrast.test.ts 驗證所有 4 組主題色票的 WCAG 2.1 AA 色彩對比（≥4.5:1）：使用 WCAG 公式計算每個主題的 `text` 與 `background`、`backgroundEnd` 的對比比率；確認所有比率皆 ≥4.5
-- [ ] T080 執行 `npm run build`，再使用 rollup-plugin-visualizer 或 `npx vite-bundle-visualizer` 分析 bundle：確認初始 JS+CSS bundle ≤200KB gzip（不含 PWA 預快取資產）；並在 vite.config.ts 內以註解記錄結果
-- [ ] T081 [P] 檢查所有互動元素是否符合最小觸控區域：在 tests/e2e/playwright/a11y-touch-targets.spec.ts 加入 Playwright 無障礙檢查，確認 iPhone 14 viewport 下所有 `button`、`[role=button]`、`a` 元素的 bounding box 皆 ≥44×44px
-- [ ] T082 執行 `npm run test:coverage` 並檢視覆蓋率報告：確認 composables/ 與 stores/ 至少 95%、整體專案至少 80%；找出任何未覆蓋的分支
-- [ ] T083 [P] 針對 T082 找出的任何缺口補充單元測試 — 優先處理：session restore 邊界情況（損毀的 sessionStorage 資料 → 優雅重置）、`FanDeck` / `PickedCardView` 的快速連點與 phase 阻擋、語言回退鏈（th → en → zh）、ConfirmModal 取消流程
-- [ ] T084 執行完整 Playwright E2E 套件 `npm run test:e2e`，涵蓋全部 5 個 spec 檔（us1 through us5 + a11y）；若有 flaky 測試，透過加入明確的 `waitFor` 斷言修正
-- [ ] T085 [P] 效能煙霧測試：在 tests/e2e/playwright/perf.spec.ts 加入 Playwright 測試，使用 `page.evaluate(() => performance.getEntriesByType('navigation'))` 在模擬 4G（150ms latency、1.5Mbps）下測量 FCP < 1500ms；並確認 overlay 翻牌動畫 CSS duration 為 600ms、dismiss 動畫 CSS duration 為 460ms（以 computed style 檢查）
-- [ ] T086 端到端驗證 quickstart.md：完整依照 specs/001-love-talk-card-game/quickstart.md 的每個步驟（clone、checkout、npm install、npm run dev、npm run test、npm run build、npm run preview、PWA 離線測試）；將任何差異記錄為 issue
-- [ ] T087 [P] 在儲存庫根目錄建立或更新 README.md：包含專案描述與截圖、技術堆疊、前置需求（Node 20 LTS）、安裝（`npm install`、`npm run dev`）、測試指令、建置與部署說明、specs/001-love-talk-card-game/ 連結、授權條款
+- [x] T077 [P] 在 Vitest 測試 tests/unit/utils/cards-schema.test.ts 中使用 ajv 驗證 src/data/cards.json 是否符合 contracts/card-data.schema.json：總卡數 80、4 個主題各自皆有 15 張基礎 + 5 張私密、所有 ID 符合 `^[a-z]+-[0-9]{3}-(base|intimate)$`、所有 `text.zh` 皆非空
+- [x] T078 [P] 在 tests/unit/stores/session-snapshot.test.ts 中使用 ajv 驗證 sessionStorage round-trip 是否符合 contracts/game-session.schema.json：開始 session → 抽 3 張卡 → 讀取 sessionStorage → 以 ajv 驗證 JSON 是否符合 schema（deckOrder 15–20 個不重複項目、drawnCardIds ⊆ deckOrder）
+- [x] T079 [P] 在 tests/unit/utils/wcag-contrast.test.ts 驗證所有 4 組主題色票的 WCAG 2.1 AA 色彩對比（≥4.5:1）：使用 WCAG 公式計算每個主題的 `text` 與 `background`、`backgroundEnd` 的對比比率；確認所有比率皆 ≥4.5
+- [x] T080 執行 `npm run build`，再使用 rollup-plugin-visualizer 或 `npx vite-bundle-visualizer` 分析 bundle：確認初始 JS+CSS bundle ≤200KB gzip（不含 PWA 預快取資產）；並在 vite.config.ts 內以註解記錄結果
+- [x] T081 [P] 檢查所有互動元素是否符合最小觸控區域：在 tests/e2e/playwright/a11y-touch-targets.spec.ts 加入 Playwright 無障礙檢查，確認 iPhone 14 viewport 下所有 `button`、`[role=button]`、`a` 元素的 bounding box 皆 ≥44×44px
+- [x] T082 執行 `npm run test:coverage` 並檢視覆蓋率報告：確認 composables/ 與 stores/ 至少 95%、整體專案至少 80%；找出任何未覆蓋的分支
+- [x] T083 [P] 針對 T082 找出的任何缺口補充單元測試 — 優先處理：session restore 邊界情況（損毀的 sessionStorage 資料 → 優雅重置）、`FanDeck` / `PickedCardView` 的快速連點與 phase 阻擋、語言回退鏈（th → en → zh）、ConfirmModal 取消流程
+- [x] T084 執行完整 Playwright E2E 套件 `npm run test:e2e`，涵蓋全部 5 個 spec 檔（us1 through us5 + a11y）；若有 flaky 測試，透過加入明確的 `waitFor` 斷言修正
+- [x] T085 [P] 效能煙霧測試：在 tests/e2e/playwright/perf.spec.ts 加入 Playwright 測試，使用 `page.evaluate(() => performance.getEntriesByType('navigation'))` 在模擬 4G（150ms latency、1.5Mbps）下測量 FCP < 1500ms；並確認 overlay 翻牌動畫 CSS duration 為 600ms、dismiss 動畫 CSS duration 為 460ms（以 computed style 檢查）
+- [x] T086 端到端驗證 quickstart.md：完整依照 specs/001-love-talk-card-game/quickstart.md 的每個步驟（clone、checkout、npm install、npm run dev、npm run test、npm run build、npm run preview、PWA 離線測試）；將任何差異記錄為 issue
+- [x] T087 [P] 在儲存庫根目錄建立或更新 README.md：包含專案描述與截圖、技術堆疊、前置需求（Node 20 LTS）、安裝（`npm install`、`npm run dev`）、測試指令、建置與部署說明、specs/001-love-talk-card-game/ 連結、授權條款
 - [ ] T088 推送至 `main` 分支並驗證 .github/workflows/deploy.yml 的 GitHub Actions workflow 完整通過所有工作：lint → type-check → test → build → deploy；確認線上網址可載入帶有 Service Worker 的遊戲
 
 ---
