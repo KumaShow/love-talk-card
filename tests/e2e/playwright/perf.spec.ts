@@ -28,9 +28,14 @@ function runCommand(command: string, args: readonly string[]): Promise<void> {
       stdio: 'inherit',
       shell: true,
     })
-    child.on('exit', (code) =>
-      code === 0 ? resolvePromise() : rejectPromise(new Error(`${command} exited ${code}`)),
-    )
+    // spawn 失敗（找不到指令、權限錯誤等）時會只觸發 error，不會觸發 exit；
+    // 若無 error handler，Promise 會永遠 hang 住 Playwright beforeAll。
+    child.on('error', rejectPromise)
+    // 用 close 而非 exit，確保 stdio 完成 flush 後才結束，避免輸出被截斷。
+    child.on('close', (code) => {
+      if (code === 0) resolvePromise()
+      else rejectPromise(new Error(`${command} exited with code ${code}`))
+    })
   })
 }
 
@@ -47,6 +52,14 @@ async function waitPreviewReady(url: string, timeoutMs = 20_000): Promise<void> 
   }
   throw new Error(`preview server at ${url} not ready within ${timeoutMs}ms`)
 }
+
+/**
+ * 全域 playwright.config.ts 設 `timeout: 30s`，但 beforeAll 要跑完 `npm run build`
+ * 再等 preview server ready，在 CI 或較慢機器上會遠超 30s 造成 hook 超時。
+ * 這裡把整個 describe（含 beforeAll 與 2 條 test）的 timeout 拉到 180s，
+ * 與 us5-offline-pwa 同量級，確保穩定性。
+ */
+test.describe.configure({ timeout: 180_000 })
 
 test.describe('效能煙霧', () => {
   test.beforeAll(async () => {
@@ -100,11 +113,21 @@ test.describe('效能煙霧', () => {
     await expect(page.getByTestId('fan-deck')).toBeVisible()
 
     await page.locator('[data-test="fan-deck"] .is-active').click()
-    await expect(page.getByTestId('picked-view')).toBeVisible()
+    const picked = page.getByTestId('picked-view')
+    await expect(picked).toBeVisible()
 
-    // 等 Vue <Transition> 的 enter-active class 結束（最長 420ms），
-    // 這樣 getComputedStyle 才會單純反映 .picked 本身的 transition 設定。
-    await page.waitForTimeout(500)
+    // Vue <Transition> 在進場期間會在 .picked 上加 `picked-shell-enter-active`，
+    // 期間 getComputedStyle 讀到的是 Transition 自身的 transition（opacity 240ms / transform 420ms），
+    // 而非 .picked.is-dismissing 想驗證的 460ms。等 class 被自動移除才反映最終樣式。
+    // 改用事件/條件式等待避免硬編碼 sleep（符合 playwright/no-wait-for-timeout 最佳實踐）。
+    await picked.evaluate((el) =>
+      el.classList.contains('picked-shell-enter-active')
+        ? new Promise<void>((resolve) => {
+            el.addEventListener('transitionend', () => resolve(), { once: true })
+          })
+        : undefined,
+    )
+    await expect(picked).not.toHaveClass(/picked-shell-enter-active/)
 
     const { flipDurationMs, dismissDurationMs } = await page.evaluate(() => {
       const parseMs = (value: string): number => {
