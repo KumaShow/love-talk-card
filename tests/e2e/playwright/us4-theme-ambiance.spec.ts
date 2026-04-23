@@ -1,14 +1,11 @@
-import { readFileSync } from 'node:fs'
-import { fileURLToPath } from 'node:url'
-
 import { expect, type Page, test } from '@playwright/test'
 
-import type { CardsData, ThemeId } from '../../../src/types'
+import cardsData from '@/data/cards.json' with { type: 'json' }
+import type { CardsData, ThemeId } from '@/types'
 
-// cards.json 的色票為主題色權威來源；以 fs.readFileSync 載入以避開 Node ESM 的
-// JSON import assertion 需求（import ... with { type: 'json' }）。
-const cardsPath = fileURLToPath(new URL('../../../src/data/cards.json', import.meta.url))
-const dataset = JSON.parse(readFileSync(cardsPath, 'utf-8')) as CardsData
+// cards.json 的色票為主題色權威來源（contracts/card-data.schema.json）。
+// 以 TS 5.x + Node 20 LTS 支援的 import attributes（`with { type: 'json' }`）直接載入。
+const dataset = cardsData as CardsData
 
 /**
  * T065：US4 沉浸式主題氛圍 E2E 測試。
@@ -83,6 +80,9 @@ async function readAppTransitionDurationMs(page: Page): Promise<number[]> {
       if (trimmed.endsWith('s')) {
         return Number.parseFloat(trimmed) * 1000
       }
+      // 非預期單位（例如空字串或未來 CSS 新單位）刻意回傳 NaN：
+      // 外層 toBeGreaterThanOrEqual(300) 對 NaN 一定會失敗，藉此把問題
+      // 直接抬到測試結果，而不是默默吞掉後用 0 帶過。
       return Number.NaN
     })
   })

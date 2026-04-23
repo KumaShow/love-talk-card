@@ -34,9 +34,9 @@ export function useTheme() {
       return
     }
     const root = document.documentElement
-    ;(Object.keys(CSS_VAR_MAP) as ColorKey[]).forEach((key) => {
+    for (const key of Object.keys(CSS_VAR_MAP) as ColorKey[]) {
       root.style.setProperty(CSS_VAR_MAP[key], theme.colors[key])
-    })
+    }
   }
 
   /**
@@ -45,9 +45,9 @@ export function useTheme() {
    */
   function resetTheme(): void {
     const root = document.documentElement
-    ;(Object.keys(CSS_VAR_MAP) as ColorKey[]).forEach((key) => {
+    for (const key of Object.keys(CSS_VAR_MAP) as ColorKey[]) {
       root.style.removeProperty(CSS_VAR_MAP[key])
-    })
+    }
   }
 
   return { applyTheme, resetTheme }

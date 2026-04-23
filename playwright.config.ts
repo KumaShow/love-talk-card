@@ -1,6 +1,15 @@
 import process from 'node:process'
 import { defineConfig, devices } from '@playwright/test'
 
+/**
+ * Vite 預設 dev port 為 5173，本地開發時該 port 常被其他 Vue 專案佔用，
+ * 加上 `webServer.reuseExistingServer: true` 會造成 Playwright 誤連到錯誤
+ * 的 app 造成 selector 全數 timeout。因此本專案 E2E 改用 5174，並透過
+ * `npm run dev -- --port 5174` 強制 Vite 啟動到對應 port。
+ * 詳見 specs/001-love-talk-card-game/tasks.md 2026-04-23 修訂紀錄。
+ */
+const DEV_SERVER_PORT = 5174
+
 export default defineConfig({
   testDir: './tests/e2e/playwright',
   timeout: 30 * 1000,
@@ -13,7 +22,7 @@ export default defineConfig({
   reporter: 'html',
   use: {
     actionTimeout: 0,
-    baseURL: 'http://localhost:5174',
+    baseURL: `http://localhost:${DEV_SERVER_PORT}`,
     trace: 'on-first-retry',
     /** 對齊專案 Vue 元件慣例：使用 data-test 而非 data-testid。 */
     testIdAttribute: 'data-test',
@@ -40,8 +49,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev -- --port 5174',
-    port: 5174,
+    command: `npm run dev -- --port ${DEV_SERVER_PORT}`,
+    port: DEV_SERVER_PORT,
     reuseExistingServer: !process.env.CI,
   },
 })
