@@ -35,12 +35,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 import ThemeCardDeck from '@/components/home/ThemeCardDeck.vue'
 import ThemePreview from '@/components/home/ThemePreview.vue'
 import ToggleSwitch from '@/components/ui/ToggleSwitch.vue'
+import { useTheme } from '@/composables/useTheme'
 import cardsData from '@/data/cards.json'
 import zhTw from '@/i18n/zh-TW.json'
 import { useGameStore } from '@/stores/gameStore'
@@ -50,9 +51,18 @@ import type { CardsData, Theme } from '@/types'
 const router = useRouter()
 const gameStore = useGameStore()
 const settingsStore = useSettingsStore()
+const { resetTheme } = useTheme()
 
 const dataset = cardsData as CardsData
 const selectedTheme = ref<Theme | null>(null)
+
+/**
+ * 首頁採中性預設色（main.css :root 寫死的粉色），避免殘留上一場主題氛圍。
+ * 使用者選主題後由 GameView onMounted 透過 applyTheme 接手。
+ */
+onMounted(() => {
+  resetTheme()
+})
 
 /**
  * 依商業規則（data-model.md §4），`intimateMode` 切換僅在 HomeView 有效；

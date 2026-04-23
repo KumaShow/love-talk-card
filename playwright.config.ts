@@ -13,7 +13,7 @@ export default defineConfig({
   reporter: 'html',
   use: {
     actionTimeout: 0,
-    baseURL: 'http://localhost:5173',
+    baseURL: 'http://localhost:5174',
     trace: 'on-first-retry',
     /** 對齊專案 Vue 元件慣例：使用 data-test 而非 data-testid。 */
     testIdAttribute: 'data-test',
@@ -40,8 +40,8 @@ export default defineConfig({
     },
   ],
   webServer: {
-    command: 'npm run dev',
-    port: 5173,
+    command: 'npm run dev -- --port 5174',
+    port: 5174,
     reuseExistingServer: !process.env.CI,
   },
 })

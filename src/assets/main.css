@@ -24,9 +24,25 @@ body,
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-end));
   color: var(--color-text);
   font-family: ui-serif, Georgia, 'Times New Roman', serif;
+}
+
+/*
+ * 全站主題氛圍承載層（US4）：
+ * - 漸層以 :root 注入的 6 個 CSS 變數驅動，由 useTheme.applyTheme() 依當前主題覆寫
+ * - 僅 #app 承載漸層，避免 body 與 #app 雙層疊加造成視覺髒色
+ * - transition 同時覆蓋 background-color（fallback 色）與 background（gradient），
+ *   符合憲章 300–500ms 過場要求；實際平滑感以 background-color 為主
+ */
+#app {
+  background-color: var(--color-bg);
+  background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-end));
+  color: var(--color-text);
+  transition:
+    background-color 500ms ease-in-out,
+    background 500ms ease-in-out,
+    color 500ms ease-in-out;
 }
 
 button,
