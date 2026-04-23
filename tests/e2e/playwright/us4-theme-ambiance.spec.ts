@@ -91,7 +91,7 @@ async function readAppTransitionDurationMs(page: Page): Promise<number[]> {
 test.describe('US4 沉浸式主題氛圍', () => {
   test('首頁為中性預設色，CSS 變數應無 inline 覆寫', async ({ page }) => {
     await page.goto('/')
-    await expect(page.locator('[data-test="theme-deck-grid"]')).toBeVisible()
+    await expect(page.getByTestId('theme-deck-grid')).toBeVisible()
 
     const vars = await readInlineVars(page)
     for (const name of CSS_VAR_NAMES) {
@@ -101,12 +101,12 @@ test.describe('US4 沉浸式主題氛圍', () => {
 
   test('從首頁選主題進入 GameView，背景漸層切換至該主題色', async ({ page }) => {
     await page.goto('/')
-    await expect(page.locator('[data-test="theme-deck-grid"]')).toBeVisible()
+    await expect(page.getByTestId('theme-deck-grid')).toBeVisible()
 
-    await page.locator('[data-test="theme-deck-attraction"]').click()
-    await page.locator('[data-test="preview-cta"]').click()
+    await page.getByTestId('theme-deck-attraction').click()
+    await page.getByTestId('preview-cta').click()
     await expect(page).toHaveURL(/#\/game\/attraction$/)
-    await expect(page.locator('[data-test="fan-deck"]')).toBeVisible()
+    await expect(page.getByTestId('fan-deck')).toBeVisible()
 
     await assertThemeVarsMatch(page, 'attraction')
 
@@ -121,12 +121,12 @@ test.describe('US4 沉浸式主題氛圍', () => {
 
   test('返回首頁後改選另一主題，氛圍色會更新', async ({ page }) => {
     await page.goto('/')
-    await page.locator('[data-test="theme-deck-attraction"]').click()
-    await page.locator('[data-test="preview-cta"]').click()
-    await expect(page.locator('[data-test="fan-deck"]')).toBeVisible()
+    await page.getByTestId('theme-deck-attraction').click()
+    await page.getByTestId('preview-cta').click()
+    await expect(page.getByTestId('fan-deck')).toBeVisible()
 
     // 透過 AppHeader 返回按鈕回到首頁
-    await page.locator('[data-test="app-header-back"]').click()
+    await page.getByTestId('app-header-back').click()
     await expect(page).toHaveURL(/#\/$/)
 
     // 回首頁後 inline 變數會被 resetTheme 清空
@@ -134,16 +134,16 @@ test.describe('US4 沉浸式主題氛圍', () => {
     expect(afterReset['--color-bg']).toBe('')
 
     // 改選 trust 主題，進入 GameView 應看到 trust 色
-    await page.locator('[data-test="theme-deck-trust"]').click()
-    await page.locator('[data-test="preview-cta"]').click()
-    await expect(page.locator('[data-test="fan-deck"]')).toBeVisible()
+    await page.getByTestId('theme-deck-trust').click()
+    await page.getByTestId('preview-cta').click()
+    await expect(page.getByTestId('fan-deck')).toBeVisible()
 
     await assertThemeVarsMatch(page, 'trust')
   })
 
   test('以有效 themeId URL 直接進入 GameView，主題色仍會套用', async ({ page }) => {
     await page.goto('/#/game/interaction')
-    await expect(page.locator('[data-test="fan-deck"]')).toBeVisible()
+    await expect(page.getByTestId('fan-deck')).toBeVisible()
     await assertThemeVarsMatch(page, 'interaction')
   })
 
@@ -157,7 +157,7 @@ test.describe('US4 沉浸式主題氛圍', () => {
   test('以無效 themeId URL 直連時會被守衛導回首頁，不會套用預設主題頁', async ({ page }) => {
     await page.goto('/#/game/not-a-theme')
     await expect(page).toHaveURL(/#\/$/)
-    await expect(page.locator('[data-test="theme-deck-grid"]')).toBeVisible()
+    await expect(page.getByTestId('theme-deck-grid')).toBeVisible()
 
     // 被導回後 HomeView.resetTheme 會清掉 inline style，不會殘留預設主題色
     const vars = await readInlineVars(page)
@@ -170,7 +170,7 @@ test.describe('US4 沉浸式主題氛圍', () => {
     for (const themeId of THEME_IDS) {
       test(`主題 ${themeId} 的 6 個 CSS 變數對應 cards.json`, async ({ page }) => {
         await page.goto(`/#/game/${themeId}`)
-        await expect(page.locator('[data-test="fan-deck"]')).toBeVisible()
+        await expect(page.getByTestId('fan-deck')).toBeVisible()
         await assertThemeVarsMatch(page, themeId)
       })
     }
