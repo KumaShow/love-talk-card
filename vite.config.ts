@@ -13,6 +13,14 @@ import { VitePWA } from 'vite-plugin-pwa'
  * - Workbox generateSW 模式：Vite 產出的資源以 precache 模式注入 SW。
  * - globPatterns 覆蓋所有靜態資產（含音效 wav/ogg/mp3 佔位）以符合完全離線要求。
  * - manifest 欄位對應 specs/001-love-talk-card-game/contracts/pwa-manifest.json。
+ *
+ * Bundle 預算（T080，量測於 2026-04-23，commit 主線 Phase 8）：
+ * - 初始載入 JS：58.75 KB gzip（dist/assets/index-*.js）
+ * - 初始載入 CSS：6.12 KB gzip（dist/assets/index-*.css）
+ * - index.html：0.38 KB gzip
+ * - 合計 ≈ 65.3 KB gzip，遠低於憲章硬上限 ≤200 KB gzip。
+ * - PWA precache 總量：228.68 KiB（含音效 WAV 佔位與 PWA icons，不計入初始載入預算）。
+ * - 深入分析：`npx vite-bundle-visualizer` 可產 dist/stats.html 互動式 treemap。
  */
 export default defineConfig({
   plugins: [

@@ -1,7 +1,7 @@
 # Quickstart: Love Talk Card Game
 
 **Branch**: `001-love-talk-card-game`
-**Date**: 2025-07-18
+**Date**: 2025-07-18（Phase 8 T086 同步於 2026-04-23）
 
 ---
 
@@ -40,20 +40,22 @@ npm run dev
 開發伺服器預設在 `http://localhost:5173` 啟動，支援 HMR（熱模組替換）。
 
 > **注意**：PWA Service Worker 在開發模式下預設停用，避免干擾 HMR。若需測試 PWA 功能，請參考下方「PWA 離線測試」章節。
+>
+> **Playwright 專用 port**：E2E 測試走 `http://localhost:5174`（`playwright.config.ts` 的 `webServer` 會自動 spawn `npm run dev -- --port 5174`），避免與開發時的 5173 衝突。執行 `npm run test:e2e` 不需手動先開 dev server。
 
 ### 3. 執行測試
 
 ```bash
-# 執行所有單元測試（含覆蓋率報告）
+# 執行所有單元測試（含覆蓋率報告；預設會在 coverage/.tmp/ 建資料夾）
 npm run test
 
 # 監聽模式（TDD 開發時使用）
 npm run test:watch
 
-# 查看覆蓋率報告（HTML 格式）
+# 查看覆蓋率報告（HTML 格式，輸出 coverage/index.html）
 npm run test:coverage
 
-# 執行 E2E 測試（需先啟動開發伺服器）
+# 執行 E2E 測試（Playwright config 會自動 spawn dev server 於 5174）
 npm run test:e2e
 
 # 執行所有測試（Unit + E2E）
@@ -90,24 +92,32 @@ npm run preview
 
 ## 完整 npm scripts 清單
 
+本區塊以實際 `package.json` 為準（T086 於 2026-04-23 同步）：
+
 ```json
 {
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "test": "vitest run --coverage",
+    "lint": "node ./node_modules/eslint/bin/eslint.js . --ext .vue,.ts",
+    "lint:fix": "node ./node_modules/eslint/bin/eslint.js . --ext .vue,.ts --fix",
+    "type-check": "vue-tsc --noEmit",
+    "test": "node -e \"require('node:fs').mkdirSync('coverage/.tmp', { recursive: true })\" && vitest run --coverage",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage --reporter=html",
+    "test:coverage": "node -e \"require('node:fs').mkdirSync('coverage/.tmp', { recursive: true })\" && vitest run --coverage --reporter=html",
     "test:e2e": "playwright test",
     "test:all": "npm run test && npm run test:e2e",
-    "lint": "eslint . --ext .vue,.ts,.tsx",
-    "lint:fix": "eslint . --ext .vue,.ts,.tsx --fix",
-    "type-check": "vue-tsc --noEmit",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "prepare": "husky"
   }
 }
 ```
+
+註記：
+- `build` 的 `vue-tsc --noEmit` 會在編譯階段阻擋型別錯誤進入建構產物。
+- `test` / `test:coverage` 前綴的 `node -e "... mkdirSync ..."` 是為了先建立 `coverage/.tmp/` 以相容於 `@vitest/coverage-v8` 在 Windows 下首次執行無目錄的情境。
+- `lint` / `lint:fix` 以 `node ./node_modules/eslint/bin/eslint.js` 直接執行，確保跨作業系統下 ESLint binary 定位一致。
 
 ---
 

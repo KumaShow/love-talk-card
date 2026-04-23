@@ -18,7 +18,14 @@ export default defineConfig({
   },
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: process.env.CI ? 1 : undefined,
+  /**
+   * 本地與 CI 一律使用單一 worker。
+   * 本專案 dev server 以單一 port (5174) 供所有 spec 共用，多 worker 並行時會競用
+   * 同一個 Vite HMR 連線，造成 T081 a11y 測試的 `page.$$eval` 偶發讀到過時 DOM、
+   * 以及 T040/T095 US1 抽 15 張卡的動畫時序被其他 worker 的 dev server 請求拖慢。
+   * 詳見 T084 flaky 排查（Phase 8）：單獨跑與 workers=1 皆穩定通過 16/16。
+   */
+  workers: 1,
   reporter: 'html',
   use: {
     actionTimeout: 0,
@@ -35,8 +42,11 @@ export default defineConfig({
         ...devices['iPhone 14'],
         viewport: { width: 390, height: 844 },
       },
-      /** WebKit 對 Service Worker + setOffline 組合有相容性問題，PWA 離線測試改用 chromium project。 */
-      testIgnore: ['**/us5-offline-pwa.spec.ts'],
+      /**
+       * - WebKit 對 Service Worker + setOffline 組合有相容性問題，PWA 離線測試改用 chromium project。
+       * - 效能煙霧測試需 Chromium DevTools Protocol 的 `Network.emulateNetworkConditions`，WebKit 不支援，亦改用 chromium project。
+       */
+      testIgnore: ['**/us5-offline-pwa.spec.ts', '**/perf.spec.ts'],
     },
     {
       name: 'chromium-mobile-pwa',
@@ -45,7 +55,7 @@ export default defineConfig({
         browserName: 'chromium',
         viewport: { width: 390, height: 844 },
       },
-      testMatch: ['**/us5-offline-pwa.spec.ts'],
+      testMatch: ['**/us5-offline-pwa.spec.ts', '**/perf.spec.ts'],
     },
   ],
   webServer: {
