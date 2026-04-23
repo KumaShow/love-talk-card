@@ -10,7 +10,7 @@
       @request-confirm-back="confirmOpen = true"
     />
 
-    <section class="game-view__inner" :style="themeStyle">
+    <section class="game-view__inner">
       <header class="game-view__meta" aria-live="polite">
         <p class="game-view__eyebrow">{{ zhTw.labels.theme }}</p>
         <h1 class="game-view__title">{{ currentTheme?.name.zh ?? '' }}</h1>
@@ -48,6 +48,7 @@ import FanDeck from '@/components/card/FanDeck.vue'
 import PickedCardView, { type PickedPhase } from '@/components/card/PickedCardView.vue'
 import AppHeader from '@/components/layout/AppHeader.vue'
 import ConfirmModal from '@/components/ui/ConfirmModal.vue'
+import { useTheme } from '@/composables/useTheme'
 import cardsData from '@/data/cards.json'
 import zhTw from '@/i18n/zh-TW.json'
 import { useGameStore } from '@/stores/gameStore'
@@ -67,6 +68,7 @@ const route = useRoute()
 const router = useRouter()
 const gameStore = useGameStore()
 const settingsStore = useSettingsStore()
+const { applyTheme } = useTheme()
 
 const dataset = cardsData as CardsData
 const confirmOpen = ref(false)
@@ -101,17 +103,6 @@ const currentTheme = computed(() => {
 
 const themeCardBack = computed(() => currentTheme.value?.colors.cardBack ?? '#c76d8e')
 
-const themeStyle = computed(() => {
-  const colors = currentTheme.value?.colors
-  if (!colors) {
-    return {}
-  }
-  return {
-    '--color-primary': colors.primary,
-    '--color-secondary': colors.secondary,
-  } as Record<string, string>
-})
-
 const remainingCount = computed(() => gameStore.remainingCount)
 const requireConfirm = computed(() => gameStore.drawnCardIds.length >= 8 && !gameStore.isComplete)
 
@@ -133,6 +124,8 @@ onMounted(() => {
     void router.replace({ name: 'home' })
     return
   }
+  // 先套主題色再恢復 session，確保首幀漸層即為目標主題，不會閃過預設粉色
+  applyTheme(id, dataset.themes)
   ensureSession(id)
 })
 

@@ -21,12 +21,36 @@ body,
   min-height: 100%;
 }
 
+/*
+ * body 保留 color / font-family 是刻意的防禦宣告：
+ * 若日後有 <Teleport to="body"> 或 portal 內容渲染到 #app 之外，
+ * 仍可繼承到正確的色彩與字型。#app 下方另有一份 color 宣告是為了
+ * 讓 transition 能實際套用在 #app 子樹，兩層併存非重複錯誤。
+ */
 body {
   margin: 0;
   min-height: 100vh;
-  background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-end));
   color: var(--color-text);
   font-family: ui-serif, Georgia, 'Times New Roman', serif;
+}
+
+/*
+ * 全站主題氛圍承載層（US4）：
+ * - 漸層以 :root 注入的 6 個 CSS 變數驅動，由 useTheme.applyTheme() 依當前主題覆寫
+ * - 僅 #app 承載漸層，避免 body 與 #app 雙層疊加造成視覺髒色
+ * - transition 同時覆蓋 background-color（fallback 色）與 background（gradient），
+ *   符合憲章 300–500ms 過場要求；實際平滑感以 background-color 為主
+ * - 此處的 color 宣告必要：transition 只對該元素自身實際宣告的屬性觸發，
+ *   若 color 只放在 body，#app 的過場會看不到平滑切換
+ */
+#app {
+  background-color: var(--color-bg);
+  background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-end));
+  color: var(--color-text);
+  transition:
+    background-color 500ms ease-in-out,
+    background 500ms ease-in-out,
+    color 500ms ease-in-out;
 }
 
 button,

@@ -35,12 +35,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 import ThemeCardDeck from '@/components/home/ThemeCardDeck.vue'
 import ThemePreview from '@/components/home/ThemePreview.vue'
 import ToggleSwitch from '@/components/ui/ToggleSwitch.vue'
+import { useTheme } from '@/composables/useTheme'
 import cardsData from '@/data/cards.json'
 import zhTw from '@/i18n/zh-TW.json'
 import { useGameStore } from '@/stores/gameStore'
@@ -50,9 +51,18 @@ import type { CardsData, Theme } from '@/types'
 const router = useRouter()
 const gameStore = useGameStore()
 const settingsStore = useSettingsStore()
+const { applyTheme, resetTheme } = useTheme()
 
 const dataset = cardsData as CardsData
 const selectedTheme = ref<Theme | null>(null)
+
+/**
+ * 首頁採中性預設色（main.css :root 寫死的粉色），避免殘留上一場主題氛圍。
+ * 使用者選主題後由 GameView onMounted 透過 applyTheme 接手。
+ */
+onMounted(() => {
+  resetTheme()
+})
 
 /**
  * 依商業規則（data-model.md §4），`intimateMode` 切換僅在 HomeView 有效；
@@ -69,6 +79,10 @@ function handleSelect(theme: Theme): void {
 }
 
 function handleStart(theme: Theme): void {
+  // 先 applyTheme 再 router.push：CSS 變數在 route 切換前就改值，
+  // #app 上的 transition 會開始漸變，GameView 掛載時氛圍色已在過場途中，
+  // 視覺上比等 GameView.onMounted 才動手更連貫（對應 tasks.md T062 原意）。
+  applyTheme(theme.id, dataset.themes)
   gameStore.startSession(theme.id, settingsStore.intimateMode)
   void router.push({ name: 'game', params: { themeId: theme.id } })
 }

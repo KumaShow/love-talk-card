@@ -13,6 +13,8 @@
 - **2026-04-22**：Phase 9 UX 重塑全部完成並隨 PR #2 合併進 `main`（merge commit `38e0584`）。T089–T098 實作、測試、文件與 smoke 皆已交付，下一優先為 Phase 5 US3 語言切換。
 - **2026-04-22**：Phase 5 US3 副語言切換完成（T050–T058）。實作期間發現原規格 T056「LanguageSelector 放 AppHeader 右側 slot」會在 iPhone 14 直向 viewport（390px 寬）擠到中文直書，故採 A+C 方案：(A) AppHeader 返回鈕去文字只留 ←；(C) LanguageSelector 移到 PickedCardView CTA 下方，僅 reading phase 顯示，方便單手切換。資料層 cards.json 80 張中目前僅 sel-001~003 有真泰文翻譯，其餘 th/ja 仍為英文佔位，留待後續階段統一翻譯。
 - **2026-04-22**：Phase 7 US5 PWA / 離線 / 音效 / 橫向提示完成（T066–T076）。音效資源（T073）因無免版稅素材，暫以 `public/sounds/{flip,bgm}.wav` silent placeholder 取代規格要求的 ogg/mp3；`useAudio.ts` 依 ogg → mp3 → wav 順序 fetch，正式素材放入即無縫升級。PWA icons（T074）以 `scripts/generate-pwa-icons.mjs` 產生純 Node PNG 編碼器的 heart-on-pink placeholder，最終應由設計師以向量原稿重匯。vite.config.ts 的 VitePWA 設為 `autoUpdate` + `generateSW`，globPatterns 加入 `wav` 以 precache 佔位音效，devOptions.enabled=false 避免干擾 HMR。
+- **2026-04-23**：Phase 6 US4 沉浸式主題氛圍完成（T059–T065）。`useTheme` 以 `document.documentElement` inline style 注入 6 個 CSS 變數，HomeView `resetTheme()` / GameView 與 EndView `applyTheme()` 串接；全站 transition 由 `#app` 承載（body 移除 gradient 以避免雙層疊色）。GameView 的 `themeStyle` computed 被移除，改由 onMounted 內 `applyTheme` 一次寫到 documentElement。開發環境 5173 port 時常被其他 Vue 專案佔用，將 Playwright webServer 與 baseURL 改為 5174 以隔離。T065 新增 10 條 E2E 全數通過；完整 `npx playwright test` 中 US1/US2/US3/US4 共 14 條綠，US5 beforeAll build + preview 超過 Playwright 預設 60s 屬環境壓力既有議題，與 Phase 6 無涉。
+- **2026-04-23（PR #7 第二輪 Copilot review）**：T061 原規格寫「body, #app 雙選擇器加 transition」但實作只保留 `#app`，以 strike through 方式在任務文字中明示偏移並補說明；T062 原規格要求 HomeView 點擊主題卡時呼叫 `applyTheme()`（讓色彩在 route push 前即開始 morph），先前實作漏掉，此輪補在 `HomeView.handleStart` 內。另將 US4 E2E 中的 `page.locator('[data-test="X"]')` 統一為 `page.getByTestId('X')` 以對齊 us1–us5 既有風格（Playwright config 已設 `testIdAttribute: 'data-test'`）。
 
 ## 格式：`[ID] [P?] [Story] 說明`
 
@@ -154,16 +156,16 @@
 
 ### 使用者故事 4 的測試（TDD — 必須先寫，先確認失敗再實作）
 
-- [ ] T059 [P] [US4] 在 tests/unit/composables/useTheme.test.ts 撰寫會失敗的 useTheme composable 單元測試：`applyTheme('attraction', themes)` 會在 `document.documentElement` 上設定 `--color-bg`、`--color-bg-end`、`--color-primary`、`--color-secondary`、`--color-text`、`--color-card-back` 這 6 個 CSS custom properties；切換主題時會更新全部 6 個屬性；cleanup 函式會重設為預設值
+- [x] T059 [P] [US4] 在 tests/unit/composables/useTheme.test.ts 撰寫會失敗的 useTheme composable 單元測試：`applyTheme('attraction', themes)` 會在 `document.documentElement` 上設定 `--color-bg`、`--color-bg-end`、`--color-primary`、`--color-secondary`、`--color-text`、`--color-card-back` 這 6 個 CSS custom properties；切換主題時會更新全部 6 個屬性；cleanup 函式會重設為預設值
 
 ### 使用者故事 4 的實作
 
-- [ ] T060 [US4] 在 src/composables/useTheme.ts 實作 useTheme composable：`applyTheme(themeId: ThemeId, themes: Theme[])` 依 id 找到主題並在 `document.documentElement` 上設定 6 個 CSS custom properties；`resetTheme()` 清除這些屬性；使 T059 通過
-- [ ] T061 [US4] 在 src/assets/main.css（由 main.ts 匯入）新增全域 CSS 過場：`body, #app { transition: background-color 500ms ease-in-out, background 500ms ease-in-out; }`，並在 `#app` 上設定 `background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-end));`
-- [ ] T062 [US4] 更新 src/views/HomeView.vue：在 mount 時呼叫 `useTheme().resetTheme()`（中性預設色）；點擊主題卡時以 `applyTheme(selectedThemeId)` 套用主題色供路由轉場使用（桌面端可選擇性增加 hover 預覽作為漸進增強，但非核心需求）
-- [ ] T063 [US4] 更新 src/views/GameView.vue：在 mounted 時依 route params 中的 themeId 呼叫 `applyTheme()` 套用對應主題色（themeId 有效性已由 T016 導覽守衛與 T038 驗證邏輯確保，無效時導回首頁而非套用預設主題）；離開時不主動清除（由目標頁面自行處理）
-- [ ] T064 [US4] 更新 src/views/EndView.vue：在 mounted 時依 route params 中的 themeId 呼叫 `applyTheme()` 維持對應主題色（themeId 有效性同樣由導覽守衛確保）；從外部連結或瀏覽器重新整理直接進入時，守衛驗證通過後主題色仍正確套用；返回首頁時由 HomeView 的 `resetTheme()` 處理重設
-- [ ] T065 [US4] 新增 tests/e2e/playwright/us4-theme-ambiance.spec.ts E2E 測試：驗證 4 個主題切換時背景漸層正確且過場平滑（transition duration 介於 300–500ms）；至少涵蓋：(1) 首頁選擇主題後進入 GameView 時背景色正確、(2) 返回首頁改選其他主題後背景色更新、(3) 以有效 themeId URL 直接進入 GameView 時主題色正確套用、(4) 以有效 themeId URL 直接進入 EndView 時主題色正確套用、(5) 以無效 themeId URL 進入時被導回首頁而非顯示預設主題
+- [x] T060 [US4] 在 src/composables/useTheme.ts 實作 useTheme composable：`applyTheme(themeId: ThemeId, themes: Theme[])` 依 id 找到主題並在 `document.documentElement` 上設定 6 個 CSS custom properties；`resetTheme()` 清除這些屬性；使 T059 通過
+- [x] T061 [US4] ~~原規格：`body, #app { transition: ... }` 同時加過場~~ 實作改為**僅 #app** 承載漸層與 transition（body 保留 color / font-family 供 `<Teleport to="body">` fallback）：若 body 與 #app 同時宣告 `background: linear-gradient(...)`，兩層會視覺疊色，故剝離 body gradient、只在 #app 設 `background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-end));` 與 `transition: background-color 500ms ease-in-out, background 500ms ease-in-out, color 500ms ease-in-out;`（詳見修訂紀錄 2026-04-23）
+- [x] T062 [US4] 更新 src/views/HomeView.vue：在 mount 時呼叫 `useTheme().resetTheme()`（中性預設色）；點擊主題卡時以 `applyTheme(selectedThemeId)` 套用主題色供路由轉場使用（桌面端可選擇性增加 hover 預覽作為漸進增強，但非核心需求）
+- [x] T063 [US4] 更新 src/views/GameView.vue：在 mounted 時依 route params 中的 themeId 呼叫 `applyTheme()` 套用對應主題色（themeId 有效性已由 T016 導覽守衛與 T038 驗證邏輯確保，無效時導回首頁而非套用預設主題）；離開時不主動清除（由目標頁面自行處理）
+- [x] T064 [US4] 更新 src/views/EndView.vue：在 mounted 時依 route params 中的 themeId 呼叫 `applyTheme()` 維持對應主題色（themeId 有效性同樣由導覽守衛確保）；從外部連結或瀏覽器重新整理直接進入時，守衛驗證通過後主題色仍正確套用；返回首頁時由 HomeView 的 `resetTheme()` 處理重設
+- [x] T065 [US4] 新增 tests/e2e/playwright/us4-theme-ambiance.spec.ts E2E 測試：驗證 4 個主題切換時背景漸層正確且過場平滑（transition duration 介於 300–500ms）；至少涵蓋：(1) 首頁選擇主題後進入 GameView 時背景色正確、(2) 返回首頁改選其他主題後背景色更新、(3) 以有效 themeId URL 直接進入 GameView 時主題色正確套用、(4) 以有效 themeId URL 直接進入 EndView 時主題色正確套用、(5) 以無效 themeId URL 進入時被導回首頁而非顯示預設主題
 
 **檢查點**：4 個使用者故事皆可運作。執行 `npm run test && npm run test:e2e -- --grep us4`，確認 T059 單元測試與 T065 E2E 測試皆通過。
 
