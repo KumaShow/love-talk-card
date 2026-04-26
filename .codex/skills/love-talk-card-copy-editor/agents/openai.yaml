@@ -1,0 +1,4 @@
+interface:
+  display_name: "Love Talk 文案編輯"
+  short_description: "審查、改寫與發想 Love Talk Card 中英卡牌文案"
+  default_prompt: "請協助我審查、改寫或發想 Love Talk Card 的卡牌文案，並依主題邊界與語氣規範提供建議。"
