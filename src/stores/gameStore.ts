@@ -2,14 +2,12 @@ import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 
 import { useDeck } from '@/composables/useDeck'
-import cardsData from '@/data/cards.json'
-import type { Card, CardsData, GameSessionSnapshot, ThemeId } from '@/types'
+import { cardsData } from '@/data'
+import type { Card, GameSessionSnapshot, ThemeId } from '@/types'
 import { isValidThemeId } from '@/utils/theme'
 
 /** sessionStorage 存放遊戲快照的 key。 */
 const SESSION_KEY = 'love-talk-game-session'
-
-const cardsDataset = cardsData as CardsData
 
 /**
  * gameStore：遊戲執行期狀態。
@@ -64,7 +62,7 @@ export const useGameStore = defineStore('game', () => {
    * 也不會影響當前 session 的牌組內容或 snapshot 內容。
    */
   function startSession(nextThemeId: ThemeId, intimateMode: boolean): void {
-    const built = deckController.buildDeck(nextThemeId, cardsDataset.cards, intimateMode)
+    const built = deckController.buildDeck(nextThemeId, cardsData.cards, intimateMode)
     deckController.setDeck(built)
     themeId.value = nextThemeId
     intimateModeAtStart.value = intimateMode
@@ -109,7 +107,7 @@ export const useGameStore = defineStore('game', () => {
       return false
     }
 
-    const cardById = new Map(cardsDataset.cards.map((card) => [card.id, card]))
+    const cardById = new Map(cardsData.cards.map((card) => [card.id, card]))
     const rebuilt: Card[] = []
     for (const id of snapshot.deckOrder) {
       const card = cardById.get(id)

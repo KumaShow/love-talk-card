@@ -1,11 +1,10 @@
 import { expect, type Page, test } from '@playwright/test'
 
-import cardsData from '@/data/cards.json' with { type: 'json' }
-import type { CardsData, ThemeId } from '@/types'
+import { cardsData } from '@/data'
+import type { ThemeId } from '@/types'
 
-// cards.json 的色票為主題色權威來源（contracts/card-data.schema.json）。
-// 以 TS 5.x + Node 20 LTS 支援的 import attributes（`with { type: 'json' }`）直接載入。
-const dataset = cardsData as CardsData
+// cardsData 的色票為主題色權威來源，由 @/data 統一入口匯出。
+const dataset = cardsData
 
 /**
  * T065：US4 沉浸式主題氛圍 E2E 測試。
@@ -17,7 +16,7 @@ const dataset = cardsData as CardsData
  * - 直連 GameView / EndView 亦正確套用主題
  * - 無效 themeId 會被 router 守衛導回首頁，不會退化成預設主題頁
  */
-const THEME_IDS: ThemeId[] = ['attraction', 'self', 'interaction', 'trust']
+const THEME_IDS = cardsData.themes.map((t) => t.id)
 
 const CSS_VAR_NAMES = [
   '--color-bg',

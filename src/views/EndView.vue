@@ -20,18 +20,15 @@ import { useRoute, useRouter } from 'vue-router'
 
 import EndMessage from '@/components/ui/EndMessage.vue'
 import { useTheme } from '@/composables/useTheme'
-import cardsData from '@/data/cards.json'
+import { cardsData } from '@/data'
 import zhTw from '@/i18n/zh-TW.json'
 import { useGameStore } from '@/stores/gameStore'
-import type { CardsData } from '@/types'
 import { isValidThemeId } from '@/utils/theme'
 
 const route = useRoute()
 const router = useRouter()
 const gameStore = useGameStore()
 const { applyTheme } = useTheme()
-
-const dataset = cardsData as CardsData
 
 const routeThemeId = computed(() => {
   const raw = route.params.themeId
@@ -43,7 +40,7 @@ const currentTheme = computed(() => {
   if (!isValidThemeId(id)) {
     return null
   }
-  return dataset.themes.find((theme) => theme.id === id) ?? null
+  return cardsData.themes.find((theme) => theme.id === id) ?? null
 })
 
 onMounted(() => {
@@ -53,7 +50,7 @@ onMounted(() => {
     return
   }
   // 直接以 URL 開啟或重新整理 EndView 時，仍要維持對應主題的氛圍色
-  applyTheme(id, dataset.themes)
+  applyTheme(id, cardsData.themes)
 })
 
 function handleBack() {

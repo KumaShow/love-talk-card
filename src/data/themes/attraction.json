@@ -1,0 +1,245 @@
+{
+  "id": "attraction",
+  "name": {
+    "zh": "心動瞬間",
+    "en": "Attraction & Sparks"
+  },
+  "description": {
+    "zh": "探索彼此吸引的起點，回味那些讓心跳加速的時刻",
+    "en": "Explore the sparks that drew you together and the moments that made your heart race"
+  },
+  "colors": {
+    "primary": "#E8A0BF",
+    "secondary": "#FFD6E0",
+    "background": "#FFF0F5",
+    "backgroundEnd": "#FFE0EC",
+    "text": "#4A1528",
+    "cardBack": "#C76D8E"
+  },
+  "endMessage": {
+    "zh": "每一個心動，都是故事的開始。感謝你願意與我分享這一切。✨",
+    "en": "Every spark was the beginning of your story. Thank you for sharing it. ✨"
+  },
+  "cards": [
+    {
+      "id": "att-001-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "你第一次注意到我是什麼時候？當時心裡在想什麼？",
+        "en": "When did you first notice me, and what crossed your mind at that moment?",
+        "th": "When did you first notice me, and what crossed your mind at that moment?",
+        "ja": "When did you first notice me, and what crossed your mind at that moment?"
+      }
+    },
+    {
+      "id": "att-002-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "我哪一個小細節最先讓你心動？",
+        "en": "What small detail about me caught your heart first?",
+        "th": "What small detail about me caught your heart first?",
+        "ja": "What small detail about me caught your heart first?"
+      }
+    },
+    {
+      "id": "att-003-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "還記得我們第一次好好聊天時，你對我的第一印象嗎？",
+        "en": "Do you remember your first impression of me when we really talked for the first time?",
+        "th": "Do you remember your first impression of me when we really talked for the first time?",
+        "ja": "Do you remember your first impression of me when we really talked for the first time?"
+      }
+    },
+    {
+      "id": "att-004-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "如果把我們剛認識的氛圍變成一種天氣，會是什麼？",
+        "en": "If the mood of when we first met were weather, what would it be?",
+        "th": "If the mood of when we first met were weather, what would it be?",
+        "ja": "If the mood of when we first met were weather, what would it be?"
+      }
+    },
+    {
+      "id": "att-005-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "我現在還有哪些小習慣，會讓你不自覺地笑出來？",
+        "en": "What little habit of mine still makes you smile without trying?",
+        "th": "What little habit of mine still makes you smile without trying?",
+        "ja": "What little habit of mine still makes you smile without trying?"
+      }
+    },
+    {
+      "id": "att-006-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "你是從哪一刻開始，感覺和我相處變得很自然？",
+        "en": "At what moment did being with me start to feel natural to you?",
+        "th": "At what moment did being with me start to feel natural to you?",
+        "ja": "At what moment did being with me start to feel natural to you?"
+      }
+    },
+    {
+      "id": "att-007-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "有哪一個特質，是你越了解我越被吸引的？",
+        "en": "What quality drew you in even more as you got to know me better?",
+        "th": "What quality drew you in even more as you got to know me better?",
+        "ja": "What quality drew you in even more as you got to know me better?"
+      }
+    },
+    {
+      "id": "att-008-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "我們一起經歷過的哪個回憶，最像你心中的火花瞬間？",
+        "en": "Which memory of us still feels like a spark in your heart?",
+        "th": "Which memory of us still feels like a spark in your heart?",
+        "ja": "Which memory of us still feels like a spark in your heart?"
+      }
+    },
+    {
+      "id": "att-009-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "你是在什麼時候開始覺得，我們也許會變得很特別？",
+        "en": "When did you begin to feel that we could become something special?",
+        "th": "When did you begin to feel that we could become something special?",
+        "ja": "When did you begin to feel that we could become something special?"
+      }
+    },
+    {
+      "id": "att-010-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "我做過什麼事，會讓你覺得自己被喜歡、被看見？",
+        "en": "What have I done that made you feel desired and truly seen?",
+        "th": "What have I done that made you feel desired and truly seen?",
+        "ja": "What have I done that made you feel desired and truly seen?"
+      }
+    },
+    {
+      "id": "att-011-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "我曾給過你的哪一句稱讚，直到現在還留在你心裡？",
+        "en": "Which compliment from me has stayed with you until now?",
+        "th": "Which compliment from me has stayed with you until now?",
+        "ja": "Which compliment from me has stayed with you until now?"
+      }
+    },
+    {
+      "id": "att-012-base",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "和我在一起之後，你覺得自己哪一面被重新點亮了？",
+        "en": "Since being with me, what part of yourself feels more alive again?",
+        "th": "Since being with me, what part of yourself feels more alive again?",
+        "ja": "Since being with me, what part of yourself feels more alive again?"
+      }
+    },
+    {
+      "id": "att-013-base",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "關係剛開始時，你對靠近我曾經有過什麼擔心？",
+        "en": "What worry did you have about getting closer to me when this relationship began?",
+        "th": "What worry did you have about getting closer to me when this relationship began?",
+        "ja": "What worry did you have about getting closer to me when this relationship began?"
+      }
+    },
+    {
+      "id": "att-014-base",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "你覺得我們之間的吸引力，這段時間裡最美的改變是什麼？",
+        "en": "What is the most beautiful way our attraction has changed over time?",
+        "th": "What is the most beautiful way our attraction has changed over time?",
+        "ja": "What is the most beautiful way our attraction has changed over time?"
+      }
+    },
+    {
+      "id": "att-015-base",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "如果可以重溫一個讓你再次心動的早期片刻，你會選哪一幕？",
+        "en": "If you could relive one early moment that made your heart race again, which would you choose?",
+        "th": "If you could relive one early moment that made your heart race again, which would you choose?",
+        "ja": "If you could relive one early moment that made your heart race again, which would you choose?"
+      }
+    },
+    {
+      "id": "att-016-intimate",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "你在什麼時候最同時感受到和我的身體與情感都很靠近？",
+        "en": "When do you feel physically and emotionally closest to me at the same time?",
+        "th": "When do you feel physically and emotionally closest to me at the same time?",
+        "ja": "When do you feel physically and emotionally closest to me at the same time?"
+      }
+    },
+    {
+      "id": "att-017-intimate",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "哪一種觸碰方式最能讓你感到安心又被珍惜？",
+        "en": "What kind of touch makes you feel safest and most cherished?",
+        "th": "What kind of touch makes you feel safest and most cherished?",
+        "ja": "What kind of touch makes you feel safest and most cherished?"
+      }
+    },
+    {
+      "id": "att-018-intimate",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "你心裡有沒有一個還沒說出口、但很想和我分享的渴望？",
+        "en": "Is there a desire you have not said aloud yet but would like to share with me?",
+        "th": "Is there a desire you have not said aloud yet but would like to share with me?",
+        "ja": "Is there a desire you have not said aloud yet but would like to share with me?"
+      }
+    },
+    {
+      "id": "att-019-intimate",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "我們之間哪一段親密回憶，會讓你現在想起來還覺得溫熱？",
+        "en": "Which intimate memory between us still feels warm when you think about it now?",
+        "th": "Which intimate memory between us still feels warm when you think about it now?",
+        "ja": "Which intimate memory between us still feels warm when you think about it now?"
+      }
+    },
+    {
+      "id": "att-020-intimate",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "你希望我們怎麼一起創造更多期待感、溫柔感與靠近感？",
+        "en": "How would you like us to create more anticipation, tenderness, and closeness together?",
+        "th": "How would you like us to create more anticipation, tenderness, and closeness together?",
+        "ja": "How would you like us to create more anticipation, tenderness, and closeness together?"
+      }
+    }
+  ]
+}

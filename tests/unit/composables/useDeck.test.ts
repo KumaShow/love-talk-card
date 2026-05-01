@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { useDeck } from '@/composables/useDeck'
-import cardsData from '@/data/cards.json'
+import { cardsData } from '@/data'
 import type { Card } from '@/types'
 
 /**

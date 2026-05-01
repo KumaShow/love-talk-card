@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import cardsData from '@/data/cards.json'
+import { cardsData } from '@/data'
 
 /**
  * T079：主題色彩 WCAG 2.1 AA 對比驗證。

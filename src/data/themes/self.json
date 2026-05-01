@@ -1,0 +1,245 @@
+{
+  "id": "self",
+  "name": {
+    "zh": "自我探索",
+    "en": "Self & Exploration"
+  },
+  "description": {
+    "zh": "在關係中認識更真實的自己，也讓對方看見你內心的風景",
+    "en": "Discover your authentic self within the relationship and let your partner see your inner world"
+  },
+  "colors": {
+    "primary": "#A8D8EA",
+    "secondary": "#D4EEF7",
+    "background": "#F0F8FF",
+    "backgroundEnd": "#E0F4FF",
+    "text": "#1A3A4A",
+    "cardBack": "#5BA4C0"
+  },
+  "endMessage": {
+    "zh": "認識自己，是愛人最深的基礎。你今天又更了解自己一點了。🌊",
+    "en": "Knowing yourself is the deepest foundation of love. You know yourself a little better today. 🌊"
+  },
+  "cards": [
+    {
+      "id": "sel-001-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "你最喜歡自己帶進這段關係裡的哪一個特質？",
+        "en": "What quality of yours are you proudest to bring into this relationship?",
+        "th": "คุณภูมิใจในคุณสมบัติไหนของตัวเองที่สุด ที่นำเข้ามาในความสัมพันธ์นี้?",
+        "ja": "What quality of yours are you proudest to bring into this relationship?"
+      }
+    },
+    {
+      "id": "sel-002-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "你在什麼時候最能做自己？",
+        "en": "When do you feel most like yourself?",
+        "th": "คุณรู้สึกเป็นตัวเองมากที่สุดในช่วงเวลาไหน?",
+        "ja": "When do you feel most like yourself?"
+      }
+    },
+    {
+      "id": "sel-003-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "最近什麼事情最能幫你重新充電？",
+        "en": "What has been helping you recharge lately?",
+        "th": "ช่วงนี้มีอะไรที่ช่วยให้คุณได้เติมพลังบ้าง?",
+        "ja": "What has been helping you recharge lately?"
+      }
+    },
+    {
+      "id": "sel-004-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "當你需要支持時，別人怎麼做最能幫到你？",
+        "en": "When you need support, what helps you most from another person?",
+        "th": "When you need support, what helps you most from another person?",
+        "ja": "When you need support, what helps you most from another person?"
+      }
+    },
+    {
+      "id": "sel-005-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "你最近有哪一個小小成就，值得被好好慶祝？",
+        "en": "What small recent win of yours deserves more celebration?",
+        "th": "What small recent win of yours deserves more celebration?",
+        "ja": "What small recent win of yours deserves more celebration?"
+      }
+    },
+    {
+      "id": "sel-006-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "現在的你，正在重新學習哪一個和愛有關的信念？",
+        "en": "What belief about love are you relearning right now?",
+        "th": "What belief about love are you relearning right now?",
+        "ja": "What belief about love are you relearning right now?"
+      }
+    },
+    {
+      "id": "sel-007-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "你最難開口說出自己需求的時候，通常是什麼情境？",
+        "en": "In what situations is it hardest for you to express your needs?",
+        "th": "In what situations is it hardest for you to express your needs?",
+        "ja": "In what situations is it hardest for you to express your needs?"
+      }
+    },
+    {
+      "id": "sel-008-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "你想為自己養成哪一個新習慣，讓生活更靠近理想的樣子？",
+        "en": "What habit would you like to build so life feels closer to what you want?",
+        "th": "What habit would you like to build so life feels closer to what you want?",
+        "ja": "What habit would you like to build so life feels closer to what you want?"
+      }
+    },
+    {
+      "id": "sel-009-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "對你來說，哪一條個人界線是很重要、不能被忽略的？",
+        "en": "What personal boundary matters deeply to you and should not be overlooked?",
+        "th": "What personal boundary matters deeply to you and should not be overlooked?",
+        "ja": "What personal boundary matters deeply to you and should not be overlooked?"
+      }
+    },
+    {
+      "id": "sel-010-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "當你沉默時，背後最常藏著哪一種擔心？",
+        "en": "When you go quiet, what fear is most often hiding underneath?",
+        "th": "When you go quiet, what fear is most often hiding underneath?",
+        "ja": "When you go quiet, what fear is most often hiding underneath?"
+      }
+    },
+    {
+      "id": "sel-011-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "過去哪一段經驗，最影響你現在看待自己的方式？",
+        "en": "What past experience most shaped the way you see yourself today?",
+        "th": "What past experience most shaped the way you see yourself today?",
+        "ja": "What past experience most shaped the way you see yourself today?"
+      }
+    },
+    {
+      "id": "sel-012-base",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "你最常在什麼時候感到自己被誤解？",
+        "en": "When do you most often feel misunderstood?",
+        "th": "When do you most often feel misunderstood?",
+        "ja": "When do you most often feel misunderstood?"
+      }
+    },
+    {
+      "id": "sel-013-base",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "有沒有一個你一直延後、但其實很重要的夢想？",
+        "en": "Is there a dream you have kept postponing even though it matters a lot to you?",
+        "th": "Is there a dream you have kept postponing even though it matters a lot to you?",
+        "ja": "Is there a dream you have kept postponing even though it matters a lot to you?"
+      }
+    },
+    {
+      "id": "sel-014-base",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "關於你自己，有哪一個真相是你很想被理解、卻不太容易說出口的？",
+        "en": "What truth about yourself do you wish were understood, yet find hard to say aloud?",
+        "th": "What truth about yourself do you wish were understood, yet find hard to say aloud?",
+        "ja": "What truth about yourself do you wish were understood, yet find hard to say aloud?"
+      }
+    },
+    {
+      "id": "sel-015-base",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "這段關係讓你看見了自己哪一種新的可能？",
+        "en": "What new possibility in yourself has this relationship helped you see?",
+        "th": "What new possibility in yourself has this relationship helped you see?",
+        "ja": "What new possibility in yourself has this relationship helped you see?"
+      }
+    },
+    {
+      "id": "sel-016-intimate",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "你很少向別人展示、但其實很脆弱的一面是什麼？",
+        "en": "What vulnerable side of you do you rarely show to other people?",
+        "th": "What vulnerable side of you do you rarely show to other people?",
+        "ja": "What vulnerable side of you do you rarely show to other people?"
+      }
+    },
+    {
+      "id": "sel-017-intimate",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "你有哪一個不安，需要被更溫柔地對待？",
+        "en": "What insecurity of yours needs more gentleness and care?",
+        "th": "What insecurity of yours needs more gentleness and care?",
+        "ja": "What insecurity of yours needs more gentleness and care?"
+      }
+    },
+    {
+      "id": "sel-018-intimate",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "關於未來的自己，或關於我們，你心裡有什麼祕密願望？",
+        "en": "What secret wish do you carry for your future self or for us?",
+        "th": "What secret wish do you carry for your future self or for us?",
+        "ja": "What secret wish do you carry for your future self or for us?"
+      }
+    },
+    {
+      "id": "sel-019-intimate",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "你曾在哪一刻最赤裸地做自己，卻仍然感到被愛？",
+        "en": "When have you felt most exposed as yourself and still deeply loved?",
+        "th": "When have you felt most exposed as yourself and still deeply loved?",
+        "ja": "When have you felt most exposed as yourself and still deeply loved?"
+      }
+    },
+    {
+      "id": "sel-020-intimate",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "如果你完全確定自己是安全的，你最想對我說哪一句話？",
+        "en": "If you felt completely safe, what would you most want to say to me?",
+        "th": "If you felt completely safe, what would you most want to say to me?",
+        "ja": "If you felt completely safe, what would you most want to say to me?"
+      }
+    }
+  ]
+}

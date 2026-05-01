@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 
 import ThemeCardDeck from '@/components/home/ThemeCardDeck.vue'
-import cardsData from '@/data/cards.json'
+import { cardsData } from '@/data'
 import type { CardsData, Theme } from '@/types'
 
 /**

@@ -1,0 +1,245 @@
+{
+  "id": "interaction",
+  "name": {
+    "zh": "互動理解",
+    "en": "Interaction & Understanding"
+  },
+  "description": {
+    "zh": "深入彼此的溝通方式與情感需求，讓理解成為連結的橋樑",
+    "en": "Dive into each other's communication styles and emotional needs, building bridges of understanding"
+  },
+  "colors": {
+    "primary": "#B8E0B8",
+    "secondary": "#D4F0D4",
+    "background": "#F0FFF0",
+    "backgroundEnd": "#E0FFE0",
+    "text": "#1A3A1A",
+    "cardBack": "#5BA05B"
+  },
+  "endMessage": {
+    "zh": "真正的理解，從願意傾聽開始。謝謝你今天的坦誠。🌿",
+    "en": "True understanding begins with the willingness to listen. Thank you for your honesty today. 🌿"
+  },
+  "cards": [
+    {
+      "id": "int-001-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "當你分享事情時，什麼反應最讓你覺得自己被聽見？",
+        "en": "When you share something, what response helps you feel truly heard?",
+        "th": "When you share something, what response helps you feel truly heard?",
+        "ja": "When you share something, what response helps you feel truly heard?"
+      }
+    },
+    {
+      "id": "int-002-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "如果我們意見不同，你通常最需要我先做什麼？",
+        "en": "When we disagree, what do you usually need from me first?",
+        "th": "When we disagree, what do you usually need from me first?",
+        "ja": "When we disagree, what do you usually need from me first?"
+      }
+    },
+    {
+      "id": "int-003-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "我哪一種溝通方式，最讓你感到舒服？",
+        "en": "What communication style of mine feels most comfortable to you?",
+        "th": "What communication style of mine feels most comfortable to you?",
+        "ja": "What communication style of mine feels most comfortable to you?"
+      }
+    },
+    {
+      "id": "int-004-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "哪一種日常關心，最會讓你覺得被照顧到？",
+        "en": "What kind of everyday check-in makes you feel cared for?",
+        "th": "What kind of everyday check-in makes you feel cared for?",
+        "ja": "What kind of everyday check-in makes you feel cared for?"
+      }
+    },
+    {
+      "id": "int-005-base",
+      "isIntimate": false,
+      "level": 1,
+      "text": {
+        "zh": "你覺得我們在哪一種情境下最容易聊得很順？",
+        "en": "In what situation do our conversations flow most easily?",
+        "th": "In what situation do our conversations flow most easily?",
+        "ja": "In what situation do our conversations flow most easily?"
+      }
+    },
+    {
+      "id": "int-006-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "當你快要被情緒淹沒時，通常會出現什麼訊號？",
+        "en": "What signal usually appears when you are close to feeling overwhelmed?",
+        "th": "What signal usually appears when you are close to feeling overwhelmed?",
+        "ja": "What signal usually appears when you are close to feeling overwhelmed?"
+      }
+    },
+    {
+      "id": "int-007-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "別人怎麼道歉，最容易讓你真的感受到修復？",
+        "en": "What kind of apology helps you feel that repair is really happening?",
+        "th": "What kind of apology helps you feel that repair is really happening?",
+        "ja": "What kind of apology helps you feel that repair is really happening?"
+      }
+    },
+    {
+      "id": "int-008-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "有沒有哪個話題，是我們其實太容易繞開不談的？",
+        "en": "Is there a topic that we avoid too easily instead of talking through?",
+        "th": "Is there a topic that we avoid too easily instead of talking through?",
+        "ja": "Is there a topic that we avoid too easily instead of talking through?"
+      }
+    },
+    {
+      "id": "int-009-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "衝突裡什麼最容易讓你突然關起來？",
+        "en": "What tends to make you suddenly shut down during conflict?",
+        "th": "What tends to make you suddenly shut down during conflict?",
+        "ja": "What tends to make you suddenly shut down during conflict?"
+      }
+    },
+    {
+      "id": "int-010-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "如果我們之間出現緊張，你希望怎麼修復能更快一些？",
+        "en": "When tension shows up between us, how could we repair faster?",
+        "th": "When tension shows up between us, how could we repair faster?",
+        "ja": "When tension shows up between us, how could we repair faster?"
+      }
+    },
+    {
+      "id": "int-011-base",
+      "isIntimate": false,
+      "level": 2,
+      "text": {
+        "zh": "今天有沒有一個你想澄清、卻一直沒說出口的誤會？",
+        "en": "Is there a misunderstanding you want to clear up today but have not voiced yet?",
+        "th": "Is there a misunderstanding you want to clear up today but have not voiced yet?",
+        "ja": "Is there a misunderstanding you want to clear up today but have not voiced yet?"
+      }
+    },
+    {
+      "id": "int-012-base",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "你希望我怎麼問問題，會讓你更願意真實回答？",
+        "en": "How would you like me to ask questions so you feel safer answering honestly?",
+        "th": "How would you like me to ask questions so you feel safer answering honestly?",
+        "ja": "How would you like me to ask questions so you feel safer answering honestly?"
+      }
+    },
+    {
+      "id": "int-013-base",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "即使和我在一起，你什麼時候仍然會感到孤單？",
+        "en": "Even when you are with me, when do you still feel lonely?",
+        "th": "Even when you are with me, when do you still feel lonely?",
+        "ja": "Even when you are with me, when do you still feel lonely?"
+      }
+    },
+    {
+      "id": "int-014-base",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "我們之間哪一個互動模式，最值得一起慢慢調整？",
+        "en": "What interaction pattern between us feels most worth changing together?",
+        "th": "What interaction pattern between us feels most worth changing together?",
+        "ja": "What interaction pattern between us feels most worth changing together?"
+      }
+    },
+    {
+      "id": "int-015-base",
+      "isIntimate": false,
+      "level": 3,
+      "text": {
+        "zh": "如果現在要有一場能讓我們更理解彼此的對話，你最想聊什麼？",
+        "en": "If we could have one conversation that deepens understanding right now, what would it be about?",
+        "th": "If we could have one conversation that deepens understanding right now, what would it be about?",
+        "ja": "If we could have one conversation that deepens understanding right now, what would it be about?"
+      }
+    },
+    {
+      "id": "int-016-intimate",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "哪一種語氣或句子，最容易讓你在親密話題裡打開自己？",
+        "en": "What tone or wording helps you open up when the topic becomes intimate?",
+        "th": "What tone or wording helps you open up when the topic becomes intimate?",
+        "ja": "What tone or wording helps you open up when the topic becomes intimate?"
+      }
+    },
+    {
+      "id": "int-017-intimate",
+      "isIntimate": true,
+      "level": 2,
+      "text": {
+        "zh": "當你對我們感到不安時，什麼樣的安撫最能同時安定你的身體與心？",
+        "en": "When you feel insecure about us, what reassurance calms both your body and mind?",
+        "th": "When you feel insecure about us, what reassurance calms both your body and mind?",
+        "ja": "When you feel insecure about us, what reassurance calms both your body and mind?"
+      }
+    },
+    {
+      "id": "int-018-intimate",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "有沒有一個很難開口的需求，你其實一直希望能被我理解？",
+        "en": "Is there a difficult need you have hoped I would understand, even though it is hard to ask for?",
+        "th": "Is there a difficult need you have hoped I would understand, even though it is hard to ask for?",
+        "ja": "Is there a difficult need you have hoped I would understand, even though it is hard to ask for?"
+      }
+    },
+    {
+      "id": "int-019-intimate",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "我們曾在哪一刻，不用太多話就感受到很深的親密？",
+        "en": "When have we communicated deep intimacy without needing many words?",
+        "th": "When have we communicated deep intimacy without needing many words?",
+        "ja": "When have we communicated deep intimacy without needing many words?"
+      }
+    },
+    {
+      "id": "int-020-intimate",
+      "isIntimate": true,
+      "level": 3,
+      "text": {
+        "zh": "你希望我們怎麼談論渴望，才會更安全、更自在？",
+        "en": "How would you like us to talk about desire so it feels safer and more comfortable?",
+        "th": "How would you like us to talk about desire so it feels safer and more comfortable?",
+        "ja": "How would you like us to talk about desire so it feels safer and more comfortable?"
+      }
+    }
+  ]
+}

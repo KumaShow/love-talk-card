@@ -1,7 +1,7 @@
 import { afterEach, describe, expect, it } from 'vitest'
 
 import { useTheme } from '@/composables/useTheme'
-import cardsData from '@/data/cards.json'
+import { cardsData } from '@/data'
 import type { CardsData, ThemeId } from '@/types'
 
 /**

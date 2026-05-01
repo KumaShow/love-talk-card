@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils'
 
 import FanCard from '@/components/card/FanCard.vue'
 import FanDeck from '@/components/card/FanDeck.vue'
-import cardsData from '@/data/cards.json'
+import { cardsData } from '@/data'
 import type { Card, CardsData } from '@/types'
 
 /**

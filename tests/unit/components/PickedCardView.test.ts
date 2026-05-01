@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils'
 import { createPinia, setActivePinia } from 'pinia'
 
 import PickedCardView from '@/components/card/PickedCardView.vue'
-import cardsData from '@/data/cards.json'
+import { cardsData } from '@/data'
 import type { Card, CardsData } from '@/types'
 
 /**

@@ -49,11 +49,11 @@ import PickedCardView, { type PickedPhase } from '@/components/card/PickedCardVi
 import AppHeader from '@/components/layout/AppHeader.vue'
 import ConfirmModal from '@/components/ui/ConfirmModal.vue'
 import { useTheme } from '@/composables/useTheme'
-import cardsData from '@/data/cards.json'
+import { cardsData } from '@/data'
 import zhTw from '@/i18n/zh-TW.json'
 import { useGameStore } from '@/stores/gameStore'
 import { useSettingsStore } from '@/stores/settingsStore'
-import type { Card, CardsData, ThemeId } from '@/types'
+import type { Card, ThemeId } from '@/types'
 import { isValidThemeId } from '@/utils/theme'
 
 /**
@@ -70,7 +70,6 @@ const gameStore = useGameStore()
 const settingsStore = useSettingsStore()
 const { applyTheme } = useTheme()
 
-const dataset = cardsData as CardsData
 const confirmOpen = ref(false)
 const phase = ref<PickedPhase>('idle')
 const pickedCard = ref<Card | null>(null)
@@ -98,7 +97,7 @@ const currentTheme = computed(() => {
   if (!isValidThemeId(id)) {
     return null
   }
-  return dataset.themes.find((theme) => theme.id === id) ?? null
+  return cardsData.themes.find((theme) => theme.id === id) ?? null
 })
 
 const themeCardBack = computed(() => currentTheme.value?.colors.cardBack ?? '#c76d8e')
@@ -125,7 +124,7 @@ onMounted(() => {
     return
   }
   // 先套主題色再恢復 session，確保首幀漸層即為目標主題，不會閃過預設粉色
-  applyTheme(id, dataset.themes)
+  applyTheme(id, cardsData.themes)
   ensureSession(id)
 })
 
