@@ -1,0 +1,222 @@
+[
+  {
+    "id": "sel-001-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 1,
+    "text": {
+      "zh": "你一個人最放鬆的時候，通常會做什麼？",
+      "en": "What do you usually do to relax when you're by yourself?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-002-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 1,
+    "text": {
+      "zh": "最近有哪件小事，讓你覺得自己還不錯？",
+      "en": "Has anything small happened lately that made you feel pretty good about yourself?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-003-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 1,
+    "text": {
+      "zh": "你覺得自己有哪個小習慣，其實滿可愛的？",
+      "en": "What little habit of yours do you think is actually kind of cute?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-004-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 1,
+    "text": {
+      "zh": "一天裡，哪個時刻最讓你覺得自在？",
+      "en": "What time of day makes you feel most at ease?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-005-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 1,
+    "text": {
+      "zh": "如果不用考慮現實，你最近會想把時間留給什麼？",
+      "en": "If practical concerns didn't matter, what would you want to make more time for these days?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-006-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 2,
+    "text": {
+      "zh": "你壓力很大的時候，最容易變成什麼樣子？",
+      "en": "When you're under a lot of stress, what side of you tends to come out?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-007-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 2,
+    "text": {
+      "zh": "你一生氣時，心裡最先冒出來的感覺通常是什麼？",
+      "en": "When you get angry, what's usually the first feeling that comes up inside?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-008-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 2,
+    "text": {
+      "zh": "你外表看起來很像哪種人，但其實不完全是那樣？",
+      "en": "What kind of person do you seem like on the outside, even though that's not entirely who you are?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-009-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 2,
+    "text": {
+      "zh": "有沒有什麼小事，你嘴上說沒關係，其實心裡會在意？",
+      "en": "Is there any small thing you say is fine, but deep down, you actually care about?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-010-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 2,
+    "text": {
+      "zh": "你最不擅長表現出哪一種情緒？",
+      "en": "Which emotion are you least comfortable showing?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-011-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 2,
+    "text": {
+      "zh": "你現在最想慢慢練習成為什麼樣的人？",
+      "en": "What kind of person do you want to gradually grow into right now?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-012-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 3,
+    "text": {
+      "zh": "你覺得哪件小事，悄悄把你塑造成現在的你？",
+      "en": "What small thing do you think quietly shaped you into who you are today?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-013-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 3,
+    "text": {
+      "zh": "如果人生重來一次，你最想保留自己的哪個特質？",
+      "en": "If you could live your life over again, which trait of yours would you most want to keep?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-014-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 3,
+    "text": {
+      "zh": "你心裡有沒有一個還不太敢說出口的夢想？",
+      "en": "Is there a dream you still don't quite dare to say out loud?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-015-base",
+    "theme": "self",
+    "isIntimate": false,
+    "level": 3,
+    "text": {
+      "zh": "你覺得自己身上的哪個缺點，其實也曾經保護過你？",
+      "en": "Which flaw of yours do you think has actually protected you at some point?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-016-intimate",
+    "theme": "self",
+    "isIntimate": true,
+    "level": 2,
+    "text": {
+      "zh": "你什麼時候最容易忘記要溫柔對待自己？",
+      "en": "When are you most likely to forget to be gentle with yourself?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-017-intimate",
+    "theme": "self",
+    "isIntimate": true,
+    "level": 2,
+    "text": {
+      "zh": "有沒有一個你平常很少讓人看到的樣子？",
+      "en": "Is there a side of you that you rarely let others see?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-018-intimate",
+    "theme": "self",
+    "isIntimate": true,
+    "level": 3,
+    "text": {
+      "zh": "你有沒有一個關於自己的部分，是你還在學習接受的？",
+      "en": "Is there a part of yourself that you're still learning to accept?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-019-intimate",
+    "theme": "self",
+    "isIntimate": true,
+    "level": 3,
+    "text": {
+      "zh": "你一個人消化掉某件事之後，通常會用什麼方式讓自己好過一點？",
+      "en": "After you've processed something on your own, how do you usually help yourself feel a little better?",
+      "th": ""
+    }
+  },
+  {
+    "id": "sel-020-intimate",
+    "theme": "self",
+    "isIntimate": true,
+    "level": 3,
+    "text": {
+      "zh": "如果現在可以放心說一句真心話，你最想讓人知道什麼？",
+      "en": "If you could say one honest thing without fear right now, what would you want others to know?",
+      "th": ""
+    }
+  }
+]

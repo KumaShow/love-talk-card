@@ -1,0 +1,222 @@
+[
+  {
+    "id": "int-001-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 1,
+    "text": {
+      "zh": "我們一起出門時，你比較喜歡隨興走走，還是先有大概行程？",
+      "en": "When we go out together, do you prefer to wander around casually, or have a rough plan first?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-002-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 1,
+    "text": {
+      "zh": "如果你累了一整天，會希望我們安靜待著，還是一起做點什麼？",
+      "en": "If you've had a long day, do you want me to just sit quietly by your side, or do something together?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-003-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 1,
+    "text": {
+      "zh": "你覺得我們最有默契的時候，是在做什麼？",
+      "en": "When do you feel we're most in sync?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-004-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 1,
+    "text": {
+      "zh": "吃飯或約會要做選擇時，你喜歡一起討論，還是有人先提幾個選項？",
+      "en": "When we have to choose where to eat or what to do on a date, do you like deciding together, or would you rather one of us suggest a few options first?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-005-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 1,
+    "text": {
+      "zh": "你喜歡我們每天固定聊一下，還是想到再聊就好？",
+      "en": "Do you like us checking in every day, or would you rather we talk whenever it comes to mind?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-006-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 2,
+    "text": {
+      "zh": "當你心情不好時，你希望我主動問你，還是先陪著你？",
+      "en": "When you're feeling down, do you want me to ask what's wrong first, or simply be there with you?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-007-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 2,
+    "text": {
+      "zh": "我們意見不同時，你比較需要我先聽你說完，還是一起想辦法？",
+      "en": "When we disagree, do you need me to hear you out first, or would you rather we work on a solution together?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-008-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 2,
+    "text": {
+      "zh": "我哪一種說話方式，會讓你比較有壓力？",
+      "en": "What tone or way of speaking from me tends to make you feel pressured?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-009-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 2,
+    "text": {
+      "zh": "跟我分享心事時，我做什麼回應會讓你感覺我有聽懂你的意思？",
+      "en": "When you share what's on your mind with me, what kind of response helps you feel like I really understand what you mean?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-010-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 2,
+    "text": {
+      "zh": "如果我誤會你了，你希望我先做哪一件事？",
+      "en": "If I misunderstood you, what would you want me to do first?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-011-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 2,
+    "text": {
+      "zh": "家事或生活小事要分工時，你覺得怎樣比較不容易累積不舒服？",
+      "en": "When we divide up chores or small everyday tasks, what would help keep unspoken discomfort from building up?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-012-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 3,
+    "text": {
+      "zh": "我們最容易在哪一種小事上會錯意？",
+      "en": "What kinds of little things are we most likely to misread each other on?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-013-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 3,
+    "text": {
+      "zh": "如果我們常在同一件事上卡住，你覺得可以先調整哪一步？",
+      "en": "If we keep getting stuck on the same thing, what step do you think we could adjust first?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-014-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 3,
+    "text": {
+      "zh": "有沒有哪件事，你其實希望我主動做，但一直沒說？",
+      "en": "Is there anything you actually wish I'd take the initiative on, but haven't said out loud?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-015-base",
+    "theme": "interaction",
+    "isIntimate": false,
+    "level": 3,
+    "text": {
+      "zh": "我們吵完或不愉快之後，你比較希望怎麼回到平常？",
+      "en": "After we argue or have an unpleasant moment, how would you like us to get back to normal?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-016-intimate",
+    "theme": "interaction",
+    "isIntimate": true,
+    "level": 2,
+    "text": {
+      "zh": "當你難過時，我先做哪一件事，會讓你比較願意跟我說下去？",
+      "en": "When you're feeling sad, what's the first thing I can do that would make you feel more willing to keep talking to me?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-017-intimate",
+    "theme": "interaction",
+    "isIntimate": true,
+    "level": 2,
+    "text": {
+      "zh": "如果你想要抱抱或被陪著，通常會怎麼讓我知道？",
+      "en": "If you want a hug or someone to be there with you, how do you usually let me know?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-018-intimate",
+    "theme": "interaction",
+    "isIntimate": true,
+    "level": 3,
+    "text": {
+      "zh": "我們和好之後，我做什麼回應會讓你覺得我們真的回到同一邊？",
+      "en": "After we make up, what kind of response from me makes you feel like we're truly back on the same side?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-019-intimate",
+    "theme": "interaction",
+    "isIntimate": true,
+    "level": 3,
+    "text": {
+      "zh": "有沒有哪個時刻，你很想靠近我，但不知道怎麼開口？",
+      "en": "Was there ever a moment when you really wanted to reach out to me, but didn't know how to say it?",
+      "th": ""
+    }
+  },
+  {
+    "id": "int-020-intimate",
+    "theme": "interaction",
+    "isIntimate": true,
+    "level": 3,
+    "text": {
+      "zh": "我做哪一個小動作時，你最容易感覺到我有把你的話聽進去？",
+      "en": "What small thing do I do that makes you feel most clearly that I've really heard what you said?",
+      "th": ""
+    }
+  }
+]
