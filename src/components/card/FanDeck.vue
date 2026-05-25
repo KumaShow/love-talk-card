@@ -1,8 +1,11 @@
 <template>
-  <div class="relative h-[58vh] max-h-[520px] w-full overflow-visible" data-test="fan-deck">
+  <div
+    class="relative h-[58vh] max-h-[32.5rem] w-full overflow-visible max-[23rem]:h-[54vh] max-[23rem]:max-h-[28rem]"
+    data-test="fan-deck"
+  >
     <p
       v-if="visibleCards.length === 0"
-      class="poc-fan-deck__empty absolute inset-0 flex items-center justify-center text-base"
+      class="fan-deck-empty absolute inset-0 flex items-center justify-center text-base"
     >
       已抽完所有牌
     </p>
@@ -65,7 +68,8 @@ const zIndices = computed(() => {
 </script>
 
 <style scoped>
-.poc-fan-deck__empty {
+/* 空牌提示文字：color-mix 半透明墨色，保留 scoped */
+.fan-deck-empty {
   color: color-mix(in srgb, var(--color-ink) 70%, transparent);
 }
 </style>

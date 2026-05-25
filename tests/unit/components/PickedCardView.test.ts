@@ -12,9 +12,9 @@ import type { Card, CardsData } from '@/types'
  * PickedPhase = 'idle' | 'flipping' | 'reading' | 'dismissing'
  * 驗證重點：
  * - idle：picked/backdrop 皆不顯示
- * - flipping：picked + backdrop 顯示、CTA 尚未顯示、進入後觸發翻面（is-flipped）
+ * - flipping：picked + backdrop 顯示、CTA 尚未顯示、進入後觸發翻面（data-flipped=true）
  * - reading：CTA 顯示
- * - dismissing：picked 帶 is-dismissing class
+ * - dismissing：picked 帶 data-dismissing=true
  * - 點 CTA 觸發 dismiss
  * - 點 backdrop 在 reading 觸發 dismiss；在 flipping 不觸發
  */
@@ -68,7 +68,7 @@ describe('PickedCardView', () => {
     expect(wrapper.find('[data-test="picked-next"]').exists()).toBe(true)
   })
 
-  it('phase=dismissing 時 picked-view 帶 is-dismissing class', () => {
+  it('phase=dismissing 時 picked-view 帶 data-dismissing=true', () => {
     const card = getSampleCard()
     const wrapper = mount(PickedCardView, {
       props: { card, phase: 'dismissing' },
@@ -76,7 +76,7 @@ describe('PickedCardView', () => {
 
     const picked = wrapper.find('[data-test="picked-view"]')
     expect(picked.exists()).toBe(true)
-    expect(picked.classes()).toContain('is-dismissing')
+    expect(picked.attributes('data-dismissing')).toBe('true')
   })
 
   it('card=null 時（即使 phase 非 idle）不顯示 picked-view', () => {
@@ -119,7 +119,7 @@ describe('PickedCardView', () => {
     expect(wrapper.emitted('dismiss')).toBeUndefined()
   })
 
-  it('進入 flipping 後經 nextTick + rAF，inner 應帶 is-flipped class', async () => {
+  it('進入 flipping 後經 nextTick + rAF，inner 應帶 data-flipped=true', async () => {
     const card = getSampleCard()
     const wrapper = mount(PickedCardView, {
       props: { card, phase: 'idle' },
@@ -130,12 +130,12 @@ describe('PickedCardView', () => {
     await wrapper.vm.$nextTick()
     await wrapper.vm.$nextTick()
 
-    const inner = wrapper.find('.picked__inner')
+    const inner = wrapper.find('[data-test="picked-inner"]')
     expect(inner.exists()).toBe(true)
-    expect(inner.classes()).toContain('is-flipped')
+    expect(inner.attributes('data-flipped')).toBe('true')
   })
 
-  it('從非 idle 回到 idle 時 is-flipped 應被清除', async () => {
+  it('從非 idle 回到 idle 時 data-flipped 應被清除', async () => {
     const card = getSampleCard()
     const wrapper = mount(PickedCardView, {
       props: { card, phase: 'flipping' },

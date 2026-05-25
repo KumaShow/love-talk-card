@@ -64,6 +64,7 @@ Husky hooks：`pre-commit` 跑 `eslint`；`commit-msg` 跑 `scripts/validate-com
 - **Commit 訊息使用 Conventional Commits**；AI 產生的訊息內容用繁體中文撰寫（例：`feat(us2): 完成私密模式開關`）。`commit-msg` hook 會擋掉不合格式的 header。
 - **TDD 必要**：Red→Green→Refactor。新增 composable/store 先寫失敗測試。
 - **UI 字串外部化**：所有 display 字串走 `src/i18n/*.json` 或 `cards.json`，元件內不寫死。
+- **樣式採 Tailwind v4 utility-first，禁止使用 BEM**：靜態樣式（佈局／間距／色彩／字級／圓角／響應式）一律寫成 utility class（含 `max-[23rem]:` 等 arbitrary variant）。禁止 `block__element--modifier` 命名。僅 `color-mix()`／漸層、3D 翻面（`preserve-3d`／`rotateY`／`backface-visibility`／`perspective`）、動態 CSS 變數 transform、Vue `<Transition>` 進離場等難以用 utility 良好表達者，才保留於 `<style scoped>`，且須使用**單一語義 class**（如 `.card-back`、`.picked-cta`），不得用 BEM。元件狀態切換以 `data-*` 屬性選擇器（如 `[data-flipped='true']`）或條件式 utility class 驅動，取代 BEM modifier。全域設計令牌集中於 `src/assets/main.css` 的 `@theme`，是調整全站視覺的唯一入口。
 - **時區**：所有日期/時間預設 `Asia/Taipei`（UTC+8）。
 - **觸控目標 ≥ 44×44 CSS px**；主題背景過渡 300–500ms；翻牌動畫 ≤ 600ms 且不阻擋互動。
 

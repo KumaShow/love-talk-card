@@ -1,8 +1,10 @@
 <template>
   <main class="flex min-h-screen items-center justify-center px-5 pb-12 pt-10">
     <section class="flex w-full max-w-md flex-col items-center gap-4">
-      <p class="text-xs uppercase tracking-[0.3em] text-brand">{{ zhTw.end.title }}</p>
-      <h1 class="text-center text-[1.8rem] font-semibold">{{ currentTheme?.name.zh }}</h1>
+      <p class="text-xs uppercase tracking-normal text-brand">{{ zhTw.end.title }}</p>
+      <h1 class="text-center text-[1.8rem] font-semibold max-[23rem]:text-[1.5rem]">
+        {{ currentTheme?.name.zh }}
+      </h1>
       <EndMessage
         v-if="currentTheme"
         :theme="currentTheme"

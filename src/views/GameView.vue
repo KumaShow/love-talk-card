@@ -12,11 +12,11 @@
 
     <section class="mx-auto flex w-full max-w-[30rem] flex-col gap-5">
       <header class="flex flex-col gap-[0.3rem] text-center" aria-live="polite">
-        <p class="text-[0.7rem] uppercase tracking-[0.3em] text-brand">{{ zhTw.labels.theme }}</p>
-        <h1 class="m-0 font-serif text-[1.75rem] font-semibold">
+        <p class="text-[0.7rem] uppercase tracking-normal text-brand">{{ zhTw.labels.theme }}</p>
+        <h1 class="m-0 font-serif text-[1.75rem] font-semibold max-[23rem]:text-[1.5rem]">
           {{ currentTheme?.name.zh ?? '' }}
         </h1>
-        <p class="game-view__hint">{{ zhTw.game.fanHint }}</p>
+        <p class="game-hint m-0 text-[0.85rem] max-[23rem]:text-[0.8rem]">{{ zhTw.game.fanHint }}</p>
       </header>
 
       <FanDeck
@@ -60,8 +60,8 @@ import { isValidThemeId } from '@/utils/theme'
 
 /**
  * Phase timer 時長：需對齊 PickedCardView 內 CSS transition。
- * - flip：picked__inner 3D rotateY 600ms
- * - dismiss：picked is-dismissing translateX 460ms
+ * - flip：picked-inner 3D rotateY 600ms（data-flipped 切換）
+ * - dismiss：picked-card translateX 460ms（data-dismissing 切換）
  */
 const FLIP_DURATION_MS = 600
 const DISMISS_DURATION_MS = 460
@@ -198,9 +198,8 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-.game-view__hint {
-  font-size: 0.85rem;
+/* 提示文字：color-mix 半透明墨色，保留 scoped */
+.game-hint {
   color: color-mix(in srgb, var(--color-ink) 60%, transparent);
-  margin: 0;
 }
 </style>

@@ -188,7 +188,7 @@ describe('GameView — phase state machine', () => {
 
     expect(gameStore.drawnCardIds.length).toBe(0)
 
-    await wrapper.find('[data-test="fan-deck"] .is-active').trigger('click')
+    await wrapper.find('[data-test="fan-deck"] [data-test="fan-card-active"]').trigger('click')
     await flushPromises()
 
     expect(gameStore.drawnCardIds.length).toBe(1)
@@ -212,14 +212,14 @@ describe('GameView — phase state machine', () => {
     })
     await flushPromises()
 
-    await wrapper.find('[data-test="fan-deck"] .is-active').trigger('click')
+    await wrapper.find('[data-test="fan-deck"] [data-test="fan-card-active"]').trigger('click')
     vi.advanceTimersByTime(600)
     await flushPromises()
 
     const drawnBeforeDismiss = gameStore.drawnCardIds.length
     await wrapper.find('[data-test="picked-next"]').trigger('click')
-    // dismissing 階段：picked-view 仍存在但帶 is-dismissing
-    expect(wrapper.find('[data-test="picked-view"]').classes()).toContain('is-dismissing')
+    // dismissing 階段：picked-view 仍存在但帶 data-dismissing=true
+    expect(wrapper.find('[data-test="picked-view"]').attributes('data-dismissing')).toBe('true')
 
     vi.advanceTimersByTime(460)
     await flushPromises()
@@ -241,7 +241,7 @@ describe('GameView — phase state machine', () => {
     })
     await flushPromises()
 
-    await wrapper.find('[data-test="fan-deck"] .is-active').trigger('click')
+    await wrapper.find('[data-test="fan-deck"] [data-test="fan-card-active"]').trigger('click')
     vi.advanceTimersByTime(600)
     await flushPromises()
 
@@ -263,13 +263,13 @@ describe('GameView — phase state machine', () => {
     })
     await flushPromises()
 
-    await wrapper.find('[data-test="fan-deck"] .is-active').trigger('click')
+    await wrapper.find('[data-test="fan-deck"] [data-test="fan-card-active"]').trigger('click')
     await flushPromises()
 
     expect(gameStore.drawnCardIds.length).toBe(1)
 
-    // phase=flipping 時，fan-deck canInteract=false，.is-active 應不存在
-    expect(wrapper.find('[data-test="fan-deck"] .is-active').exists()).toBe(false)
+    // phase=flipping 時，fan-deck canInteract=false，作用中卡（fan-card-active）應不存在
+    expect(wrapper.find('[data-test="fan-deck"] [data-test="fan-card-active"]').exists()).toBe(false)
   })
 
   it('unmount 後應清除 phase timer，避免 callback 於離開後觸發 router 轉場', async () => {
@@ -286,7 +286,7 @@ describe('GameView — phase state machine', () => {
     await flushPromises()
 
     // 抽最後一張並進入 reading
-    await wrapper.find('[data-test="fan-deck"] .is-active').trigger('click')
+    await wrapper.find('[data-test="fan-deck"] [data-test="fan-card-active"]').trigger('click')
     vi.advanceTimersByTime(600)
     await flushPromises()
 
