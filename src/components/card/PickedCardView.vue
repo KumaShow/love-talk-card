@@ -124,7 +124,9 @@ function handleBackdropClick() {
   transform: translate(-50%, -50%);
   perspective: 1600px;
   z-index: 100;
-  transition: transform 460ms cubic-bezier(0.55, 0, 0.6, 1), opacity 340ms ease-in;
+  transition:
+    transform var(--duration-dismiss) var(--ease-dismiss),
+    opacity 340ms ease-in;
 }
 
 .picked.is-dismissing {
@@ -137,7 +139,7 @@ function handleBackdropClick() {
   width: 100%;
   height: 100%;
   transform-style: preserve-3d;
-  transition: transform 600ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition: transform var(--duration-flip) var(--ease-card);
 }
 
 .picked__inner.is-flipped {
@@ -173,21 +175,21 @@ function handleBackdropClick() {
 
 .picked__cta {
   min-width: 140px;
-  min-height: 48px;
+  min-height: 52px;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 999px;
   background: linear-gradient(
     135deg,
-    var(--color-primary),
-    color-mix(in srgb, var(--color-primary) 55%, #1a0a18)
+    var(--color-brand),
+    color-mix(in srgb, var(--color-brand) 55%, #1a0a18)
   );
   color: white;
   font-size: 0.95rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 10px 22px -10px color-mix(in srgb, var(--color-primary) 60%, #000);
+  box-shadow: 0 10px 22px -10px color-mix(in srgb, var(--color-brand) 60%, #000);
   cursor: pointer;
 }
 
@@ -202,7 +204,9 @@ function handleBackdropClick() {
 }
 
 .picked-shell-enter-active {
-  transition: opacity 240ms ease-out, transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition:
+    opacity 240ms ease-out,
+    transform 420ms var(--ease-card);
 }
 
 .picked-shell-leave-active {
@@ -216,7 +220,9 @@ function handleBackdropClick() {
 
 .picked-cta-enter-active,
 .picked-cta-leave-active {
-  transition: opacity 240ms ease, transform 260ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  transition:
+    opacity 240ms ease,
+    transform 260ms var(--ease-card);
 }
 
 .picked-cta-enter-from,

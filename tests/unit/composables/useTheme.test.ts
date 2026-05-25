@@ -16,12 +16,12 @@ import type { CardsData, ThemeId } from '@/types'
 describe('useTheme', () => {
   const dataset = cardsData as CardsData
   const themeVarNames = [
-    '--color-bg',
-    '--color-bg-end',
-    '--color-primary',
-    '--color-secondary',
-    '--color-text',
-    '--color-card-back',
+    '--color-surface',
+    '--color-surface-end',
+    '--color-brand',
+    '--color-accent',
+    '--color-ink',
+    '--color-card',
   ] as const
 
   afterEach(() => {
@@ -46,12 +46,12 @@ describe('useTheme', () => {
     applyTheme('attraction', dataset.themes)
 
     const root = document.documentElement
-    expect(root.style.getPropertyValue('--color-bg')).toBe(attraction.colors.background)
-    expect(root.style.getPropertyValue('--color-bg-end')).toBe(attraction.colors.backgroundEnd)
-    expect(root.style.getPropertyValue('--color-primary')).toBe(attraction.colors.primary)
-    expect(root.style.getPropertyValue('--color-secondary')).toBe(attraction.colors.secondary)
-    expect(root.style.getPropertyValue('--color-text')).toBe(attraction.colors.text)
-    expect(root.style.getPropertyValue('--color-card-back')).toBe(attraction.colors.cardBack)
+    expect(root.style.getPropertyValue('--color-surface')).toBe(attraction.colors.background)
+    expect(root.style.getPropertyValue('--color-surface-end')).toBe(attraction.colors.backgroundEnd)
+    expect(root.style.getPropertyValue('--color-brand')).toBe(attraction.colors.primary)
+    expect(root.style.getPropertyValue('--color-accent')).toBe(attraction.colors.secondary)
+    expect(root.style.getPropertyValue('--color-ink')).toBe(attraction.colors.text)
+    expect(root.style.getPropertyValue('--color-card')).toBe(attraction.colors.cardBack)
   })
 
   it('切換主題時應同步更新全部 6 個 CSS 變數', () => {
@@ -62,12 +62,12 @@ describe('useTheme', () => {
     applyTheme('trust', dataset.themes)
 
     const root = document.documentElement
-    expect(root.style.getPropertyValue('--color-bg')).toBe(trust.colors.background)
-    expect(root.style.getPropertyValue('--color-bg-end')).toBe(trust.colors.backgroundEnd)
-    expect(root.style.getPropertyValue('--color-primary')).toBe(trust.colors.primary)
-    expect(root.style.getPropertyValue('--color-secondary')).toBe(trust.colors.secondary)
-    expect(root.style.getPropertyValue('--color-text')).toBe(trust.colors.text)
-    expect(root.style.getPropertyValue('--color-card-back')).toBe(trust.colors.cardBack)
+    expect(root.style.getPropertyValue('--color-surface')).toBe(trust.colors.background)
+    expect(root.style.getPropertyValue('--color-surface-end')).toBe(trust.colors.backgroundEnd)
+    expect(root.style.getPropertyValue('--color-brand')).toBe(trust.colors.primary)
+    expect(root.style.getPropertyValue('--color-accent')).toBe(trust.colors.secondary)
+    expect(root.style.getPropertyValue('--color-ink')).toBe(trust.colors.text)
+    expect(root.style.getPropertyValue('--color-card')).toBe(trust.colors.cardBack)
   })
 
   it('resetTheme 應清除 inline 寫入的 6 個 CSS 變數', () => {
@@ -91,7 +91,7 @@ describe('useTheme', () => {
     applyTheme('does-not-exist' as ThemeId, dataset.themes)
 
     const root = document.documentElement
-    expect(root.style.getPropertyValue('--color-primary')).toBe(attraction.colors.primary)
-    expect(root.style.getPropertyValue('--color-bg')).toBe(attraction.colors.background)
+    expect(root.style.getPropertyValue('--color-brand')).toBe(attraction.colors.primary)
+    expect(root.style.getPropertyValue('--color-surface')).toBe(attraction.colors.background)
   })
 })

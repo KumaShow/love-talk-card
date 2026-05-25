@@ -34,7 +34,7 @@ const computedStyle = computed(
   () =>
     ({
       '--angle': `${props.angle}deg`,
-      '--color-card-back': props.cardBack,
+      '--color-card': props.cardBack,
       zIndex: props.zIndex,
     }) as Record<string, string | number>,
 )
@@ -57,7 +57,9 @@ function handleActivate() {
   aspect-ratio: 3 / 4;
   transform: translateX(-50%) rotate(var(--angle));
   transform-origin: 50% 120%;
-  transition: transform 400ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 300ms ease;
+  transition:
+    transform var(--duration-fan) var(--ease-card),
+    opacity 300ms ease;
   pointer-events: none;
   opacity: 0.88;
   filter: brightness(0.92);
@@ -75,8 +77,8 @@ function handleActivate() {
 }
 
 .poc-fan-card:focus-visible {
-  outline: 3px solid var(--color-primary);
+  outline: 3px solid var(--color-brand);
   outline-offset: 4px;
-  border-radius: 1.75rem;
+  border-radius: var(--radius-card);
 }
 </style>

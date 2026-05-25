@@ -5,7 +5,7 @@
  * 設計重點：
  * - WAI-ARIA toggle button group：每顆按鈕以 aria-pressed 表達啟用狀態。
  * - 觸控區 ≥44×44px（憲章可存取性要求）。
- * - 啟用按鈕以 var(--color-primary) 作為主題化視覺提示。
+ * - 啟用按鈕採白色玻璃感，刻意不搶走主題 CTA 的視覺焦點。
  * - emit 'select' 攜帶 SecondaryLang，讓父層接到 settingsStore.setSecondaryLang。
  *   採用 emit 而非 v-model 是為了保留語意（這是「動作」而非雙向綁定）—
  *   故 prop 命名為 `selectedLang` 而非 `modelValue`，以免與本 repo 其他
@@ -47,7 +47,7 @@ function handleClick(lang: SecondaryLang): void {
 
 <template>
   <div
-    class="language-selector"
+    class="language-selector inline-flex items-center gap-[0.15rem] rounded-[var(--radius-pill)] p-[0.2rem]"
     role="group"
     :aria-label="t('labels.secondaryLanguage')"
     data-test="language-selector"
@@ -56,12 +56,11 @@ function handleClick(lang: SecondaryLang): void {
       v-for="option in options"
       :key="option.value"
       type="button"
-      class="language-selector__btn"
+      class="language-selector__btn inline-flex min-h-[52px] min-w-[52px] cursor-pointer items-center justify-center rounded-[var(--radius-pill)] border-0 bg-transparent px-[0.7rem] py-0 text-xs font-medium tracking-[0.04em]"
       :class="{ 'language-selector__btn--active': selectedLang === option.value }"
       :aria-pressed="selectedLang === option.value ? 'true' : 'false'"
       :aria-label="option.ariaLabel"
       :data-test="option.testId"
-      :style="{ minWidth: '44px', minHeight: '44px' }"
       @click="handleClick(option.value)"
     >
       {{ option.label }}
@@ -77,30 +76,17 @@ function handleClick(lang: SecondaryLang): void {
  * 啟用中的選項才填淡白 pill + 完整 opacity。
  */
 .language-selector {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.15rem;
-  padding: 0.2rem;
-  border-radius: 999px;
   background: rgba(255, 255, 255, 0.18);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
 
 .language-selector__btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 0.7rem;
-  border: none;
-  border-radius: 999px;
-  background: transparent;
   color: rgba(255, 255, 255, 0.7);
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  cursor: pointer;
-  transition: background-color 160ms ease, color 160ms ease, opacity 160ms ease;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease;
 }
 
 .language-selector__btn:hover {

@@ -11,7 +11,7 @@ import type { CardsData, Theme } from '@/types'
  * 驗證重點：
  * - theme=null 時浮層與 backdrop 皆不顯示
  * - 提供 theme 時顯示 name.zh 與 description.zh
- * - CSS custom properties 注入 --color-card-back / --color-primary / --color-secondary
+ * - CSS custom properties 注入 --color-card / --color-brand / --color-accent
  * - 點 CTA → emit start(theme)
  * - 點 backdrop 或 dismiss 按鈕 → emit dismiss
  * - darkened backdrop 存在（data-test=preview-backdrop）
@@ -47,16 +47,16 @@ describe('ThemePreview', () => {
     expect(wrapper.find('[data-test="preview-backdrop"]').exists()).toBe(true)
   })
 
-  it('inline style 注入 --color-card-back / --color-primary / --color-secondary', () => {
+  it('inline style 注入 --color-card / --color-brand / --color-accent', () => {
     const theme = getAttractionTheme()
     const wrapper = mount(ThemePreview, { props: { theme } })
 
     const section = wrapper.find('[data-test="home-preview"]')
     const style = section.attributes('style') ?? ''
 
-    expect(style).toMatch(/--color-card-back:\s*#C76D8E/i)
-    expect(style).toMatch(/--color-primary:\s*#E8A0BF/i)
-    expect(style).toMatch(/--color-secondary:\s*#FFD6E0/i)
+    expect(style).toMatch(/--color-card:\s*#C76D8E/i)
+    expect(style).toMatch(/--color-brand:\s*#E8A0BF/i)
+    expect(style).toMatch(/--color-accent:\s*#FFD6E0/i)
   })
 
   it('點 CTA 開始對話 → emit start 並攜帶 theme 物件', async () => {
@@ -98,7 +98,7 @@ describe('ThemePreview', () => {
     const section = wrapper.find('[data-test="home-preview"]')
     const style = section.attributes('style') ?? ''
 
-    expect(style).toMatch(new RegExp(`--color-card-back:\\s*${trustTheme.colors.cardBack}`, 'i'))
-    expect(style).toMatch(new RegExp(`--color-primary:\\s*${trustTheme.colors.primary}`, 'i'))
+    expect(style).toMatch(new RegExp(`--color-card:\\s*${trustTheme.colors.cardBack}`, 'i'))
+    expect(style).toMatch(new RegExp(`--color-brand:\\s*${trustTheme.colors.primary}`, 'i'))
   })
 })

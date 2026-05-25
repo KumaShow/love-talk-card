@@ -1,8 +1,8 @@
 <template>
-  <main class="end-view">
-    <section class="end-view__inner">
-      <p class="end-view__eyebrow">{{ zhTw.end.title }}</p>
-      <h1 class="end-view__title">{{ currentTheme?.name.zh }}</h1>
+  <main class="flex min-h-screen items-center justify-center px-5 pb-12 pt-10">
+    <section class="flex w-full max-w-md flex-col items-center gap-4">
+      <p class="text-xs uppercase tracking-[0.3em] text-brand">{{ zhTw.end.title }}</p>
+      <h1 class="text-center text-[1.8rem] font-semibold">{{ currentTheme?.name.zh }}</h1>
       <EndMessage
         v-if="currentTheme"
         :theme="currentTheme"
@@ -58,35 +58,3 @@ function handleBack() {
   void router.push({ name: 'home' })
 }
 </script>
-
-<style scoped>
-.end-view {
-  min-height: 100vh;
-  padding: 2.5rem 1.25rem 3rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.end-view__inner {
-  max-width: 28rem;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.end-view__eyebrow {
-  font-size: 0.75rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-}
-
-.end-view__title {
-  font-size: 1.8rem;
-  font-weight: 600;
-  text-align: center;
-}
-</style>

@@ -1,5 +1,8 @@
 <template>
-  <article class="card-face" data-test="card-face">
+  <article
+    class="card-face absolute inset-0 flex flex-col justify-center gap-4 rounded-[var(--radius-card)] bg-white p-7 text-ink shadow-[var(--shadow-card)]"
+    data-test="card-face"
+  >
     <!-- T047：私密牌裝飾浮水印，opacity 0.15，不影響可讀性（pointer-events:none、z-index:0） -->
     <div
       v-if="card.isIntimate"
@@ -20,18 +23,24 @@
         />
       </svg>
     </div>
-    <div class="card-face__meta">
+    <div
+      class="card-face__meta relative z-[1] flex items-center justify-between text-xs uppercase tracking-[0.2em]"
+    >
       <span class="card-face__level">Lv.{{ card.level }}</span>
       <span v-if="card.isIntimate" class="card-face__intimate" data-test="intimate-indicator">
         <slot name="intimate-indicator">♥</slot>
       </span>
     </div>
-    <p class="card-face__primary" data-test="card-primary-text" lang="zh-TW">
+    <p
+      class="relative z-[1] font-serif text-2xl font-semibold leading-[1.5]"
+      data-test="card-primary-text"
+      lang="zh-TW"
+    >
       {{ card.text.zh }}
     </p>
     <p
       v-if="secondaryText"
-      class="card-face__secondary"
+      class="card-face__secondary relative z-[1] text-base leading-[1.5]"
       data-test="card-secondary-text"
       :lang="secondaryHtmlLang"
     >
@@ -72,54 +81,22 @@ const secondaryHtmlLang = computed(() => HTML_LANG_MAP[secondaryLang.value])
 
 <style scoped>
 .card-face {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1.75rem;
-  border-radius: 1.75rem;
-  background: #ffffff;
-  color: var(--color-text);
-  box-shadow: 0 18px 40px -18px rgba(0, 0, 0, 0.3);
   transform: rotateY(180deg);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
 .card-face__meta {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 0.75rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  color: color-mix(in srgb, var(--color-ink) 60%, transparent);
 }
 
 .card-face__intimate {
   font-size: 1.25rem;
-  color: var(--color-primary);
-}
-
-.card-face__primary {
-  position: relative;
-  z-index: 1;
-  font-family: ui-serif, Georgia, 'Times New Roman', serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  line-height: 1.5;
+  color: var(--color-brand);
 }
 
 .card-face__secondary {
-  position: relative;
-  z-index: 1;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: color-mix(in srgb, var(--color-text) 75%, transparent);
+  color: color-mix(in srgb, var(--color-ink) 75%, transparent);
 }
 
 /* T047：私密牌裝飾浮水印覆蓋層，填滿卡面、置中、半透明，且不可點擊 */
@@ -131,7 +108,7 @@ const secondaryHtmlLang = computed(() => HTML_LANG_MAP[secondaryLang.value])
   justify-content: center;
   opacity: 0.15;
   pointer-events: none;
-  color: var(--color-primary);
+  color: var(--color-brand);
   z-index: 0;
 }
 

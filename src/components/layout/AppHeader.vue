@@ -1,8 +1,11 @@
 <template>
-  <header class="app-header" data-test="app-header">
+  <header
+    class="grid grid-cols-[auto_1fr_auto] items-center gap-3 px-2 py-3"
+    data-test="app-header"
+  >
     <button
       type="button"
-      class="app-header__back"
+      class="inline-flex h-11 w-11 cursor-pointer items-center justify-center rounded-[var(--radius-pill)] border-0 bg-white/75 p-0 text-[1.2rem] font-medium text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
       data-test="app-header-back"
       :aria-label="backLabel"
       :title="backLabel"
@@ -10,18 +13,19 @@
     >
       <span aria-hidden="true">←</span>
     </button>
-    <div class="app-header__center">
+    <div class="flex items-center justify-center">
       <slot name="center">
         <span
           v-if="showRemaining"
-          class="app-header__remaining"
+          class="inline-flex items-baseline gap-[0.35rem] rounded-[var(--radius-pill)] bg-white/65 px-[0.9rem] py-[0.35rem] text-[0.85rem]"
           data-test="app-header-remaining"
         >
-          {{ remainingLabel }}<span class="app-header__remaining-count">{{ remainingCount }}</span>
+          {{ remainingLabel
+          }}<span class="text-base font-semibold text-brand">{{ remainingCount }}</span>
         </span>
       </slot>
     </div>
-    <div class="app-header__right">
+    <div class="flex justify-end gap-2">
       <slot name="right" />
     </div>
   </header>
@@ -50,57 +54,3 @@ function handleBack() {
   emit('back')
 }
 </script>
-
-<style scoped>
-.app-header {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  align-items: center;
-  gap: 0.75rem;
-  padding: 0.75rem 0.5rem;
-}
-
-.app-header__back {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 44px;
-  height: 44px;
-  padding: 0;
-  border: none;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.75);
-  color: var(--color-text);
-  font-size: 1.2rem;
-  font-weight: 500;
-  cursor: pointer;
-}
-
-.app-header__center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.app-header__remaining {
-  display: inline-flex;
-  align-items: baseline;
-  gap: 0.35rem;
-  padding: 0.35rem 0.9rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.65);
-  font-size: 0.85rem;
-}
-
-.app-header__remaining-count {
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--color-primary);
-}
-
-.app-header__right {
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.5rem;
-}
-</style>

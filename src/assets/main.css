@@ -1,12 +1,42 @@
 @import 'tailwindcss';
 
-:root {
-  --color-bg: #fff7fa;
-  --color-bg-end: #ffe8f0;
-  --color-primary: #e8a0bf;
-  --color-secondary: #ffd6e0;
-  --color-text: #4a1528;
-  --color-card-back: #c76d8e;
+/* ─────────────────────────────────────────────
+ * 全域設計令牌（design tokens）
+ * 這是全站樣式參數的單一入口。調整視覺請優先改這裡。
+ * 注意：色彩令牌會被 useTheme 於執行時動態覆寫，
+ *       因此必須使用普通 @theme（非 @theme inline），讓 utility 走 var()。
+ * ───────────────────────────────────────────── */
+@theme {
+  /* 色彩：預設值＝心動瞬間（attraction）主題；執行時由 useTheme 覆寫 */
+  --color-surface: #fff7fa;
+  --color-surface-end: #ffe8f0;
+  --color-brand: #e8a0bf;
+  --color-accent: #ffd6e0;
+  --color-ink: #4a1528;
+  --color-card: #c76d8e;
+
+  /* 字型 */
+  --font-serif: ui-serif, Georgia, 'Times New Roman', serif;
+
+  /* 圓角 */
+  --radius-card: 1.75rem;
+  --radius-panel: 1.5rem;
+  --radius-pill: 999px;
+
+  /* 陰影 */
+  --shadow-card: 0 18px 40px -18px rgb(0 0 0 / 0.35);
+  --shadow-modal: 0 25px 60px -20px rgb(0 0 0 / 0.35);
+  --shadow-sheet: 0 -22px 44px -24px rgb(0 0 0 / 0.28);
+
+  /* 緩動曲線 */
+  --ease-card: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-dismiss: cubic-bezier(0.55, 0, 0.6, 1);
+
+  /* 動畫時長 */
+  --duration-flip: 600ms;
+  --duration-dismiss: 460ms;
+  --duration-fan: 400ms;
+  --duration-theme: 500ms;
 }
 
 *,
@@ -30,13 +60,13 @@ body,
 body {
   margin: 0;
   min-height: 100vh;
-  color: var(--color-text);
-  font-family: ui-serif, Georgia, 'Times New Roman', serif;
+  color: var(--color-ink);
+  font-family: var(--font-serif);
 }
 
 /*
  * 全站主題氛圍承載層（US4）：
- * - 漸層以 :root 注入的 6 個 CSS 變數驅動，由 useTheme.applyTheme() 依當前主題覆寫
+ * - 漸層以 @theme 注入的 6 個 CSS 變數驅動，由 useTheme.applyTheme() 依當前主題覆寫
  * - 僅 #app 承載漸層，避免 body 與 #app 雙層疊加造成視覺髒色
  * - transition 同時覆蓋 background-color（fallback 色）與 background（gradient），
  *   符合憲章 300–500ms 過場要求；實際平滑感以 background-color 為主
@@ -44,13 +74,13 @@ body {
  *   若 color 只放在 body，#app 的過場會看不到平滑切換
  */
 #app {
-  background-color: var(--color-bg);
-  background: linear-gradient(to bottom, var(--color-bg), var(--color-bg-end));
-  color: var(--color-text);
+  background-color: var(--color-surface);
+  background: linear-gradient(to bottom, var(--color-surface), var(--color-surface-end));
+  color: var(--color-ink);
   transition:
-    background-color 500ms ease-in-out,
-    background 500ms ease-in-out,
-    color 500ms ease-in-out;
+    background-color var(--duration-theme) ease-in-out,
+    background var(--duration-theme) ease-in-out,
+    color var(--duration-theme) ease-in-out;
 }
 
 button,

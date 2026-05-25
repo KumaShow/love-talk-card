@@ -67,9 +67,9 @@ const themeStyle = computed(() => {
     return {}
   }
   return {
-    '--color-card-back': props.theme.colors.cardBack,
-    '--color-primary': props.theme.colors.primary,
-    '--color-secondary': props.theme.colors.secondary,
+    '--color-card': props.theme.colors.cardBack,
+    '--color-brand': props.theme.colors.primary,
+    '--color-accent': props.theme.colors.secondary,
   } as Record<string, string>
 })
 </script>
@@ -96,9 +96,9 @@ const themeStyle = computed(() => {
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-top-left-radius: 1.75rem;
-  border-top-right-radius: 1.75rem;
-  box-shadow: 0 -22px 44px -24px rgba(0, 0, 0, 0.28);
+  border-top-left-radius: var(--radius-card);
+  border-top-right-radius: var(--radius-card);
+  box-shadow: var(--shadow-sheet);
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -112,11 +112,11 @@ const themeStyle = computed(() => {
 
 .poc-home-preview__card {
   padding: 1.5rem 1.25rem;
-  border-radius: 1.5rem;
+  border-radius: var(--radius-panel);
   background: linear-gradient(
     145deg,
-    color-mix(in srgb, var(--color-card-back) 78%, white),
-    var(--color-card-back)
+    color-mix(in srgb, var(--color-card) 78%, white),
+    var(--color-card)
   );
   color: white;
   text-align: center;
@@ -136,7 +136,7 @@ const themeStyle = computed(() => {
 }
 
 .poc-home-preview__card-name {
-  font-family: ui-serif, Georgia, 'Times New Roman', serif;
+  font-family: var(--font-serif);
   font-size: 1.75rem;
   font-weight: 600;
   margin: 0;
@@ -152,26 +152,31 @@ const themeStyle = computed(() => {
 .poc-home-preview__cta {
   min-height: 52px;
   border: none;
-  border-radius: 999px;
+  border-radius: var(--radius-pill);
   background: linear-gradient(
     135deg,
-    var(--color-primary),
-    color-mix(in srgb, var(--color-primary) 55%, #1a0a18)
+    var(--color-brand),
+    color-mix(in srgb, var(--color-brand) 55%, #1a0a18)
   );
   color: white;
   font-size: 1.05rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  box-shadow: 0 10px 24px -10px color-mix(in srgb, var(--color-primary) 55%, #000),
+  box-shadow:
+    0 10px 24px -10px color-mix(in srgb, var(--color-brand) 55%, #000),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
   cursor: pointer;
-  transition: transform 150ms ease, filter 150ms ease, box-shadow 150ms ease;
+  transition:
+    transform 150ms ease,
+    filter 150ms ease,
+    box-shadow 150ms ease;
 }
 
 .poc-home-preview__cta:hover {
   filter: brightness(1.05);
-  box-shadow: 0 14px 28px -10px color-mix(in srgb, var(--color-primary) 60%, #000),
+  box-shadow:
+    0 14px 28px -10px color-mix(in srgb, var(--color-brand) 60%, #000),
     inset 0 1px 0 rgba(255, 255, 255, 0.25);
 }
 
@@ -185,7 +190,7 @@ const themeStyle = computed(() => {
   padding: 0.4rem 1.2rem;
   border: none;
   background: transparent;
-  color: color-mix(in srgb, var(--color-text) 65%, transparent);
+  color: color-mix(in srgb, var(--color-ink) 65%, transparent);
   font-size: 0.9rem;
   cursor: pointer;
 }
@@ -204,7 +209,9 @@ const themeStyle = computed(() => {
 /* 浮層進出場：slide-up + opacity */
 .preview-slide-enter-active,
 .preview-slide-leave-active {
-  transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 260ms ease-out;
+  transition:
+    transform 420ms var(--ease-card),
+    opacity 260ms ease-out;
 }
 
 .preview-slide-enter-from,
@@ -221,15 +228,18 @@ const themeStyle = computed(() => {
   position: absolute;
   inset: 0;
   transform-origin: center center;
-  transition: opacity 320ms ease-out 180ms,
-    transform 520ms cubic-bezier(0.2, 0.8, 0.2, 1) 180ms;
+  transition:
+    opacity 320ms ease-out 180ms,
+    transform 520ms var(--ease-card) 180ms;
 }
 
 .preview-card-leave-active {
   position: absolute;
   inset: 0;
   transform-origin: center center;
-  transition: opacity 220ms ease-out, transform 320ms cubic-bezier(0.4, 0, 0.6, 1);
+  transition:
+    opacity 220ms ease-out,
+    transform 320ms cubic-bezier(0.4, 0, 0.6, 1);
 }
 
 .preview-card-enter-from {

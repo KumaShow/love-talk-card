@@ -1,8 +1,8 @@
 <template>
   <button
     type="button"
-    class="poc-theme-card"
-    :style="{ '--color-card-back': theme.colors.cardBack }"
+    class="poc-theme-card flex w-full cursor-pointer flex-col items-center gap-[0.55rem] rounded-[var(--radius-panel)] border-0 bg-transparent px-2 pb-3 pt-2 text-ink"
+    :style="{ '--color-card': theme.colors.cardBack }"
     :data-test="`theme-deck-${theme.id}`"
     :aria-label="`${zhName} 主題卡堆`"
     @click="$emit('select', theme)"
@@ -14,7 +14,7 @@
         <span class="poc-theme-card__glyph">♥</span>
       </span>
     </div>
-    <span class="poc-theme-card__name">{{ zhName }}</span>
+    <span class="font-serif text-[1.05rem] font-semibold text-ink">{{ zhName }}</span>
   </button>
 </template>
 
@@ -34,19 +34,8 @@ const zhName = computed(() => props.theme.name.zh)
 
 <style scoped>
 .poc-theme-card {
-  --color-card-back: #c76d8e;
-  width: 100%;
+  --color-card: #c76d8e;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.55rem;
-  padding: 0.5rem 0.5rem 0.75rem;
-  border: none;
-  background: transparent;
-  color: var(--color-text);
-  cursor: pointer;
-  border-radius: 1.5rem;
   transition: transform 200ms ease;
 }
 
@@ -71,8 +60,8 @@ const zhName = computed(() => props.theme.name.zh)
   border-radius: 1.5rem;
   background: linear-gradient(
     145deg,
-    color-mix(in srgb, var(--color-card-back) 82%, white),
-    var(--color-card-back)
+    color-mix(in srgb, var(--color-card) 82%, white),
+    var(--color-card)
   );
   box-shadow: 0 14px 28px -14px rgba(0, 0, 0, 0.3);
   display: flex;
@@ -110,12 +99,5 @@ const zhName = computed(() => props.theme.name.zh)
     rgba(255, 255, 255, 0.25),
     rgba(255, 255, 255, 0) 65%
   );
-}
-
-.poc-theme-card__name {
-  font-family: ui-serif, Georgia, 'Times New Roman', serif;
-  font-size: 1.05rem;
-  font-weight: 600;
-  color: var(--color-text);
 }
 </style>

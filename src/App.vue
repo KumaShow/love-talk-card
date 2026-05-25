@@ -2,7 +2,7 @@
   <RouterView />
   <OrientationGuard />
   <audio
-    class="app-bgm"
+    class="hidden"
     data-test="bgm-audio"
     :muted="bgmMuted"
     loop
@@ -21,9 +21,3 @@ import { useAudio } from '@/composables/useAudio'
 
 const { bgmMuted, bgmSourceUrls } = useAudio()
 </script>
-
-<style scoped>
-.app-bgm {
-  display: none;
-}
-</style>

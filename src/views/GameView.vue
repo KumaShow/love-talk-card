@@ -1,5 +1,5 @@
 <template>
-  <main class="game-view">
+  <main class="flex min-h-screen flex-col gap-4 px-5 pb-10 pt-4">
     <AppHeader
       :back-label="zhTw.actions.back"
       :remaining-label="`${zhTw.labels.remaining} `"
@@ -10,10 +10,12 @@
       @request-confirm-back="confirmOpen = true"
     />
 
-    <section class="game-view__inner">
-      <header class="game-view__meta" aria-live="polite">
-        <p class="game-view__eyebrow">{{ zhTw.labels.theme }}</p>
-        <h1 class="game-view__title">{{ currentTheme?.name.zh ?? '' }}</h1>
+    <section class="mx-auto flex w-full max-w-[30rem] flex-col gap-5">
+      <header class="flex flex-col gap-[0.3rem] text-center" aria-live="polite">
+        <p class="text-[0.7rem] uppercase tracking-[0.3em] text-brand">{{ zhTw.labels.theme }}</p>
+        <h1 class="m-0 font-serif text-[1.75rem] font-semibold">
+          {{ currentTheme?.name.zh ?? '' }}
+        </h1>
         <p class="game-view__hint">{{ zhTw.game.fanHint }}</p>
       </header>
 
@@ -196,47 +198,9 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-.game-view {
-  min-height: 100vh;
-  padding: 1rem 1.25rem 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.game-view__inner {
-  max-width: 30rem;
-  margin: 0 auto;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.game-view__meta {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.game-view__eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-}
-
-.game-view__title {
-  font-family: ui-serif, Georgia, 'Times New Roman', serif;
-  font-size: 1.75rem;
-  font-weight: 600;
-  margin: 0;
-}
-
 .game-view__hint {
   font-size: 0.85rem;
-  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  color: color-mix(in srgb, var(--color-ink) 60%, transparent);
   margin: 0;
 }
 </style>

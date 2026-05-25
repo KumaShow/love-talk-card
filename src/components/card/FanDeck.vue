@@ -1,6 +1,11 @@
 <template>
-  <div class="poc-fan-deck" data-test="fan-deck">
-    <p v-if="visibleCards.length === 0" class="poc-fan-deck__empty">已抽完所有牌</p>
+  <div class="relative h-[58vh] max-h-[520px] w-full overflow-visible" data-test="fan-deck">
+    <p
+      v-if="visibleCards.length === 0"
+      class="poc-fan-deck__empty absolute inset-0 flex items-center justify-center text-base"
+    >
+      已抽完所有牌
+    </p>
     <FanCard
       v-for="(card, i) in visibleCards"
       :key="card.id"
@@ -36,7 +41,9 @@ defineEmits<{ 'draw-center': [] }>()
  * 扇形 window 固定為「未抽 deck 的前 5 張」，不做 swipe window shift。
  * 理由：避免「中央卡 ID」與 gameStore.drawCard() 實際拉取的卡 ID 不一致。
  */
-const visibleCards = computed(() => props.deck.slice(props.drawnCount, props.drawnCount + WINDOW_SIZE))
+const visibleCards = computed(() =>
+  props.deck.slice(props.drawnCount, props.drawnCount + WINDOW_SIZE),
+)
 
 const centerIndex = computed(() => Math.floor((visibleCards.value.length - 1) / 2))
 
@@ -58,21 +65,7 @@ const zIndices = computed(() => {
 </script>
 
 <style scoped>
-.poc-fan-deck {
-  position: relative;
-  width: 100%;
-  height: 58vh;
-  max-height: 520px;
-  overflow: visible;
-}
-
 .poc-fan-deck__empty {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: color-mix(in srgb, var(--color-text) 70%, transparent);
-  font-size: 1rem;
+  color: color-mix(in srgb, var(--color-ink) 70%, transparent);
 }
 </style>

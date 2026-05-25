@@ -40,7 +40,7 @@ function handleClick(): void {
 <template>
   <button
     type="button"
-    class="toggle-switch"
+    class="toggle-switch inline-flex min-h-[44px] min-w-[44px] cursor-pointer items-center gap-2 rounded-[var(--radius-pill)] border-0 bg-transparent px-2 py-1 text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand"
     :class="{
       'toggle-switch--on': modelValue,
       'toggle-switch--disabled': disabled,
@@ -51,43 +51,23 @@ function handleClick(): void {
     :aria-label="label || undefined"
     :tabindex="disabled ? -1 : 0"
     :disabled="disabled"
-    :style="{ minWidth: '44px', minHeight: '44px' }"
     @click="handleClick"
   >
-    <span class="toggle-switch__track" aria-hidden="true">
+    <span
+      class="toggle-switch__track relative inline-block h-6 w-11 rounded-[var(--radius-pill)]"
+      aria-hidden="true"
+    >
       <span class="toggle-switch__thumb" />
     </span>
-    <span v-if="$slots.default || label" class="toggle-switch__label">
+    <span v-if="$slots.default || label" class="text-[0.95rem] font-medium">
       <slot>{{ label }}</slot>
     </span>
   </button>
 </template>
 
 <style scoped>
-.toggle-switch {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  color: var(--color-text);
-  border-radius: 999px;
-}
-
-.toggle-switch:focus-visible {
-  outline: 2px solid var(--color-primary);
-  outline-offset: 2px;
-}
-
 .toggle-switch__track {
-  position: relative;
-  display: inline-block;
-  width: 44px;
-  height: 24px;
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--color-text) 20%, transparent);
+  background: color-mix(in srgb, var(--color-ink) 20%, transparent);
   transition: background-color 160ms ease;
 }
 
@@ -104,7 +84,7 @@ function handleClick(): void {
 }
 
 .toggle-switch--on .toggle-switch__track {
-  background: var(--color-primary);
+  background: var(--color-brand);
 }
 
 .toggle-switch--on .toggle-switch__thumb {
@@ -115,10 +95,5 @@ function handleClick(): void {
   cursor: not-allowed;
   opacity: 0.5;
   pointer-events: none;
-}
-
-.toggle-switch__label {
-  font-size: 0.95rem;
-  font-weight: 500;
 }
 </style>

@@ -13,12 +13,12 @@ import type { Theme, ThemeId } from '@/types'
  *   資料來源（data-model §3 ThemeColors）。
  */
 const CSS_VAR_MAP = {
-  background: '--color-bg',
-  backgroundEnd: '--color-bg-end',
-  primary: '--color-primary',
-  secondary: '--color-secondary',
-  text: '--color-text',
-  cardBack: '--color-card-back',
+  background: '--color-surface',
+  backgroundEnd: '--color-surface-end',
+  primary: '--color-brand',
+  secondary: '--color-accent',
+  text: '--color-ink',
+  cardBack: '--color-card',
 } as const
 
 type ColorKey = keyof typeof CSS_VAR_MAP
@@ -40,7 +40,7 @@ export function useTheme() {
   }
 
   /**
-   * 清除 inline 寫入的 6 個 CSS 變數，讓 :root 中的預設色（main.css）重新生效。
+   * 清除 inline 寫入的 6 個 CSS 變數，讓 @theme 中的預設色（main.css）重新生效。
    * HomeView 會在 onMounted 呼叫此方法以恢復中性預設氛圍。
    */
   function resetTheme(): void {

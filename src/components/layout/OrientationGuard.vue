@@ -2,15 +2,15 @@
   <Transition name="orientation-guard">
     <div
       v-if="isLandscape"
-      class="orientation-guard"
+      class="orientation-guard fixed inset-0 z-[9999] flex items-center justify-center bg-[rgb(8_4_10/0.88)] p-6 text-white backdrop-blur-[6px]"
       data-test="orientation-guard"
       role="alert"
       :aria-labelledby="titleId"
       :aria-describedby="descId"
     >
-      <div class="orientation-guard__panel">
+      <div class="flex max-w-[22rem] flex-col items-center gap-3 text-center">
         <svg
-          class="orientation-guard__icon"
+          class="orientation-guard__icon h-20 w-20"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 64 64"
           fill="none"
@@ -30,14 +30,14 @@
           <path d="M52 48 L54 52 L50 52" />
         </svg>
 
-        <h2 :id="titleId" class="orientation-guard__title">
+        <h2 :id="titleId" class="m-0 text-xl font-bold tracking-[0.02em]">
           {{ zhTitle }}
         </h2>
-        <p :id="descId" class="orientation-guard__desc">
+        <p :id="descId" class="m-0 text-[0.95rem] leading-[1.5] opacity-[0.88]">
           {{ zhDesc }}
         </p>
 
-        <p class="orientation-guard__alt" lang="en">
+        <p class="m-0 mt-2 text-[0.85rem] italic opacity-[0.65]" lang="en">
           {{ enTitle }}
         </p>
       </div>
@@ -72,53 +72,11 @@ const enTitle = computed(() => enStrings.orientation.title)
 
 <style scoped>
 .orientation-guard {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-  background: rgba(8, 4, 10, 0.88);
-  backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
-  color: white;
-}
-
-.orientation-guard__panel {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-  max-width: 22rem;
-  text-align: center;
 }
 
 .orientation-guard__icon {
-  width: 5rem;
-  height: 5rem;
-  color: var(--color-primary, #e8a0bf);
-}
-
-.orientation-guard__title {
-  margin: 0;
-  font-size: 1.25rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-}
-
-.orientation-guard__desc {
-  margin: 0;
-  font-size: 0.95rem;
-  line-height: 1.5;
-  opacity: 0.88;
-}
-
-.orientation-guard__alt {
-  margin: 0.5rem 0 0;
-  font-size: 0.85rem;
-  opacity: 0.65;
-  font-style: italic;
+  color: var(--color-brand, #e8a0bf);
 }
 
 .orientation-guard-enter-active,

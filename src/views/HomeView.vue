@@ -1,13 +1,17 @@
 <template>
-  <main class="home-view">
-    <section class="home-view__inner">
-      <header class="home-view__header">
-        <p class="home-view__eyebrow">{{ zhTw.app.title }}</p>
-        <h1 class="home-view__title">{{ zhTw.home.title }}</h1>
+  <main class="min-h-screen px-5 pb-12 pt-8">
+    <section class="mx-auto flex max-w-[30rem] flex-col gap-6">
+      <header class="flex flex-col gap-[0.55rem] text-center">
+        <p class="text-[0.72rem] uppercase tracking-[0.28em] text-brand">{{ zhTw.app.title }}</p>
+        <h1 class="font-serif text-[clamp(1.75rem,6vw,2.25rem)] font-semibold">
+          {{ zhTw.home.title }}
+        </h1>
         <p class="home-view__description">{{ zhTw.home.description }}</p>
       </header>
 
-      <div class="home-view__toggle">
+      <div
+        class="flex min-h-[44px] flex-col gap-[0.35rem] rounded-[1.25rem] bg-white/75 px-4 py-[0.9rem]"
+      >
         <ToggleSwitch
           :model-value="settingsStore.intimateMode"
           data-test="intimate-toggle"
@@ -17,7 +21,7 @@
         <p class="home-view__toggle-hint">{{ zhTw.home.intimateModeHint }}</p>
       </div>
 
-      <ul class="home-view__deck-grid" data-test="theme-deck-grid">
+      <ul class="m-0 grid list-none grid-cols-2 gap-4 p-0" data-test="theme-deck-grid">
         <li v-for="theme in cardsData.themes" :key="theme.id">
           <ThemeCardDeck :theme="theme" @select="handleSelect" />
         </li>
@@ -26,11 +30,7 @@
       <footer class="home-view__footer">{{ zhTw.home.startHint }}</footer>
     </section>
 
-    <ThemePreview
-      :theme="selectedTheme"
-      @start="handleStart"
-      @dismiss="selectedTheme = null"
-    />
+    <ThemePreview :theme="selectedTheme" @start="handleStart" @dismiss="selectedTheme = null" />
   </main>
 </template>
 
@@ -88,74 +88,22 @@ function handleStart(theme: Theme): void {
 </script>
 
 <style scoped>
-.home-view {
-  min-height: 100vh;
-  padding: 2rem 1.25rem 3rem;
-}
-
-.home-view__inner {
-  max-width: 30rem;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.home-view__header {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: 0.55rem;
-}
-
-.home-view__eyebrow {
-  font-size: 0.72rem;
-  letter-spacing: 0.28em;
-  text-transform: uppercase;
-  color: var(--color-primary);
-}
-
-.home-view__title {
-  font-family: ui-serif, Georgia, 'Times New Roman', serif;
-  font-size: clamp(1.75rem, 6vw, 2.25rem);
-  font-weight: 600;
-}
-
 .home-view__description {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--color-text) 70%, transparent);
-}
-
-.home-view__toggle {
-  display: flex;
-  flex-direction: column;
-  gap: 0.35rem;
-  padding: 0.9rem 1rem;
-  min-height: 44px;
-  border-radius: 1.25rem;
-  background: rgba(255, 255, 255, 0.75);
+  color: color-mix(in srgb, var(--color-ink) 70%, transparent);
 }
 
 .home-view__toggle-hint {
   margin: 0;
   font-size: 0.8rem;
   line-height: 1.5;
-  color: color-mix(in srgb, var(--color-text) 70%, transparent);
-}
-
-.home-view__deck-grid {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  color: color-mix(in srgb, var(--color-ink) 70%, transparent);
 }
 
 .home-view__footer {
   text-align: center;
   font-size: 0.8rem;
-  color: color-mix(in srgb, var(--color-text) 60%, transparent);
+  color: color-mix(in srgb, var(--color-ink) 60%, transparent);
 }
 </style>

@@ -11,7 +11,7 @@ import type { CardsData, Theme } from '@/types'
  * 驗證重點：
  * - 顯示主題中文名稱（theme.name.zh）
  * - aria-label 包含主題中文名稱以利螢幕閱讀器
- * - inline style 注入 --color-card-back（來自 theme.colors.cardBack）
+ * - inline style 注入 --color-card（來自 theme.colors.cardBack）
  * - data-test 命名 theme-deck-{themeId}
  * - 點擊觸發 select 事件並攜帶 theme 物件
  */
@@ -44,12 +44,12 @@ describe('ThemeCardDeck', () => {
     expect(wrapper.find('[data-test="theme-deck-attraction"]').exists()).toBe(true)
   })
 
-  it('inline style 應注入 --color-card-back 為 theme.colors.cardBack', () => {
+  it('inline style 應注入 --color-card 為 theme.colors.cardBack', () => {
     const theme = getAttractionTheme()
     const wrapper = mount(ThemeCardDeck, { props: { theme } })
 
     const style = wrapper.attributes('style') ?? ''
-    expect(style).toMatch(/--color-card-back:\s*#C76D8E/i)
+    expect(style).toMatch(/--color-card:\s*#C76D8E/i)
   })
 
   it('點擊應 emit select 並攜帶完整 theme 物件', async () => {
@@ -70,6 +70,6 @@ describe('ThemeCardDeck', () => {
     const wrapper = mount(ThemeCardDeck, { props: { theme: selfTheme } })
     const style = wrapper.attributes('style') ?? ''
 
-    expect(style).toMatch(/--color-card-back:\s*#5BA4C0/i)
+    expect(style).toMatch(/--color-card:\s*#5BA4C0/i)
   })
 })

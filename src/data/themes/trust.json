@@ -81,9 +81,9 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "有沒有哪件事，是你其實願意慢慢交給我一起承擔的？",
-        "en": "Is there something you'd be willing to let me carry with you, little by little?",
-        "th": "มีเรื่องอะไรไหมที่จริง ๆ แล้วคุณยินดีจะค่อย ๆ ให้ฉันร่วมรับไว้กับคุณ?",
+        "zh": "有沒有什麼是你願意慢慢讓我分擔的？",
+        "en": "Is there something you'd be willing to let me help carry, little by little?",
+        "th": "มีเรื่องอะไรไหมที่คุณยินดีให้ฉันค่อย ๆ ช่วยแบกรับไปกับคุณ?",
         "ja": "Is there something you'd be willing to let me carry with you, little by little?"
       }
     },
@@ -136,9 +136,9 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "如果我們之間出現誤會，你最需要我守住什麼，才不會動搖你對我的信任？",
-        "en": "If a misunderstanding ever comes up between us, what do you need me to stay grounded in so your trust in me doesn't waver?",
-        "th": "ถ้าเกิดความเข้าใจผิดระหว่างเรา คุณอยากให้ฉันยึดมั่นในอะไร เพื่อไม่ให้ความเชื่อใจที่คุณมีต่อฉันสั่นคลอน?",
+        "zh": "如果我們有誤會，你最希望我堅守什麼，才不會動搖你對我的信任？",
+        "en": "If we ever have a misunderstanding, what do you need me to do or keep doing so your trust in me won't waver?",
+        "th": "ถ้าเราเกิดความเข้าใจผิด คุณอยากให้ฉันทำอะไรหรือยึดมั่นในข้อไหน เพื่อให้คุณยังคงไว้วางใจฉัน?",
         "ja": "If a misunderstanding ever comes up between us, what do you need me to stay grounded in so your trust in me doesn't waver?"
       }
     },

@@ -2,20 +2,25 @@
   <Teleport to="body">
     <div
       v-if="open"
-      class="confirm-modal"
+      class="fixed inset-0 z-50 flex items-center justify-center p-6"
       data-test="confirm-modal"
       role="dialog"
       aria-modal="true"
       :aria-labelledby="titleId"
     >
-      <div class="confirm-modal__backdrop" @click="emit('cancel')" />
-      <div class="confirm-modal__dialog">
-        <h2 :id="titleId" class="confirm-modal__title">{{ title }}</h2>
+      <div
+        class="confirm-modal__backdrop absolute inset-0 bg-[rgb(40_20_30/0.5)] backdrop-blur-[4px]"
+        @click="emit('cancel')"
+      />
+      <div
+        class="relative flex w-full max-w-[22rem] flex-col gap-3 rounded-[var(--radius-panel)] bg-white p-7 text-ink shadow-[var(--shadow-modal)]"
+      >
+        <h2 :id="titleId" class="text-lg font-semibold">{{ title }}</h2>
         <p v-if="description" class="confirm-modal__description">{{ description }}</p>
-        <div class="confirm-modal__actions">
+        <div class="mt-2 flex justify-end gap-3">
           <button
             type="button"
-            class="confirm-modal__button confirm-modal__button--ghost"
+            class="confirm-modal__button confirm-modal__button--ghost min-h-[44px] min-w-[44px] cursor-pointer rounded-[var(--radius-pill)] px-5 py-2 font-semibold"
             data-test="confirm-modal-cancel"
             @click="emit('cancel')"
           >
@@ -23,7 +28,7 @@
           </button>
           <button
             type="button"
-            class="confirm-modal__button confirm-modal__button--primary"
+            class="min-h-[44px] min-w-[44px] cursor-pointer rounded-[var(--radius-pill)] border-0 bg-brand px-5 py-2 font-semibold text-white"
             data-test="confirm-modal-confirm"
             @click="emit('confirm')"
           >
@@ -55,73 +60,15 @@ const titleId = useId()
 </script>
 
 <style scoped>
-.confirm-modal {
-  position: fixed;
-  inset: 0;
-  z-index: 50;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 1.5rem;
-}
-
-.confirm-modal__backdrop {
-  position: absolute;
-  inset: 0;
-  background: rgba(40, 20, 30, 0.5);
-  backdrop-filter: blur(4px);
-}
-
-.confirm-modal__dialog {
-  position: relative;
-  max-width: 22rem;
-  width: 100%;
-  padding: 1.75rem;
-  border-radius: 1.5rem;
-  background: white;
-  color: var(--color-text);
-  box-shadow: 0 25px 60px -20px rgba(0, 0, 0, 0.35);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.confirm-modal__title {
-  font-size: 1.125rem;
-  font-weight: 600;
-}
-
 .confirm-modal__description {
   font-size: 0.95rem;
   line-height: 1.5;
-  color: color-mix(in srgb, var(--color-text) 70%, transparent);
-}
-
-.confirm-modal__actions {
-  margin-top: 0.5rem;
-  display: flex;
-  justify-content: flex-end;
-  gap: 0.75rem;
-}
-
-.confirm-modal__button {
-  min-width: 44px;
-  min-height: 44px;
-  padding: 0.5rem 1.25rem;
-  border: none;
-  border-radius: 999px;
-  font-weight: 600;
-  cursor: pointer;
+  color: color-mix(in srgb, var(--color-ink) 70%, transparent);
 }
 
 .confirm-modal__button--ghost {
   background: transparent;
-  color: color-mix(in srgb, var(--color-text) 75%, transparent);
-  border: 1px solid color-mix(in srgb, var(--color-text) 25%, transparent);
-}
-
-.confirm-modal__button--primary {
-  background: var(--color-primary);
-  color: white;
+  color: color-mix(in srgb, var(--color-ink) 75%, transparent);
+  border: 1px solid color-mix(in srgb, var(--color-ink) 25%, transparent);
 }
 </style>

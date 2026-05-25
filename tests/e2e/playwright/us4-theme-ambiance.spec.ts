@@ -19,12 +19,12 @@ const dataset = cardsData
 const THEME_IDS = cardsData.themes.map((t) => t.id)
 
 const CSS_VAR_NAMES = [
-  '--color-bg',
-  '--color-bg-end',
-  '--color-primary',
-  '--color-secondary',
-  '--color-text',
-  '--color-card-back',
+  '--color-surface',
+  '--color-surface-end',
+  '--color-brand',
+  '--color-accent',
+  '--color-ink',
+  '--color-card',
 ] as const
 
 type CssVarName = (typeof CSS_VAR_NAMES)[number]
@@ -38,15 +38,18 @@ function findTheme(themeId: ThemeId) {
 }
 
 async function readInlineVars(page: Page): Promise<Record<CssVarName, string>> {
-  return page.evaluate((names) => {
-    const root = document.documentElement
-    const result: Record<string, string> = {}
-    names.forEach((name) => {
-      // 讀 inline style 而非 computed；inline 為空即代表尚未套用 applyTheme
-      result[name] = root.style.getPropertyValue(name).trim()
-    })
-    return result as Record<string, string>
-  }, CSS_VAR_NAMES as unknown as string[])
+  return page.evaluate(
+    (names) => {
+      const root = document.documentElement
+      const result: Record<string, string> = {}
+      names.forEach((name) => {
+        // 讀 inline style 而非 computed；inline 為空即代表尚未套用 applyTheme
+        result[name] = root.style.getPropertyValue(name).trim()
+      })
+      return result as Record<string, string>
+    },
+    CSS_VAR_NAMES as unknown as string[],
+  )
 }
 
 async function assertThemeVarsMatch(page: Page, themeId: ThemeId): Promise<void> {
@@ -54,12 +57,12 @@ async function assertThemeVarsMatch(page: Page, themeId: ThemeId): Promise<void>
   await expect
     .poll(async () => readInlineVars(page), { timeout: 2000 })
     .toEqual({
-      '--color-bg': theme.colors.background,
-      '--color-bg-end': theme.colors.backgroundEnd,
-      '--color-primary': theme.colors.primary,
-      '--color-secondary': theme.colors.secondary,
-      '--color-text': theme.colors.text,
-      '--color-card-back': theme.colors.cardBack,
+      '--color-surface': theme.colors.background,
+      '--color-surface-end': theme.colors.backgroundEnd,
+      '--color-brand': theme.colors.primary,
+      '--color-accent': theme.colors.secondary,
+      '--color-ink': theme.colors.text,
+      '--color-card': theme.colors.cardBack,
     })
 }
 
@@ -130,7 +133,7 @@ test.describe('US4 沉浸式主題氛圍', () => {
 
     // 回首頁後 inline 變數會被 resetTheme 清空
     const afterReset = await readInlineVars(page)
-    expect(afterReset['--color-bg']).toBe('')
+    expect(afterReset['--color-surface']).toBe('')
 
     // 改選 trust 主題，進入 GameView 應看到 trust 色
     await page.getByTestId('theme-deck-trust').click()
