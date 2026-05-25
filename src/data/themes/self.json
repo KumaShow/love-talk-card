@@ -26,10 +26,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "你最喜歡自己帶進這段關係裡的哪一個特質？",
-        "en": "What quality of yours are you proudest to bring into this relationship?",
-        "th": "คุณภูมิใจในคุณสมบัติไหนของตัวเองที่สุด ที่นำเข้ามาในความสัมพันธ์นี้?",
-        "ja": "What quality of yours are you proudest to bring into this relationship?"
+        "zh": "你一個人最放鬆的時候，通常會做什麼？",
+        "en": "What do you usually do to relax when you're by yourself?",
+        "th": "เวลาที่คุณอยู่คนเดียวแล้วรู้สึกผ่อนคลายที่สุด ปกติคุณจะทำอะไร?",
+        "ja": "What do you usually do to relax when you're by yourself?"
       }
     },
     {
@@ -37,10 +37,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "你在什麼時候最能做自己？",
-        "en": "When do you feel most like yourself?",
-        "th": "คุณรู้สึกเป็นตัวเองมากที่สุดในช่วงเวลาไหน?",
-        "ja": "When do you feel most like yourself?"
+        "zh": "最近有哪件小事，讓你覺得自己還不錯？",
+        "en": "Has anything small happened lately that made you feel pretty good about yourself?",
+        "th": "ช่วงนี้มีเรื่องเล็ก ๆ อะไรบ้างไหม ที่ทำให้คุณรู้สึกว่าตัวเองก็ไม่เลวเลย?",
+        "ja": "Has anything small happened lately that made you feel pretty good about yourself?"
       }
     },
     {
@@ -48,10 +48,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "最近什麼事情最能幫你重新充電？",
-        "en": "What has been helping you recharge lately?",
-        "th": "ช่วงนี้มีอะไรที่ช่วยให้คุณได้เติมพลังบ้าง?",
-        "ja": "What has been helping you recharge lately?"
+        "zh": "你覺得自己有哪個小習慣，其實滿可愛的？",
+        "en": "What little habit of yours do you think is actually kind of cute?",
+        "th": "คุณคิดว่านิสัยเล็ก ๆ อย่างไหนของตัวเอง ที่จริงแล้วน่ารักดี?",
+        "ja": "What little habit of yours do you think is actually kind of cute?"
       }
     },
     {
@@ -59,10 +59,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "當你需要支持時，別人怎麼做最能幫到你？",
-        "en": "When you need support, what helps you most from another person?",
-        "th": "When you need support, what helps you most from another person?",
-        "ja": "When you need support, what helps you most from another person?"
+        "zh": "一天裡，哪個時刻最讓你覺得自在？",
+        "en": "What time of day makes you feel most at ease?",
+        "th": "ในหนึ่งวัน ช่วงเวลาไหนที่ทำให้คุณรู้สึกเป็นตัวเองและสบายใจที่สุด?",
+        "ja": "What time of day makes you feel most at ease?"
       }
     },
     {
@@ -70,10 +70,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "你最近有哪一個小小成就，值得被好好慶祝？",
-        "en": "What small recent win of yours deserves more celebration?",
-        "th": "What small recent win of yours deserves more celebration?",
-        "ja": "What small recent win of yours deserves more celebration?"
+        "zh": "如果不用考慮現實，你最近會想把時間留給什麼？",
+        "en": "If practical concerns didn't matter, what would you want to make more time for these days?",
+        "th": "ถ้าไม่ต้องคำนึงถึงความเป็นจริง ช่วงนี้คุณอยากกันเวลาไว้ให้กับอะไร?",
+        "ja": "If practical concerns didn't matter, what would you want to make more time for these days?"
       }
     },
     {
@@ -81,10 +81,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "現在的你，正在重新學習哪一個和愛有關的信念？",
-        "en": "What belief about love are you relearning right now?",
-        "th": "What belief about love are you relearning right now?",
-        "ja": "What belief about love are you relearning right now?"
+        "zh": "你壓力很大的時候，最容易變成什麼樣子？",
+        "en": "When you're under a lot of stress, what side of you tends to come out?",
+        "th": "เวลาที่คุณเครียดมาก ๆ คุณมักจะกลายเป็นคนแบบไหนได้ง่ายที่สุด?",
+        "ja": "When you're under a lot of stress, what side of you tends to come out?"
       }
     },
     {
@@ -92,10 +92,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "你最難開口說出自己需求的時候，通常是什麼情境？",
-        "en": "In what situations is it hardest for you to express your needs?",
-        "th": "In what situations is it hardest for you to express your needs?",
-        "ja": "In what situations is it hardest for you to express your needs?"
+        "zh": "你一生氣時，心裡最先冒出來的感覺通常是什麼？",
+        "en": "When you get angry, what's usually the first feeling that comes up inside?",
+        "th": "เวลาที่คุณโกรธ ความรู้สึกแรกที่มักผุดขึ้นมาในใจคืออะไร?",
+        "ja": "When you get angry, what's usually the first feeling that comes up inside?"
       }
     },
     {
@@ -103,10 +103,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "你想為自己養成哪一個新習慣，讓生活更靠近理想的樣子？",
-        "en": "What habit would you like to build so life feels closer to what you want?",
-        "th": "What habit would you like to build so life feels closer to what you want?",
-        "ja": "What habit would you like to build so life feels closer to what you want?"
+        "zh": "你外表看起來很像哪種人，但其實不完全是那樣？",
+        "en": "What kind of person do you seem like on the outside, even though that's not entirely who you are?",
+        "th": "ภายนอกคุณดูเหมือนเป็นคนแบบไหน ทั้งที่จริง ๆ แล้วคุณไม่ได้เป็นแบบนั้นทั้งหมด?",
+        "ja": "What kind of person do you seem like on the outside, even though that's not entirely who you are?"
       }
     },
     {
@@ -114,10 +114,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "對你來說，哪一條個人界線是很重要、不能被忽略的？",
-        "en": "What personal boundary matters deeply to you and should not be overlooked?",
-        "th": "What personal boundary matters deeply to you and should not be overlooked?",
-        "ja": "What personal boundary matters deeply to you and should not be overlooked?"
+        "zh": "有沒有什麼小事，你嘴上說沒關係，其實心裡會在意？",
+        "en": "Is there any small thing you say is fine, but deep down, you actually care about?",
+        "th": "มีเรื่องเล็ก ๆ อะไรไหมที่คุณปากบอกว่าไม่เป็นไร แต่ลึก ๆ แล้วก็ยังใส่ใจอยู่?",
+        "ja": "Is there any small thing you say is fine, but deep down, you actually care about?"
       }
     },
     {
@@ -125,10 +125,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "當你沉默時，背後最常藏著哪一種擔心？",
-        "en": "When you go quiet, what fear is most often hiding underneath?",
-        "th": "When you go quiet, what fear is most often hiding underneath?",
-        "ja": "When you go quiet, what fear is most often hiding underneath?"
+        "zh": "你最不擅長表現出哪一種情緒？",
+        "en": "Which emotion are you least comfortable showing?",
+        "th": "อารมณ์แบบไหนที่คุณไม่ค่อยถนัดจะแสดงออกมามากที่สุด?",
+        "ja": "Which emotion are you least comfortable showing?"
       }
     },
     {
@@ -136,10 +136,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "過去哪一段經驗，最影響你現在看待自己的方式？",
-        "en": "What past experience most shaped the way you see yourself today?",
-        "th": "What past experience most shaped the way you see yourself today?",
-        "ja": "What past experience most shaped the way you see yourself today?"
+        "zh": "你現在最想慢慢練習成為什麼樣的人？",
+        "en": "What kind of person do you want to gradually grow into right now?",
+        "th": "ตอนนี้คุณอยากค่อย ๆ ฝึกให้ตัวเองเติบโตเป็นคนแบบไหน?",
+        "ja": "What kind of person do you want to gradually grow into right now?"
       }
     },
     {
@@ -147,10 +147,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "你最常在什麼時候感到自己被誤解？",
-        "en": "When do you most often feel misunderstood?",
-        "th": "When do you most often feel misunderstood?",
-        "ja": "When do you most often feel misunderstood?"
+        "zh": "你覺得哪件小事，悄悄把你塑造成現在的你？",
+        "en": "What small thing do you think quietly shaped you into who you are today?",
+        "th": "คุณคิดว่าเรื่องเล็ก ๆ เรื่องไหนที่ค่อย ๆ หล่อหลอมให้คุณเป็นคุณในวันนี้?",
+        "ja": "What small thing do you think quietly shaped you into who you are today?"
       }
     },
     {
@@ -158,10 +158,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "有沒有一個你一直延後、但其實很重要的夢想？",
-        "en": "Is there a dream you have kept postponing even though it matters a lot to you?",
-        "th": "Is there a dream you have kept postponing even though it matters a lot to you?",
-        "ja": "Is there a dream you have kept postponing even though it matters a lot to you?"
+        "zh": "如果人生重來一次，你最想保留自己的哪個特質？",
+        "en": "If you could live your life over again, which trait of yours would you most want to keep?",
+        "th": "ถ้าได้ใช้ชีวิตใหม่อีกครั้ง คุณอยากเก็บคุณลักษณะข้อไหนของตัวเองไว้มากที่สุด?",
+        "ja": "If you could live your life over again, which trait of yours would you most want to keep?"
       }
     },
     {
@@ -169,10 +169,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "關於你自己，有哪一個真相是你很想被理解、卻不太容易說出口的？",
-        "en": "What truth about yourself do you wish were understood, yet find hard to say aloud?",
-        "th": "What truth about yourself do you wish were understood, yet find hard to say aloud?",
-        "ja": "What truth about yourself do you wish were understood, yet find hard to say aloud?"
+        "zh": "你心裡有沒有一個還不太敢說出口的夢想？",
+        "en": "Is there a dream you still don't quite dare to say out loud?",
+        "th": "ในใจคุณมีความฝันอะไรไหม ที่ยังไม่ค่อยกล้าพูดออกมา?",
+        "ja": "Is there a dream you still don't quite dare to say out loud?"
       }
     },
     {
@@ -180,10 +180,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "這段關係讓你看見了自己哪一種新的可能？",
-        "en": "What new possibility in yourself has this relationship helped you see?",
-        "th": "What new possibility in yourself has this relationship helped you see?",
-        "ja": "What new possibility in yourself has this relationship helped you see?"
+        "zh": "你覺得自己身上的哪個缺點，其實也曾經保護過你？",
+        "en": "Which flaw of yours do you think has actually protected you at some point?",
+        "th": "คุณคิดว่าข้อเสียข้อไหนของตัวเอง ที่จริงแล้วเคยปกป้องคุณไว้ในบางช่วงเวลา?",
+        "ja": "Which flaw of yours do you think has actually protected you at some point?"
       }
     },
     {
@@ -191,10 +191,10 @@
       "isIntimate": true,
       "level": 2,
       "text": {
-        "zh": "你很少向別人展示、但其實很脆弱的一面是什麼？",
-        "en": "What vulnerable side of you do you rarely show to other people?",
-        "th": "What vulnerable side of you do you rarely show to other people?",
-        "ja": "What vulnerable side of you do you rarely show to other people?"
+        "zh": "你什麼時候最容易忘記要溫柔對待自己？",
+        "en": "When are you most likely to forget to be gentle with yourself?",
+        "th": "เมื่อไหร่ที่คุณมักลืมอ่อนโยนกับตัวเองได้ง่ายที่สุด?",
+        "ja": "When are you most likely to forget to be gentle with yourself?"
       }
     },
     {
@@ -202,10 +202,10 @@
       "isIntimate": true,
       "level": 2,
       "text": {
-        "zh": "你有哪一個不安，需要被更溫柔地對待？",
-        "en": "What insecurity of yours needs more gentleness and care?",
-        "th": "What insecurity of yours needs more gentleness and care?",
-        "ja": "What insecurity of yours needs more gentleness and care?"
+        "zh": "有沒有一個你平常很少讓人看到的樣子？",
+        "en": "Is there a side of you that you rarely let others see?",
+        "th": "มีด้านไหนของคุณไหม ที่ปกติคุณแทบไม่ค่อยให้คนอื่นเห็น?",
+        "ja": "Is there a side of you that you rarely let others see?"
       }
     },
     {
@@ -213,10 +213,10 @@
       "isIntimate": true,
       "level": 3,
       "text": {
-        "zh": "關於未來的自己，或關於我們，你心裡有什麼祕密願望？",
-        "en": "What secret wish do you carry for your future self or for us?",
-        "th": "What secret wish do you carry for your future self or for us?",
-        "ja": "What secret wish do you carry for your future self or for us?"
+        "zh": "你有沒有一個關於自己的部分，是你還在學習接受的？",
+        "en": "Is there a part of yourself that you're still learning to accept?",
+        "th": "มีส่วนไหนของตัวเองไหม ที่คุณยังคงเรียนรู้ที่จะยอมรับอยู่?",
+        "ja": "Is there a part of yourself that you're still learning to accept?"
       }
     },
     {
@@ -224,10 +224,10 @@
       "isIntimate": true,
       "level": 3,
       "text": {
-        "zh": "你曾在哪一刻最赤裸地做自己，卻仍然感到被愛？",
-        "en": "When have you felt most exposed as yourself and still deeply loved?",
-        "th": "When have you felt most exposed as yourself and still deeply loved?",
-        "ja": "When have you felt most exposed as yourself and still deeply loved?"
+        "zh": "你一個人消化掉某件事之後，通常會用什麼方式讓自己好過一點？",
+        "en": "After you've processed something on your own, how do you usually help yourself feel a little better?",
+        "th": "หลังจากคุณค่อย ๆ ย่อยเรื่องบางอย่างด้วยตัวเองแล้ว ปกติคุณจะใช้วิธีไหนช่วยให้ตัวเองรู้สึกดีขึ้นอีกนิด?",
+        "ja": "After you've processed something on your own, how do you usually help yourself feel a little better?"
       }
     },
     {
@@ -235,10 +235,10 @@
       "isIntimate": true,
       "level": 3,
       "text": {
-        "zh": "如果你完全確定自己是安全的，你最想對我說哪一句話？",
-        "en": "If you felt completely safe, what would you most want to say to me?",
-        "th": "If you felt completely safe, what would you most want to say to me?",
-        "ja": "If you felt completely safe, what would you most want to say to me?"
+        "zh": "如果現在可以放心說一句真心話，你最想讓人知道什麼？",
+        "en": "If you could say one honest thing without fear right now, what would you want others to know?",
+        "th": "ถ้าตอนนี้คุณสามารถพูดความจริงจากใจได้หนึ่งประโยคโดยไม่ต้องกลัว คุณอยากให้คนอื่นรู้อะไรมากที่สุด?",
+        "ja": "If you could say one honest thing without fear right now, what would you want others to know?"
       }
     }
   ]

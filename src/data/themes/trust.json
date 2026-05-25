@@ -26,10 +26,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "你通常是怎麼一步一步把信任交給一個人的？",
-        "en": "How do you usually give trust to someone little by little?",
-        "th": "How do you usually give trust to someone little by little?",
-        "ja": "How do you usually give trust to someone little by little?"
+        "zh": "我做過哪件小事，會讓你覺得跟我在一起很安心？",
+        "en": "What's one small thing I've done that makes you feel safe with me?",
+        "th": "มีเรื่องเล็ก ๆ อะไรที่ฉันเคยทำ แล้วทำให้คุณรู้สึกปลอดภัยและสบายใจเวลาอยู่กับฉันไหม?",
+        "ja": "What's one small thing I've done that makes you feel safe with me?"
       }
     },
     {
@@ -37,10 +37,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "你曾在哪一個瞬間，感覺我真的贏得了你的信任？",
-        "en": "At what moment did you feel that I had truly earned your trust?",
-        "th": "At what moment did you feel that I had truly earned your trust?",
-        "ja": "At what moment did you feel that I had truly earned your trust?"
+        "zh": "對你來說，什麼樣的行動最能代表一個人說到做到？",
+        "en": "To you, what kind of actions best show that someone keeps their word?",
+        "th": "สำหรับคุณ การกระทำแบบไหนที่บอกได้ชัดที่สุดว่าคนคนหนึ่งรักษาคำพูด?",
+        "ja": "To you, what kind of actions best show that someone keeps their word?"
       }
     },
     {
@@ -48,10 +48,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "對你來說，最重要的一個承諾是什麼？",
-        "en": "What is one promise that matters most to keep?",
-        "th": "What is one promise that matters most to keep?",
-        "ja": "What is one promise that matters most to keep?"
+        "zh": "在感情裡，有哪件事是你很在意、希望我們一起守住的？",
+        "en": "In a relationship, what's one thing you really care about and want us to protect together?",
+        "th": "ในความสัมพันธ์ มีเรื่องอะไรที่คุณให้ความสำคัญมาก และอยากให้เราช่วยกันดูแลรักษาไว้ไหม?",
+        "ja": "In a relationship, what's one thing you really care about and want us to protect together?"
       }
     },
     {
@@ -59,10 +59,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "可靠的愛，在你心裡長什麼樣子？",
-        "en": "What does dependable love look like to you?",
-        "th": "What does dependable love look like to you?",
-        "ja": "What does dependable love look like to you?"
+        "zh": "有沒有哪一次，我坦白說出真話後，反而讓你更信任我？",
+        "en": "Has there ever been a time when my honesty made you trust me even more?",
+        "th": "เคยมีครั้งไหนไหมที่พอฉันพูดความจริงอย่างตรงไปตรงมา กลับทำให้คุณเชื่อใจฉันมากขึ้น?",
+        "ja": "Has there ever been a time when my honesty made you trust me even more?"
       }
     },
     {
@@ -70,10 +70,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "你最期待我們一起走到哪一個未來畫面？",
-        "en": "What future moment are you most excited for us to reach together?",
-        "th": "What future moment are you most excited for us to reach together?",
-        "ja": "What future moment are you most excited for us to reach together?"
+        "zh": "當我們不在彼此身邊時，什麼樣的互動會讓你覺得安心？",
+        "en": "When we're apart, what kind of interaction helps you feel at ease?",
+        "th": "เวลาที่เราไม่ได้อยู่ข้าง ๆ กัน การติดต่อหรือโต้ตอบแบบไหนที่ทำให้คุณรู้สึกสบายใจ?",
+        "ja": "When we're apart, what kind of interaction helps you feel at ease?"
       }
     },
     {
@@ -81,10 +81,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "想到未來時，你心裡最常冒出的不確定感是什麼？",
-        "en": "When you think about the future, what uncertainty comes up most often?",
-        "th": "When you think about the future, what uncertainty comes up most often?",
-        "ja": "When you think about the future, what uncertainty comes up most often?"
+        "zh": "有沒有哪件事，是你其實願意慢慢交給我一起承擔的？",
+        "en": "Is there something you'd be willing to let me carry with you, little by little?",
+        "th": "มีเรื่องอะไรไหมที่จริง ๆ แล้วคุณยินดีจะค่อย ๆ ให้ฉันร่วมรับไว้กับคุณ?",
+        "ja": "Is there something you'd be willing to let me carry with you, little by little?"
       }
     },
     {
@@ -92,10 +92,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "你最難向別人求助的時候，通常是為什麼？",
-        "en": "Why is it hardest for you to ask for help in certain moments?",
-        "th": "Why is it hardest for you to ask for help in certain moments?",
-        "ja": "Why is it hardest for you to ask for help in certain moments?"
+        "zh": "你遇到挫折時，我做什麼會讓你真的感覺我站在你這邊？",
+        "en": "When you're facing a setback, what can I do to make you truly feel that I'm on your side?",
+        "th": "เวลาที่คุณเจออุปสรรค ฉันทำอะไรได้บ้างที่จะทำให้คุณรู้สึกจริง ๆ ว่าฉันอยู่ข้างคุณ?",
+        "ja": "When you're facing a setback, what can I do to make you truly feel that I'm on your side?"
       }
     },
     {
@@ -103,10 +103,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "你希望哪一個共同價值，能一直成為我們做決定時的方向？",
-        "en": "What shared value would you like to guide our decisions again and again?",
-        "th": "What shared value would you like to guide our decisions again and again?",
-        "ja": "What shared value would you like to guide our decisions again and again?"
+        "zh": "我做過哪些實際行動，會讓你覺得我的承諾不是只說說而已？",
+        "en": "What concrete things have I done that make you feel my promises are real, not just words?",
+        "th": "มีการกระทำจริง ๆ อะไรบ้างที่ฉันเคยทำ แล้วทำให้คุณรู้สึกว่าคำสัญญาของฉันไม่ได้เป็นแค่คำพูด?",
+        "ja": "What concrete things have I done that make you feel my promises are real, not just words?"
       }
     },
     {
@@ -114,10 +114,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "什麼樣的承諾，對你來說是有力量而不只是形式？",
-        "en": "What kind of commitment feels meaningful instead of merely symbolic to you?",
-        "th": "What kind of commitment feels meaningful instead of merely symbolic to you?",
-        "ja": "What kind of commitment feels meaningful instead of merely symbolic to you?"
+        "zh": "如果你在這段關係裡感到不安，你最希望我們怎麼面對？",
+        "en": "If you ever feel uneasy in this relationship, how would you want us to handle it?",
+        "th": "ถ้าคุณรู้สึกไม่สบายใจในความสัมพันธ์นี้ คุณอยากให้เรารับมือกับมันอย่างไรที่สุด?",
+        "ja": "If you ever feel uneasy in this relationship, how would you want us to handle it?"
       }
     },
     {
@@ -125,10 +125,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "當你想像更深的信任時，心裡會冒出哪一種害怕？",
-        "en": "When you imagine deeper trust, what fear rises up for you?",
-        "th": "When you imagine deeper trust, what fear rises up for you?",
-        "ja": "When you imagine deeper trust, what fear rises up for you?"
+        "zh": "你有沒有哪一刻，突然覺得自己更信任我了？",
+        "en": "Was there a moment when you suddenly found yourself trusting me more?",
+        "th": "เคยมีช่วงเวลาไหนไหมที่จู่ ๆ คุณก็รู้สึกว่าตัวเองเชื่อใจฉันมากขึ้น?",
+        "ja": "Was there a moment when you suddenly found yourself trusting me more?"
       }
     },
     {
@@ -136,10 +136,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "如果信任受傷了，你覺得真正修復需要什麼？",
-        "en": "If trust were hurt, what would real repair require for you?",
-        "th": "If trust were hurt, what would real repair require for you?",
-        "ja": "If trust were hurt, what would real repair require for you?"
+        "zh": "如果我們之間出現誤會，你最需要我守住什麼，才不會動搖你對我的信任？",
+        "en": "If a misunderstanding ever comes up between us, what do you need me to stay grounded in so your trust in me doesn't waver?",
+        "th": "ถ้าเกิดความเข้าใจผิดระหว่างเรา คุณอยากให้ฉันยึดมั่นในอะไร เพื่อไม่ให้ความเชื่อใจที่คุณมีต่อฉันสั่นคลอน?",
+        "ja": "If a misunderstanding ever comes up between us, what do you need me to stay grounded in so your trust in me doesn't waver?"
       }
     },
     {
@@ -147,10 +147,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "你希望伴侶一起守護的夢想，是哪一個？",
-        "en": "What dream do you want a partner to help protect with you?",
-        "th": "What dream do you want a partner to help protect with you?",
-        "ja": "What dream do you want a partner to help protect with you?"
+        "zh": "有沒有哪個瞬間，讓你覺得我們可以走得比想像中更遠？",
+        "en": "Was there a moment that made you feel we could go further together than you imagined?",
+        "th": "เคยมีช่วงเวลาไหนไหมที่ทำให้คุณรู้สึกว่าเราอาจไปด้วยกันได้ไกลกว่าที่เคยคิดไว้?",
+        "ja": "Was there a moment that made you feel we could go further together than you imagined?"
       }
     },
     {
@@ -158,10 +158,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "一年後，你最希望我們一起成長成什麼樣子？",
-        "en": "One year from now, how do you most hope we will have grown together?",
-        "th": "One year from now, how do you most hope we will have grown together?",
-        "ja": "One year from now, how do you most hope we will have grown together?"
+        "zh": "當你真的撐不住的時候，你希望我記得怎麼陪在你身邊？",
+        "en": "When you're truly at your limit, what should I remember about how to be there for you?",
+        "th": "เวลาที่คุณรู้สึกว่าไม่ไหวจริง ๆ คุณอยากให้ฉันจำไว้ว่าควรอยู่ข้าง ๆ คุณแบบไหน?",
+        "ja": "When you're truly at your limit, what should I remember about how to be there for you?"
       }
     },
     {
@@ -169,10 +169,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "有哪一個真相，你覺得雖然冒險，卻對信任很重要？",
-        "en": "What truth feels risky to say but necessary for trust to deepen?",
-        "th": "What truth feels risky to say but necessary for trust to deepen?",
-        "ja": "What truth feels risky to say but necessary for trust to deepen?"
+        "zh": "如果我有一天把事情搞砸了，你希望我們怎麼一起面對？",
+        "en": "If I ever mess things up, how would you want us to face it together?",
+        "th": "ถ้าวันหนึ่งฉันทำเรื่องบางอย่างพัง คุณอยากให้เราเผชิญมันไปด้วยกันอย่างไร?",
+        "ja": "If I ever mess things up, how would you want us to face it together?"
       }
     },
     {
@@ -180,10 +180,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "對你來說，成為一個可以讓人安心依靠的人，代表什麼？",
-        "en": "What does it mean to you to become a person others can safely rely on?",
-        "th": "What does it mean to you to become a person others can safely rely on?",
-        "ja": "What does it mean to you to become a person others can safely rely on?"
+        "zh": "關於我們的未來，有什麼是你很想跟我一起慢慢完成的？",
+        "en": "When it comes to our future, what's something you'd really want us to slowly build toward together?",
+        "th": "เมื่อพูดถึงอนาคตของเรา มีอะไรที่คุณอยากค่อย ๆ สร้างไปด้วยกันกับฉันไหม?",
+        "ja": "When it comes to our future, what's something you'd really want us to slowly build toward together?"
       }
     },
     {
@@ -191,10 +191,10 @@
       "isIntimate": true,
       "level": 2,
       "text": {
-        "zh": "承諾裡最讓你感到脆弱的一部分，是哪一個畫面？",
-        "en": "What part of commitment feels most vulnerable to you?",
-        "th": "What part of commitment feels most vulnerable to you?",
-        "ja": "What part of commitment feels most vulnerable to you?"
+        "zh": "有沒有一個你比較脆弱的地方，是你希望我知道後，能被我穩穩接住的？",
+        "en": "What's a vulnerable part of yourself that you hope I can just... hold for you?",
+        "th": "มีด้านไหนในตัวคุณที่เปราะบางเป็นพิเศษไหม ที่คุณหวังว่าเมื่อฉันรู้แล้ว ฉันจะโอบรับและดูแลมันไว้อย่างมั่นคงได้?",
+        "ja": "What's a vulnerable part of yourself that you hope I can just... hold for you?"
       }
     },
     {
@@ -202,10 +202,10 @@
       "isIntimate": true,
       "level": 2,
       "text": {
-        "zh": "當你對我們感到沒有把握時，你最需要什麼樣的安定感？",
-        "en": "When you feel unsure about us, what kind of reassurance do you need most?",
-        "th": "When you feel unsure about us, what kind of reassurance do you need most?",
-        "ja": "When you feel unsure about us, what kind of reassurance do you need most?"
+        "zh": "你有沒有哪個時刻，很想依賴我、被我接住，但最後還是自己撐過去了？",
+        "en": "Was there a moment when you really wanted to lean on me and let me be there for you, but ended up getting through it on your own?",
+        "th": "เคยมีช่วงเวลาไหนไหมที่คุณอยากพึ่งพาฉัน อยากให้ฉันอยู่ตรงนั้นเพื่อรองรับคุณ แต่สุดท้ายคุณก็ผ่านมันมาด้วยตัวเอง?",
+        "ja": "Was there a moment when you really wanted to lean on me and let me be there for you, but ended up getting through it on your own?"
       }
     },
     {
@@ -213,10 +213,10 @@
       "isIntimate": true,
       "level": 3,
       "text": {
-        "zh": "有沒有一個關於未來的親密想像，是你一直想溫柔地說出來的？",
-        "en": "Is there a tender future fantasy you have been wanting to share with me?",
-        "th": "Is there a tender future fantasy you have been wanting to share with me?",
-        "ja": "Is there a tender future fantasy you have been wanting to share with me?"
+        "zh": "當你覺得很孤單的時候，你希望我怎麼讓你知道：我還在？",
+        "en": "When you feel really alone, how do you want me to let you know I'm still here?",
+        "th": "เวลาที่คุณรู้สึกโดดเดี่ยวมาก ๆ คุณอยากให้ฉันทำอย่างไร เพื่อให้คุณรู้ว่า ฉันยังอยู่ตรงนี้?",
+        "ja": "When you feel really alone, how do you want me to let you know I'm still here?"
       }
     },
     {
@@ -224,10 +224,10 @@
       "isIntimate": true,
       "level": 3,
       "text": {
-        "zh": "你曾在哪個時刻，願意讓我看見你最柔軟的一面？",
-        "en": "When did you let me see your softest side most clearly?",
-        "th": "When did you let me see your softest side most clearly?",
-        "ja": "When did you let me see your softest side most clearly?"
+        "zh": "如果不安開始出現，你希望我怎麼靠近，才不會讓你更想躲起來？",
+        "en": "If you start feeling uneasy, what's the best way for me to be there for you without pushing you further away?",
+        "th": "ถ้าความไม่สบายใจเริ่มเกิดขึ้น คุณอยากให้ฉันเข้าใกล้คุณแบบไหน ถึงจะไม่ทำให้คุณยิ่งอยากถอยห่าง?",
+        "ja": "If you start feeling uneasy, what's the best way for me to be there for you without pushing you further away?"
       }
     },
     {
@@ -235,10 +235,10 @@
       "isIntimate": true,
       "level": 3,
       "text": {
-        "zh": "你希望我們如何在只有彼此的時刻，慢慢把信任再往前推一步？",
-        "en": "How would you like us to deepen trust one more step in our private moments together?",
-        "th": "How would you like us to deepen trust one more step in our private moments together?",
-        "ja": "How would you like us to deepen trust one more step in our private moments together?"
+        "zh": "在你最沒有安全感的時候，你最希望我不要忘記哪件事？",
+        "en": "When you feel most insecure, what's the one thing you most want me not to forget?",
+        "th": "ในเวลาที่คุณรู้สึกไม่มีความมั่นคงที่สุด เรื่องอะไรคือสิ่งที่คุณอยากให้ฉันอย่าลืมมากที่สุด?",
+        "ja": "When you feel most insecure, what's the one thing you most want me not to forget?"
       }
     }
   ]

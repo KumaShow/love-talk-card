@@ -26,10 +26,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "當你分享事情時，什麼反應最讓你覺得自己被聽見？",
-        "en": "When you share something, what response helps you feel truly heard?",
-        "th": "When you share something, what response helps you feel truly heard?",
-        "ja": "When you share something, what response helps you feel truly heard?"
+        "zh": "我們一起出門時，你比較喜歡隨興走走，還是先有大概行程？",
+        "en": "When we go out together, do you prefer to wander around casually, or have a rough plan first?",
+        "th": "เวลาเราออกไปข้างนอกด้วยกัน คุณชอบเดินเล่นแบบสบาย ๆ ตามใจมากกว่า หรืออยากให้มีแผนคร่าว ๆ ไว้ก่อน?",
+        "ja": "When we go out together, do you prefer to wander around casually, or have a rough plan first?"
       }
     },
     {
@@ -37,10 +37,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "如果我們意見不同，你通常最需要我先做什麼？",
-        "en": "When we disagree, what do you usually need from me first?",
-        "th": "When we disagree, what do you usually need from me first?",
-        "ja": "When we disagree, what do you usually need from me first?"
+        "zh": "如果你累了一整天，會希望我們安靜待著，還是一起做點什麼？",
+        "en": "If you've had a long day, do you want me to just sit quietly by your side, or do something together?",
+        "th": "ถ้าคุณเหนื่อยมาทั้งวัน คุณอยากให้เราอยู่ด้วยกันเงียบ ๆ หรืออยากทำอะไรด้วยกันสักอย่าง?",
+        "ja": "If you've had a long day, do you want me to just sit quietly by your side, or do something together?"
       }
     },
     {
@@ -48,10 +48,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "我哪一種溝通方式，最讓你感到舒服？",
-        "en": "What communication style of mine feels most comfortable to you?",
-        "th": "What communication style of mine feels most comfortable to you?",
-        "ja": "What communication style of mine feels most comfortable to you?"
+        "zh": "你覺得我們最有默契的時候，是在做什麼？",
+        "en": "When do you feel we're most in sync?",
+        "th": "คุณรู้สึกว่าเราสองคนเข้ากันได้ดีที่สุด ตอนที่เรากำลังทำอะไรอยู่?",
+        "ja": "When do you feel we're most in sync?"
       }
     },
     {
@@ -59,10 +59,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "哪一種日常關心，最會讓你覺得被照顧到？",
-        "en": "What kind of everyday check-in makes you feel cared for?",
-        "th": "What kind of everyday check-in makes you feel cared for?",
-        "ja": "What kind of everyday check-in makes you feel cared for?"
+        "zh": "吃飯或約會要做選擇時，你喜歡一起討論，還是有人先提幾個選項？",
+        "en": "When we have to choose where to eat or what to do on a date, do you like deciding together, or would you rather one of us suggest a few options first?",
+        "th": "เวลาต้องเลือกว่าจะกินอะไรหรือทำอะไรตอนเดต คุณชอบคุยกันแล้วตัดสินใจด้วยกัน หรืออยากให้มีใครสักคนเสนอทางเลือกมาก่อนสักสองสามอย่าง?",
+        "ja": "When we have to choose where to eat or what to do on a date, do you like deciding together, or would you rather one of us suggest a few options first?"
       }
     },
     {
@@ -70,10 +70,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "你覺得我們在哪一種情境下最容易聊得很順？",
-        "en": "In what situation do our conversations flow most easily?",
-        "th": "In what situation do our conversations flow most easily?",
-        "ja": "In what situation do our conversations flow most easily?"
+        "zh": "你喜歡我們每天固定聊一下，還是想到再聊就好？",
+        "en": "Do you like us checking in every day, or would you rather we talk whenever it comes to mind?",
+        "th": "คุณชอบให้เราคุยทักทายกันเป็นประจำทุกวัน หรือค่อยคุยกันเวลานึกถึงก็พอ?",
+        "ja": "Do you like us checking in every day, or would you rather we talk whenever it comes to mind?"
       }
     },
     {
@@ -81,10 +81,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "當你快要被情緒淹沒時，通常會出現什麼訊號？",
-        "en": "What signal usually appears when you are close to feeling overwhelmed?",
-        "th": "What signal usually appears when you are close to feeling overwhelmed?",
-        "ja": "What signal usually appears when you are close to feeling overwhelmed?"
+        "zh": "當你心情不好時，你希望我主動問你，還是先陪著你？",
+        "en": "When you're feeling down, do you want me to ask what's wrong first, or simply be there with you?",
+        "th": "เวลาคุณรู้สึกไม่ดี คุณอยากให้ฉันเป็นฝ่ายถามก่อนว่าเกิดอะไรขึ้น หรือแค่อยู่ข้าง ๆ คุณก่อน?",
+        "ja": "When you're feeling down, do you want me to ask what's wrong first, or simply be there with you?"
       }
     },
     {
@@ -92,10 +92,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "別人怎麼道歉，最容易讓你真的感受到修復？",
-        "en": "What kind of apology helps you feel that repair is really happening?",
-        "th": "What kind of apology helps you feel that repair is really happening?",
-        "ja": "What kind of apology helps you feel that repair is really happening?"
+        "zh": "我們意見不同時，你比較需要我先聽你說完，還是一起想辦法？",
+        "en": "When we disagree, do you need me to hear you out first, or would you rather we work on a solution together?",
+        "th": "เวลาเรามีความเห็นไม่ตรงกัน คุณต้องการให้ฉันฟังคุณพูดให้จบก่อน หรืออยากให้เราช่วยกันคิดหาทางออกเลย?",
+        "ja": "When we disagree, do you need me to hear you out first, or would you rather we work on a solution together?"
       }
     },
     {
@@ -103,10 +103,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "有沒有哪個話題，是我們其實太容易繞開不談的？",
-        "en": "Is there a topic that we avoid too easily instead of talking through?",
-        "th": "Is there a topic that we avoid too easily instead of talking through?",
-        "ja": "Is there a topic that we avoid too easily instead of talking through?"
+        "zh": "我哪一種說話方式，會讓你比較有壓力？",
+        "en": "What tone or way of speaking from me tends to make you feel pressured?",
+        "th": "น้ำเสียงหรือวิธีพูดแบบไหนของฉัน ที่มักทำให้คุณรู้สึกกดดันมากขึ้น?",
+        "ja": "What tone or way of speaking from me tends to make you feel pressured?"
       }
     },
     {
@@ -114,10 +114,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "衝突裡什麼最容易讓你突然關起來？",
-        "en": "What tends to make you suddenly shut down during conflict?",
-        "th": "What tends to make you suddenly shut down during conflict?",
-        "ja": "What tends to make you suddenly shut down during conflict?"
+        "zh": "跟我分享心事時，我做什麼回應會讓你感覺我有聽懂你的意思？",
+        "en": "When you share what's on your mind with me, what kind of response helps you feel like I really understand what you mean?",
+        "th": "เวลาคุณเล่าเรื่องในใจให้ฉันฟัง การตอบสนองแบบไหนของฉันที่จะทำให้คุณรู้สึกว่าฉันเข้าใจความหมายของคุณจริง ๆ?",
+        "ja": "When you share what's on your mind with me, what kind of response helps you feel like I really understand what you mean?"
       }
     },
     {
@@ -125,10 +125,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "如果我們之間出現緊張，你希望怎麼修復能更快一些？",
-        "en": "When tension shows up between us, how could we repair faster?",
-        "th": "When tension shows up between us, how could we repair faster?",
-        "ja": "When tension shows up between us, how could we repair faster?"
+        "zh": "如果我誤會你了，你希望我先做哪一件事？",
+        "en": "If I misunderstood you, what would you want me to do first?",
+        "th": "ถ้าฉันเข้าใจคุณผิด คุณอยากให้ฉันทำอะไรก่อนเป็นอย่างแรก?",
+        "ja": "If I misunderstood you, what would you want me to do first?"
       }
     },
     {
@@ -136,10 +136,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "今天有沒有一個你想澄清、卻一直沒說出口的誤會？",
-        "en": "Is there a misunderstanding you want to clear up today but have not voiced yet?",
-        "th": "Is there a misunderstanding you want to clear up today but have not voiced yet?",
-        "ja": "Is there a misunderstanding you want to clear up today but have not voiced yet?"
+        "zh": "家事或生活小事要分工時，你覺得怎樣比較不容易累積不舒服？",
+        "en": "When we divide up chores or small everyday tasks, what would help keep unspoken discomfort from building up?",
+        "th": "เวลาต้องแบ่งงานบ้านหรือเรื่องเล็ก ๆ ในชีวิตประจำวัน คุณคิดว่าทำแบบไหนถึงจะไม่ค่อยสะสมความอึดอัดที่ไม่ได้พูดออกมา?",
+        "ja": "When we divide up chores or small everyday tasks, what would help keep unspoken discomfort from building up?"
       }
     },
     {
@@ -147,10 +147,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "你希望我怎麼問問題，會讓你更願意真實回答？",
-        "en": "How would you like me to ask questions so you feel safer answering honestly?",
-        "th": "How would you like me to ask questions so you feel safer answering honestly?",
-        "ja": "How would you like me to ask questions so you feel safer answering honestly?"
+        "zh": "我們最容易在哪一種小事上會錯意？",
+        "en": "What kinds of little things are we most likely to misread each other on?",
+        "th": "เรื่องเล็ก ๆ แบบไหนที่เราสองคนมักจะเข้าใจกันคลาดเคลื่อนได้ง่ายที่สุด?",
+        "ja": "What kinds of little things are we most likely to misread each other on?"
       }
     },
     {
@@ -158,10 +158,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "即使和我在一起，你什麼時候仍然會感到孤單？",
-        "en": "Even when you are with me, when do you still feel lonely?",
-        "th": "Even when you are with me, when do you still feel lonely?",
-        "ja": "Even when you are with me, when do you still feel lonely?"
+        "zh": "如果我們常在同一件事上卡住，你覺得可以先調整哪一步？",
+        "en": "If we keep getting stuck on the same thing, what step do you think we could adjust first?",
+        "th": "ถ้าเรามักติดอยู่กับเรื่องเดิม ๆ คุณคิดว่าเราควรเริ่มปรับจากขั้นตอนไหนก่อน?",
+        "ja": "If we keep getting stuck on the same thing, what step do you think we could adjust first?"
       }
     },
     {
@@ -169,10 +169,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "我們之間哪一個互動模式，最值得一起慢慢調整？",
-        "en": "What interaction pattern between us feels most worth changing together?",
-        "th": "What interaction pattern between us feels most worth changing together?",
-        "ja": "What interaction pattern between us feels most worth changing together?"
+        "zh": "有沒有哪件事，你其實希望我主動做，但一直沒說？",
+        "en": "Is there anything you actually wish I'd take the initiative on, but haven't said out loud?",
+        "th": "มีเรื่องอะไรไหมที่จริง ๆ แล้วคุณอยากให้ฉันเป็นฝ่ายเริ่มทำ แต่ยังไม่เคยพูดออกมา?",
+        "ja": "Is there anything you actually wish I'd take the initiative on, but haven't said out loud?"
       }
     },
     {
@@ -180,10 +180,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "如果現在要有一場能讓我們更理解彼此的對話，你最想聊什麼？",
-        "en": "If we could have one conversation that deepens understanding right now, what would it be about?",
-        "th": "If we could have one conversation that deepens understanding right now, what would it be about?",
-        "ja": "If we could have one conversation that deepens understanding right now, what would it be about?"
+        "zh": "我們吵完或不愉快之後，你比較希望怎麼回到平常？",
+        "en": "After we argue or have an unpleasant moment, how would you like us to get back to normal?",
+        "th": "หลังจากเราทะเลาะกันหรือมีช่วงเวลาที่ไม่สบายใจ คุณอยากให้เรากลับมาเป็นปกติกันอย่างไร?",
+        "ja": "After we argue or have an unpleasant moment, how would you like us to get back to normal?"
       }
     },
     {
@@ -191,10 +191,10 @@
       "isIntimate": true,
       "level": 2,
       "text": {
-        "zh": "哪一種語氣或句子，最容易讓你在親密話題裡打開自己？",
-        "en": "What tone or wording helps you open up when the topic becomes intimate?",
-        "th": "What tone or wording helps you open up when the topic becomes intimate?",
-        "ja": "What tone or wording helps you open up when the topic becomes intimate?"
+        "zh": "當你難過時，我先做哪一件事，會讓你比較願意跟我說下去？",
+        "en": "When you're feeling sad, what's the first thing I can do that would make you feel more willing to keep talking to me?",
+        "th": "เวลาคุณเสียใจ สิ่งแรกที่ฉันทำได้คืออะไร ที่จะทำให้คุณรู้สึกอยากคุยกับฉันต่อมากขึ้น?",
+        "ja": "When you're feeling sad, what's the first thing I can do that would make you feel more willing to keep talking to me?"
       }
     },
     {
@@ -202,10 +202,10 @@
       "isIntimate": true,
       "level": 2,
       "text": {
-        "zh": "當你對我們感到不安時，什麼樣的安撫最能同時安定你的身體與心？",
-        "en": "When you feel insecure about us, what reassurance calms both your body and mind?",
-        "th": "When you feel insecure about us, what reassurance calms both your body and mind?",
-        "ja": "When you feel insecure about us, what reassurance calms both your body and mind?"
+        "zh": "如果你想要抱抱或被陪著，通常會怎麼讓我知道？",
+        "en": "If you want a hug or someone to be there with you, how do you usually let me know?",
+        "th": "ถ้าคุณอยากได้กอดหรืออยากให้มีคนอยู่ข้าง ๆ โดยปกติคุณจะทำให้ฉันรู้ได้อย่างไร?",
+        "ja": "If you want a hug or someone to be there with you, how do you usually let me know?"
       }
     },
     {
@@ -213,10 +213,10 @@
       "isIntimate": true,
       "level": 3,
       "text": {
-        "zh": "有沒有一個很難開口的需求，你其實一直希望能被我理解？",
-        "en": "Is there a difficult need you have hoped I would understand, even though it is hard to ask for?",
-        "th": "Is there a difficult need you have hoped I would understand, even though it is hard to ask for?",
-        "ja": "Is there a difficult need you have hoped I would understand, even though it is hard to ask for?"
+        "zh": "我們和好之後，我做什麼回應會讓你覺得我們真的回到同一邊？",
+        "en": "After we make up, what kind of response from me makes you feel like we're truly back on the same side?",
+        "th": "หลังจากเราคืนดีกันแล้ว การตอบสนองแบบไหนของฉันที่จะทำให้คุณรู้สึกว่าเรากลับมาอยู่ข้างเดียวกันจริง ๆ?",
+        "ja": "After we make up, what kind of response from me makes you feel like we're truly back on the same side?"
       }
     },
     {
@@ -224,10 +224,10 @@
       "isIntimate": true,
       "level": 3,
       "text": {
-        "zh": "我們曾在哪一刻，不用太多話就感受到很深的親密？",
-        "en": "When have we communicated deep intimacy without needing many words?",
-        "th": "When have we communicated deep intimacy without needing many words?",
-        "ja": "When have we communicated deep intimacy without needing many words?"
+        "zh": "有沒有哪個時刻，你很想靠近我，但不知道怎麼開口？",
+        "en": "Was there ever a moment when you really wanted to reach out to me, but didn't know how to say it?",
+        "th": "เคยมีช่วงเวลาไหนไหมที่คุณอยากเข้ามาใกล้ฉันมาก ๆ แต่ไม่รู้จะเริ่มพูดยังไง?",
+        "ja": "Was there ever a moment when you really wanted to reach out to me, but didn't know how to say it?"
       }
     },
     {
@@ -235,10 +235,10 @@
       "isIntimate": true,
       "level": 3,
       "text": {
-        "zh": "你希望我們怎麼談論渴望，才會更安全、更自在？",
-        "en": "How would you like us to talk about desire so it feels safer and more comfortable?",
-        "th": "How would you like us to talk about desire so it feels safer and more comfortable?",
-        "ja": "How would you like us to talk about desire so it feels safer and more comfortable?"
+        "zh": "我做哪一個小動作時，你最容易感覺到我有把你的話聽進去？",
+        "en": "What small thing do I do that makes you feel most clearly that I've really heard what you said?",
+        "th": "เวลาฉันทำสิ่งเล็ก ๆ แบบไหน ที่ทำให้คุณรู้สึกได้ชัดที่สุดว่าฉันรับฟังสิ่งที่คุณพูดจริง ๆ?",
+        "ja": "What small thing do I do that makes you feel most clearly that I've really heard what you said?"
       }
     }
   ]

@@ -26,10 +26,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "你第一次注意到我是什麼時候？當時心裡在想什麼？",
-        "en": "When did you first notice me, and what crossed your mind at that moment?",
-        "th": "When did you first notice me, and what crossed your mind at that moment?",
-        "ja": "When did you first notice me, and what crossed your mind at that moment?"
+        "zh": "第一次見到我時，你最先注意到我「哪裡」？",
+        "en": "When you first saw me, what was the first thing you noticed about me?",
+        "th": "ครั้งแรกที่เธอเจอฉัน เธอสังเกตเห็นตรงไหนของฉันก่อนเป็นอย่างแรก?",
+        "ja": "When you first saw me, what was the first thing you noticed about me?"
       }
     },
     {
@@ -37,10 +37,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "我哪一個小細節最先讓你心動？",
-        "en": "What small detail about me caught your heart first?",
-        "th": "What small detail about me caught your heart first?",
-        "ja": "What small detail about me caught your heart first?"
+        "zh": "我平常「哪個小動作」，會讓你覺得很可愛？",
+        "en": "What little habit or gesture of mine do you find cute?",
+        "th": "ท่าทางหรือพฤติกรรมเล็ก ๆ อะไรของฉันที่ทำให้เธอรู้สึกว่าน่ารัก?",
+        "ja": "What little habit or gesture of mine do you find cute?"
       }
     },
     {
@@ -48,10 +48,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "還記得我們第一次好好聊天時，你對我的第一印象嗎？",
-        "en": "Do you remember your first impression of me when we really talked for the first time?",
-        "th": "Do you remember your first impression of me when we really talked for the first time?",
-        "ja": "Do you remember your first impression of me when we really talked for the first time?"
+        "zh": "你最喜歡我「哪一種打扮」？",
+        "en": "What kind of outfit do you like best on me?",
+        "th": "เธอชอบให้ฉันแต่งตัวแบบไหนมากที่สุด?",
+        "ja": "What kind of outfit do you like best on me?"
       }
     },
     {
@@ -59,10 +59,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "如果把我們剛認識的氛圍變成一種天氣，會是什麼？",
-        "en": "If the mood of when we first met were weather, what would it be?",
-        "th": "If the mood of when we first met were weather, what would it be?",
-        "ja": "If the mood of when we first met were weather, what would it be?"
+        "zh": "剛認識的時候，哪件事讓你開始「期待見到我」？",
+        "en": "Back when we first met, what made you start looking forward to seeing me?",
+        "th": "ตอนที่เราเพิ่งรู้จักกัน มีเรื่องอะไรที่ทำให้เธอเริ่มตั้งตารอที่จะได้เจอฉัน?",
+        "ja": "Back when we first met, what made you start looking forward to seeing me?"
       }
     },
     {
@@ -70,10 +70,10 @@
       "isIntimate": false,
       "level": 1,
       "text": {
-        "zh": "我現在還有哪些小習慣，會讓你不自覺地笑出來？",
-        "en": "What little habit of mine still makes you smile without trying?",
-        "th": "What little habit of mine still makes you smile without trying?",
-        "ja": "What little habit of mine still makes you smile without trying?"
+        "zh": "在人群裡，你通常會先注意到我的「哪個小細節」？",
+        "en": "In a crowd, what small detail about me do you usually notice first?",
+        "th": "เวลาอยู่ท่ามกลางคนเยอะ ๆ เธอมักจะสังเกตเห็นรายละเอียดเล็ก ๆ อะไรของฉันก่อน?",
+        "ja": "In a crowd, what small detail about me do you usually notice first?"
       }
     },
     {
@@ -81,10 +81,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "你是從哪一刻開始，感覺和我相處變得很自然？",
-        "en": "At what moment did being with me start to feel natural to you?",
-        "th": "At what moment did being with me start to feel natural to you?",
-        "ja": "At what moment did being with me start to feel natural to you?"
+        "zh": "最近有哪個「瞬間」，讓你覺得我很迷人？",
+        "en": "Was there a recent moment when you found me especially charming?",
+        "th": "ช่วงนี้มีช่วงเวลาไหนไหมที่ทำให้เธอรู้สึกว่าฉันมีเสน่ห์มากเป็นพิเศษ?",
+        "ja": "Was there a recent moment when you found me especially charming?"
       }
     },
     {
@@ -92,10 +92,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "有哪一個特質，是你越了解我越被吸引的？",
-        "en": "What quality drew you in even more as you got to know me better?",
-        "th": "What quality drew you in even more as you got to know me better?",
-        "ja": "What quality drew you in even more as you got to know me better?"
+        "zh": "你覺得我做什麼事的時候，特別「吸引人」？",
+        "en": "When do you find me especially attractive?",
+        "th": "เธอรู้สึกว่าฉันดูน่าดึงดูดเป็นพิเศษตอนทำอะไร?",
+        "ja": "When do you find me especially attractive?"
       }
     },
     {
@@ -103,10 +103,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "我們一起經歷過的哪個回憶，最像你心中的火花瞬間？",
-        "en": "Which memory of us still feels like a spark in your heart?",
-        "th": "Which memory of us still feels like a spark in your heart?",
-        "ja": "Which memory of us still feels like a spark in your heart?"
+        "zh": "我說話的哪個「樣子」，會讓你特別喜歡？",
+        "en": "What do you like most about the way I talk?",
+        "th": "เวลาฉันพูด เธอชอบวิธีพูดหรือน้ำเสียงแบบไหนของฉันเป็นพิเศษ?",
+        "ja": "What do you like most about the way I talk?"
       }
     },
     {
@@ -114,10 +114,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "你是在什麼時候開始覺得，我們也許會變得很特別？",
-        "en": "When did you begin to feel that we could become something special?",
-        "th": "When did you begin to feel that we could become something special?",
-        "ja": "When did you begin to feel that we could become something special?"
+        "zh": "有沒有哪個瞬間，看著我做某件事，心裡突然有點捨不得移開眼睛？",
+        "en": "Has there ever been a moment when you watched me doing something and just couldn't look away?",
+        "th": "เคยมีช่วงเวลาไหมที่เธอมองฉันทำอะไรบางอย่าง แล้วรู้สึกละสายตาไปไม่ได้?",
+        "ja": "Has there ever been a moment when you watched me doing something and just couldn't look away?"
       }
     },
     {
@@ -125,10 +125,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "我做過什麼事，會讓你覺得自己被喜歡、被看見？",
-        "en": "What have I done that made you feel desired and truly seen?",
-        "th": "What have I done that made you feel desired and truly seen?",
-        "ja": "What have I done that made you feel desired and truly seen?"
+        "zh": "我做過哪件「小事」，讓你後來想起來還是會心動？",
+        "en": "What little thing have I done that still makes your heart skip a beat when you think about it later?",
+        "th": "มีเรื่องเล็ก ๆ อะไรที่ฉันเคยทำ แล้วพอนึกถึงทีหลังก็ยังทำให้ใจเธอเต้นแรง?",
+        "ja": "What little thing have I done that still makes your heart skip a beat when you think about it later?"
       }
     },
     {
@@ -136,10 +136,10 @@
       "isIntimate": false,
       "level": 2,
       "text": {
-        "zh": "我曾給過你的哪一句稱讚，直到現在還留在你心裡？",
-        "en": "Which compliment from me has stayed with you until now?",
-        "th": "Which compliment from me has stayed with you until now?",
-        "ja": "Which compliment from me has stayed with you until now?"
+        "zh": "你有沒有一種「明明旁邊有別人，但你只感覺到我」的時刻？",
+        "en": "Have you ever had a moment when other people were around, but I was the only one you were aware of?",
+        "th": "เธอเคยมีช่วงเวลาที่ทั้ง ๆ ที่มีคนอื่นอยู่ข้าง ๆ แต่เธอกลับรู้สึกถึงแค่ฉันคนเดียวไหม?",
+        "ja": "Have you ever had a moment when other people were around, but I was the only one you were aware of?"
       }
     },
     {
@@ -147,10 +147,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "和我在一起之後，你覺得自己哪一面被重新點亮了？",
-        "en": "Since being with me, what part of yourself feels more alive again?",
-        "th": "Since being with me, what part of yourself feels more alive again?",
-        "ja": "Since being with me, what part of yourself feels more alive again?"
+        "zh": "如果我們「重新認識一次」，你覺得我哪裡還是會吸引你？",
+        "en": "If we met all over again, what about me would still draw you in?",
+        "th": "ถ้าเราได้ทำความรู้จักกันใหม่อีกครั้ง เธอคิดว่าอะไรในตัวฉันยังคงดึงดูดเธออยู่?",
+        "ja": "If we met all over again, what about me would still draw you in?"
       }
     },
     {
@@ -158,10 +158,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "關係剛開始時，你對靠近我曾經有過什麼擔心？",
-        "en": "What worry did you have about getting closer to me when this relationship began?",
-        "th": "What worry did you have about getting closer to me when this relationship began?",
-        "ja": "What worry did you have about getting closer to me when this relationship began?"
+        "zh": "你有沒有一個「喜歡我」的地方，其實很少說出口？",
+        "en": "Is there something you like about me that you rarely say out loud?",
+        "th": "มีอะไรในตัวฉันไหมที่เธอชอบ แต่แทบไม่ค่อยพูดออกมา?",
+        "ja": "Is there something you like about me that you rarely say out loud?"
       }
     },
     {
@@ -169,10 +169,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "你覺得我們之間的吸引力，這段時間裡最美的改變是什麼？",
-        "en": "What is the most beautiful way our attraction has changed over time?",
-        "th": "What is the most beautiful way our attraction has changed over time?",
-        "ja": "What is the most beautiful way our attraction has changed over time?"
+        "zh": "我看你的「哪種眼神」，最容易讓你心動？",
+        "en": "What kind of look from me makes your heart race the most?",
+        "th": "สายตาแบบไหนที่ฉันมองเธอ แล้วทำให้เธอใจเต้นแรงที่สุด?",
+        "ja": "What kind of look from me makes your heart race the most?"
       }
     },
     {
@@ -180,10 +180,10 @@
       "isIntimate": false,
       "level": 3,
       "text": {
-        "zh": "如果可以重溫一個讓你再次心動的早期片刻，你會選哪一幕？",
-        "en": "If you could relive one early moment that made your heart race again, which would you choose?",
-        "th": "If you could relive one early moment that made your heart race again, which would you choose?",
-        "ja": "If you could relive one early moment that made your heart race again, which would you choose?"
+        "zh": "有沒有哪次我突然「靠近」，讓你有點緊張？",
+        "en": "Has there ever been a time when I suddenly got close and made you a little nervous?",
+        "th": "เคยมีครั้งไหนไหมที่ฉันขยับเข้ามาใกล้เธอกะทันหัน แล้วทำให้เธอประหม่าเล็กน้อย?",
+        "ja": "Has there ever been a time when I suddenly got close and made you a little nervous?"
       }
     },
     {
@@ -191,10 +191,10 @@
       "isIntimate": true,
       "level": 2,
       "text": {
-        "zh": "你在什麼時候最同時感受到和我的身體與情感都很靠近？",
-        "en": "When do you feel physically and emotionally closest to me at the same time?",
-        "th": "When do you feel physically and emotionally closest to me at the same time?",
-        "ja": "When do you feel physically and emotionally closest to me at the same time?"
+        "zh": "只有我們兩個人的時候，我哪一種「靠近」會讓你最心動？",
+        "en": "When it's just the two of us, what way of getting close to you makes your heart race the most?",
+        "th": "ตอนที่มีแค่เราสองคน การที่ฉันเข้าใกล้เธอแบบไหนทำให้เธอใจเต้นแรงที่สุด?",
+        "ja": "When it's just the two of us, what way of getting close to you makes your heart race the most?"
       }
     },
     {
@@ -202,10 +202,10 @@
       "isIntimate": true,
       "level": 2,
       "text": {
-        "zh": "哪一種觸碰方式最能讓你感到安心又被珍惜？",
-        "en": "What kind of touch makes you feel safest and most cherished?",
-        "th": "What kind of touch makes you feel safest and most cherished?",
-        "ja": "What kind of touch makes you feel safest and most cherished?"
+        "zh": "最近一次在心裡默默覺得「好想立刻抱緊你」，是什麼時候？",
+        "en": "When was the last time you quietly thought, \"I really want to hold you tight right now\"?",
+        "th": "ครั้งล่าสุดที่เธอแอบคิดในใจว่า “อยากกอดเธอให้แน่นตอนนี้เลย” คือเมื่อไหร่?",
+        "ja": "When was the last time you quietly thought, \"I really want to hold you tight right now\"?"
       }
     },
     {
@@ -213,10 +213,10 @@
       "isIntimate": true,
       "level": 3,
       "text": {
-        "zh": "你心裡有沒有一個還沒說出口、但很想和我分享的渴望？",
-        "en": "Is there a desire you have not said aloud yet but would like to share with me?",
-        "th": "Is there a desire you have not said aloud yet but would like to share with me?",
-        "ja": "Is there a desire you have not said aloud yet but would like to share with me?"
+        "zh": "關於我的「味道、體溫或靠近你的感覺」，你最喜歡哪一種記憶？",
+        "en": "What's your favorite memory of my scent, my warmth, or the feeling of me close to you?",
+        "th": "ความทรงจำแบบไหนเกี่ยวกับกลิ่นของฉัน ไออุ่นของฉัน หรือความรู้สึกตอนฉันอยู่ใกล้ ๆ เธอ ที่เธอชอบที่สุด?",
+        "ja": "What's your favorite memory of my scent, my warmth, or the feeling of me close to you?"
       }
     },
     {
@@ -224,10 +224,10 @@
       "isIntimate": true,
       "level": 3,
       "text": {
-        "zh": "我們之間哪一段親密回憶，會讓你現在想起來還覺得溫熱？",
-        "en": "Which intimate memory between us still feels warm when you think about it now?",
-        "th": "Which intimate memory between us still feels warm when you think about it now?",
-        "ja": "Which intimate memory between us still feels warm when you think about it now?"
+        "zh": "什麼樣的「曖昧氣氛」，會讓你特別想靠近我？",
+        "en": "What kind of spark would make you want to pull me closer?",
+        "th": "บรรยากาศหวาน ๆ ปนหวั่นไหวแบบไหน ที่ทำให้เธออยากขยับเข้ามาใกล้ฉันเป็นพิเศษ?",
+        "ja": "What kind of spark would make you want to pull me closer?"
       }
     },
     {
@@ -235,10 +235,10 @@
       "isIntimate": true,
       "level": 3,
       "text": {
-        "zh": "你希望我們怎麼一起創造更多期待感、溫柔感與靠近感？",
-        "en": "How would you like us to create more anticipation, tenderness, and closeness together?",
-        "th": "How would you like us to create more anticipation, tenderness, and closeness together?",
-        "ja": "How would you like us to create more anticipation, tenderness, and closeness together?"
+        "zh": "有沒有某個時刻，你其實很期待我主動「碰你一下」？",
+        "en": "Was there ever a moment when you were secretly hoping I'd reach out and touch you first?",
+        "th": "เคยมีช่วงเวลาไหนไหมที่จริง ๆ แล้วเธอแอบหวังให้ฉันเป็นฝ่ายเอื้อมมือมาสัมผัสเธอก่อน?",
+        "ja": "Was there ever a moment when you were secretly hoping I'd reach out and touch you first?"
       }
     }
   ]

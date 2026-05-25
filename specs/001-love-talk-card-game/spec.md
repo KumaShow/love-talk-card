@@ -1,7 +1,7 @@
 # Feature Specification: Love Talk Card Game
 
 **Feature Branch**: `001-love-talk-card-game`  
-**Created**: 2025-07-18  
+**Created**: 2026-04-13
 **Status**: Draft  
 **Input**: User description: "A web-based card game designed for couples and romantic partners. Players choose from four relationship themes, draw and flip cards with conversation prompts, toggle an intimate mode for private questions, switch between multiple display languages, and enjoy an immersive mobile-first experience with offline support."
 
