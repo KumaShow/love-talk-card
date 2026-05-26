@@ -112,13 +112,13 @@ test.describe('效能煙霧', () => {
     await page.getByTestId('preview-cta').click()
     await expect(page.getByTestId('fan-deck')).toBeVisible()
 
-    await page.locator('[data-test="fan-deck"] .is-active').click()
+    await page.locator('[data-test="fan-deck"] [data-test="fan-card-active"]').click()
     const picked = page.getByTestId('picked-view')
     await expect(picked).toBeVisible()
 
     // Vue <Transition> 在進場期間會在 .picked 上加 `picked-shell-enter-active`，
     // 期間 getComputedStyle 讀到的是 Transition 自身的 transition（opacity 240ms / transform 420ms），
-    // 而非 .picked.is-dismissing 想驗證的 460ms。等 class 被自動移除才反映最終樣式。
+    // 而非 .picked-card[data-dismissing] 想驗證的 460ms。等 class 被自動移除才反映最終樣式。
     // 改用事件/條件式等待避免硬編碼 sleep（符合 playwright/no-wait-for-timeout 最佳實踐）。
     await picked.evaluate((el) =>
       el.classList.contains('picked-shell-enter-active')
@@ -146,7 +146,7 @@ test.describe('效能煙霧', () => {
       }
 
       const picked = document.querySelector('[data-test="picked-view"]') as HTMLElement
-      const inner = picked?.querySelector('.picked__inner') as HTMLElement
+      const inner = picked?.querySelector('[data-test="picked-inner"]') as HTMLElement
       return {
         flipDurationMs: durationOf(inner, 'transform'),
         dismissDurationMs: durationOf(picked, 'transform'),

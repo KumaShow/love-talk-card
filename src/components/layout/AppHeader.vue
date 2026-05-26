@@ -17,11 +17,11 @@
       <slot name="center">
         <span
           v-if="showRemaining"
-          class="inline-flex items-baseline gap-[0.35rem] rounded-[var(--radius-pill)] bg-white/65 px-[0.9rem] py-[0.35rem] text-[0.85rem]"
+          class="inline-flex items-baseline gap-[0.35rem] rounded-[var(--radius-pill)] bg-white/65 px-[0.9rem] py-[0.35rem] text-[0.85rem] max-[23rem]:px-3 max-[23rem]:text-[0.78rem]"
           data-test="app-header-remaining"
         >
           {{ remainingLabel
-          }}<span class="text-base font-semibold text-brand">{{ remainingCount }}</span>
+          }}<span class="text-base font-semibold text-brand max-[23rem]:text-[0.92rem]">{{ remainingCount }}</span>
         </span>
       </slot>
     </div>

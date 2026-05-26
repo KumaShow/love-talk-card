@@ -62,7 +62,10 @@ describe('LanguageSelector', () => {
         expect(inlineStyle).toMatch(/min-width:\s*44px/)
         expect(inlineStyle).toMatch(/min-height:\s*44px/)
       } else {
-        expect(btn.classes()).toContain('language-selector__btn')
+        // 觸控區由 Tailwind utility min-w-[3.25rem] / min-h-[3.25rem]（52px ≥ 44px）保證
+        const classes = btn.classes()
+        expect(classes).toContain('min-w-[3.25rem]')
+        expect(classes).toContain('min-h-[3.25rem]')
       }
     }
   })

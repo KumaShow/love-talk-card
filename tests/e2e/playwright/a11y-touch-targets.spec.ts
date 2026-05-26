@@ -88,7 +88,7 @@ test.describe('a11y — 觸控目標 ≥44×44 px', () => {
     allOffenders.push(...(await collectOffenders(page, 'game / idle')))
 
     // 4) 翻開第一張卡 → overlay 出現
-    await page.locator('[data-test="fan-deck"] .is-active').click()
+    await page.locator('[data-test="fan-deck"] [data-test="fan-card-active"]').click()
     await expect(page.getByTestId('picked-view')).toBeVisible()
     await expect(page.getByTestId('picked-next')).toBeVisible()
     allOffenders.push(...(await collectOffenders(page, 'game / picked overlay')))

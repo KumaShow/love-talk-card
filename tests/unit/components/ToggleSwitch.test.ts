@@ -61,9 +61,8 @@ describe('ToggleSwitch', () => {
 
   /**
    * 觸控區最小 44x44px 的可存取性斷言。
-   * 實際尺寸由 CSS（Tailwind utility 或 scoped style）保證，
-   * 測試優先驗證 inline style 中包含 44px；若採 class-based 方案，
-   * 則退而驗證根元素帶有 `toggle-switch` 標記類別以利後續 CSS 審查。
+   * 實際尺寸由 Tailwind utility（min-w-11 / min-h-11，11 = 2.75rem = 44px）保證；
+   * 測試優先驗證 inline style 中包含 44px，否則退而驗證根元素帶有對應 utility class。
    */
   it('根元素應確保觸控區 min-width 與 min-height 至少為 44px', () => {
     const wrapper = mount(ToggleSwitch, {
@@ -80,7 +79,9 @@ describe('ToggleSwitch', () => {
       expect(inlineStyle).toMatch(/min-width:\s*44px/)
       expect(inlineStyle).toMatch(/min-height:\s*44px/)
     } else {
-      expect(wrapper.classes()).toContain('toggle-switch')
+      const classes = wrapper.classes()
+      expect(classes).toContain('min-w-11')
+      expect(classes).toContain('min-h-11')
     }
   })
 })

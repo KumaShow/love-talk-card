@@ -4,7 +4,7 @@
     data-test="card-back"
   >
     <div
-      class="card-back__ornament flex w-[72%] items-center justify-center rounded-[var(--radius-pill)]"
+      class="card-ornament flex aspect-square w-[72%] items-center justify-center rounded-[var(--radius-pill)] border border-white/45"
       aria-hidden="true"
     >
       <span class="text-[3.5rem] opacity-85">♥</span>
@@ -17,6 +17,7 @@
 </script>
 
 <style scoped>
+/* 卡背漸層 + 3D 背面隱藏：color-mix 與 backface-visibility 不易用 utility 表達，保留 scoped */
 .card-back {
   background: linear-gradient(
     145deg,
@@ -27,9 +28,8 @@
   -webkit-backface-visibility: hidden;
 }
 
-.card-back__ornament {
-  aspect-ratio: 1;
-  border: 1px solid rgba(255, 255, 255, 0.45);
+/* 裝飾光暈：徑向漸層保留 scoped */
+.card-ornament {
   background: radial-gradient(
     circle at 30% 30%,
     rgba(255, 255, 255, 0.25),

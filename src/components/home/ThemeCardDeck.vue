@@ -1,17 +1,17 @@
 <template>
   <button
     type="button"
-    class="poc-theme-card flex w-full cursor-pointer flex-col items-center gap-[0.55rem] rounded-[var(--radius-panel)] border-0 bg-transparent px-2 pb-3 pt-2 text-ink"
+    class="theme-card flex w-full cursor-pointer flex-col items-center gap-[0.55rem] rounded-[var(--radius-panel)] border-0 bg-transparent px-2 pb-3 pt-2 text-ink"
     :style="{ '--color-card': theme.colors.cardBack }"
     :data-test="`theme-deck-${theme.id}`"
     :aria-label="`${zhName} 主題卡堆`"
     @click="$emit('select', theme)"
   >
-    <div class="poc-theme-card__stack" aria-hidden="true">
-      <span class="poc-theme-card__back poc-theme-card__back--deep"></span>
-      <span class="poc-theme-card__back poc-theme-card__back--mid"></span>
-      <span class="poc-theme-card__back poc-theme-card__back--top">
-        <span class="poc-theme-card__glyph">♥</span>
+    <div class="relative aspect-[3/4] w-full" aria-hidden="true">
+      <span class="stack-card stack-deep"></span>
+      <span class="stack-card stack-mid"></span>
+      <span class="stack-card stack-top">
+        <span class="glyph flex aspect-square w-[60%] items-center justify-center rounded-[var(--radius-pill)] border border-white/40 text-[2.25rem] opacity-85 max-[23rem]:text-[1.85rem]">♥</span>
       </span>
     </div>
     <span class="font-serif text-[1.05rem] font-semibold text-ink">{{ zhName }}</span>
@@ -33,28 +33,25 @@ const zhName = computed(() => props.theme.name.zh)
 </script>
 
 <style scoped>
-.poc-theme-card {
+/* 卡堆按鈕的 hover/active 微浮起與預設主色，保留 scoped */
+.theme-card {
   --color-card: #c76d8e;
-  box-sizing: border-box;
   transition: transform 200ms ease;
 }
 
-.poc-theme-card:hover {
-  transform: translateY(-3px);
+.theme-card:hover {
+  transform: translateY(-0.1875rem);
 }
 
-.poc-theme-card:active {
-  transform: translateY(-1px);
+.theme-card:active {
+  transform: translateY(-0.0625rem);
 }
 
-/* 三層堆疊卡背：後兩張微幅錯位 + 旋轉，製造牌堆厚度感 */
-.poc-theme-card__stack {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 3 / 4;
-}
-
-.poc-theme-card__back {
+/*
+ * 三層堆疊卡背：共用漸層／陰影／置中為內聚裝飾視覺（color-mix 漸層），保留 scoped；
+ * 後兩張以 transform 微幅錯位 + 旋轉製造牌堆厚度感。
+ */
+.stack-card {
   position: absolute;
   inset: 0;
   border-radius: 1.5rem;
@@ -70,30 +67,22 @@ const zhName = computed(() => props.theme.name.zh)
   color: white;
 }
 
-.poc-theme-card__back--deep {
-  transform: translate(6px, 6px) rotate(2deg);
+.stack-deep {
+  transform: translate(0.375rem, 0.375rem) rotate(2deg);
   filter: brightness(0.88);
 }
 
-.poc-theme-card__back--mid {
-  transform: translate(3px, 3px) rotate(1deg);
+.stack-mid {
+  transform: translate(0.1875rem, 0.1875rem) rotate(1deg);
   filter: brightness(0.94);
 }
 
-.poc-theme-card__back--top {
+.stack-top {
   transform: translate(0, 0) rotate(0);
 }
 
-.poc-theme-card__glyph {
-  font-size: 2.25rem;
-  opacity: 0.85;
-  width: 60%;
-  aspect-ratio: 1;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* 卡面光暈：徑向漸層保留 scoped */
+.glyph {
   background: radial-gradient(
     circle at 30% 30%,
     rgba(255, 255, 255, 0.25),
