@@ -2,7 +2,7 @@
   <Transition name="orientation-guard">
     <div
       v-if="isLandscape"
-      class="orientation-guard fixed inset-0 z-[9999] flex items-center justify-center bg-[rgb(8_4_10/0.88)] p-6 text-white backdrop-blur-[6px]"
+      class="fixed inset-0 z-[9999] flex items-center justify-center bg-[rgb(8_4_10/0.88)] p-6 text-white backdrop-blur-[0.375rem]"
       data-test="orientation-guard"
       role="alert"
       :aria-labelledby="titleId"
@@ -10,7 +10,7 @@
     >
       <div class="flex max-w-[22rem] flex-col items-center gap-3 text-center">
         <svg
-          class="orientation-guard__icon h-20 w-20"
+          class="h-20 w-20 text-brand"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 64 64"
           fill="none"
@@ -30,10 +30,10 @@
           <path d="M52 48 L54 52 L50 52" />
         </svg>
 
-        <h2 :id="titleId" class="m-0 text-xl font-bold tracking-[0.02em]">
+        <h2 :id="titleId" class="m-0 text-xl font-bold tracking-normal max-[23rem]:text-[1.1rem]">
           {{ zhTitle }}
         </h2>
-        <p :id="descId" class="m-0 text-[0.95rem] leading-[1.5] opacity-[0.88]">
+        <p :id="descId" class="m-0 text-[0.95rem] leading-[1.5] opacity-[0.88] max-[23rem]:text-[0.9rem]">
           {{ zhDesc }}
         </p>
 
@@ -71,14 +71,6 @@ const enTitle = computed(() => enStrings.orientation.title)
 </script>
 
 <style scoped>
-.orientation-guard {
-  -webkit-backdrop-filter: blur(6px);
-}
-
-.orientation-guard__icon {
-  color: var(--color-brand, #e8a0bf);
-}
-
 .orientation-guard-enter-active,
 .orientation-guard-leave-active {
   transition: opacity 240ms ease;

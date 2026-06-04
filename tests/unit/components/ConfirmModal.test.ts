@@ -52,7 +52,7 @@ describe('ConfirmModal', () => {
     wrapper.unmount()
     document.body.innerHTML = ''
     mountModal()
-    expect(document.querySelector('.confirm-modal__description')).toBeNull()
+    expect(document.querySelector('[data-test="confirm-modal-description"]')).toBeNull()
   })
 
   it('點 confirm 按鈕 → emit confirm', async () => {
@@ -81,7 +81,7 @@ describe('ConfirmModal', () => {
 
   it('點 backdrop 等同 cancel（語意上視為放棄操作）', async () => {
     const wrapper = mountModal()
-    const backdrop = document.querySelector<HTMLDivElement>('.confirm-modal__backdrop')
+    const backdrop = document.querySelector<HTMLDivElement>('[data-test="confirm-modal-backdrop"]')
     backdrop?.click()
     await wrapper.vm.$nextTick()
 

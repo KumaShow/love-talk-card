@@ -1,16 +1,17 @@
 <template>
   <article
-    class="card-face absolute inset-0 flex flex-col justify-center gap-4 rounded-[var(--radius-card)] bg-white p-7 text-ink shadow-[var(--shadow-card)]"
+    class="card-face absolute inset-0 flex flex-col justify-center gap-4 rounded-[var(--radius-card)] bg-white p-7 text-ink shadow-[var(--shadow-card)] max-[23rem]:gap-[0.85rem] max-[23rem]:p-6"
     data-test="card-face"
   >
     <!-- T047：私密牌裝飾浮水印，opacity 0.15，不影響可讀性（pointer-events:none、z-index:0） -->
     <div
       v-if="card.isIntimate"
-      class="card-face__watermark"
+      class="pointer-events-none absolute inset-0 z-0 flex items-center justify-center text-brand opacity-15"
       data-test="intimate-watermark"
       aria-hidden="true"
     >
       <svg
+        class="h-auto w-[min(60%,15rem)]"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
@@ -23,16 +24,14 @@
         />
       </svg>
     </div>
-    <div
-      class="card-face__meta relative z-[1] flex items-center justify-between text-xs uppercase tracking-[0.2em]"
-    >
-      <span class="card-face__level">Lv.{{ card.level }}</span>
-      <span v-if="card.isIntimate" class="card-face__intimate" data-test="intimate-indicator">
+    <div class="card-meta relative z-[1] flex items-center justify-between text-xs uppercase tracking-normal max-[23rem]:text-[0.68rem]">
+      <span>Lv.{{ card.level }}</span>
+      <span v-if="card.isIntimate" class="text-xl text-brand" data-test="intimate-indicator">
         <slot name="intimate-indicator">♥</slot>
       </span>
     </div>
     <p
-      class="relative z-[1] font-serif text-2xl font-semibold leading-[1.5]"
+      class="relative z-[1] m-0 font-serif text-2xl font-semibold leading-[1.5] max-[23rem]:text-[1.35rem] max-[23rem]:leading-[1.45]"
       data-test="card-primary-text"
       lang="zh-TW"
     >
@@ -40,7 +39,7 @@
     </p>
     <p
       v-if="secondaryText"
-      class="card-face__secondary relative z-[1] text-base leading-[1.5]"
+      class="card-secondary relative z-[1] m-0 text-base leading-[1.55] max-[23rem]:text-[0.92rem] max-[23rem]:leading-[1.5]"
       data-test="card-secondary-text"
       :lang="secondaryHtmlLang"
     >
@@ -80,40 +79,19 @@ const secondaryHtmlLang = computed(() => HTML_LANG_MAP[secondaryLang.value])
 </script>
 
 <style scoped>
+/* 卡面 3D 翻面：rotateY 與 backface-visibility 不易用 utility 表達，保留 scoped */
 .card-face {
   transform: rotateY(180deg);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
 
-.card-face__meta {
+/* meta 與次要文字：color-mix 半透明墨色，保留 scoped */
+.card-meta {
   color: color-mix(in srgb, var(--color-ink) 60%, transparent);
 }
 
-.card-face__intimate {
-  font-size: 1.25rem;
-  color: var(--color-brand);
-}
-
-.card-face__secondary {
+.card-secondary {
   color: color-mix(in srgb, var(--color-ink) 75%, transparent);
-}
-
-/* T047：私密牌裝飾浮水印覆蓋層，填滿卡面、置中、半透明，且不可點擊 */
-.card-face__watermark {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.15;
-  pointer-events: none;
-  color: var(--color-brand);
-  z-index: 0;
-}
-
-.card-face__watermark svg {
-  width: min(60%, 240px);
-  height: auto;
 }
 </style>

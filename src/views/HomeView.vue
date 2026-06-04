@@ -2,23 +2,25 @@
   <main class="min-h-screen px-5 pb-12 pt-8">
     <section class="mx-auto flex max-w-[30rem] flex-col gap-6">
       <header class="flex flex-col gap-[0.55rem] text-center">
-        <p class="text-[0.72rem] uppercase tracking-[0.28em] text-brand">{{ zhTw.app.title }}</p>
-        <h1 class="font-serif text-[clamp(1.75rem,6vw,2.25rem)] font-semibold">
+        <p class="text-[0.72rem] uppercase tracking-normal text-brand">{{ zhTw.app.title }}</p>
+        <h1 class="font-serif text-[2.25rem] font-semibold max-[23rem]:text-[1.75rem]">
           {{ zhTw.home.title }}
         </h1>
-        <p class="home-view__description">{{ zhTw.home.description }}</p>
+        <p class="home-desc text-[0.95rem] leading-[1.6] max-[23rem]:text-[0.9rem]">
+          {{ zhTw.home.description }}
+        </p>
       </header>
 
-      <div
-        class="flex min-h-[44px] flex-col gap-[0.35rem] rounded-[1.25rem] bg-white/75 px-4 py-[0.9rem]"
-      >
+      <div class="flex min-h-11 flex-col gap-[0.35rem] rounded-[1.25rem] bg-white/75 px-4 py-[0.9rem]">
         <ToggleSwitch
           :model-value="settingsStore.intimateMode"
           data-test="intimate-toggle"
           :label="zhTw.home.intimateMode"
           @update:model-value="handleToggleIntimate"
         />
-        <p class="home-view__toggle-hint">{{ zhTw.home.intimateModeHint }}</p>
+        <p class="home-hint m-0 text-[0.8rem] leading-[1.5] max-[23rem]:text-[0.76rem]">
+          {{ zhTw.home.intimateModeHint }}
+        </p>
       </div>
 
       <ul class="m-0 grid list-none grid-cols-2 gap-4 p-0" data-test="theme-deck-grid">
@@ -27,7 +29,9 @@
         </li>
       </ul>
 
-      <footer class="home-view__footer">{{ zhTw.home.startHint }}</footer>
+      <footer class="home-footer text-center text-[0.8rem] max-[23rem]:text-[0.76rem]">
+        {{ zhTw.home.startHint }}
+      </footer>
     </section>
 
     <ThemePreview :theme="selectedTheme" @start="handleStart" @dismiss="selectedTheme = null" />
@@ -88,22 +92,13 @@ function handleStart(theme: Theme): void {
 </script>
 
 <style scoped>
-.home-view__description {
-  font-size: 0.95rem;
-  line-height: 1.6;
+/* 以下三處皆為 color-mix 半透明墨色，不易用 utility 表達故保留 scoped */
+.home-desc,
+.home-hint {
   color: color-mix(in srgb, var(--color-ink) 70%, transparent);
 }
 
-.home-view__toggle-hint {
-  margin: 0;
-  font-size: 0.8rem;
-  line-height: 1.5;
-  color: color-mix(in srgb, var(--color-ink) 70%, transparent);
-}
-
-.home-view__footer {
-  text-align: center;
-  font-size: 0.8rem;
+.home-footer {
   color: color-mix(in srgb, var(--color-ink) 60%, transparent);
 }
 </style>

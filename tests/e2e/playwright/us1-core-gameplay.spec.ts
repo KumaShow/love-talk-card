@@ -23,8 +23,8 @@ async function waitForPickedNextReady(page: Page): Promise<void> {
 }
 
 async function drawCenterCardAndReadText(page: Page): Promise<string> {
-  // 中央卡以 .is-active class 為穩定 selector（不依賴 visibleCards 長度變化造成的 index 位移）
-  await page.locator('[data-test="fan-deck"] .is-active').click()
+  // 中央卡以 data-test="fan-card-active" 為穩定 selector（不依賴 visibleCards 長度變化造成的 index 位移）
+  await page.locator('[data-test="fan-deck"] [data-test="fan-card-active"]').click()
 
   await page.getByTestId('picked-view').waitFor({ state: 'visible' })
   await waitForPickedNextReady(page)

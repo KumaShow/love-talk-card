@@ -136,7 +136,7 @@ test.describe('US5 — PWA 離線遊玩', () => {
 
     // 離線抽 5 張卡，每張都要能渲染主要文字（zh）並可切到 th
     for (let index = 0; index < 5; index += 1) {
-      await page.locator('[data-test="fan-deck"] .is-active').click()
+      await page.locator('[data-test="fan-deck"] [data-test="fan-card-active"]').click()
       await page.getByTestId('picked-view').waitFor({ state: 'visible' })
 
       const primary = (

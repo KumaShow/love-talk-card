@@ -4,7 +4,7 @@
  *
  * 設計重點：
  * - WAI-ARIA toggle button group：每顆按鈕以 aria-pressed 表達啟用狀態。
- * - 觸控區 ≥44×44px（憲章可存取性要求）。
+ * - 觸控區 ≥2.75rem × 2.75rem（憲章可存取性要求）。
  * - 啟用按鈕採白色玻璃感，刻意不搶走主題 CTA 的視覺焦點。
  * - emit 'select' 攜帶 SecondaryLang，讓父層接到 settingsStore.setSecondaryLang。
  *   採用 emit 而非 v-model 是為了保留語意（這是「動作」而非雙向綁定）—
@@ -46,8 +46,13 @@ function handleClick(lang: SecondaryLang): void {
 </script>
 
 <template>
+  <!--
+    玻璃感 segmented control（A 方案）：半透明白底 + backdrop blur 容器，
+    按鈕基底半亮（白 70%），啟用中的選項才填淡白 pill + 全白文字，
+    讓深色 picked-backdrop 下 CTA「下一張」維持視覺主焦點。
+  -->
   <div
-    class="language-selector inline-flex items-center gap-[0.15rem] rounded-[var(--radius-pill)] p-[0.2rem]"
+    class="inline-flex items-center gap-[0.15rem] rounded-[var(--radius-pill)] bg-white/[0.18] p-[0.2rem] backdrop-blur-[8px] max-[23rem]:gap-[0.08rem] max-[23rem]:p-[0.12rem]"
     role="group"
     :aria-label="t('labels.secondaryLanguage')"
     data-test="language-selector"
@@ -56,8 +61,12 @@ function handleClick(lang: SecondaryLang): void {
       v-for="option in options"
       :key="option.value"
       type="button"
-      class="language-selector__btn inline-flex min-h-[52px] min-w-[52px] cursor-pointer items-center justify-center rounded-[var(--radius-pill)] border-0 bg-transparent px-[0.7rem] py-0 text-xs font-medium tracking-[0.04em]"
-      :class="{ 'language-selector__btn--active': selectedLang === option.value }"
+      class="inline-flex min-h-[3.25rem] min-w-[3.25rem] cursor-pointer items-center justify-center rounded-[var(--radius-pill)] border-0 px-[0.7rem] text-[0.75rem] tracking-normal transition duration-[160ms] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/60 max-[23rem]:min-h-10 max-[23rem]:min-w-10 max-[23rem]:px-2 max-[23rem]:text-[0.68rem]"
+      :class="
+        selectedLang === option.value
+          ? 'bg-white/[0.28] font-semibold text-white'
+          : 'bg-transparent font-medium text-white/70 hover:text-white/90'
+      "
       :aria-pressed="selectedLang === option.value ? 'true' : 'false'"
       :aria-label="option.ariaLabel"
       :data-test="option.testId"
@@ -67,40 +76,3 @@ function handleClick(lang: SecondaryLang): void {
     </button>
   </div>
 </template>
-
-<style scoped>
-/*
- * 玻璃感 segmented control（A 方案）：
- * 為了搭配深色 picked-backdrop 並讓 CTA「下一張」維持視覺主焦點，
- * 容器使用半透明白 + backdrop blur，按鈕基底半亮（opacity 0.65），
- * 啟用中的選項才填淡白 pill + 完整 opacity。
- */
-.language-selector {
-  background: rgba(255, 255, 255, 0.18);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-}
-
-.language-selector__btn {
-  color: rgba(255, 255, 255, 0.7);
-  transition:
-    background-color 160ms ease,
-    color 160ms ease,
-    opacity 160ms ease;
-}
-
-.language-selector__btn:hover {
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.language-selector__btn:focus-visible {
-  outline: 2px solid rgba(255, 255, 255, 0.6);
-  outline-offset: 2px;
-}
-
-.language-selector__btn--active {
-  background: rgba(255, 255, 255, 0.28);
-  color: #ffffff;
-  font-weight: 600;
-}
-</style>

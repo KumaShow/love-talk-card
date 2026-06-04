@@ -2,7 +2,7 @@
   <Transition name="picked-backdrop">
     <div
       v-if="showBackdrop"
-      class="picked-backdrop"
+      class="fixed inset-0 z-[90] bg-[rgb(8_4_10/0.55)] backdrop-blur-[0.25rem]"
       data-test="picked-backdrop"
       aria-hidden="true"
       @click="handleBackdropClick"
@@ -12,21 +12,28 @@
   <Transition name="picked-shell">
     <div
       v-if="card && visible"
-      class="picked"
-      :class="{ 'is-dismissing': phase === 'dismissing' }"
+      class="picked-card"
+      :data-dismissing="phase === 'dismissing' ? 'true' : 'false'"
       data-test="picked-view"
       role="dialog"
       aria-modal="true"
     >
-      <div class="picked__inner" :class="{ 'is-flipped': isFlipped }">
-        <CardBack class="picked__face" />
-        <CardFace :card="card" class="picked__face" />
+      <div
+        class="picked-inner relative h-full w-full"
+        data-test="picked-inner"
+        :data-flipped="isFlipped ? 'true' : 'false'"
+      >
+        <CardBack />
+        <CardFace :card="card" />
       </div>
 
       <Transition name="picked-cta">
-        <div v-if="phase === 'reading'" class="picked__actions">
+        <div
+          v-if="phase === 'reading'"
+          class="absolute left-1/2 top-[calc(100%+1.25rem)] flex -translate-x-1/2 flex-col items-center gap-3 max-[23rem]:top-[calc(100%+0.85rem)] max-[23rem]:gap-[0.55rem]"
+        >
           <button
-            class="picked__cta"
+            class="picked-cta min-h-[3.25rem] min-w-[8.75rem] cursor-pointer rounded-[var(--radius-pill)] border-0 px-6 py-3 text-[0.95rem] font-bold tracking-normal text-white max-[23rem]:min-h-11 max-[23rem]:min-w-[7.25rem] max-[23rem]:px-[1.1rem] max-[23rem]:py-[0.58rem] max-[23rem]:text-[0.9rem]"
             type="button"
             data-test="picked-next"
             @click="$emit('dismiss')"
@@ -34,7 +41,6 @@
             下一張
           </button>
           <LanguageSelector
-            class="picked__lang"
             :selected-lang="settingsStore.secondaryLang"
             data-test="picked-language-selector"
             @select="settingsStore.setSecondaryLang"
@@ -105,92 +111,54 @@ function handleBackdropClick() {
 </script>
 
 <style scoped>
-.picked-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(8, 4, 10, 0.55);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 90;
-}
-
-.picked {
+/*
+ * 卡片浮層：固定置中 + perspective 提供 3D 翻面舞台，dismiss 以 data-dismissing
+ * 屬性取代原 .is-dismissing modifier。perspective／translate 置中／自訂緩動
+ * transition 不易用 utility 表達，保留 scoped。
+ */
+.picked-card {
   position: fixed;
   left: 50%;
   top: 50%;
-  width: 70vw;
-  max-width: 22rem;
+  width: min(72vw, 22rem);
   aspect-ratio: 3 / 4;
   transform: translate(-50%, -50%);
-  perspective: 1600px;
+  perspective: 100rem;
   z-index: 100;
   transition:
     transform var(--duration-dismiss) var(--ease-dismiss),
     opacity 340ms ease-in;
 }
 
-.picked.is-dismissing {
+.picked-card[data-dismissing='true'] {
   transform: translate(-50%, -50%) translateX(130vw) rotate(22deg);
   opacity: 0;
 }
 
-.picked__inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
+/*
+ * 3D 翻面內層：preserve-3d 與 rotateY 不易用 utility 表達，保留 scoped；
+ * 翻面狀態以 data-flipped 屬性取代原 .is-flipped modifier。
+ * CardBack / CardFace 自身已設 position:absolute; inset:0; backface-visibility:hidden，
+ * 且 CardFace 自帶 rotateY(180deg)，翻面後兩面自動各自朝向正確。
+ */
+.picked-inner {
   transform-style: preserve-3d;
   transition: transform var(--duration-flip) var(--ease-card);
 }
 
-.picked__inner.is-flipped {
+.picked-inner[data-flipped='true'] {
   transform: rotateY(180deg);
 }
 
-/* CardBack / CardFace 自身已設 position:absolute; inset:0; backface-visibility:hidden，
-   且 CardFace 自帶 rotateY(180deg)，picked__inner 翻面後兩面自動各自朝向正確。 */
-.picked__face {
-  /* reserved for future scoped overrides if needed */
-}
-
-/*
- * picked__actions：CTA + LanguageSelector 的 flex column wrapper。
- *
- * 設計動機（回應 Copilot review）：
- * 原本 CTA 與 LanguageSelector 各自 position:absolute，且 LanguageSelector
- * 用 `top: calc(100% + 1.25rem + 48px + 0.75rem)` 硬推 CTA 高度（48px 來自
- * `min-height` 而非實際渲染高度），任何字體/縮放微調都會撞重疊。
- * 改用單一 absolute wrapper + flex column + gap，讓兩者堆疊間距由瀏覽器
- * 依實際內容尺寸計算，不再依賴硬編碼數字。
- */
-.picked__actions {
-  position: absolute;
-  left: 50%;
-  top: calc(100% + 1.25rem);
-  transform: translateX(-50%);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.picked__cta {
-  min-width: 140px;
-  min-height: 52px;
-  padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 999px;
+/* CTA 漸層、文字陰影與光暈（color-mix），不易用 utility 表達，保留 scoped */
+.picked-cta {
   background: linear-gradient(
     135deg,
     var(--color-brand),
     color-mix(in srgb, var(--color-brand) 55%, #1a0a18)
   );
-  color: white;
-  font-size: 0.95rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
   box-shadow: 0 10px 22px -10px color-mix(in srgb, var(--color-brand) 60%, #000);
-  cursor: pointer;
 }
 
 .picked-backdrop-enter-active,
@@ -229,5 +197,11 @@ function handleBackdropClick() {
 .picked-cta-leave-to {
   opacity: 0;
   transform: translateX(-50%) translateY(8px);
+}
+
+@media (max-width: 23rem) {
+  .picked-card {
+    width: min(76vw, 20rem);
+  }
 }
 </style>

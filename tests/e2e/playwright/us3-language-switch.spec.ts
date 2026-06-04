@@ -21,7 +21,7 @@ import { expect, Page, test } from '@playwright/test'
  */
 
 async function openPickedView(page: Page): Promise<void> {
-  await page.locator('[data-test="fan-deck"] .is-active').click()
+  await page.locator('[data-test="fan-deck"] [data-test="fan-card-active"]').click()
   await page.getByTestId('picked-view').waitFor({ state: 'visible' })
   await page
     .locator('[data-test="picked-next"]:not([class*="picked-cta-enter"])')

@@ -1,12 +1,12 @@
 <template>
   <div
-    class="poc-fan-card"
-    :class="{ 'is-active': isActive }"
+    class="fan-card absolute bottom-0 left-1/2 aspect-[3/4] w-[40vw] max-w-[11rem] max-[23rem]:w-[38vw]"
+    :data-active="isActive ? 'true' : 'false'"
     :style="computedStyle"
     :tabindex="isActive ? 0 : -1"
     :role="isActive ? 'button' : undefined"
     :aria-label="isActive ? '翻開中央這張牌' : undefined"
-    :data-test="`fan-card-${index}`"
+    :data-test="isActive ? 'fan-card-active' : `fan-card-${index}`"
     @click="handleActivate"
     @keydown.enter.prevent="handleActivate"
     @keydown.space.prevent="handleActivate"
@@ -48,13 +48,12 @@ function handleActivate() {
 </script>
 
 <style scoped>
-.poc-fan-card {
-  position: absolute;
-  left: 50%;
-  bottom: 0;
-  width: 40vw;
-  max-width: 11rem;
-  aspect-ratio: 3 / 4;
+/*
+ * 扇形卡：transform 帶動態 --angle、自訂 transform-origin 與緩動曲線，
+ * 並以 data-active 屬性取代原本的 .is-active modifier 驅動作用態與 hover。
+ * 這些動態變數與多屬性 transition 不易用 utility 表達，保留 scoped。
+ */
+.fan-card {
   transform: translateX(-50%) rotate(var(--angle));
   transform-origin: 50% 120%;
   transition:
@@ -65,20 +64,20 @@ function handleActivate() {
   filter: brightness(0.92);
 }
 
-.poc-fan-card.is-active {
+.fan-card[data-active='true'] {
   pointer-events: auto;
   cursor: pointer;
   opacity: 1;
   filter: brightness(1);
 }
 
-.poc-fan-card.is-active:hover {
-  transform: translateX(-50%) rotate(var(--angle)) translateY(-10px);
+.fan-card[data-active='true']:hover {
+  transform: translateX(-50%) rotate(var(--angle)) translateY(-0.625rem);
 }
 
-.poc-fan-card:focus-visible {
-  outline: 3px solid var(--color-brand);
-  outline-offset: 4px;
+.fan-card:focus-visible {
+  outline: 0.1875rem solid var(--color-brand);
+  outline-offset: 0.25rem;
   border-radius: var(--radius-card);
 }
 </style>
