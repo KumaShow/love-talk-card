@@ -1,3 +1,12 @@
+---
+status: archived
+reason: Phase 8 收尾維護規劃屬階段性歷史計畫，現已不作為現行開發指引。
+superseded_by:
+  - specs/001-love-talk-card-game/tasks.md
+  - README.md
+  - package.json
+---
+
 # Phase 8 收尾後的維護規劃（Post-T088 Housekeeping）
 
 ## Context

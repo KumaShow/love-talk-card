@@ -1,3 +1,11 @@
+---
+status: archived
+reason: 已由主題拆檔與 Zod 驗證落地，原文件對現況的描述已過時，保留作為歷史審查記錄。
+superseded_by:
+  - src/data/index.ts
+  - src/data/validators.ts
+---
+
 # cards.json 架構審查
 
 ## 審查結論

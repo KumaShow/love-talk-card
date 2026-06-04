@@ -66,5 +66,12 @@ Husky hooks：`pre-commit` 跑 `eslint`；`commit-msg` 跑 `scripts/validate-com
 - **UI 字串外部化**：所有 display 字串走 `src/i18n/*.json` 或 `cards.json`，元件內不寫死。
 - **時區**：所有日期/時間預設 `Asia/Taipei`（UTC+8）。
 - **觸控目標 ≥ 44×44 CSS px**；主題背景過渡 300–500ms；翻牌動畫 ≤ 600ms 且不阻擋互動。
+- **文件治理**：
+  - `docs/` 只保留目前仍可直接指引開發的文件。
+  - `docs/archive/` 主要放已完成任務、已過時審查、歷程記錄等封存用的**單檔 Markdown**。
+  - `specs/` 放 Speckit 產出的規格、研究、任務歷史。
+  - 專案真正的現況以程式碼與測試為準；若文件與實作不一致，應優先更新文件或移入封存。
+  - 非 Speckit 產生的 Markdown 文件，檔名前方需加排序編號，例如 `01-...md`、`02-...md`，並在各自目錄內保持可排序。
+  - 非 Speckit 產生且放入 `docs/archive/` 的**單檔 Markdown**，檔案最上方必須加上狀態註記，至少包含 `status: archived`、`reason`、`superseded_by`。
 
 Speckit 流程：功能規格放 `specs/###-feature-name/`，使用 `.github/prompts/speckit.*.prompt.md` 的斜線命令驅動（`/speckit.specify` → `/speckit.plan` → `/speckit.tasks` → `/speckit.implement`）。修改 `constitution.md` 時必須同步 `constitution_zh-tw.md`（以繁中為準翻成英文）。
