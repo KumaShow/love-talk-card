@@ -1,8 +1,10 @@
 # love-talk-card Development Guidelines
 
-Auto-generated from all feature plans. Last updated: 2026-04-13
+Auto-generated from all feature plans. Last updated: 2026-06-08
 
 ## Active Technologies
+- TypeScript 5.x + Node.js 20 LTS（沿用既有） + Vue 3.4+, Vue Router 4（Hash mode）, Pinia 2.x, Tailwind CSS 4.x, Zod（既有 `validators.ts`）, vite-plugin-pwa — 本功能**不新增執行期相依** (002-desire-theme)
+- sessionStorage（既有遊戲快照）；成人內容確認狀態為**導覽生命週期內的暫態旗標**，不持久化（FR-004：每次進入皆需確認） (002-desire-theme)
 
 - TypeScript 5.x + Node.js 20 LTS + Vue 3.4+, Vite 5.x, Vue Router 4（Hash mode）, Pinia 2.x, Tailwind CSS 4.x, vite-plugin-pwa (001-love-talk-card-game)
 
@@ -22,6 +24,7 @@ npm test && npm run lint
 TypeScript 5.x + Node.js 20 LTS: Follow standard conventions
 
 ## Recent Changes
+- 002-desire-theme: Added TypeScript 5.x + Node.js 20 LTS（沿用既有） + Vue 3.4+, Vue Router 4（Hash mode）, Pinia 2.x, Tailwind CSS 4.x, Zod（既有 `validators.ts`）, vite-plugin-pwa — 本功能**不新增執行期相依**
 
 - 001-love-talk-card-game: Added TypeScript 5.x + Node.js 20 LTS + Vue 3.4+, Vite 5.x, Vue Router 4（Hash mode）, Pinia 2.x, Tailwind CSS 4.x, vite-plugin-pwa
 
