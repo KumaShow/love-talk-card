@@ -92,20 +92,25 @@ src/
 │   └── index.ts                    # MODIFY：守衛攔截前往 /game/desire，未確認則導向確認流程
 ├── views/
 │   └── HomeView.vue                # MODIFY：選到 desire 時觸發 AdultContentNotice，確認後才導航
-└── (utils/theme.ts、stores/*、composables/useDeck.ts 無需改碼，desire 由資料與既有泛型流程自動承接)
+├── stores/
+│   └── gameStore.ts                # MODIFY：startSession 對 desire 強制 intimateMode=false，鎖定 intimateModeAtStart（SC-009）
+└── (utils/theme.ts、settingsStore.ts、composables/useDeck.ts 無需改碼，desire 由資料與既有泛型流程自動承接)
 
 tests/
 ├── unit/
 │   ├── utils/cards-schema.test.ts  # MODIFY：themeFiles 加 desire；id 格式測試允許 des-### 無後綴
+│   ├── utils/cardsData.spec.ts     # MODIFY：放寬 id 正規式並掃 desire 卡四語系完整性
 │   ├── data/cards-data.test.ts     # MODIFY（如需）：base 牌斷言範圍說明 desire 全為非 intimate
 │   ├── data/desire-theme.test.ts   # NEW：desire 牌組（20 張、無 isIntimate:true）、四語系完整
+│   ├── stores/gameStore.desire.test.ts  # NEW：desire 的 intimateModeAtStart 恆為 false（SC-009）
 │   ├── components/AdultContentNotice.test.ts  # NEW：確認/返回行為、年齡聲明、可關閉
-│   └── router/desire-guard.test.ts # NEW：未確認直連 /game/desire 應被攔截
+│   ├── components/ThemePreview.test.ts  # MODIFY：desire 成人提示來自 i18n、非 desire 不顯示
+│   └── router/desire-guard.test.ts # NEW：未確認直連 /game/desire 被攔截並帶開啟 notice 狀態
 └── e2e/playwright/
-    └── us-desire-entry.spec.ts     # NEW：首頁→預覽提示→攔截確認→進入；返回路徑
+    └── us-desire-entry.spec.ts     # NEW：首頁→預覽提示→攔截確認→進入；返回；深連結被導回開 notice
 ```
 
-**Structure Decision**: 維持單一 Vue SPA、靜態 JSON 資料的既有架構，以**加法**整合 desire。主題列表（HomeView / ThemeCardDeck）已是資料驅動（由 `cardsData.themes` 渲染），新增 desire 資料即自動出現；路由合法性由 `VALID_THEME_IDS` 衍生的 `validThemeIds` 自動涵蓋。唯三處需要改碼：卡牌 schema/型別演進（Clarify Q1）、攔截式 notice 元件 + 守衛（Clarify Q2）、i18n 與預覽提示文案。`useDeck.buildDeck` 的 filter→shuffle 流程對 desire 天然相容（desire 無 `isIntimate:true` 卡，filter 不排除任何卡，整體洗牌後即為 20 張單一牌池），故**不需改動牌組演算法**。
+**Structure Decision**: 維持單一 Vue SPA、靜態 JSON 資料的既有架構，以**加法**整合 desire。主題列表（HomeView / ThemeCardDeck）已是資料驅動（由 `cardsData.themes` 渲染），新增 desire 資料即自動出現；路由合法性由 `VALID_THEME_IDS` 衍生的 `validThemeIds` 自動涵蓋。唯四處需要改碼：(1) 卡牌 schema/型別演進（Clarify Q1）；(2) 攔截式 notice 元件 + 守衛（Clarify Q2，含明確匯出的暫態確認 API `acknowledgeDesireOnce()`／`consumeDesireAcknowledgement()`，且 `query.notice=desire` 僅觸發 notice、不得作為確認依據）；(3) `gameStore.startSession` 對 desire 鎖定 `intimateModeAtStart=false`（SC-009，涵蓋 `GameView.ensureSession` 以 `settingsStore.intimateMode` fallback 的路徑）；(4) i18n 與預覽提示文案。`useDeck.buildDeck` 的 filter→shuffle 流程對 desire 天然相容（desire 無 `isIntimate:true` 卡，filter 不排除任何卡，整體洗牌後即為 20 張單一牌池），故**不需改動牌組演算法**。
 
 ## Complexity Tracking
 
