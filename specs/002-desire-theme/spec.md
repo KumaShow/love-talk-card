@@ -18,6 +18,12 @@
 - Q: Where should adult-content notice appear? → A: Use layered notice across homepage name/copy, theme preview, and before entry.
 - Q: How should `desire` interact with intimate mode? → A: `desire` does not use intimate layering, preventing the expectation of a "double-spicy" mode.
 
+### Session 2026-06-08
+
+- Q: How should desire cards be represented, given the existing card schema requires an `isIntimate` boolean and a `-base`/`-intimate` id suffix while FR-014 says desire is not classified as base or intimate? → A: Evolve the shared schema/types so `isIntimate` is optional and desire uses a desire-specific id pattern (e.g. `des-001`); desire cards carry no intimate flag rather than reusing a vestigial `-base` suffix.
+- Q: Is the pre-entry adult-content notice a blocking acknowledgment or a passive informational screen? → A: A blocking acknowledgment the user must explicitly confirm (affirming adult age and understanding of adult intimacy content) before desire gameplay loads, with a clear back-out; required on every entry.
+- Q: Which locales must each desire card ship with to satisfy the four-locale card schema? → A: Follow the existing themes' pattern—real `zh`/`en`/`th`, with Japanese mirroring English as a placeholder—so `zh`+`en` stay authoritative, the four-locale schema is satisfied, and no new fallback logic is needed.
+
 ## User Scenarios & Testing *(mandatory)*
 
 ### User Story 1 - Understand Desire as an Adult Intimacy Theme (Priority: P1)
@@ -34,7 +40,7 @@
 2. **Given** 使用者尚未進入 desire 主題，**When** 使用者開啟 desire 主題預覽，**Then** 系統應以溫和但清楚的方式提示此主題涉及成人親密、身體界線、性需求與同意。
 3. **Given** 使用者正在比較不同主題，**When** 使用者閱讀 desire 的介紹，**Then** 使用者應能理解 desire 與原本 intimate 模式不同，是獨立主題而不是既有四主題的加辣版本。
 4. **Given** 使用者不想進行成人身體親密對話，**When** 使用者看到 desire 的首頁提示、預覽提示或進入前提示，**Then** 使用者應能在開始遊戲前做出不選擇此主題的決定。
-5. **Given** 使用者選擇 desire 主題，**When** 使用者即將進入遊戲，**Then** 系統應先顯示成人內容、同意與可退出提示，而不是只依賴首頁名稱暗示。
+5. **Given** 使用者選擇 desire 主題，**When** 使用者即將進入遊戲，**Then** 系統應先顯示一個必須主動確認（聲明已成年並理解成人親密內容）才能繼續的攔截式提示，並提供返回的方式，而不是只依賴首頁名稱暗示；此確認每次進入皆需重新進行。
 
 ---
 
@@ -105,17 +111,17 @@
 - **FR-001**: System MUST define `desire` as the fifth relationship theme, positioned around adult physical intimacy, desire, consent, safety, invitation, body boundaries, touch preferences, and intimacy frequency.
 - **FR-002**: System MUST preserve the existing four themes: `attraction`, `self`, `interaction`, and `trust`, without requiring their baseline or intimate content to become more sexually direct.
 - **FR-003**: System MUST distinguish `desire` from intimate mode: intimate mode remains a gentler private layer within the existing four themes, while `desire` is a standalone adult intimacy theme and does not use its own base/intimate split.
-- **FR-004**: System MUST communicate before entry that `desire` contains adult intimacy topics, using clear, respectful, non-alarmist language across homepage copy, theme preview, and an entry notice.
+- **FR-004**: System MUST communicate before entry that `desire` contains adult intimacy topics, using clear, respectful, non-alarmist language across homepage copy, theme preview, and an entry notice. The entry notice MUST be a blocking acknowledgment that the user explicitly confirms (affirming adult age and understanding of adult intimacy content) before desire gameplay loads, MUST provide a clear way to back out, and MUST be required on every entry rather than remembered or skipped.
 - **FR-005**: System MUST allow `desire` content to discuss touch preferences, sexual needs, desired intimacy frequency, ways to invite intimacy, consent, emotional safety, body boundaries, pacing, refusal, and aftercare-style reassurance.
 - **FR-006**: System MUST NOT allow `desire` content involving minors, non-consent, coercion, intoxication that removes consent capacity, threats, humiliation, violent harm, explicit technique instruction, medical diagnosis, or content that pressures users to disclose or perform.
 - **FR-007**: System MUST keep `desire` content couple-oriented, conversational, consent-centered, and answerable within the card-game format.
-- **FR-008**: System MUST keep core user-facing `desire` UI labels, theme descriptions, notices, and entry copy externalizable and available in Traditional Chinese and English before release; full card and closing-message copy MUST remain externalizable and be completed through planned content tasks.
+- **FR-008**: System MUST keep core user-facing `desire` UI labels, theme descriptions, notices, and entry copy externalizable and available in Traditional Chinese and English before release; full card and closing-message copy MUST remain externalizable and be completed through planned content tasks. Desire card text MUST satisfy the existing four-locale card schema (`zh`/`en`/`th`/`ja`) by following the established pattern—real `zh`/`en`/`th` with Japanese mirroring English as a placeholder—so that `zh`+`en` remain the authoritative locales and no new missing-locale fallback logic is introduced.
 - **FR-009**: System MUST maintain a consistent theme data model so `desire` can be added without creating a separate one-off structure for adult content.
 - **FR-010**: System MUST define content classification boundaries so maintainers can decide whether a card belongs to `desire`, `attraction`, `self`, `interaction`, or `trust`.
 - **FR-011**: System MUST ensure users who do not select `desire` can continue playing the existing themes without unexpectedly encountering direct adult physical intimacy prompts.
 - **FR-012**: System SHOULD treat `desire` as optional and opt-in through normal theme selection, not as a hidden escalation of existing mode settings.
 - **FR-013**: System MUST use `desire` as the formal theme identifier for planning, data, i18n keys, tests, and documentation.
-- **FR-014**: System MUST NOT require `desire` cards to follow the existing `15 base + 5 intimate` distribution; accepted desire cards belong to the standalone desire theme without internal intimate categorization.
+- **FR-014**: System MUST NOT require `desire` cards to follow the existing `15 base + 5 intimate` distribution; accepted desire cards belong to the standalone desire theme without internal intimate categorization. To honor this, the shared card schema and types MUST treat `isIntimate` as optional (omitted for desire) and MUST allow a desire-specific id pattern (e.g. `des-001`), so desire cards carry no base/intimate marker rather than reusing a vestigial `-base` suffix.
 
 ### Content Boundary Requirements
 
@@ -130,7 +136,7 @@
 
 - **Theme**: A relationship topic category. With this feature, the available themes become `attraction`, `self`, `interaction`, `trust`, and `desire`. Each theme has a name, description, preview copy, visual identity, and cards.
 - **Desire Theme**: A fifth theme dedicated to adult physical intimacy and consent-centered desire conversations. It is opt-in, clearly labeled, uses `desire` as its formal identifier, does not contain a separate intimate layer, and is bounded by safety rules.
-- **Card**: A conversation prompt belonging to exactly one theme. A desire card uses the same maintainable card structure as other themes while following stricter adult-content boundary rules, but it is not classified as base or intimate within the desire theme.
+- **Card**: A conversation prompt belonging to exactly one theme. A desire card uses the same maintainable card structure as other themes while following stricter adult-content boundary rules, but it is not classified as base or intimate within the desire theme. The shared card schema is extended (not forked) so `isIntimate` is optional and desire cards use a desire-specific id pattern (e.g. `des-001`) with no intimate flag.
 - **Intimate Mode**: A mode that adds gentler private cards to the existing four themes. It remains compatible with theme selection but is not redefined as a direct adult sexuality mode and does not further escalate `desire`.
 - **Adult Intimacy Notice**: User-facing copy shown across homepage, theme preview, and before entering desire to set expectations about adult content, consent, and optional participation.
 
