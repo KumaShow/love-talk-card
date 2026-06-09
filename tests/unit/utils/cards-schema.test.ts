@@ -6,13 +6,14 @@ import attraction from '@/data/themes/attraction.json'
 import self_ from '@/data/themes/self.json'
 import interaction from '@/data/themes/interaction.json'
 import trust from '@/data/themes/trust.json'
+import desire from '@/data/themes/desire.json'
 
 /**
  * 主題 JSON 檔 Zod 結構驗證。
  * 以 ThemeFileSchema 驗證各主題資料，並補強幾項 schema 無法單獨涵蓋的業務約束。
  */
 describe('主題 JSON 檔 Zod 結構驗證', () => {
-  const themeFiles = [attraction, self_, interaction, trust]
+  const themeFiles = [attraction, self_, interaction, trust, desire]
 
   it.each(themeFiles)('$id 主題應通過 ThemeFileSchema 驗證', (themeFile) => {
     const result = ThemeFileSchema.safeParse(themeFile)

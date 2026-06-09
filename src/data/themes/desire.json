@@ -1,0 +1,225 @@
+{
+  "id": "desire",
+  "name": {
+    "zh": "慾望與身體親密",
+    "en": "Desire & Physical Intimacy"
+  },
+  "description": {
+    "zh": "專為成年伴侶設計，溫柔談身體界線、親密邀請、性需求與同意安全。",
+    "en": "For adult partners to talk gently about body boundaries, intimacy invitations, sexual needs, consent, and safety."
+  },
+  "colors": {
+    "primary": "#7A2E4A",
+    "secondary": "#B5546F",
+    "background": "#2A1620",
+    "backgroundEnd": "#3E1E2E",
+    "text": "#F7E9EF",
+    "cardBack": "#5C2238"
+  },
+  "endMessage": {
+    "zh": "謝謝你們把親密談得更清楚，也把彼此照顧得更溫柔。",
+    "en": "Thank you for making intimacy clearer, kinder, and safer for both of you."
+  },
+  "cards": [
+    {
+      "id": "des-001",
+      "level": 1,
+      "text": {
+        "zh": "佔位：說說一種讓你感到安全的親密邀請方式。",
+        "en": "Placeholder: Share one intimate invitation that helps you feel safe.",
+        "th": "Placeholder: Share one intimate invitation that helps you feel safe.",
+        "ja": "Placeholder: Share one intimate invitation that helps you feel safe."
+      }
+    },
+    {
+      "id": "des-002",
+      "level": 1,
+      "text": {
+        "zh": "佔位：有哪些碰觸需要先被詢問，才會讓你比較安心？",
+        "en": "Placeholder: What kinds of touch feel better when they are asked about first?",
+        "th": "Placeholder: What kinds of touch feel better when they are asked about first?",
+        "ja": "Placeholder: What kinds of touch feel better when they are asked about first?"
+      }
+    },
+    {
+      "id": "des-003",
+      "level": 1,
+      "text": {
+        "zh": "佔位：你希望我們如何說出今晚適合或不適合親密？",
+        "en": "Placeholder: How would you like us to say whether intimacy feels right tonight?",
+        "th": "Placeholder: How would you like us to say whether intimacy feels right tonight?",
+        "ja": "Placeholder: How would you like us to say whether intimacy feels right tonight?"
+      }
+    },
+    {
+      "id": "des-004",
+      "level": 1,
+      "text": {
+        "zh": "佔位：哪一句話會讓你在親密前更放鬆？",
+        "en": "Placeholder: What sentence would help you relax before intimacy?",
+        "th": "Placeholder: What sentence would help you relax before intimacy?",
+        "ja": "Placeholder: What sentence would help you relax before intimacy?"
+      }
+    },
+    {
+      "id": "des-005",
+      "level": 1,
+      "text": {
+        "zh": "佔位：你喜歡我們用什麼節奏靠近彼此？",
+        "en": "Placeholder: What pace do you like when we move closer physically?",
+        "th": "Placeholder: What pace do you like when we move closer physically?",
+        "ja": "Placeholder: What pace do you like when we move closer physically?"
+      }
+    },
+    {
+      "id": "des-006",
+      "level": 1,
+      "text": {
+        "zh": "佔位：如果想暫停，你希望我怎麼回應你？",
+        "en": "Placeholder: If you want to pause, how would you like me to respond?",
+        "th": "Placeholder: If you want to pause, how would you like me to respond?",
+        "ja": "Placeholder: If you want to pause, how would you like me to respond?"
+      }
+    },
+    {
+      "id": "des-007",
+      "level": 2,
+      "text": {
+        "zh": "佔位：你最近對身體親密最想被理解的是什麼？",
+        "en": "Placeholder: What do you most want understood about physical intimacy lately?",
+        "th": "Placeholder: What do you most want understood about physical intimacy lately?",
+        "ja": "Placeholder: What do you most want understood about physical intimacy lately?"
+      }
+    },
+    {
+      "id": "des-008",
+      "level": 2,
+      "text": {
+        "zh": "佔位：哪些身體界線如果被尊重，會讓你更願意靠近？",
+        "en": "Placeholder: Which body boundaries help you feel more open when respected?",
+        "th": "Placeholder: Which body boundaries help you feel more open when respected?",
+        "ja": "Placeholder: Which body boundaries help you feel more open when respected?"
+      }
+    },
+    {
+      "id": "des-009",
+      "level": 2,
+      "text": {
+        "zh": "佔位：你希望我們怎麼談親密頻率，才不會像壓力？",
+        "en": "Placeholder: How can we talk about intimacy frequency without making it pressure?",
+        "th": "Placeholder: How can we talk about intimacy frequency without making it pressure?",
+        "ja": "Placeholder: How can we talk about intimacy frequency without making it pressure?"
+      }
+    },
+    {
+      "id": "des-010",
+      "level": 2,
+      "text": {
+        "zh": "佔位：什麼樣的邀請方式會讓你覺得被尊重？",
+        "en": "Placeholder: What kind of invitation helps you feel respected?",
+        "th": "Placeholder: What kind of invitation helps you feel respected?",
+        "ja": "Placeholder: What kind of invitation helps you feel respected?"
+      }
+    },
+    {
+      "id": "des-011",
+      "level": 2,
+      "text": {
+        "zh": "佔位：你希望我如何確認你的同意，而不破壞氣氛？",
+        "en": "Placeholder: How can I check for your consent without breaking the mood?",
+        "th": "Placeholder: How can I check for your consent without breaking the mood?",
+        "ja": "Placeholder: How can I check for your consent without breaking the mood?"
+      }
+    },
+    {
+      "id": "des-012",
+      "level": 2,
+      "text": {
+        "zh": "佔位：我們可以用什麼暗號表示想慢一點或停一下？",
+        "en": "Placeholder: What signal could we use to slow down or pause?",
+        "th": "Placeholder: What signal could we use to slow down or pause?",
+        "ja": "Placeholder: What signal could we use to slow down or pause?"
+      }
+    },
+    {
+      "id": "des-013",
+      "level": 2,
+      "text": {
+        "zh": "佔位：你覺得親密後最需要哪一種安撫或陪伴？",
+        "en": "Placeholder: What reassurance or care do you need most after intimacy?",
+        "th": "Placeholder: What reassurance or care do you need most after intimacy?",
+        "ja": "Placeholder: What reassurance or care do you need most after intimacy?"
+      }
+    },
+    {
+      "id": "des-014",
+      "level": 3,
+      "text": {
+        "zh": "佔位：有哪些慾望你想慢慢談，但希望先保留拒絕的空間？",
+        "en": "Placeholder: What desires would you like to discuss slowly, with room to say no?",
+        "th": "Placeholder: What desires would you like to discuss slowly, with room to say no?",
+        "ja": "Placeholder: What desires would you like to discuss slowly, with room to say no?"
+      }
+    },
+    {
+      "id": "des-015",
+      "level": 3,
+      "text": {
+        "zh": "佔位：你如何分辨自己是真的想靠近，而不是只是不想讓對方失望？",
+        "en": "Placeholder: How do you know you truly want closeness, not just avoid disappointing me?",
+        "th": "Placeholder: How do you know you truly want closeness, not just avoid disappointing me?",
+        "ja": "Placeholder: How do you know you truly want closeness, not just avoid disappointing me?"
+      }
+    },
+    {
+      "id": "des-016",
+      "level": 3,
+      "text": {
+        "zh": "佔位：當我們的親密需求不同時，什麼協商方式最公平？",
+        "en": "Placeholder: When our intimacy needs differ, what negotiation feels fairest?",
+        "th": "Placeholder: When our intimacy needs differ, what negotiation feels fairest?",
+        "ja": "Placeholder: When our intimacy needs differ, what negotiation feels fairest?"
+      }
+    },
+    {
+      "id": "des-017",
+      "level": 3,
+      "text": {
+        "zh": "佔位：你希望我如何回應你的害羞、猶豫或拒絕？",
+        "en": "Placeholder: How would you like me to respond to your shyness, hesitation, or no?",
+        "th": "Placeholder: How would you like me to respond to your shyness, hesitation, or no?",
+        "ja": "Placeholder: How would you like me to respond to your shyness, hesitation, or no?"
+      }
+    },
+    {
+      "id": "des-018",
+      "level": 3,
+      "text": {
+        "zh": "佔位：有什麼親密情境需要我們先談清楚界線？",
+        "en": "Placeholder: What intimate situation asks us to clarify boundaries first?",
+        "th": "Placeholder: What intimate situation asks us to clarify boundaries first?",
+        "ja": "Placeholder: What intimate situation asks us to clarify boundaries first?"
+      }
+    },
+    {
+      "id": "des-019",
+      "level": 3,
+      "text": {
+        "zh": "佔位：你想讓我們在哪些親密時刻更常確認彼此感受？",
+        "en": "Placeholder: During which intimate moments should we check in more often?",
+        "th": "Placeholder: During which intimate moments should we check in more often?",
+        "ja": "Placeholder: During which intimate moments should we check in more often?"
+      }
+    },
+    {
+      "id": "des-020",
+      "level": 3,
+      "text": {
+        "zh": "佔位：結束這張牌後，你想給彼此一句什麼樣的安全感？",
+        "en": "Placeholder: After this card, what reassurance would you like us to offer each other?",
+        "th": "Placeholder: After this card, what reassurance would you like us to offer each other?",
+        "ja": "Placeholder: After this card, what reassurance would you like us to offer each other?"
+      }
+    }
+  ]
+}

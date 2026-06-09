@@ -35,29 +35,39 @@
     </section>
 
     <ThemePreview :theme="selectedTheme" @start="handleStart" @dismiss="selectedTheme = null" />
+    <AdultContentNotice
+      v-if="isAdultNoticeOpen"
+      @confirm="handleConfirmDesire"
+      @dismiss="handleDismissDesire"
+    />
   </main>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
-import { useRouter } from 'vue-router'
+import { onMounted, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 
 import ThemeCardDeck from '@/components/home/ThemeCardDeck.vue'
 import ThemePreview from '@/components/home/ThemePreview.vue'
+import AdultContentNotice from '@/components/ui/AdultContentNotice.vue'
 import ToggleSwitch from '@/components/ui/ToggleSwitch.vue'
 import { useTheme } from '@/composables/useTheme'
 import { cardsData } from '@/data'
 import zhTw from '@/i18n/zh-TW.json'
+import { acknowledgeDesireOnce } from '@/router'
 import { useGameStore } from '@/stores/gameStore'
 import { useSettingsStore } from '@/stores/settingsStore'
 import type { Theme } from '@/types'
 
 const router = useRouter()
+const route = useRoute()
 const gameStore = useGameStore()
 const settingsStore = useSettingsStore()
 const { applyTheme, resetTheme } = useTheme()
 
 const selectedTheme = ref<Theme | null>(null)
+const pendingDesireTheme = ref<Theme | null>(null)
+const isAdultNoticeOpen = ref(false)
 
 /**
  * 首頁採中性預設色（main.css :root 寫死的粉色），避免殘留上一場主題氛圍。
@@ -65,6 +75,7 @@ const selectedTheme = ref<Theme | null>(null)
  */
 onMounted(() => {
   resetTheme()
+  openNoticeFromRouteQuery()
 })
 
 /**
@@ -82,13 +93,69 @@ function handleSelect(theme: Theme): void {
 }
 
 function handleStart(theme: Theme): void {
+  if (theme.id === 'desire') {
+    openDesireNotice(theme)
+    return
+  }
+
+  startGame(theme, settingsStore.intimateMode)
+}
+
+function startGame(theme: Theme, intimateMode: boolean): void {
   // 先 applyTheme 再 router.push：CSS 變數在 route 切換前就改值，
   // #app 上的 transition 會開始漸變，GameView 掛載時氛圍色已在過場途中，
   // 視覺上比等 GameView.onMounted 才動手更連貫（對應 tasks.md T062 原意）。
   applyTheme(theme.id, cardsData.themes)
-  gameStore.startSession(theme.id, settingsStore.intimateMode)
+  gameStore.startSession(theme.id, intimateMode)
   void router.push({ name: 'game', params: { themeId: theme.id } })
 }
+
+function getDesireTheme(): Theme | null {
+  return cardsData.themes.find((theme) => theme.id === 'desire') ?? null
+}
+
+function openDesireNotice(theme: Theme): void {
+  pendingDesireTheme.value = theme
+  isAdultNoticeOpen.value = true
+}
+
+function openNoticeFromRouteQuery(): void {
+  if (route.query.notice !== 'desire') {
+    return
+  }
+  const desireTheme = getDesireTheme()
+  if (desireTheme !== null) {
+    openDesireNotice(desireTheme)
+  }
+}
+
+function handleConfirmDesire(): void {
+  const theme = pendingDesireTheme.value ?? getDesireTheme()
+  if (theme === null) {
+    return
+  }
+
+  acknowledgeDesireOnce()
+  isAdultNoticeOpen.value = false
+  pendingDesireTheme.value = null
+  selectedTheme.value = null
+  startGame(theme, false)
+}
+
+function handleDismissDesire(): void {
+  isAdultNoticeOpen.value = false
+  pendingDesireTheme.value = null
+  if (route.query.notice === 'desire') {
+    void router.replace({ name: 'home' })
+  }
+}
+
+watch(
+  () => route.query.notice,
+  () => {
+    openNoticeFromRouteQuery()
+  },
+)
 </script>
 
 <style scoped>

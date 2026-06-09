@@ -3,6 +3,7 @@ import { mount } from '@vue/test-utils'
 
 import ThemePreview from '@/components/home/ThemePreview.vue'
 import { cardsData } from '@/data'
+import zhTw from '@/i18n/zh-TW.json'
 import type { CardsData, Theme } from '@/types'
 
 /**
@@ -100,5 +101,22 @@ describe('ThemePreview', () => {
 
     expect(style).toMatch(new RegExp(`--color-card:\\s*${trustTheme.colors.cardBack}`, 'i'))
     expect(style).toMatch(new RegExp(`--color-brand:\\s*${trustTheme.colors.primary}`, 'i'))
+  })
+
+  it('預覽 desire 主題時應顯示成人內容提示，且文案取自 i18n', () => {
+    const dataset = cardsData as CardsData
+    const desireTheme = dataset.themes.find((t) => t.id === 'desire') as Theme
+
+    const wrapper = mount(ThemePreview, { props: { theme: desireTheme } })
+
+    expect(wrapper.find('[data-test="preview-adult-hint"]').exists()).toBe(true)
+    expect(wrapper.text()).toContain(zhTw.home.preview.adultHint)
+  })
+
+  it('預覽非 desire 主題時不應顯示成人內容提示', () => {
+    const theme = getAttractionTheme()
+    const wrapper = mount(ThemePreview, { props: { theme } })
+
+    expect(wrapper.find('[data-test="preview-adult-hint"]').exists()).toBe(false)
   })
 })

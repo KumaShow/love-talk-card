@@ -1,5 +1,5 @@
 /** 有效主題識別碼清單（新增主題：在此加入，並於 src/data/index.ts 加對應 import） */
-export const VALID_THEME_IDS = ['attraction', 'self', 'interaction', 'trust'] as const
+export const VALID_THEME_IDS = ['attraction', 'self', 'interaction', 'trust', 'desire'] as const
 
 /** 主題識別碼（編譯期 union，由 VALID_THEME_IDS 衍生） */
 export type ThemeId = (typeof VALID_THEME_IDS)[number]
