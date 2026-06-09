@@ -41,10 +41,10 @@ Phase 1 基線記錄（2026-06-09）：
 
 **⚠️ CRITICAL**: 本階段完成前，任何 User Story 都不能開始。
 
-- [ ] T003 [P] 在 `tests/unit/utils/cards-schema.test.ts` 新增**失敗測試（Red）**：以 `ThemeCardSchema` 直接驗證一張 `des-001` 形狀卡牌（`level`、四語系 `text`、**省略 `isIntimate`**）應 `success === true`；並驗證放寬後的 id 正規式仍拒絕非法 id（如 `Des-1`、`des-01`、`des-0001`）。此時應為紅燈。
-- [ ] T004 演進 `src/data/validators.ts`：`ThemeCardSchema.isIntimate` 改為 `z.boolean().optional()`；id 正規式由 `/^[a-z]+-\d{3}-(base|intimate)$/` 放寬為 `/^[a-z]+-\d{3}(-(base|intimate))?$/`（相容既有 `*-base`/`*-intimate` 與新 `des-NNN`）。
-- [ ] T005 演進 `src/types/index.ts`：`Card.isIntimate` 改為 `isIntimate?: boolean`（既有四主題卡維持顯式布林；desire 卡省略）。**註**：`VALID_THEME_IDS` 加入 `'desire'` 留待 US1（與 `desire.json` 同時落地，避免懸空 union 成員）。
-- [ ] T006 同步放寬**兩處**測試的硬編碼 id 正規式為 `/^[a-z]+-\d{3}(-(base|intimate))?$/`：(a) `tests/unit/utils/cards-schema.test.ts` 既有「所有卡牌 ID 符合 …base|intimate 格式」測試；(b) `tests/unit/utils/cardsData.spec.ts:15`「所有卡牌都應具備合法 ID 與完整四語言文字」測試（此處同時掃四語系，是 desire 卡四語系的真正守門員）。既有四主題卡仍符合放寬後 pattern；執行 `npx vitest run tests/unit/utils/cards-schema.test.ts tests/unit/utils/cardsData.spec.ts` 轉綠（Green）。
+- [X] T003 [P] 在 `tests/unit/utils/cards-schema.test.ts` 新增**失敗測試（Red）**：以 `ThemeCardSchema` 直接驗證一張 `des-001` 形狀卡牌（`level`、四語系 `text`、**省略 `isIntimate`**）應 `success === true`；並驗證放寬後的 id 正規式仍拒絕非法 id（如 `Des-1`、`des-01`、`des-0001`）。此時應為紅燈。
+- [X] T004 演進 `src/data/validators.ts`：`ThemeCardSchema.isIntimate` 改為 `z.boolean().optional()`；id 正規式由 `/^[a-z]+-\d{3}-(base|intimate)$/` 放寬為 `/^[a-z]+-\d{3}(-(base|intimate))?$/`（相容既有 `*-base`/`*-intimate` 與新 `des-NNN`）。
+- [X] T005 演進 `src/types/index.ts`：`Card.isIntimate` 改為 `isIntimate?: boolean`（既有四主題卡維持顯式布林；desire 卡省略）。**註**：`VALID_THEME_IDS` 加入 `'desire'` 留待 US1（與 `desire.json` 同時落地，避免懸空 union 成員）。
+- [X] T006 同步放寬**兩處**測試的硬編碼 id 正規式為 `/^[a-z]+-\d{3}(-(base|intimate))?$/`：(a) `tests/unit/utils/cards-schema.test.ts` 既有「所有卡牌 ID 符合 …base|intimate 格式」測試；(b) `tests/unit/utils/cardsData.spec.ts:15`「所有卡牌都應具備合法 ID 與完整四語言文字」測試（此處同時掃四語系，是 desire 卡四語系的真正守門員）。既有四主題卡仍符合放寬後 pattern；執行 `npx vitest run tests/unit/utils/cards-schema.test.ts tests/unit/utils/cardsData.spec.ts` 轉綠（Green）。
 
 **Checkpoint**: 共用 schema/型別已可承接 `des-NNN`、無 `isIntimate` 的卡牌；既有四主題驗證不受影響。User Story 可開始。
 

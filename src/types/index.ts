@@ -22,7 +22,7 @@ export interface CardText {
 export interface Card {
   id: string
   theme: ThemeId
-  isIntimate: boolean
+  isIntimate?: boolean
   level: CardLevel
   text: CardText
 }
