@@ -23,8 +23,15 @@
 
 **Purpose**: 確認工作基線，建立後續可定位的檔案落點。
 
-- [ ] T001 確認 `002-desire-theme` 分支測試基線為綠燈：執行 `npm run test`、`npm run type-check`，記錄目前覆蓋率（整體 ≥ 80%、`composables`/`stores` ≥ 95%）作為演進前基準。
-- [ ] T002 對照 [plan.md](./plan.md) §Project Structure 確認受影響檔案落點（NEW：`src/data/themes/desire.json`、`src/components/ui/AdultContentNotice.vue`、desire 暫態確認 helper（`src/router/index.ts` 內或小型 helper 模組）、相關測試檔；MODIFY：`src/types/index.ts`、`src/data/validators.ts`、`src/data/index.ts`、`src/stores/gameStore.ts`、`src/i18n/{zh-TW,en}.json`、`src/router/index.ts`、`src/views/HomeView.vue`、`src/components/home/ThemePreview.vue`）。
+- [X] T001 確認 `002-desire-theme` 分支測試基線為綠燈：執行 `npm run test`、`npm run type-check`，記錄目前覆蓋率（整體 ≥ 80%、`composables`/`stores` ≥ 95%）作為演進前基準。
+- [X] T002 對照 [plan.md](./plan.md) §Project Structure 確認受影響檔案落點（NEW：`src/data/themes/desire.json`、`src/components/ui/AdultContentNotice.vue`、desire 暫態確認 helper（`src/router/index.ts` 內或小型 helper 模組）、相關測試檔；MODIFY：`src/types/index.ts`、`src/data/validators.ts`、`src/data/index.ts`、`src/stores/gameStore.ts`、`src/i18n/{zh-TW,en}.json`、`src/router/index.ts`、`src/views/HomeView.vue`、`src/components/home/ThemePreview.vue`）。
+
+Phase 1 基線記錄（2026-06-09）：
+- `type-check`：通過（以 `vue-tsc --noEmit` 執行）
+- `test`：27 個測試檔、159 個測試皆通過
+- 覆蓋率：Statements 93.94%、Branches 86.99%、Functions 91.66%、Lines 94.71%
+- 關鍵門檻：`src/composables` 99.3% / 98.11% / 100% / 100%，`src/stores` 100% / 95.23% / 100% / 100%
+- 受影響檔案落點已確認存在；`src/data/themes/desire.json`、`src/components/ui/AdultContentNotice.vue` 與對應 desire 測試檔為後續新增目標
 
 ---
 
