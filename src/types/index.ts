@@ -58,7 +58,7 @@ export interface Theme {
   endMessage: EndMessage
 }
 
-/** cards.json 根物件 */
+/** cardsData 聚合資料集 */
 export interface CardsData {
   version: string
   themes: Theme[]

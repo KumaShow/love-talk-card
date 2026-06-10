@@ -1,6 +1,6 @@
 <template>
   <article
-    class="card-face absolute inset-0 flex flex-col justify-center gap-4 rounded-[var(--radius-card)] bg-white p-7 text-ink shadow-[var(--shadow-card)] max-[23rem]:gap-[0.85rem] max-[23rem]:p-6"
+    class="card-face absolute inset-0 flex flex-col justify-center gap-4 rounded-[var(--radius-card)] bg-[var(--color-card-surface)] p-7 text-ink shadow-[var(--shadow-card)] max-[23rem]:gap-[0.85rem] max-[23rem]:p-6"
     data-test="card-face"
   >
     <!-- T047：私密牌裝飾浮水印，opacity 0.15，不影響可讀性（pointer-events:none、z-index:0） -->

@@ -14,6 +14,8 @@
   --color-accent: #ffd6e0;
   --color-ink: #4a1528;
   --color-card: #c76d8e;
+  /* 卡面（CardFace）襯底：淺底主題維持白卡；深底主題由 useTheme 改寫為主題深色襯底 */
+  --color-card-surface: #ffffff;
 
   /* 字型 */
   --font-serif: ui-serif, Georgia, 'Times New Roman', serif;

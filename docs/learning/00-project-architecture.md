@@ -7,7 +7,7 @@
 
 ## 本章學什麼
 
-- Love Talk Card 整體資料流：`cards.json` → Pinia store → composable → Vue View。
+- Love Talk Card 整體資料流：`src/data/themes/*.json` → `cardsData` → Pinia store → composable → Vue View。
 - 哪些狀態「固化」、哪些狀態「即時」；為什麼要這樣切。
 - 關鍵不變量（filter→shuffle、session 固化、hash router）以及它們背後的需求原因。
 
@@ -36,7 +36,8 @@
 
 | 檔案 | 角色 |
 | --- | --- |
-| `src/data/cards.json` | 80 張靜態卡牌（4 主題 × 20 張，含 5 張 intimate） |
+| `src/data/themes/*.json` | 100 張靜態卡牌（5 主題 × 20 張；既有 4 主題各含 5 張 intimate，`desire` 無 intimate 分層） |
+| `src/data/index.ts` | 聚合各主題 JSON 成 `cardsData`，並補上卡牌的 `theme` 欄位 |
 | `src/types/index.ts` | 全域型別契約（`ThemeId`, `Card`, `GameSessionSnapshot` 等） |
 | `src/utils/theme.ts` | `validThemeIds` + `isValidThemeId` 型別守衛 |
 | `src/utils/shuffle.ts` | Fisher-Yates 洗牌（獨立以便單測） |
@@ -51,7 +52,7 @@
 1. 使用者在 HomeView 點主題 → 進 `/game/:themeId`。
 2. `gameStore.startSession(themeId, intimateMode)`：
    - 呼叫 `useDeck().buildDeck(...)`：**filter → shuffle** 後回傳牌堆。
-   - 固化 `intimateModeAtStart = intimateMode`。
+   - 固化 `intimateModeAtStart = intimateMode`；`desire` 會強制固化為 `false`。
    - 寫入 `sessionStorage[love-talk-game-session]`。
 3. GameView 顯示 `currentCard` → 使用者點擊 → `useCard.flipCard()` 鎖 500ms。
 4. 翻完再點 → `gameStore.drawCard()` → 推進索引、更新 snapshot。
@@ -101,7 +102,7 @@ Hash mode 因 GitHub Pages 部署限制；非法 `themeId` 會被 `isValidThemeI
 - 所有程式碼註解必須是繁體中文（ESLint 自訂 rule 會擋）。
 - TDD：新增 composable / store 先寫失敗測試。
 - Coverage 門檻：整體 80%、`composables/**` 與 `stores/**` 皆 95%。
-- UI 字串必須外部化到 `src/i18n/*.json` 或 `cards.json`。
+- UI 字串必須外部化到 `src/i18n/*.json` 或 `src/data/themes/*.json`。
 
 ## 延伸閱讀
 

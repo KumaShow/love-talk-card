@@ -47,4 +47,17 @@ describe('主題色彩 WCAG 2.1 AA 對比', () => {
       expect(ratioBgEnd).toBeGreaterThanOrEqual(4.5)
     },
   )
+
+  it.each([
+    ['text / background', 'text', 'background'],
+    ['text / backgroundEnd', 'text', 'backgroundEnd'],
+    ['text / cardBack', 'text', 'cardBack'],
+    ['primary / text', 'primary', 'text'],
+  ] as const)('desire 關鍵色票 %s 達到 AA 一般文字對比', (_label, fgKey, bgKey) => {
+    const desire = cardsData.themes.find((theme) => theme.id === 'desire')
+    expect(desire).toBeDefined()
+
+    const ratio = contrastRatio(desire!.colors[fgKey], desire!.colors[bgKey])
+    expect(ratio).toBeGreaterThanOrEqual(4.5)
+  })
 })

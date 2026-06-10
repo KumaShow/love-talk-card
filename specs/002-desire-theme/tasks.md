@@ -135,10 +135,19 @@ Phase 1 基線記錄（2026-06-09）：
 
 **Purpose**: 跨故事的收尾、無障礙驗證與文件同步。
 
-- [ ] T034 [P] WCAG 對比驗證（research R-002 待辦）：在 `tests/unit/utils/wcag-contrast.test.ts` 加入 desire 色票，驗證 `text` 對 `background`/`backgroundEnd`、`primary` 對 `text` 等關鍵組合 ≥ AA 4.5:1；未達標則微調 `desire.json` 色值並回歸。
-- [ ] T035 文件同步（憲章文件治理）：(a) 更新 `CLAUDE.md` 專案概述的卡牌數與主題數（80 張 / 4 主題 → 100 張 / 5 主題、desire 為成人親密主題且無 intimate 分層）；(b) 掃描 **active docs** 中仍作為「現況指引」且寫死「四主題 / 80 張 / `src/data/cards.json` 來源」的敘述（如 `docs/learning/00-project-architecture.md` 等），更新為五主題 / 100 張 / `src/data/themes/*.json`，或加註 desire 例外。**範圍排除**：`docs/archive/**`（已封存歷史快照，不動）、`docs/llm-prompt-runs/**`（LLM 執行歷史記錄，反映當時狀態）、純內容/素材生成 prompt 模板（如 `docs/00-llm-card-copywriting-prompts.md`、`docs/bgm-prompt-template.md`、`docs/card-image-generation/**`，除非要新增 desire 生成段落）。逐檔判斷「是否仍被當成現況指引」再決定更新或加註，避免改動歷史檔。
-- [ ] T036 執行 [quickstart.md](./quickstart.md) §2 全套本地驗證：`npm run type-check`、`npm run test`（全量單元 + 覆蓋率門檻 ≥ 80%、`composables`/`stores` ≥ 95%）、`npx playwright test tests/e2e/playwright/us-desire-entry.spec.ts`、`npm run dev` 手動驗證五主題與攔截確認。
-- [ ] T037 對照 [plan.md](./plan.md) Constitution Check 與 spec Success Criteria（SC-001…SC-009）逐項確認達成；`npm run lint`（含 zh-tw 註解規則）通過。
+- [X] T034 [P] WCAG 對比驗證（research R-002 待辦）：在 `tests/unit/utils/wcag-contrast.test.ts` 加入 desire 色票，驗證 `text` 對 `background`/`backgroundEnd`、`primary` 對 `text` 等關鍵組合 ≥ AA 4.5:1；未達標則微調 `desire.json` 色值並回歸。
+- [X] T035 文件同步（憲章文件治理）：(a) 更新 `CLAUDE.md` 專案概述的卡牌數與主題數（80 張 / 4 主題 → 100 張 / 5 主題、desire 為成人親密主題且無 intimate 分層）；(b) 掃描 **active docs** 中仍作為「現況指引」且寫死「四主題 / 80 張 / `src/data/cards.json` 來源」的敘述（如 `docs/learning/00-project-architecture.md` 等），更新為五主題 / 100 張 / `src/data/themes/*.json`，或加註 desire 例外。**範圍排除**：`docs/archive/**`（已封存歷史快照，不動）、`docs/llm-prompt-runs/**`（LLM 執行歷史記錄，反映當時狀態）、純內容/素材生成 prompt 模板（如 `docs/00-llm-card-copywriting-prompts.md`、`docs/bgm-prompt-template.md`、`docs/card-image-generation/**`，除非要新增 desire 生成段落）。逐檔判斷「是否仍被當成現況指引」再決定更新或加註，避免改動歷史檔。
+- [X] T036 執行 [quickstart.md](./quickstart.md) §2 全套本地驗證：`npm run type-check`、`npm run test`（全量單元 + 覆蓋率門檻 ≥ 80%、`composables`/`stores` ≥ 95%）、`npx playwright test tests/e2e/playwright/us-desire-entry.spec.ts`、`npm run dev` 手動驗證五主題與攔截確認。
+- [X] T037 對照 [plan.md](./plan.md) Constitution Check 與 spec Success Criteria（SC-001…SC-009）逐項確認達成；`npm run lint`（含 zh-tw 註解規則）通過。
+
+Phase 7 驗證記錄（2026-06-10）：
+- `npx vitest run tests/unit/utils/wcag-contrast.test.ts`：通過（9 tests），desire `text/background`、`text/backgroundEnd`、`text/cardBack`、`primary/text` 皆 ≥ 4.5:1，無需調整色值。
+- `npm run type-check`：通過。
+- `npm run test`：31 個測試檔、187 個測試通過；Statements 90.46%、Branches 82.79%、Functions 88.15%、Lines 91.06%；`src/composables` 99.3% / 98.11% / 100% / 100%，`src/stores` 100% / 95.65% / 100% / 100%。
+- `npx playwright test tests/e2e/playwright/us-desire-entry.spec.ts`：兩個案例分別單跑皆顯示通過（12.3s、8.6s），但 Playwright CLI 在 Windows 本機於測試完成後未自動結束，最後由 timeout 停止；另以 `npm run dev -- --host 127.0.0.1 --port 5174` 搭配 Playwright 腳本手動驗證首頁五主題、desire 預覽成人提示、notice 年齡確認、進入 `/game/desire` 20 張、直連 `/game/desire` 導回首頁並自動開 notice，皆通過。
+- `npm run lint`：通過，僅既有 `tests/e2e/playwright/a11y-touch-targets.spec.ts` 的 `playwright/no-eval` warning，無 error。
+- `npm run build`：通過（`vue-tsc --noEmit` + `vite build`）。
+- SC-001～SC-009 對照：資料模型/型別/i18n/測試支援第 5 主題；quickstart 已記錄 12/12（100%）分類乾跑與 20/20 desire 卡安全審查；既有四主題與 intimate 模式回歸通過；核心 UI 與主題文案外部化於 zh-TW/en；首頁、預覽、entry notice 與深連結守衛皆可辨識、可選可避；desire 不受 intimate mode 加辣或增卡。
 
 ---
 

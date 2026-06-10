@@ -30,7 +30,7 @@
 
 | 進入路徑 | 行為 |
 |----------|------|
-| HomeView 選 desire 卡堆 | 開啟 notice（不直接導航） |
+| HomeView 選 desire 卡堆 | 開啟 desire 預覽（不直接導航），由預覽 CTA 觸發 notice |
 | ThemePreview 「開始對話」（desire） | 開啟 notice（不直接導航） |
 | 深連結／重整 `/game/desire` | router `beforeEach` 偵測 `desireAcknowledged` 非 true → 導向首頁並開啟 notice |
 
