@@ -25,200 +25,200 @@
       "id": "des-001",
       "level": 1,
       "text": {
-        "zh": "佔位：說說一種讓你感到安全的親密邀請方式。",
-        "en": "Placeholder: Share one intimate invitation that helps you feel safe.",
-        "th": "Placeholder: Share one intimate invitation that helps you feel safe.",
-        "ja": "Placeholder: Share one intimate invitation that helps you feel safe."
+        "zh": "想邀請你更靠近時，怎樣的開場會讓你覺得放鬆、不被催促？",
+        "en": "When I want to invite you closer, what kind of opening helps you feel relaxed rather than rushed?",
+        "th": "เวลาที่ฉันอยากชวนคุณเข้ามาใกล้ขึ้น การเปิดบทสนทนาแบบไหนที่ทำให้คุณรู้สึกผ่อนคลายและไม่ถูกเร่งรัด?",
+        "ja": "When I want to invite you closer, what kind of opening helps you feel relaxed rather than rushed?"
       }
     },
     {
       "id": "des-002",
       "level": 1,
       "text": {
-        "zh": "佔位：有哪些碰觸需要先被詢問，才會讓你比較安心？",
-        "en": "Placeholder: What kinds of touch feel better when they are asked about first?",
-        "th": "Placeholder: What kinds of touch feel better when they are asked about first?",
-        "ja": "Placeholder: What kinds of touch feel better when they are asked about first?"
+        "zh": "哪一種被碰觸的方式，光是想到就讓你覺得舒服又安心？",
+        "en": "What kind of touch feels comforting and safe to you, just thinking about it?",
+        "th": "การสัมผัสแบบไหนที่แค่คิดถึงก็ทำให้คุณรู้สึกสบายใจและปลอดภัย?",
+        "ja": "What kind of touch feels comforting and safe to you, just thinking about it?"
       }
     },
     {
       "id": "des-003",
       "level": 1,
       "text": {
-        "zh": "佔位：你希望我們如何說出今晚適合或不適合親密？",
-        "en": "Placeholder: How would you like us to say whether intimacy feels right tonight?",
-        "th": "Placeholder: How would you like us to say whether intimacy feels right tonight?",
-        "ja": "Placeholder: How would you like us to say whether intimacy feels right tonight?"
+        "zh": "今晚想不想更親近，你希望我們能用什麼方式自在地說出口？",
+        "en": "When it comes to whether we want to be closer tonight, how would you like us to be able to say it at ease?",
+        "th": "เรื่องว่าคืนนี้อยากใกล้ชิดกันมากขึ้นไหม คุณอยากให้เราพูดออกมาได้อย่างสบายใจแบบไหน?",
+        "ja": "When it comes to whether we want to be closer tonight, how would you like us to be able to say it at ease?"
       }
     },
     {
       "id": "des-004",
       "level": 1,
       "text": {
-        "zh": "佔位：哪一句話會讓你在親密前更放鬆？",
-        "en": "Placeholder: What sentence would help you relax before intimacy?",
-        "th": "Placeholder: What sentence would help you relax before intimacy?",
-        "ja": "Placeholder: What sentence would help you relax before intimacy?"
+        "zh": "在更親密之前，哪一句話會讓你最放下戒備、覺得被在乎？",
+        "en": "Before getting more intimate, what's one thing I could say that would most help you let your guard down and feel cared for?",
+        "th": "ก่อนจะใกล้ชิดกันมากขึ้น มีประโยคไหนที่ฉันพูดแล้วทำให้คุณวางการ์ดลงและรู้สึกว่าได้รับการใส่ใจมากที่สุด?",
+        "ja": "Before getting more intimate, what's one thing I could say that would most help you let your guard down and feel cared for?"
       }
     },
     {
       "id": "des-005",
       "level": 1,
       "text": {
-        "zh": "佔位：你喜歡我們用什麼節奏靠近彼此？",
-        "en": "Placeholder: What pace do you like when we move closer physically?",
-        "th": "Placeholder: What pace do you like when we move closer physically?",
-        "ja": "Placeholder: What pace do you like when we move closer physically?"
+        "zh": "我們慢慢靠近彼此的時候，你喜歡的節奏比較接近什麼樣子？",
+        "en": "When we slowly move closer to each other, what does your favorite pace tend to feel like?",
+        "th": "เวลาที่เราค่อย ๆ เข้าใกล้กัน จังหวะที่คุณชอบเป็นแบบไหน?",
+        "ja": "When we slowly move closer to each other, what does your favorite pace tend to feel like?"
       }
     },
     {
       "id": "des-006",
       "level": 1,
       "text": {
-        "zh": "佔位：如果想暫停，你希望我怎麼回應你？",
-        "en": "Placeholder: If you want to pause, how would you like me to respond?",
-        "th": "Placeholder: If you want to pause, how would you like me to respond?",
-        "ja": "Placeholder: If you want to pause, how would you like me to respond?"
+        "zh": "如果你想先停一下，你希望我怎麼回應，才不會讓你覺得掃興或被怪罪？",
+        "en": "If you want to pause first, how would you like me to respond so you never feel like you've spoiled the moment or done anything wrong?",
+        "th": "ถ้าคุณอยากหยุดพักก่อน คุณอยากให้ฉันตอบสนองอย่างไร เพื่อให้คุณไม่รู้สึกว่าทำให้บรรยากาศเสียหรือเป็นฝ่ายผิด?",
+        "ja": "If you want to pause first, how would you like me to respond so you never feel like you've spoiled the moment or done anything wrong?"
       }
     },
     {
       "id": "des-007",
       "level": 2,
       "text": {
-        "zh": "佔位：你最近對身體親密最想被理解的是什麼？",
-        "en": "Placeholder: What do you most want understood about physical intimacy lately?",
-        "th": "Placeholder: What do you most want understood about physical intimacy lately?",
-        "ja": "Placeholder: What do you most want understood about physical intimacy lately?"
+        "zh": "關於身體親密，最近有沒有一件你很想讓我懂、卻還沒說出口的事？",
+        "en": "When it comes to physical intimacy, is there something you've really wanted me to understand lately but haven't said out loud yet?",
+        "th": "เรื่องความใกล้ชิดทางกาย ช่วงนี้มีเรื่องอะไรที่คุณอยากให้ฉันเข้าใจมาก ๆ แต่ยังไม่ได้พูดออกมาไหม?",
+        "ja": "When it comes to physical intimacy, is there something you've really wanted me to understand lately but haven't said out loud yet?"
       }
     },
     {
       "id": "des-008",
       "level": 2,
       "text": {
-        "zh": "佔位：哪些身體界線如果被尊重，會讓你更願意靠近？",
-        "en": "Placeholder: Which body boundaries help you feel more open when respected?",
-        "th": "Placeholder: Which body boundaries help you feel more open when respected?",
-        "ja": "Placeholder: Which body boundaries help you feel more open when respected?"
+        "zh": "有哪些身體界線，只要我願意好好尊重，就會讓你更容易對我敞開？",
+        "en": "Which body boundaries, when I truly respect them, make it easier for you to open up to me?",
+        "th": "มีขอบเขตทางร่างกายเรื่องไหนบ้าง ที่ถ้าฉันเคารพมันจริง ๆ แล้วจะทำให้คุณเปิดใจกับฉันได้ง่ายขึ้น?",
+        "ja": "Which body boundaries, when I truly respect them, make it easier for you to open up to me?"
       }
     },
     {
       "id": "des-009",
       "level": 2,
       "text": {
-        "zh": "佔位：你希望我們怎麼談親密頻率，才不會像壓力？",
-        "en": "Placeholder: How can we talk about intimacy frequency without making it pressure?",
-        "th": "Placeholder: How can we talk about intimacy frequency without making it pressure?",
-        "ja": "Placeholder: How can we talk about intimacy frequency without making it pressure?"
+        "zh": "我們想親密的步調可能不一樣，你希望我們怎麼談，才不會變成一種壓力？",
+        "en": "Our desire for intimacy may not always be in step—how would you like us to talk about it so it never turns into pressure?",
+        "th": "ความต้องการความใกล้ชิดของเราอาจไม่เท่ากันเสมอไป คุณอยากให้เราคุยเรื่องนี้กันอย่างไร เพื่อไม่ให้มันกลายเป็นความกดดัน?",
+        "ja": "Our desire for intimacy may not always be in step—how would you like us to talk about it so it never turns into pressure?"
       }
     },
     {
       "id": "des-010",
       "level": 2,
       "text": {
-        "zh": "佔位：什麼樣的邀請方式會讓你覺得被尊重？",
-        "en": "Placeholder: What kind of invitation helps you feel respected?",
-        "th": "Placeholder: What kind of invitation helps you feel respected?",
-        "ja": "Placeholder: What kind of invitation helps you feel respected?"
+        "zh": "什麼樣的邀請方式，會讓你覺得是被在乎，而不是被要求？",
+        "en": "What kind of invitation makes you feel cared for, rather than obligated?",
+        "th": "การชวนแบบไหนที่ทำให้คุณรู้สึกว่าได้รับการใส่ใจ ไม่ใช่รู้สึกว่าถูกบังคับหรือมีหน้าที่ต้องทำ?",
+        "ja": "What kind of invitation makes you feel cared for, rather than obligated?"
       }
     },
     {
       "id": "des-011",
       "level": 2,
       "text": {
-        "zh": "佔位：你希望我如何確認你的同意，而不破壞氣氛？",
-        "en": "Placeholder: How can I check for your consent without breaking the mood?",
-        "th": "Placeholder: How can I check for your consent without breaking the mood?",
-        "ja": "Placeholder: How can I check for your consent without breaking the mood?"
+        "zh": "在過程中，我可以怎麼確認你是真的願意，又不會打斷你的感受？",
+        "en": "In the moment, how can I check that you genuinely want this without interrupting how you're feeling?",
+        "th": "ระหว่างนั้น ฉันจะเช็กได้อย่างไรว่าคุณต้องการมันจริง ๆ โดยไม่ไปขัดจังหวะความรู้สึกของคุณ?",
+        "ja": "In the moment, how can I check that you genuinely want this without interrupting how you're feeling?"
       }
     },
     {
       "id": "des-012",
       "level": 2,
       "text": {
-        "zh": "佔位：我們可以用什麼暗號表示想慢一點或停一下？",
-        "en": "Placeholder: What signal could we use to slow down or pause?",
-        "th": "Placeholder: What signal could we use to slow down or pause?",
-        "ja": "Placeholder: What signal could we use to slow down or pause?"
+        "zh": "我們可以約定什麼樣的小訊號，代表想慢一點，或想先停下來？",
+        "en": "What little signal could we agree on that means \"let's slow down\" or \"let's pause for now\"?",
+        "th": "เราจะตกลงกันใช้สัญญาณเล็ก ๆ แบบไหนดี ที่หมายความว่า \"ช้าลงหน่อย\" หรือ \"ขอหยุดก่อน\"?",
+        "ja": "What little signal could we agree on that means \"let's slow down\" or \"let's pause for now\"?"
       }
     },
     {
       "id": "des-013",
       "level": 2,
       "text": {
-        "zh": "佔位：你覺得親密後最需要哪一種安撫或陪伴？",
-        "en": "Placeholder: What reassurance or care do you need most after intimacy?",
-        "th": "Placeholder: What reassurance or care do you need most after intimacy?",
-        "ja": "Placeholder: What reassurance or care do you need most after intimacy?"
+        "zh": "親密之後，哪一種陪伴或安撫，最能讓你覺得被好好接住？",
+        "en": "After intimacy, what kind of closeness or reassurance makes you feel most gently held?",
+        "th": "หลังจากความใกล้ชิด การอยู่เป็นเพื่อนหรือการปลอบโยนแบบไหนที่ทำให้คุณรู้สึกว่าได้รับการโอบรับอย่างอ่อนโยนที่สุด?",
+        "ja": "After intimacy, what kind of closeness or reassurance makes you feel most gently held?"
       }
     },
     {
       "id": "des-014",
       "level": 3,
       "text": {
-        "zh": "佔位：有哪些慾望你想慢慢談，但希望先保留拒絕的空間？",
-        "en": "Placeholder: What desires would you like to discuss slowly, with room to say no?",
-        "th": "Placeholder: What desires would you like to discuss slowly, with room to say no?",
-        "ja": "Placeholder: What desires would you like to discuss slowly, with room to say no?"
+        "zh": "有哪些你私下好奇的渴望，想慢慢跟我談，但希望保留隨時喊停的空間？",
+        "en": "Are there desires you're quietly curious about that you'd like to explore with me slowly, while keeping the room to stop anytime?",
+        "th": "มีความปรารถนาแบบไหนที่คุณแอบสงสัยอยู่เงียบ ๆ และอยากค่อย ๆ คุยกับฉัน แต่ก็อยากเก็บพื้นที่ที่จะขอหยุดเมื่อไหร่ก็ได้เอาไว้?",
+        "ja": "Are there desires you're quietly curious about that you'd like to explore with me slowly, while keeping the room to stop anytime?"
       }
     },
     {
       "id": "des-015",
       "level": 3,
       "text": {
-        "zh": "佔位：你如何分辨自己是真的想靠近，而不是只是不想讓對方失望？",
-        "en": "Placeholder: How do you know you truly want closeness, not just avoid disappointing me?",
-        "th": "Placeholder: How do you know you truly want closeness, not just avoid disappointing me?",
-        "ja": "Placeholder: How do you know you truly want closeness, not just avoid disappointing me?"
+        "zh": "你怎麼分辨自己是真的想靠近，而不是怕讓我失望才答應的？",
+        "en": "How do you tell the difference between truly wanting closeness and just saying yes because you're afraid of disappointing me?",
+        "th": "คุณแยกแยะอย่างไรว่าตัวเองอยากใกล้ชิดจริง ๆ ไม่ใช่ตอบตกลงเพราะกลัวจะทำให้ฉันผิดหวัง?",
+        "ja": "How do you tell the difference between truly wanting closeness and just saying yes because you're afraid of disappointing me?"
       }
     },
     {
       "id": "des-016",
       "level": 3,
       "text": {
-        "zh": "佔位：當我們的親密需求不同時，什麼協商方式最公平？",
-        "en": "Placeholder: When our intimacy needs differ, what negotiation feels fairest?",
-        "th": "Placeholder: When our intimacy needs differ, what negotiation feels fairest?",
-        "ja": "Placeholder: When our intimacy needs differ, what negotiation feels fairest?"
+        "zh": "當我們的渴望不同步時，什麼樣的協商會讓你覺得公平、兩個人都有被照顧到？",
+        "en": "When our desires are out of sync, what kind of compromise would feel fair and leave you both feeling looked after?",
+        "th": "เวลาที่ความต้องการของเราไม่ตรงกัน การหาทางออกร่วมกันแบบไหนที่จะทำให้คุณรู้สึกว่ายุติธรรมและทั้งสองฝ่ายได้รับการดูแล?",
+        "ja": "When our desires are out of sync, what kind of compromise would feel fair and leave you both feeling looked after?"
       }
     },
     {
       "id": "des-017",
       "level": 3,
       "text": {
-        "zh": "佔位：你希望我如何回應你的害羞、猶豫或拒絕？",
-        "en": "Placeholder: How would you like me to respond to your shyness, hesitation, or no?",
-        "th": "Placeholder: How would you like me to respond to your shyness, hesitation, or no?",
-        "ja": "Placeholder: How would you like me to respond to your shyness, hesitation, or no?"
+        "zh": "當你感到害羞、猶豫，或想說不的時候，你希望我用什麼態度回應你？",
+        "en": "When you feel shy, hesitant, or want to say no, how would you like me to respond to you?",
+        "th": "เวลาที่คุณรู้สึกเขินอาย ลังเล หรืออยากปฏิเสธ คุณอยากให้ฉันตอบสนองคุณด้วยท่าทีแบบไหน?",
+        "ja": "When you feel shy, hesitant, or want to say no, how would you like me to respond to you?"
       }
     },
     {
       "id": "des-018",
       "level": 3,
       "text": {
-        "zh": "佔位：有什麼親密情境需要我們先談清楚界線？",
-        "en": "Placeholder: What intimate situation asks us to clarify boundaries first?",
-        "th": "Placeholder: What intimate situation asks us to clarify boundaries first?",
-        "ja": "Placeholder: What intimate situation asks us to clarify boundaries first?"
+        "zh": "有沒有哪一種親密情境，是你希望我們先把界線和默契講清楚，再開始進行的？",
+        "en": "Is there an intimate situation where you'd want us to talk through our boundaries and understanding first, before we begin?",
+        "th": "มีสถานการณ์ความใกล้ชิดแบบไหนไหม ที่คุณอยากให้เราพูดคุยเรื่องขอบเขตและความเข้าใจร่วมกันให้ชัดเจนก่อน แล้วค่อยเริ่ม?",
+        "ja": "Is there an intimate situation where you'd want us to talk through our boundaries and understanding first, before we begin?"
       }
     },
     {
       "id": "des-019",
       "level": 3,
       "text": {
-        "zh": "佔位：你想讓我們在哪些親密時刻更常確認彼此感受？",
-        "en": "Placeholder: During which intimate moments should we check in more often?",
-        "th": "Placeholder: During which intimate moments should we check in more often?",
-        "ja": "Placeholder: During which intimate moments should we check in more often?"
+        "zh": "在哪些親密的時刻，你會希望我們多停下來，確認彼此都還舒服？",
+        "en": "In which intimate moments would you want us to pause more often to make sure we both still feel okay?",
+        "th": "ในช่วงเวลาความใกล้ชิดแบบไหนบ้าง ที่คุณอยากให้เราหยุดเช็กกันบ่อยขึ้น เพื่อให้แน่ใจว่าทั้งคู่ยังรู้สึกสบายใจ?",
+        "ja": "In which intimate moments would you want us to pause more often to make sure we both still feel okay?"
       }
     },
     {
       "id": "des-020",
       "level": 3,
       "text": {
-        "zh": "佔位：結束這張牌後，你想給彼此一句什麼樣的安全感？",
-        "en": "Placeholder: After this card, what reassurance would you like us to offer each other?",
-        "th": "Placeholder: After this card, what reassurance would you like us to offer each other?",
-        "ja": "Placeholder: After this card, what reassurance would you like us to offer each other?"
+        "zh": "談完這些之後，你想對彼此說一句什麼，讓我們都覺得更安全、更被珍惜？",
+        "en": "After talking through all this, what's one thing you'd like to say to each other so we both feel safer and more cherished?",
+        "th": "หลังจากคุยเรื่องเหล่านี้จบ คุณอยากพูดอะไรสักประโยคให้กันและกัน เพื่อให้เราทั้งคู่รู้สึกปลอดภัยและรู้สึกว่ามีค่ามากขึ้น?",
+        "ja": "After talking through all this, what's one thing you'd like to say to each other so we both feel safer and more cherished?"
       }
     }
   ]

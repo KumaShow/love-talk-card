@@ -122,10 +122,10 @@ Phase 1 基線記錄（2026-06-09）：
 
 **Independent Test**: 每張 desire 卡逐項通過 [quickstart.md](./quickstart.md) §3 安全審查清單（成人但非露骨指令、非強迫揭露、無 FR-006 禁止項目）。
 
-- [ ] T030 [US4] 撰寫 desire 20 張卡真實內容，取代 T013 佔位：`zh`/`en`/`th` 為真實文案、`ja` = `en` 佔位（research R-005）；題材涵蓋碰觸偏好、性需求表達、理想親密頻率、邀請方式、同意、安全感、身體界線、步調、可拒絕與 aftercare 式安撫（FR-005）；以 `level` 1–3 標記節奏深度（R-006）。寫入 `src/data/themes/desire.json`。
-- [ ] T031 [US4] 對 T030 的 20 張卡逐張套用 §3 安全審查清單（FR-006/US4/SC-005）：鼓勵描述偏好/界線而非要求行動；頻率題允許差異協商、不暗示義務；邀請題含可拒絕/可暫停/可改天；**排除**未成年、非自願、脅迫、酒醉失能、羞辱貶低、暴力傷害、露骨技巧教學、醫療建議；非測驗式評分、非強迫揭露。記錄每張審查結論。
-- [ ] T032 [US4] 確認 desire 卡四語系完整性由 `tests/unit/utils/cardsData.spec.ts`（掃 `cardsData.cards` 的 `zh`/`en`/`th`/`ja` 非空 + 放寬後 id regex）涵蓋並轉綠；`ja` 佔位非空亦通過。（**註**：`tests/unit/utils/card-text.test.ts` 是 `getCardText` 回退鏈的 utility 測試，使用合成卡、不掃 `cardsData`，故非此處守門員、無需更動。）
-- [ ] T033 [US4] 泰文（th）翻譯品質關卡：確認 th 文案保留「成人、同意、安全、可拒絕」語氣，不因語言轉換更露骨或更含糊（Edge Case）。
+- [X] T030 [US4] 撰寫 desire 20 張卡真實內容，取代 T013 佔位：`zh`/`en`/`th` 為真實文案、`ja` = `en` 佔位（research R-005）；題材涵蓋碰觸偏好、性需求表達、理想親密頻率、邀請方式、同意、安全感、身體界線、步調、可拒絕與 aftercare 式安撫（FR-005）；以 `level` 1–3 標記節奏深度（R-006）。寫入 `src/data/themes/desire.json`。
+- [X] T031 [US4] 對 T030 的 20 張卡逐張套用 §3 安全審查清單（FR-006/US4/SC-005）：鼓勵描述偏好/界線而非要求行動；頻率題允許差異協商、不暗示義務；邀請題含可拒絕/可暫停/可改天；**排除**未成年、非自願、脅迫、酒醉失能、羞辱貶低、暴力傷害、露骨技巧教學、醫療建議；非測驗式評分、非強迫揭露。記錄每張審查結論。
+- [X] T032 [US4] 確認 desire 卡四語系完整性由 `tests/unit/utils/cardsData.spec.ts`（掃 `cardsData.cards` 的 `zh`/`en`/`th`/`ja` 非空 + 放寬後 id regex）涵蓋並轉綠；`ja` 佔位非空亦通過。（**註**：`tests/unit/utils/card-text.test.ts` 是 `getCardText` 回退鏈的 utility 測試，使用合成卡、不掃 `cardsData`，故非此處守門員、無需更動。）
+- [X] T033 [US4] 泰文（th）翻譯品質關卡：確認 th 文案保留「成人、同意、安全、可拒絕」語氣，不因語言轉換更露骨或更含糊（Edge Case）。
 
 **Checkpoint**: desire 全部 20 張卡為通過安全審查的真實內容（SC-005 100%）。
 
