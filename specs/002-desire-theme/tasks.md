@@ -109,8 +109,8 @@ Phase 1 基線記錄（2026-06-09）：
 
 **Independent Test**: 給定一批候選題目，維護者依文件中的分類清單能一致判斷落點。
 
-- [ ] T028 [US3] 將 [quickstart.md](./quickstart.md) §4「主題邊界分類清單」確立為權威來源（對齊 spec CB-001…006 與 US3 四個 acceptance scenario），確保「主要對話任務」判斷要訣完整（self vs desire 的內省 vs 身體協商、trust vs desire 的同意/界線歸屬、既有 intimate 卡越界處理）。
-- [ ] T029 [US3] 以一組代表性候選題目（含 attraction/self/interaction/trust/desire 各數題與數題刻意模糊者）對照分類清單做一次乾跑，驗證 ≥ 90% 可一致歸類（SC-002）；將結果摘要記錄於 spec 資料夾（如 quickstart 末段或審查記錄）。
+- [X] T028 [US3] 將 [quickstart.md](./quickstart.md) §4「主題邊界分類清單」確立為權威來源（對齊 spec CB-001…006 與 US3 四個 acceptance scenario），確保「主要對話任務」判斷要訣完整（self vs desire 的內省 vs 身體協商、trust vs desire 的同意/界線歸屬、既有 intimate 卡越界處理）。
+- [X] T029 [US3] 以一組代表性候選題目（含 attraction/self/interaction/trust/desire 各數題與數題刻意模糊者）對照分類清單做一次乾跑，驗證 ≥ 90% 可一致歸類（SC-002）；將結果摘要記錄於 spec 資料夾（如 quickstart 末段或審查記錄）。
 
 **Checkpoint**: 邊界分類準則可操作，未來新增卡牌不會讓 desire 邊界漂移。
 
