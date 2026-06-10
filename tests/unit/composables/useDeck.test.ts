@@ -34,6 +34,19 @@ describe('useDeck', () => {
     expect(built.filter((card) => card.isIntimate)).toHaveLength(5)
   })
 
+  it('buildDeck() 建立 desire 牌組時不受私密模式影響', () => {
+    const deck = useDeck()
+
+    const withoutIntimateMode = deck.buildDeck('desire', allCards, false)
+    const withIntimateMode = deck.buildDeck('desire', allCards, true)
+
+    for (const built of [withoutIntimateMode, withIntimateMode]) {
+      expect(built).toHaveLength(20)
+      expect(built.every((card) => card.theme === 'desire')).toBe(true)
+      expect(built.some((card) => card.isIntimate === true)).toBe(false)
+    }
+  })
+
   it('drawCard() 應將卡牌 ID 加入 drawnCardIds 並推進索引', () => {
     const deck = useDeck()
     const built = deck.buildDeck('interaction', allCards, false)

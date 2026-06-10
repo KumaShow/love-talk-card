@@ -91,13 +91,13 @@ Phase 1 基線記錄（2026-06-09）：
 
 ### Tests for User Story 2（先寫，確保 Red）⚠️
 
-- [ ] T024 [P] [US2] 在 `tests/unit/composables/useDeck.test.ts` 新增 desire 案例：`buildDeck('desire', allCards, false)` 與 `buildDeck('desire', allCards, true)` 皆回傳 **20 張**且 `theme === 'desire'`、無 `isIntimate === true`（desire 牌組不受 `intimateMode` 影響，data-model §7/§9、SC-009）。
-- [ ] T025 [P] [US2] 在 `tests/unit/data/cards-data.test.ts` 補強：既有四主題 intimate 牌仍 `level ≥ 2`、各主題仍至少一張基礎牌（desire 因省略 `isIntimate` 計為非 intimate，斷言仍成立）；加註 desire 無 intimate 分層的語意說明。
+- [X] T024 [P] [US2] 在 `tests/unit/composables/useDeck.test.ts` 新增 desire 案例：`buildDeck('desire', allCards, false)` 與 `buildDeck('desire', allCards, true)` 皆回傳 **20 張**且 `theme === 'desire'`、無 `isIntimate === true`（desire 牌組不受 `intimateMode` 影響，data-model §7/§9、SC-009）。
+- [X] T025 [P] [US2] 在 `tests/unit/data/cards-data.test.ts` 補強：既有四主題 intimate 牌仍 `level ≥ 2`、各主題仍至少一張基礎牌（desire 因省略 `isIntimate` 計為非 intimate，斷言仍成立）；加註 desire 無 intimate 分層的語意說明。
 
 ### Implementation / Verification for User Story 2
 
-- [ ] T026 [US2] 執行 T024/T025 與既有回歸測試（`gameStore.intimate`、`session-snapshot`、`settingsStore`），確認既有四主題與 intimate 模式行為零變更（FR-002/FR-003/FR-011），轉綠。
-- [ ] T027 [US2] 內容邊界審查（CB-006/US2-5）：檢視既有四主題 **intimate 卡**，依 [quickstart.md](./quickstart.md) §4 判斷是否有主要任務已變成「成人身體親密協商」的越界卡；若有，依 CB-006 決策移至 desire／改寫回原尺度／暫緩，並記錄結論（無越界則明確記載「審查通過、無需調整」）。
+- [X] T026 [US2] 執行 T024/T025 與既有回歸測試（`gameStore.intimate`、`session-snapshot`、`settingsStore`），確認既有四主題與 intimate 模式行為零變更（FR-002/FR-003/FR-011），轉綠。
+- [X] T027 [US2] 內容邊界審查（CB-006/US2-5）：檢視既有四主題 **intimate 卡**，依 [quickstart.md](./quickstart.md) §4 判斷是否有主要任務已變成「成人身體親密協商」的越界卡；若有，依 CB-006 決策移至 desire／改寫回原尺度／暫緩，並記錄結論（無越界則明確記載「審查通過、無需調整」）。
 
 **Checkpoint**: US1 + US2 同時成立——既有四主題與 intimate 模式不被升尺度，成人內容收斂於 desire。
 
