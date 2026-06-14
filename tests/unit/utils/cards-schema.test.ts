@@ -60,6 +60,19 @@ describe('主題 JSON 檔 Zod 結構驗證', () => {
     expect(result.success).toBe(true)
   })
 
+  it('非 desire 主題若省略 isIntimate，應無法通過 ThemeFileSchema 驗證', () => {
+    const invalidAttraction = {
+      ...attraction,
+      cards: attraction.cards.map((card, index) =>
+        index === 0 ? { id: card.id, level: card.level, text: card.text } : card,
+      ),
+    }
+
+    const result = ThemeFileSchema.safeParse(invalidAttraction)
+
+    expect(result.success).toBe(false)
+  })
+
   it.each(['Des-1', 'des-01', 'des-0001', 'att-001', 'des-001-base'])(
     '仍拒絕非法卡牌 ID：%s',
     (id) => {
