@@ -93,7 +93,7 @@
 **答題結構**：
 1. 一句話定位：Vue 3 + Vite + TS 的 PWA 單頁應用，無後端。
 2. 分層：Views → Composables → Stores → Utils → Data/Types。
-3. 資料流：cards.json（靜態） → useDeck（filter→shuffle） → gameStore（固化 + sessionStorage） → GameView。
+3. 資料流：`src/data/themes/*.json`（靜態）→ `cardsData` → useDeck（filter→shuffle）→ gameStore（固化 + sessionStorage）→ GameView。
 4. 關鍵不變量（挑 1–2 個）。
 5. 部署：GitHub Pages + hash router + Service Worker（PWA 離線）。
 
@@ -115,7 +115,7 @@
 - Filter 後 shuffle vs shuffle 後 filter（業務需求：intimate 卡不能集中在尾端）
 - intimateMode 固化的時機（startSession 還是 persist 時）
 - PWA 快取策略（CacheFirst / NetworkFirst / StaleWhileRevalidate 選哪個）
-- i18n 字串放 `cards.json` 還是 `src/i18n/*.json`（目前兩者併存）
+- i18n 字串放主題 JSON 還是 `src/i18n/*.json`（目前卡牌/主題資料與 UI 字串分層併存）
 
 ---
 

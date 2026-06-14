@@ -1,0 +1,225 @@
+{
+  "id": "desire",
+  "name": {
+    "zh": "慾望與身體親密",
+    "en": "Desire & Physical Intimacy"
+  },
+  "description": {
+    "zh": "專為成年伴侶設計，溫柔談身體界線、親密邀請、性需求與同意安全。",
+    "en": "For adult partners to talk gently about body boundaries, intimacy invitations, sexual needs, consent, and safety."
+  },
+  "colors": {
+    "primary": "#7A2E4A",
+    "secondary": "#B5546F",
+    "background": "#2A1620",
+    "backgroundEnd": "#3E1E2E",
+    "text": "#F7E9EF",
+    "cardBack": "#5C2238"
+  },
+  "endMessage": {
+    "zh": "謝謝你們把親密談得更清楚，也把彼此照顧得更溫柔。",
+    "en": "Thank you for making intimacy clearer, kinder, and safer for both of you."
+  },
+  "cards": [
+    {
+      "id": "des-001",
+      "level": 1,
+      "text": {
+        "zh": "想跟你做愛或更親密時，我怎麼開口、用什麼方式邀請，會讓你覺得放鬆而不是被催？",
+        "en": "When I want to make love or get closer with you, how would you like me to bring it up so you feel relaxed rather than pushed?",
+        "th": "เวลาที่ฉันอยากมีเซ็กส์หรืออยากใกล้ชิดกับคุณมากขึ้น ฉันควรเอ่ยปากหรือชวนแบบไหน คุณถึงจะรู้สึกผ่อนคลายและไม่ถูกเร่งรัด?",
+        "ja": "When I want to make love or get closer with you, how would you like me to bring it up so you feel relaxed rather than pushed?"
+      }
+    },
+    {
+      "id": "des-002",
+      "level": 1,
+      "text": {
+        "zh": "身體上哪些地方、用什麼方式被碰，你最有感覺？又有哪些是你的地雷或想保留的？",
+        "en": "Where on your body, and touched in what way, feels best to you? And which spots are off-limits or ones you'd rather keep for yourself?",
+        "th": "ร่างกายตรงไหนและถูกสัมผัสแบบไหนที่ทำให้คุณรู้สึกดีที่สุด? แล้วมีตรงไหนบ้างที่เป็นจุดที่คุณไม่ชอบหรืออยากเก็บไว้ไม่ให้แตะ?",
+        "ja": "Where on your body, and touched in what way, feels best to you? And which spots are off-limits or ones you'd rather keep for yourself?"
+      }
+    },
+    {
+      "id": "des-003",
+      "level": 1,
+      "text": {
+        "zh": "今晚想不想做愛或更進一步，你希望我們能怎麼直接又自在地說出口？",
+        "en": "Whether or not you're in the mood for sex or going further tonight—how would you like us to be able to say it directly and comfortably?",
+        "th": "เรื่องว่าคืนนี้อยากมีเซ็กส์หรืออยากไปต่อไหม คุณอยากให้เราพูดออกมาได้อย่างตรงไปตรงมาและสบายใจแบบไหน?",
+        "ja": "Whether or not you're in the mood for sex or going further tonight—how would you like us to be able to say it directly and comfortably?"
+      }
+    },
+    {
+      "id": "des-004",
+      "level": 1,
+      "text": {
+        "zh": "在我們真的要做愛之前，哪一句話會讓你最有安全感、最放得開？",
+        "en": "Right before we actually have sex, what's one thing I could say that would help you feel safest and most able to let go?",
+        "th": "ก่อนที่เราจะมีเซ็กส์กันจริง ๆ มีประโยคไหนที่ฉันพูดแล้วทำให้คุณรู้สึกปลอดภัยและปล่อยตัวได้มากที่สุด?",
+        "ja": "Right before we actually have sex, what's one thing I could say that would help you feel safest and most able to let go?"
+      }
+    },
+    {
+      "id": "des-005",
+      "level": 1,
+      "text": {
+        "zh": "從調情到真的做愛，你喜歡的節奏是慢慢來，還是直接一點？",
+        "en": "From flirting to actually having sex, do you like the pace slow and building, or more direct?",
+        "th": "ตั้งแต่การเล้าโลมไปจนถึงการมีเซ็กส์จริง ๆ คุณชอบจังหวะแบบค่อยเป็นค่อยไป หรือชอบแบบตรง ๆ เลย?",
+        "ja": "From flirting to actually having sex, do you like the pace slow and building, or more direct?"
+      }
+    },
+    {
+      "id": "des-006",
+      "level": 1,
+      "text": {
+        "zh": "如果做到一半你想喊停，你希望我怎麼回應，你才不會覺得掃興或愧疚？",
+        "en": "If you want to stop partway through, how would you like me to respond so you never feel like you've ruined it or done anything wrong?",
+        "th": "ถ้าทำไปได้ครึ่งทางแล้วคุณอยากขอหยุด คุณอยากให้ฉันตอบสนองอย่างไร เพื่อให้คุณไม่รู้สึกว่าทำให้บรรยากาศเสียหรือรู้สึกผิด?",
+        "ja": "If you want to stop partway through, how would you like me to respond so you never feel like you've ruined it or done anything wrong?"
+      }
+    },
+    {
+      "id": "des-007",
+      "level": 2,
+      "text": {
+        "zh": "關於性，你有哪個一直想說、卻不太好意思開口的需求或渴望？",
+        "en": "When it comes to sex, is there a need or craving you've wanted to bring up but felt a bit shy to say?",
+        "th": "เรื่องเซ็กส์ มีความต้องการหรือความปรารถนาข้อไหนที่คุณอยากบอกมาตลอด แต่ยังเขินที่จะพูดออกมาไหม?",
+        "ja": "When it comes to sex, is there a need or craving you've wanted to bring up but felt a bit shy to say?"
+      }
+    },
+    {
+      "id": "des-008",
+      "level": 2,
+      "text": {
+        "zh": "在性方面，有哪些界線是你希望我一定要守住，讓你能照自己的步調決定要不要更靠近？",
+        "en": "When it comes to sex, which boundaries do you really need me to hold so you can decide, at your own pace, whether to get closer?",
+        "th": "ในเรื่องเซ็กส์ มีขอบเขตข้อไหนบ้างที่คุณอยากให้ฉันรักษาไว้ให้ได้จริง ๆ เพื่อให้คุณตัดสินใจได้ตามจังหวะของตัวเองว่าจะอยากใกล้ชิดมากขึ้นไหม?",
+        "ja": "When it comes to sex, which boundaries do you really need me to hold so you can decide, at your own pace, whether to get closer?"
+      }
+    },
+    {
+      "id": "des-009",
+      "level": 2,
+      "text": {
+        "zh": "對你來說理想的做愛頻率大概是多少？如果我們想要的不一樣，你希望我們怎麼喬，才不會變成義務或壓力？",
+        "en": "What's roughly your ideal frequency for sex? If we want different amounts, how would you like us to work it out so it never becomes an obligation or pressure?",
+        "th": "สำหรับคุณ ความถี่ในการมีเซ็กส์ที่อยากให้เป็นประมาณเท่าไหร่? ถ้าเราต้องการไม่เท่ากัน คุณอยากให้เราปรับหากันอย่างไร เพื่อไม่ให้มันกลายเป็นหน้าที่หรือความกดดัน?",
+        "ja": "What's roughly your ideal frequency for sex? If we want different amounts, how would you like us to work it out so it never becomes an obligation or pressure?"
+      }
+    },
+    {
+      "id": "des-010",
+      "level": 2,
+      "text": {
+        "zh": "什麼樣的邀請會讓你真的想要，而不是覺得「被要求交差」？",
+        "en": "What kind of invitation actually turns you on, rather than feeling like you're being asked to deliver?",
+        "th": "การชวนแบบไหนที่ทำให้คุณรู้สึกอยากจริง ๆ ไม่ใช่รู้สึกเหมือนถูกสั่งให้ทำให้เสร็จ ๆ ไป?",
+        "ja": "What kind of invitation actually turns you on, rather than feeling like you're being asked to deliver?"
+      }
+    },
+    {
+      "id": "des-011",
+      "level": 2,
+      "text": {
+        "zh": "做愛的當下，我可以怎麼確認你是真的想要、真的舒服，又不會打斷你的興致？",
+        "en": "In the middle of sex, how can I check that you genuinely want it and feel good, without killing the mood?",
+        "th": "ระหว่างที่เรามีเซ็กส์กัน ฉันจะเช็กได้อย่างไรว่าคุณต้องการจริง ๆ และรู้สึกดีจริง ๆ โดยไม่ไปขัดอารมณ์ของคุณ?",
+        "ja": "In the middle of sex, how can I check that you genuinely want it and feel good, without killing the mood?"
+      }
+    },
+    {
+      "id": "des-012",
+      "level": 2,
+      "text": {
+        "zh": "我們可以約一個什麼暗號，代表「想換個方式」「慢一點」或「先停」？",
+        "en": "What signal could we agree on for \"let's switch it up,\" \"slower,\" or \"let's pause\"?",
+        "th": "เราจะตกลงใช้สัญญาณอะไรสักอย่างดี ที่หมายความว่า \"อยากเปลี่ยนวิธี\" \"ช้าลงหน่อย\" หรือ \"ขอหยุดก่อน\"?",
+        "ja": "What signal could we agree on for \"let's switch it up,\" \"slower,\" or \"let's pause\"?"
+      }
+    },
+    {
+      "id": "des-013",
+      "level": 2,
+      "text": {
+        "zh": "做愛之後，你最需要哪一種陪伴或安撫，才會覺得被好好接住、不是事後被晾在一邊？",
+        "en": "After sex, what kind of closeness or reassurance do you most need to feel gently held, instead of left alone afterward?",
+        "th": "หลังจากมีเซ็กส์ คุณต้องการการอยู่เป็นเพื่อนหรือการปลอบโยนแบบไหนมากที่สุด เพื่อให้รู้สึกว่าได้รับการโอบรับอย่างดี ไม่ใช่ถูกทิ้งไว้คนเดียวหลังจากนั้น?",
+        "ja": "After sex, what kind of closeness or reassurance do you most need to feel gently held, instead of left alone afterward?"
+      }
+    },
+    {
+      "id": "des-014",
+      "level": 3,
+      "text": {
+        "zh": "有沒有一個你私下的性幻想或很想嘗試的事，想在可以隨時喊停的前提下慢慢跟我說？",
+        "en": "Is there a private fantasy or something you've wanted to try that you'd like to tell me slowly, knowing you can stop anytime?",
+        "th": "มีจินตนาการทางเพศส่วนตัวหรือเรื่องที่คุณอยากลองสักอย่างไหม ที่อยากค่อย ๆ เล่าให้ฉันฟัง โดยมีเงื่อนไขว่าคุณขอหยุดเมื่อไหร่ก็ได้?",
+        "ja": "Is there a private fantasy or something you've wanted to try that you'd like to tell me slowly, knowing you can stop anytime?"
+      }
+    },
+    {
+      "id": "des-015",
+      "level": 3,
+      "text": {
+        "zh": "你怎麼分辨自己是真的想要做愛，還是只是不想讓我失望才配合？",
+        "en": "How do you tell whether you genuinely want sex, or you're just going along so you don't disappoint me?",
+        "th": "คุณแยกแยะอย่างไรว่าตัวเองอยากมีเซ็กส์จริง ๆ หรือแค่ยอมทำตามเพราะไม่อยากทำให้ฉันผิดหวัง?",
+        "ja": "How do you tell whether you genuinely want sex, or you're just going along so you don't disappoint me?"
+      }
+    },
+    {
+      "id": "des-016",
+      "level": 3,
+      "text": {
+        "zh": "當我們一個想要、一個沒那麼想要的時候，什麼樣的處理方式會讓你覺得公平、兩個人都被尊重？",
+        "en": "When one of us is in the mood and the other isn't, what way of handling it would feel fair and respectful to you both?",
+        "th": "เวลาที่ฝ่ายหนึ่งอยาก แต่อีกฝ่ายไม่ได้อยากมากเท่า วิธีรับมือแบบไหนที่จะทำให้คุณรู้สึกว่ายุติธรรมและทั้งสองฝ่ายได้รับความเคารพ?",
+        "ja": "When one of us is in the mood and the other isn't, what way of handling it would feel fair and respectful to you both?"
+      }
+    },
+    {
+      "id": "des-017",
+      "level": 3,
+      "text": {
+        "zh": "當你不想要、害羞或想拒絕的時候，你希望我用什麼態度回應，才不會讓你以後更難開口？",
+        "en": "When you're not in the mood, feel shy, or want to say no, how would you like me to respond so it never gets harder to speak up next time?",
+        "th": "เวลาที่คุณไม่อยาก รู้สึกเขิน หรืออยากปฏิเสธ คุณอยากให้ฉันตอบสนองด้วยท่าทีแบบไหน เพื่อไม่ให้คุณรู้สึกว่าพูดออกมายากขึ้นในครั้งต่อ ๆ ไป?",
+        "ja": "When you're not in the mood, feel shy, or want to say no, how would you like me to respond so it never gets harder to speak up next time?"
+      }
+    },
+    {
+      "id": "des-018",
+      "level": 3,
+      "text": {
+        "zh": "有沒有哪一種你想嘗試的性愛方式，是你希望我們先把界線、安全詞和默契講清楚再開始的？",
+        "en": "Is there a kind of sex you'd like to try where you'd want us to settle boundaries, a safe word, and expectations first?",
+        "th": "มีรูปแบบการมีเซ็กส์ที่คุณอยากลองไหม ที่คุณอยากให้เราตกลงเรื่องขอบเขต เซฟเวิร์ด และความเข้าใจร่วมกันให้ชัดเจนก่อนเริ่ม?",
+        "ja": "Is there a kind of sex you'd like to try where you'd want us to settle boundaries, a safe word, and expectations first?"
+      }
+    },
+    {
+      "id": "des-019",
+      "level": 3,
+      "text": {
+        "zh": "在做愛的哪些時刻，你會希望我多停下來確認你還舒服、還想繼續？",
+        "en": "At which moments during sex would you want me to pause more to check you still feel good and still want to continue?",
+        "th": "ในช่วงเวลาไหนบ้างระหว่างมีเซ็กส์ ที่คุณอยากให้ฉันหยุดเช็กบ่อยขึ้นว่าคุณยังรู้สึกดีและยังอยากไปต่อ?",
+        "ja": "At which moments during sex would you want me to pause more to check you still feel good and still want to continue?"
+      }
+    },
+    {
+      "id": "des-020",
+      "level": 3,
+      "text": {
+        "zh": "聊完這些之後，你想跟彼此說一句什麼，讓我們在性和親密裡都更有安全感、更被珍惜？",
+        "en": "After talking all this through, what's one thing you'd like to say to each other so we both feel safer and more cherished in sex and intimacy?",
+        "th": "หลังจากคุยเรื่องเหล่านี้จบ คุณอยากพูดอะไรสักประโยคให้กันและกัน เพื่อให้เราทั้งคู่รู้สึกปลอดภัยและรู้สึกว่ามีค่ามากขึ้นในเรื่องเซ็กส์และความใกล้ชิด?",
+        "ja": "After talking all this through, what's one thing you'd like to say to each other so we both feel safer and more cherished in sex and intimacy?"
+      }
+    }
+  ]
+}

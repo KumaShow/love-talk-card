@@ -20,3 +20,8 @@
   - 專案真正的現況以程式碼與測試為準，文件若與實作不一致，需優先更新或封存文件。
   - 非 Speckit 產生的 Markdown 文件，檔名前方加排序編號，例如 `01-...md`、`02-...md`，並在同一層目錄內維持可排序性。
   - 非 Speckit 產生且放入 `docs/archive/` 的**單檔 Markdown**，檔案最上方必須補上狀態註記，至少包含 `status: archived`、`reason`、`superseded_by`。
+
+<!-- SPECKIT START -->
+For additional context about technologies to be used, project structure,
+shell commands, and other important information, read the current plan
+<!-- SPECKIT END -->

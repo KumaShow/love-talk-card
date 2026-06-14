@@ -32,6 +32,13 @@
             <p class="preview-desc m-0 text-[0.95rem] leading-[1.6] max-[23rem]:text-[0.9rem]">
               {{ theme.description.zh }}
             </p>
+            <p
+              v-if="theme.id === 'desire'"
+              class="m-0 rounded-[0.9rem] bg-white/15 px-3 py-2 text-[0.82rem] leading-[1.55] text-white/90"
+              data-test="preview-adult-hint"
+            >
+              {{ zhTw.home.preview.adultHint }}
+            </p>
           </article>
         </Transition>
       </div>

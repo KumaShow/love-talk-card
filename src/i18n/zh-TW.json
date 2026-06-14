@@ -5,15 +5,16 @@
   },
   "home": {
     "title": "挑選一副牌堆",
-    "description": "四個主題，四副蓋著的卡牌，點選一副就開始今晚的對話。",
+    "description": "五個主題，五副蓋著的卡牌，點選一副就開始今晚的對話。",
     "intimateMode": "私密模式",
     "intimateModeHint": "加入 5 張更貼近身體與情感的題目。",
-    "startHint": "點選任一主題即可開始。",
+    "startHint": "點選任一主題即可開始；成人親密主題會先請你確認。",
     "preview": {
       "eyebrow": "今晚主題",
       "startCta": "開始對話",
       "dismissLabel": "收起",
-      "dismissAriaLabel": "收起預覽"
+      "dismissAriaLabel": "收起預覽",
+      "adultHint": "此主題包含成人身體親密、性需求、同意與界線對話；開始前會再次確認。"
     }
   },
   "theme": {
@@ -32,6 +33,10 @@
     "trust": {
       "name": "信任成長",
       "description": "聊聊信任、未來與一起變好的可能。"
+    },
+    "desire": {
+      "name": "慾望與身體親密",
+      "description": "專為成年伴侶設計，溫柔談身體界線、親密邀請、性需求與同意安全。"
     }
   },
   "actions": {
@@ -73,5 +78,14 @@
   "modal": {
     "leaveTitle": "確定要離開嗎？",
     "leaveDescription": "如果現在離開，這一回合的進度會被清除。"
+  },
+  "notice": {
+    "adult": {
+      "title": "成人親密主題",
+      "body": "這副牌會談到成人身體親密、性需求、碰觸偏好、同意與界線。你可以隨時拒絕、暫停或返回，請只在彼此都願意的時候繼續。",
+      "ageConfirm": "我已年滿 18 歲，並理解此主題包含成人親密內容。",
+      "continue": "我理解，繼續",
+      "back": "先返回首頁"
+    }
   }
 }

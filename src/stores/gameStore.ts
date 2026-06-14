@@ -62,10 +62,11 @@ export const useGameStore = defineStore('game', () => {
    * 也不會影響當前 session 的牌組內容或 snapshot 內容。
    */
   function startSession(nextThemeId: ThemeId, intimateMode: boolean): void {
-    const built = deckController.buildDeck(nextThemeId, cardsData.cards, intimateMode)
+    const sessionIntimateMode = nextThemeId === 'desire' ? false : intimateMode
+    const built = deckController.buildDeck(nextThemeId, cardsData.cards, sessionIntimateMode)
     deckController.setDeck(built)
     themeId.value = nextThemeId
-    intimateModeAtStart.value = intimateMode
+    intimateModeAtStart.value = sessionIntimateMode
     persistSnapshot()
   }
 

@@ -5,10 +5,17 @@
   },
   "home": {
     "title": "Choose the theme for tonight",
-    "description": "Pick one of four relationship themes that fits your mood.",
+    "description": "Pick one of five relationship themes that fits your mood.",
     "intimateMode": "Intimate Mode",
     "intimateModeHint": "Add 5 prompts that go deeper into closeness and desire.",
-    "startHint": "Tap any theme card to begin."
+    "startHint": "Tap any theme card to begin; the adult intimacy theme asks for confirmation first.",
+    "preview": {
+      "eyebrow": "Tonight's Theme",
+      "startCta": "Start Conversation",
+      "dismissLabel": "Close",
+      "dismissAriaLabel": "Close preview",
+      "adultHint": "This theme includes adult physical intimacy, sexual needs, consent, and body boundaries. You will be asked to confirm before entering."
+    }
   },
   "theme": {
     "attraction": {
@@ -26,6 +33,10 @@
     "trust": {
       "name": "Trust & Growth",
       "description": "Talk about trust, the future, and growing together."
+    },
+    "desire": {
+      "name": "Desire & Physical Intimacy",
+      "description": "For adult partners to talk gently about body boundaries, intimacy invitations, sexual needs, consent, and safety."
     }
   },
   "actions": {
@@ -64,5 +75,14 @@
   "modal": {
     "leaveTitle": "Are you sure you want to leave?",
     "leaveDescription": "If you leave now, the progress of this round will be cleared."
+  },
+  "notice": {
+    "adult": {
+      "title": "Adult Intimacy Theme",
+      "body": "This deck discusses adult physical intimacy, sexual needs, touch preferences, consent, and boundaries. You can say no, pause, or go back at any time; continue only when both of you want to.",
+      "ageConfirm": "I am 18 or older and understand this theme contains adult intimacy content.",
+      "continue": "I understand, continue",
+      "back": "Back to home"
+    }
   }
 }

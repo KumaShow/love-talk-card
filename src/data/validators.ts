@@ -10,8 +10,8 @@ const CardTextSchema = z.object({
 
 /** 單張卡牌（無 theme 欄位，由 index.ts 聚合時注入） */
 export const ThemeCardSchema = z.object({
-  id: z.string().regex(/^[a-z]+-\d{3}-(base|intimate)$/),
-  isIntimate: z.boolean(),
+  id: z.string().regex(/^(des-\d{3}|(?!des-)[a-z]+-\d{3}-(base|intimate))$/),
+  isIntimate: z.boolean().optional(),
   level: z.union([z.literal(1), z.literal(2), z.literal(3)]),
   text: CardTextSchema,
 })

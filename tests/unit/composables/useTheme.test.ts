@@ -22,6 +22,7 @@ describe('useTheme', () => {
     '--color-accent',
     '--color-ink',
     '--color-card',
+    '--color-card-surface',
   ] as const
 
   afterEach(() => {
@@ -80,6 +81,37 @@ describe('useTheme', () => {
     themeVarNames.forEach((name) => {
       expect(root.style.getPropertyValue(name)).toBe('')
     })
+  })
+
+  it('淺底主題的卡面襯底維持白色（--color-card-surface = #ffffff）', () => {
+    const { applyTheme } = useTheme()
+
+    applyTheme('attraction', dataset.themes)
+
+    const root = document.documentElement
+    // attraction 為深字淺底主題，卡面沿用白卡，確保不影響既有四主題外觀
+    expect(root.style.getPropertyValue('--color-card-surface')).toBe('#ffffff')
+  })
+
+  it('深底主題 desire 的卡面襯底改用主題 cardBack 深色，避免淺字白卡看不清', () => {
+    const { applyTheme } = useTheme()
+    const desire = findTheme('desire')
+
+    applyTheme('desire', dataset.themes)
+
+    const root = document.documentElement
+    // desire 為淺字深底主題，卡面須用 cardBack 深色襯底（與淺色 ink 形成可讀對比）
+    expect(root.style.getPropertyValue('--color-card-surface')).toBe(desire.colors.cardBack)
+  })
+
+  it('由深底主題切回淺底主題時，卡面襯底須復原為白色（不殘留深色）', () => {
+    const { applyTheme } = useTheme()
+
+    applyTheme('desire', dataset.themes)
+    applyTheme('attraction', dataset.themes)
+
+    const root = document.documentElement
+    expect(root.style.getPropertyValue('--color-card-surface')).toBe('#ffffff')
   })
 
   it('applyTheme 傳入不存在的 themeId 時應 no-op，不破壞現有變數', () => {

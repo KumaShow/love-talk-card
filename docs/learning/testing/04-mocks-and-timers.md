@@ -124,15 +124,15 @@ expect(spy).toHaveBeenCalled()
 ### `vi.mock('module')` — 整個模組換掉
 
 ```ts
-vi.mock('@/data/cards.json', () => ({
-  default: { version: '1', themes: [], cards: [] },
+vi.mock('@/data', () => ({
+  cardsData: { version: '1', themes: [], cards: [] },
 }))
 ```
 
 **慎用**：
 - 會影響整個檔案所有 `it`。
 - 容易讓測試變「測 mock 而不是測 code」。
-- 本專案大多用真實 `cards.json`，反而更貼近生產行為。
+- 本專案大多用真實 `cardsData`，反而更貼近生產行為。
 
 ### Fake timers：`vi.useFakeTimers()` 的幾個方法
 

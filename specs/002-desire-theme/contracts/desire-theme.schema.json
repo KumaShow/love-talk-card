@@ -1,0 +1,76 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "desire-theme.schema.json",
+  "title": "Desire Theme File",
+  "description": "src/data/themes/desire.json 的結構契約。沿用既有 ThemeFileSchema（主題層雙語 zh+en、6 色票），並落實 Clarify 2026-06-08 對卡牌的演進：isIntimate 選填、id 允許 des-NNN 無 base/intimate 後綴、卡牌文字維持四語系必填。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "description", "colors", "endMessage", "cards"],
+  "properties": {
+    "id": { "const": "desire" },
+    "name": { "$ref": "#/$defs/bilingual" },
+    "description": { "$ref": "#/$defs/bilingual" },
+    "endMessage": { "$ref": "#/$defs/bilingual" },
+    "colors": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary", "secondary", "background", "backgroundEnd", "text", "cardBack"],
+      "properties": {
+        "primary": { "$ref": "#/$defs/hex" },
+        "secondary": { "$ref": "#/$defs/hex" },
+        "background": { "$ref": "#/$defs/hex" },
+        "backgroundEnd": { "$ref": "#/$defs/hex" },
+        "text": { "$ref": "#/$defs/hex" },
+        "cardBack": { "$ref": "#/$defs/hex" }
+      }
+    },
+    "cards": {
+      "type": "array",
+      "minItems": 20,
+      "maxItems": 20,
+      "items": { "$ref": "#/$defs/desireCard" }
+    }
+  },
+  "$defs": {
+    "bilingual": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zh", "en"],
+      "properties": {
+        "zh": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 }
+      }
+    },
+    "hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+    "desireCard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "level", "text"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^des-\\d{3}$",
+          "description": "desire 卡 id，無 base/intimate 後綴（FR-014）"
+        },
+        "isIntimate": {
+          "type": "boolean",
+          "enum": [false],
+          "description": "選填；若出現必為 false。desire 不使用 intimate 分層，建議直接省略此欄位"
+        },
+        "level": { "type": "integer", "enum": [1, 2, 3] },
+        "text": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["zh", "en", "th", "ja"],
+          "description": "四語系必填且非空；zh/en/th 為真實內容，ja 沿用英文佔位（research R-005）",
+          "properties": {
+            "zh": { "type": "string", "minLength": 1 },
+            "en": { "type": "string", "minLength": 1 },
+            "th": { "type": "string", "minLength": 1 },
+            "ja": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    }
+  }
+}

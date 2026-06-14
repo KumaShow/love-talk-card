@@ -29,4 +29,22 @@ describe('cards data', () => {
       expect(card.level).toBeGreaterThanOrEqual(2)
     }
   })
+
+  it('既有四主題維持私密牌規則，desire 不使用私密分層', () => {
+    const existingThemeIds = ['attraction', 'self', 'interaction', 'trust']
+
+    for (const themeId of existingThemeIds) {
+      const themeCards = cardsData.cards.filter((card) => card.theme === themeId)
+      const intimateCards = themeCards.filter((card) => card.isIntimate === true)
+
+      expect(themeCards.some((card) => card.isIntimate !== true)).toBe(true)
+      expect(intimateCards).toHaveLength(5)
+      expect(intimateCards.every((card) => card.level >= 2)).toBe(true)
+    }
+
+    const desireCards = cardsData.cards.filter((card) => card.theme === 'desire')
+
+    expect(desireCards).toHaveLength(20)
+    expect(desireCards.every((card) => card.isIntimate !== true)).toBe(true)
+  })
 })
