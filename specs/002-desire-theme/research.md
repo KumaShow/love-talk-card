@@ -53,7 +53,7 @@
   - `types/index.ts`：`Card.isIntimate` 改為 `isIntimate?: boolean`（desire 卡省略；既有四主題維持顯式布林）。
   - `data/validators.ts`：
     - `ThemeCardSchema.isIntimate` → `z.boolean().optional()`。
-    - id 正規式由 `^[a-z]+-\d{3}-(base|intimate)$` 放寬為 `^[a-z]+-\d{3}(-(base|intimate))?$`，使 `des-001` 合法、同時不破壞既有 `att-001-base` 等。
+    - id 正規式由 `^[a-z]+-\d{3}-(base|intimate)$` 調整為 `^(des-\d{3}|(?!des-)[a-z]+-\d{3}-(base|intimate))$`，使 `des-001` 合法，同時要求既有非 desire 主題仍保留 `att-001-base` 等後綴。
   - 消費端安全性：`useDeck.buildDeck` 的 `!intimateMode && card.isIntimate` 對 `undefined` 為 falsy，**行為不變**；其餘讀取 `isIntimate` 處以 `=== true` 或 falsy 視為非 intimate。
 - **Rationale**：最小、向後相容的演進；desire 卡確實不帶 intimate 標記（符合 FR-014），而非以 `-base` 後綴假裝（Clarify 選 B 的理由）。
 - **Alternatives considered**：新增 `kind` 欄位（Clarify 選項 C，改動面大）；維持後綴硬塞（Clarify 選項 A，語意牴觸 FR-014）。皆已否決。

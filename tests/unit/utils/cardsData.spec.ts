@@ -12,7 +12,7 @@ describe('cardsData', () => {
   })
 
   it('所有卡牌都應具備合法 ID 與完整四語言文字', () => {
-    const cardIdPattern = /^[a-z]+-\d{3}(-(base|intimate))?$/
+    const cardIdPattern = /^(des-\d{3}|(?!des-)[a-z]+-\d{3}-(base|intimate))$/
 
     for (const card of cardsData.cards) {
       expect(card.id).toMatch(cardIdPattern)

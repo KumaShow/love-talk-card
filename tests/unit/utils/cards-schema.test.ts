@@ -38,8 +38,8 @@ describe('主題 JSON 檔 Zod 結構驗證', () => {
     }
   })
 
-  it('所有卡牌 ID 符合 {prefix}-{000} 或 {prefix}-{000}-{base|intimate} 格式', () => {
-    const pattern = /^[a-z]+-\d{3}(-(base|intimate))?$/
+  it('所有卡牌 ID 符合 des-### 或非 desire 的 {prefix}-{000}-{base|intimate} 格式', () => {
+    const pattern = /^(des-\d{3}|(?!des-)[a-z]+-\d{3}-(base|intimate))$/
     for (const card of cardsData.cards) {
       expect(card.id).toMatch(pattern)
     }
@@ -60,18 +60,21 @@ describe('主題 JSON 檔 Zod 結構驗證', () => {
     expect(result.success).toBe(true)
   })
 
-  it.each(['Des-1', 'des-01', 'des-0001'])('仍拒絕非法卡牌 ID：%s', (id) => {
-    const result = ThemeCardSchema.safeParse({
-      id,
-      level: 1,
-      text: {
-        zh: '測試文字',
-        en: 'Test text',
-        th: 'Test text',
-        ja: 'Test text',
-      },
-    })
+  it.each(['Des-1', 'des-01', 'des-0001', 'att-001', 'des-001-base'])(
+    '仍拒絕非法卡牌 ID：%s',
+    (id) => {
+      const result = ThemeCardSchema.safeParse({
+        id,
+        level: 1,
+        text: {
+          zh: '測試文字',
+          en: 'Test text',
+          th: 'Test text',
+          ja: 'Test text',
+        },
+      })
 
-    expect(result.success).toBe(false)
-  })
+      expect(result.success).toBe(false)
+    },
+  )
 })

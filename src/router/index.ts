@@ -2,19 +2,8 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import EndView from '@/views/EndView.vue'
 import GameView from '@/views/GameView.vue'
 import HomeView from '@/views/HomeView.vue'
+import { consumeDesireAcknowledgement } from '@/router/desire-ack'
 import { isValidThemeId, validThemeIds } from '@/utils/theme'
-
-let desireAcknowledged = false
-
-export function acknowledgeDesireOnce(): void {
-  desireAcknowledged = true
-}
-
-export function consumeDesireAcknowledgement(): boolean {
-  const wasAcknowledged = desireAcknowledged
-  desireAcknowledged = false
-  return wasAcknowledged
-}
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -69,4 +58,5 @@ router.beforeEach((to) => {
 })
 
 export { isValidThemeId, validThemeIds }
+export { acknowledgeDesireOnce, consumeDesireAcknowledgement } from '@/router/desire-ack'
 export default router

@@ -42,8 +42,8 @@ export interface Card {
 
   ```ts
   // 由：/^[a-z]+-\d{3}-(base|intimate)$/
-  // 改為：後綴可選，兼容既有 *-base / *-intimate 與新 des-NNN
-  id: z.string().regex(/^[a-z]+-\d{3}(-(base|intimate))?$/),
+  // 改為：desire 專用 des-NNN；既有四主題仍必須保留 -base / -intimate 後綴
+  id: z.string().regex(/^(des-\d{3}|(?!des-)[a-z]+-\d{3}-(base|intimate))$/),
   isIntimate: z.boolean().optional(),
   ```
 
@@ -98,7 +98,7 @@ export interface CardText { zh: string; en: string; th: string; ja: string }
 
 | 測試 | 變更 |
 |------|------|
-| `tests/unit/utils/cards-schema.test.ts` | `themeFiles` 陣列加入 desire；id 格式測試的 pattern 同步放寬為 `^[a-z]+-\d{3}(-(base|intimate))?$` |
+| `tests/unit/utils/cards-schema.test.ts` | `themeFiles` 陣列加入 desire；id 格式測試的 pattern 同步調整為 `^(des-\d{3}|(?!des-)[a-z]+-\d{3}-(base|intimate))$` |
 | `tests/unit/data/cards-data.test.ts` | 「每個主題至少含一張基礎牌」對 desire 仍成立（desire 卡 `isIntimate` 省略 → 計為非 intimate）；如需語意精確，可加註 desire 無 intimate 分層 |
 | `tests/unit/utils/card-text.test.ts` | desire 卡納入四語系完整性檢查（含 ja 佔位非空） |
 

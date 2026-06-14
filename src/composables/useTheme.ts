@@ -35,7 +35,7 @@ type ColorKey = keyof typeof CSS_VAR_MAP
 const CARD_SURFACE_VAR = '--color-card-surface'
 const LIGHT_CARD_SURFACE = '#ffffff'
 
-/** YIQ 感知亮度（0–255）；非法 hex 回傳 0（視為深色，安全退回白卡）。 */
+/** YIQ 感知亮度（0–255）；非法 hex 回傳 0，讓卡面安全退回白卡。 */
 function perceivedBrightness(hex: string): number {
   const match = /^#([\da-f]{6})$/i.exec(hex)
   if (match === null) {
