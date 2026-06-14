@@ -1,6 +1,7 @@
 <template>
   <article
-    class="card-face absolute inset-0 flex flex-col justify-center gap-4 rounded-[var(--radius-card)] bg-[var(--color-card-surface)] p-7 text-ink shadow-[var(--shadow-card)] max-[23rem]:gap-[0.85rem] max-[23rem]:p-6"
+    :class="cardFaceClass"
+    :data-density="textDensity"
     data-test="card-face"
   >
     <!-- T047：私密牌裝飾浮水印，opacity 0.15，不影響可讀性（pointer-events:none、z-index:0） -->
@@ -31,7 +32,7 @@
       </span>
     </div>
     <p
-      class="relative z-[1] m-0 font-serif text-2xl font-semibold leading-[1.5] max-[23rem]:text-[1.35rem] max-[23rem]:leading-[1.45]"
+      :class="primaryTextClass"
       data-test="card-primary-text"
       lang="zh-TW"
     >
@@ -39,7 +40,7 @@
     </p>
     <p
       v-if="secondaryText"
-      class="card-secondary relative z-[1] m-0 text-base leading-[1.55] max-[23rem]:text-[0.92rem] max-[23rem]:leading-[1.5]"
+      :class="secondaryTextClass"
       data-test="card-secondary-text"
       :lang="secondaryHtmlLang"
     >
@@ -68,6 +69,57 @@ const props = defineProps<{
  */
 const { secondaryLang } = storeToRefs(useSettingsStore())
 const secondaryText = computed(() => getCardText(props.card, secondaryLang.value))
+
+type TextDensity = 'comfortable' | 'compact' | 'dense'
+
+const textDensity = computed<TextDensity>(() => {
+  const secondaryWeight = secondaryLang.value === 'th' ? 1.18 : 1
+  const load = props.card.text.zh.length * 1.8 + secondaryText.value.length * secondaryWeight
+
+  if (load >= 185) {
+    return 'dense'
+  }
+  if (load >= 145) {
+    return 'compact'
+  }
+  return 'comfortable'
+})
+
+const cardFaceClass = computed(() => [
+  'card-face absolute inset-0 flex flex-col justify-center rounded-[var(--radius-card)] bg-[var(--color-card-surface)] text-ink shadow-[var(--shadow-card)]',
+  {
+    comfortable:
+      'gap-4 p-7 max-[26rem]:gap-[0.7rem] max-[26rem]:p-5 max-[20rem]:gap-[0.58rem] max-[20rem]:p-[1.1rem]',
+    compact:
+      'gap-3 p-6 max-[26rem]:gap-[0.55rem] max-[26rem]:p-4 max-[20rem]:gap-[0.45rem] max-[20rem]:p-[0.95rem]',
+    dense:
+      'gap-2 p-5 max-[26rem]:gap-[0.45rem] max-[26rem]:p-4 max-[20rem]:gap-[0.36rem] max-[20rem]:p-[0.85rem]',
+  }[textDensity.value],
+])
+
+const primaryTextClass = computed(() => [
+  'relative z-[1] m-0 font-serif font-semibold',
+  {
+    comfortable:
+      'text-2xl leading-[1.5] max-[26rem]:text-[1.15rem] max-[26rem]:leading-[1.38] max-[20rem]:text-[1.05rem] max-[20rem]:leading-[1.34]',
+    compact:
+      'text-[1.55rem] leading-[1.38] max-[26rem]:text-[1rem] max-[26rem]:leading-[1.24] max-[20rem]:text-[0.92rem] max-[20rem]:leading-[1.2]',
+    dense:
+      'text-[1.35rem] leading-[1.28] max-[26rem]:text-[1.05rem] max-[26rem]:leading-[1.18] max-[20rem]:text-[0.88rem] max-[20rem]:leading-[1.16]',
+  }[textDensity.value],
+])
+
+const secondaryTextClass = computed(() => [
+  'card-secondary relative z-[1] m-0',
+  {
+    comfortable:
+      'text-base leading-[1.55] max-[26rem]:text-[0.82rem] max-[26rem]:leading-[1.42] max-[20rem]:text-[0.76rem] max-[20rem]:leading-[1.36]',
+    compact:
+      'text-[0.92rem] leading-[1.42] max-[26rem]:text-[0.72rem] max-[26rem]:leading-[1.25] max-[20rem]:text-[0.66rem] max-[20rem]:leading-[1.2]',
+    dense:
+      'text-[0.82rem] leading-[1.32] max-[26rem]:text-[0.68rem] max-[26rem]:leading-[1.18] max-[20rem]:text-[0.6rem] max-[20rem]:leading-[1.14]',
+  }[textDensity.value],
+])
 
 /** SecondaryLang ('en' | 'th' | 'ja') 對應 BCP 47 lang code，作為次要 <p> 的 HTML lang 屬性。 */
 const HTML_LANG_MAP: Record<SecondaryLang, string> = {

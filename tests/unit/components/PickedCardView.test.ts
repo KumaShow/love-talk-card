@@ -16,7 +16,7 @@ import type { Card, CardsData } from '@/types'
  * - reading：CTA 顯示
  * - dismissing：picked 帶 data-dismissing=true
  * - 點 CTA 觸發 dismiss
- * - 點 backdrop 在 reading 觸發 dismiss；在 flipping 不觸發
+ * - 點 backdrop 不觸發 dismiss，避免抽卡檢視被誤關閉
  */
 
 function getSampleCard(): Card {
@@ -99,14 +99,14 @@ describe('PickedCardView', () => {
     expect(wrapper.emitted('dismiss')).toHaveLength(1)
   })
 
-  it('reading 階段點 backdrop → emit dismiss', async () => {
+  it('reading 階段點 backdrop 不應 emit dismiss，僅下一張可關閉卡片', async () => {
     const card = getSampleCard()
     const wrapper = mount(PickedCardView, {
       props: { card, phase: 'reading' },
     })
 
     await wrapper.find('[data-test="picked-backdrop"]').trigger('click')
-    expect(wrapper.emitted('dismiss')).toHaveLength(1)
+    expect(wrapper.emitted('dismiss')).toBeUndefined()
   })
 
   it('flipping 階段點 backdrop 不應 emit dismiss（保護翻面動畫）', async () => {
@@ -117,6 +117,20 @@ describe('PickedCardView', () => {
 
     await wrapper.find('[data-test="picked-backdrop"]').trigger('click')
     expect(wrapper.emitted('dismiss')).toBeUndefined()
+  })
+
+  it('reading 階段控制列不應放在 picked-view 裡，避免跟著卡片飛出', async () => {
+    const card = getSampleCard()
+    const wrapper = mount(PickedCardView, {
+      props: { card, phase: 'reading' },
+    })
+    await vi.runAllTimersAsync()
+    await wrapper.vm.$nextTick()
+
+    expect(wrapper.find('[data-test="picked-controls"]').exists()).toBe(true)
+    expect(wrapper.find('[data-test="picked-view"] [data-test="picked-controls"]').exists()).toBe(
+      false,
+    )
   })
 
   it('進入 flipping 後經 nextTick + rAF，inner 應帶 data-flipped=true', async () => {

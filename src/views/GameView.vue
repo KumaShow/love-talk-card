@@ -157,7 +157,7 @@ function handleDrawCenter() {
 }
 
 /**
- * 使用者點「下一張」CTA 或 backdrop → 卡片飛出右側並歸零 phase。
+ * 使用者點「下一張」CTA → 卡片飛出右側並歸零 phase。
  * 若已抽完最後一張，導向 EndView。
  */
 function handleDismiss() {
