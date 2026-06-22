@@ -34,6 +34,22 @@ export const ThemeFileSchema = z.object({
   colors: ThemeColorsSchema,
   endMessage: z.object({ zh: z.string().min(1), en: z.string().min(1) }),
   cards: z.array(ThemeCardSchema).min(1),
+}).superRefine((themeFile, ctx) => {
+  if (themeFile.id === 'desire') {
+    return
+  }
+
+  themeFile.cards.forEach((card, index) => {
+    if (card.isIntimate !== undefined) {
+      return
+    }
+
+    ctx.addIssue({
+      code: z.ZodIssueCode.custom,
+      message: '非 desire 主題的卡牌必須明確提供 isIntimate。',
+      path: ['cards', index, 'isIntimate'],
+    })
+  })
 })
 
 export type ThemeFile = z.infer<typeof ThemeFileSchema>

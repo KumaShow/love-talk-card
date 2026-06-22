@@ -5,7 +5,6 @@
       class="fixed inset-0 z-[90] bg-[rgb(8_4_10/0.55)] backdrop-blur-[0.25rem]"
       data-test="picked-backdrop"
       aria-hidden="true"
-      @click="handleBackdropClick"
     ></div>
   </Transition>
 
@@ -26,27 +25,28 @@
         <CardBack />
         <CardFace :card="card" />
       </div>
+    </div>
+  </Transition>
 
-      <Transition name="picked-cta">
-        <div
-          v-if="phase === 'reading'"
-          class="absolute left-1/2 top-[calc(100%+1.25rem)] flex -translate-x-1/2 flex-col items-center gap-3 max-[23rem]:top-[calc(100%+0.85rem)] max-[23rem]:gap-[0.55rem]"
-        >
-          <button
-            class="picked-cta min-h-[3.25rem] min-w-[8.75rem] cursor-pointer rounded-[var(--radius-pill)] border-0 px-6 py-3 text-[0.95rem] font-bold tracking-normal text-white max-[23rem]:min-h-11 max-[23rem]:min-w-[7.25rem] max-[23rem]:px-[1.1rem] max-[23rem]:py-[0.58rem] max-[23rem]:text-[0.9rem]"
-            type="button"
-            data-test="picked-next"
-            @click="$emit('dismiss')"
-          >
-            下一張
-          </button>
-          <LanguageSelector
-            :selected-lang="settingsStore.secondaryLang"
-            data-test="picked-language-selector"
-            @select="settingsStore.setSecondaryLang"
-          />
-        </div>
-      </Transition>
+  <Transition name="picked-controls">
+    <div
+      v-if="card && phase === 'reading'"
+      class="picked-controls fixed left-1/2 z-[110] flex -translate-x-1/2 flex-col items-center gap-3 max-[23rem]:gap-[0.55rem]"
+      data-test="picked-controls"
+    >
+      <button
+        class="picked-cta min-h-[3.25rem] min-w-[8.75rem] cursor-pointer rounded-[var(--radius-pill)] border-0 px-6 py-3 text-[0.95rem] font-bold tracking-normal text-white max-[23rem]:min-h-11 max-[23rem]:min-w-[7.25rem] max-[23rem]:px-[1.1rem] max-[23rem]:py-[0.58rem] max-[23rem]:text-[0.9rem]"
+        type="button"
+        data-test="picked-next"
+        @click="emit('dismiss')"
+      >
+        下一張
+      </button>
+      <LanguageSelector
+        :selected-lang="settingsStore.secondaryLang"
+        data-test="picked-language-selector"
+        @select="settingsStore.setSecondaryLang"
+      />
     </div>
   </Transition>
 </template>
@@ -103,11 +103,6 @@ watch(
   },
 )
 
-function handleBackdropClick() {
-  if (props.phase === 'reading') {
-    emit('dismiss')
-  }
-}
 </script>
 
 <style scoped>
@@ -117,10 +112,11 @@ function handleBackdropClick() {
  * transition 不易用 utility 表達，保留 scoped。
  */
 .picked-card {
+  --picked-card-width: min(72vw, 22rem);
   position: fixed;
   left: 50%;
   top: 50%;
-  width: min(72vw, 22rem);
+  width: var(--picked-card-width);
   aspect-ratio: 3 / 4;
   transform: translate(-50%, -50%);
   perspective: 100rem;
@@ -133,6 +129,12 @@ function handleBackdropClick() {
 .picked-card[data-dismissing='true'] {
   transform: translate(-50%, -50%) translateX(130vw) rotate(22deg);
   opacity: 0;
+}
+
+/* 控制列獨立於卡片飛出動畫；位置用同一張卡的寬高比例推算。 */
+.picked-controls {
+  --picked-card-width: min(72vw, 22rem);
+  top: calc(50% + (var(--picked-card-width) * 2 / 3) + 1.25rem);
 }
 
 /*
@@ -186,22 +188,27 @@ function handleBackdropClick() {
   transform: translate(-50%, -30%) scale(0.85);
 }
 
-.picked-cta-enter-active,
-.picked-cta-leave-active {
+.picked-controls-enter-active,
+.picked-controls-leave-active {
   transition:
     opacity 240ms ease,
     transform 260ms var(--ease-card);
 }
 
-.picked-cta-enter-from,
-.picked-cta-leave-to {
+.picked-controls-enter-from,
+.picked-controls-leave-to {
   opacity: 0;
   transform: translateX(-50%) translateY(8px);
 }
 
-@media (max-width: 23rem) {
+@media (max-width: 26rem) {
   .picked-card {
-    width: min(76vw, 20rem);
+    --picked-card-width: min(82vw, 20rem);
+  }
+
+  .picked-controls {
+    --picked-card-width: min(82vw, 20rem);
+    top: calc(50% + (var(--picked-card-width) * 2 / 3) + 0.85rem);
   }
 }
 </style>
