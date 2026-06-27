@@ -35,6 +35,7 @@ describe('FanDeck', () => {
 
     const fanCards = wrapper.findAllComponents(FanCard)
     expect(fanCards).toHaveLength(5)
+    expect(fanCards.every((card) => card.props('themeId') === 'attraction')).toBe(true)
   })
 
   it('drawnCount 推進時 visibleCards window 同步推進（切片固定為 5 張）', () => {

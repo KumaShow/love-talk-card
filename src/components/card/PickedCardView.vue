@@ -22,7 +22,7 @@
         data-test="picked-inner"
         :data-flipped="isFlipped ? 'true' : 'false'"
       >
-        <CardBack />
+        <CardBack :theme-id="card.theme" />
         <CardFace :card="card" />
       </div>
     </div>

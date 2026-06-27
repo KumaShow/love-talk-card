@@ -17,6 +17,7 @@
       :z-index="zIndices[i] ?? 0"
       :is-active="i === centerIndex && canInteract"
       :card-back="cardBack"
+      :theme-id="card.theme"
       @activate="$emit('draw-center')"
     />
   </div>

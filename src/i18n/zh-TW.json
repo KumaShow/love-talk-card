@@ -20,22 +20,27 @@
   "theme": {
     "attraction": {
       "name": "心動瞬間",
+      "englishShortName": "Attraction",
       "description": "回到最初的火花與悸動。"
     },
     "self": {
       "name": "自我探索",
+      "englishShortName": "Self",
       "description": "更理解自己，也讓對方看見你。"
     },
     "interaction": {
       "name": "互動理解",
+      "englishShortName": "Interaction",
       "description": "把彼此的表達方式說得更清楚。"
     },
     "trust": {
       "name": "信任成長",
+      "englishShortName": "Trust",
       "description": "聊聊信任、未來與一起變好的可能。"
     },
     "desire": {
       "name": "慾望與身體親密",
+      "englishShortName": "Desire",
       "description": "專為成年伴侶設計，溫柔談身體界線、親密邀請、性需求與同意安全。"
     }
   },

@@ -4,10 +4,24 @@
     :data-density="textDensity"
     data-test="card-face"
   >
+    <img
+      class="pointer-events-none absolute inset-0 z-0 h-full w-full object-fill"
+      :src="cardVisual.background"
+      alt=""
+      data-test="card-background"
+      aria-hidden="true"
+    />
+    <img
+      class="pointer-events-none absolute inset-0 z-[2] h-full w-full object-fill"
+      :src="cardVisual.frame"
+      alt=""
+      data-test="card-frame"
+      aria-hidden="true"
+    />
     <!-- T047：私密牌裝飾浮水印，opacity 0.15，不影響可讀性（pointer-events:none、z-index:0） -->
     <div
       v-if="card.isIntimate"
-      class="pointer-events-none absolute inset-0 z-0 flex items-center justify-center text-brand opacity-15"
+      class="pointer-events-none absolute inset-0 z-[1] flex items-center justify-center text-brand opacity-15"
       data-test="intimate-watermark"
       aria-hidden="true"
     >
@@ -25,7 +39,7 @@
         />
       </svg>
     </div>
-    <div class="card-meta relative z-[1] flex items-center justify-between text-xs uppercase tracking-normal max-[23rem]:text-[0.68rem]">
+    <div class="card-meta relative z-[3] flex items-center justify-between text-xs uppercase tracking-normal max-[23rem]:text-[0.68rem]">
       <span>Lv.{{ card.level }}</span>
       <span v-if="card.isIntimate" class="text-xl text-brand" data-test="intimate-indicator">
         <slot name="intimate-indicator">♥</slot>
@@ -53,6 +67,7 @@
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
+import { CARD_VISUALS } from '@/assets/card-images'
 import { useSettingsStore } from '@/stores/settingsStore'
 import type { Card, SecondaryLang } from '@/types'
 import { getCardText } from '@/utils/card-text'
@@ -69,6 +84,7 @@ const props = defineProps<{
  */
 const { secondaryLang } = storeToRefs(useSettingsStore())
 const secondaryText = computed(() => getCardText(props.card, secondaryLang.value))
+const cardVisual = computed(() => CARD_VISUALS[props.card.theme])
 
 type TextDensity = 'comfortable' | 'compact' | 'dense'
 
@@ -86,7 +102,7 @@ const textDensity = computed<TextDensity>(() => {
 })
 
 const cardFaceClass = computed(() => [
-  'card-face absolute inset-0 flex flex-col justify-center rounded-[var(--radius-card)] bg-[var(--color-card-surface)] text-ink shadow-[var(--shadow-card)]',
+  'card-face absolute inset-0 flex flex-col justify-center overflow-hidden rounded-[var(--radius-card)] bg-[var(--color-card-surface)] text-ink shadow-[var(--shadow-card)]',
   {
     comfortable:
       'gap-4 p-7 max-[26rem]:gap-[0.7rem] max-[26rem]:p-5 max-[20rem]:gap-[0.58rem] max-[20rem]:p-[1.1rem]',
@@ -98,7 +114,7 @@ const cardFaceClass = computed(() => [
 ])
 
 const primaryTextClass = computed(() => [
-  'relative z-[1] m-0 font-serif font-semibold',
+  'relative z-[3] m-0 font-serif font-semibold',
   {
     comfortable:
       'text-2xl leading-[1.5] max-[26rem]:text-[1.15rem] max-[26rem]:leading-[1.38] max-[20rem]:text-[1.05rem] max-[20rem]:leading-[1.34]',
@@ -110,7 +126,7 @@ const primaryTextClass = computed(() => [
 ])
 
 const secondaryTextClass = computed(() => [
-  'card-secondary relative z-[1] m-0',
+  'card-secondary relative z-[3] m-0',
   {
     comfortable:
       'text-base leading-[1.55] max-[26rem]:text-[0.82rem] max-[26rem]:leading-[1.42] max-[20rem]:text-[0.76rem] max-[20rem]:leading-[1.36]',

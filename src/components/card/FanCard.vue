@@ -11,7 +11,7 @@
     @keydown.enter.prevent="handleActivate"
     @keydown.space.prevent="handleActivate"
   >
-    <CardBack />
+    <CardBack :theme-id="themeId" />
   </div>
 </template>
 
@@ -19,6 +19,7 @@
 import { computed } from 'vue'
 
 import CardBack from '@/components/card/CardBack.vue'
+import type { ThemeId } from '@/types'
 
 const props = defineProps<{
   index: number
@@ -26,6 +27,7 @@ const props = defineProps<{
   zIndex: number
   isActive: boolean
   cardBack: string
+  themeId: ThemeId
 }>()
 
 const emit = defineEmits<{ activate: [] }>()

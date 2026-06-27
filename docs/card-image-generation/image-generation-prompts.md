@@ -1,6 +1,6 @@
 # 戀愛卡牌圖片生成提示詞
 
-本文件用於後續以 `gpt-image-1.5` 產生卡牌視覺素材。目標是把四個主題的視覺氛圍圖片化，但保留卡牌文字、題號、主題名稱與互動狀態由前端 UI 呈現，避免圖片內文字影響繁中與英文在地化。
+本文件用於後續以 `gpt-image-2.0` 產生卡牌視覺素材。目標是把五個主題的視覺氛圍圖片化，但保留卡牌文字、題號、主題名稱與互動狀態由前端 UI 呈現，避免圖片內文字影響繁中與英文在地化。
 
 ## 生成策略
 
@@ -50,6 +50,9 @@ docs/card-image-generation/output/
   trust/
     trust-bg-v1.webp
     trust-frame-v1.png
+  desire/
+    desire-bg-v1.webp
+    desire-frame-v1.png
 ```
 
 ## 共用負面限制
@@ -224,11 +227,56 @@ Composition: border and corner decoration only, transparent center area for read
 No text, no letters, no numbers, no logo, no watermark, no readable typography, no UI mockup, no human faces, no wedding imagery.
 ```
 
+## `desire`｜慾望與身體親密
+
+現有色票：
+
+- primary: `#7A2E4A`
+- secondary: `#B5546F`
+- background: `#2A1620`
+- backgroundEnd: `#3E1E2E`
+- text: `#F7E9EF`
+- cardBack: `#5C2238`
+
+視覺核心：被尊重地靠近、坦率表達身體渴望、依照彼此節奏回應，並保留隨時放慢、拒絕或停下的空間。建議採「低光絲絨 × 呼吸曲線 × 留白邊界」的成熟抽象風格，以質地、距離、節奏與光線傳達身體親密，不直接描繪身體或性愛場景。
+
+與 `attraction` 的差異：`attraction` 是火花向外散開的輕盈心動；`desire` 是兩股形體靠近、停留、退讓所形成的安靜張力。避免只把粉紅色加深，也避免火焰、愛心、嘴唇、床、蠟燭、玫瑰、蕾絲或夜店霓虹等直白符號。
+
+### 背景圖 Prompt
+
+```text
+Create a premium vertical card background for a relationship conversation card game.
+
+Theme: adult desire, physical intimacy, mutual consent, body boundaries, and emotionally safe closeness. The image should feel sensual but respectful, direct but never explicit, like two people moving closer while remaining attentive to each other's pace and boundaries.
+
+Visual style: sophisticated abstract editorial illustration, low-light velvet atmosphere, tactile matte paper texture, subtle embossed details, translucent flowing layers, soft cinematic diffusion, and delicate grain. Use deep wine, dark plum, muted berry, dusty rose, and restrained pearl highlights. The palette should harmonize with #7A2E4A, #B5546F, #2A1620, #3E1E2E, #F7E9EF, and #5C2238.
+
+Composition: vertical card ratio. Keep the center calm, dark, spacious, and low contrast for long overlaid card text. Place richer tactile details near the borders and corners. Include two soft flowing forms or contour lines that approach and partially overlap while preserving visible breathing space between them. Use subtle pauses, openings, and changing line rhythms to suggest invitation, response, consent, and the freedom to slow down or stop.
+
+Mood: intimate, warm, grounded, mature, quietly charged, mutually attentive, emotionally safe. Sensual through texture, proximity, rhythm, and light rather than bodies or literal sexual imagery.
+
+No text, no letters, no numbers, no logo, no watermark, no readable typography, no UI mockup, no human faces, no nudity, no body silhouettes, no explicit sexual content, no bedroom objects, no lips, no roses, no candles, no lace, no flames, no neon nightlife aesthetic, no harsh contrast, no clutter in the center.
+```
+
+### 透明裝飾框 Prompt
+
+```text
+Create a transparent PNG decorative frame overlay for a premium vertical relationship conversation card.
+
+Theme: adult desire, mutual invitation, consent, body boundaries, changing pace, and safe physical intimacy.
+
+Visual style: refined abstract fine-line ornament with deep wine, muted berry, and restrained pearl accents. Use soft tactile curves, paired contour lines, translucent ribbon-like details, subtle embossed texture, and small intentional openings that suggest breathing room and respected boundaries.
+
+Composition: decoration only along the borders and corners, with a completely transparent and spacious center for long bilingual card text. Let some lines approach, overlap, pause, and separate without forming literal bodies, hearts, locks, or flames. The frame should feel intimate and quietly charged, but never explicit or decorative in a bridal or luxury-brand way.
+
+No text, no letters, no numbers, no logo, no watermark, no readable typography, no UI mockup, no human faces, no nudity, no body silhouettes, no explicit sexual content, no lips, no roses, no candles, no lace, no flames.
+```
+
 ## 批次生成建議
 
 1. 每個主題先生成 3 張背景圖與 2 張透明裝飾框。
 2. 先挑出「主題辨識度最高」與「中央文字可讀性最好」的版本。
-3. 確認四個主題放在一起時，不要只像同一套粉彩換色；每個主題要有自己的構圖語彙。
+3. 確認五個主題放在一起時，不要只像同一套設計換色；每個主題要有自己的構圖語彙，尤其需確認 `desire` 不會被誤認為深色版 `attraction`。
 4. 選定風格後，再用同一組 prompt 產生 `v2`、`v3` 作為替代款。
 5. 實作進前端前，先用繁中長句與英文長句各測一次疊字效果。
 

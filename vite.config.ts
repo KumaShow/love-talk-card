@@ -31,7 +31,7 @@ export default defineConfig({
       strategies: 'generateSW',
       includeAssets: ['favicon.ico', 'icons/**', 'sounds/**'],
       workbox: {
-        globPatterns: ['**/*.{js,css,html,json,png,svg,ico,ogg,mp3,wav,webmanifest}'],
+        globPatterns: ['**/*.{js,css,html,json,png,webp,svg,ico,ogg,mp3,wav,webmanifest}'],
         // 所有資產均為靜態，走 precache；無需 runtimeCaching
         cleanupOutdatedCaches: true,
         // 首次安裝即接管現有 client，確保離線測試與真實部署的首次離線體驗一致

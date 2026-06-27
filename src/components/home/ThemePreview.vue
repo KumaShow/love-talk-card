@@ -26,8 +26,11 @@
             <p class="text-[0.7rem] uppercase tracking-normal opacity-85">
               {{ zhTw.home.preview.eyebrow }}
             </p>
-            <h2 class="m-0 font-serif text-[1.75rem] font-semibold max-[23rem]:text-[1.5rem]">
-              {{ theme.name.zh }}
+            <h2
+              class="m-0 font-serif text-[1.75rem] font-semibold max-[23rem]:text-[1.5rem]"
+              data-test="preview-title"
+            >
+              {{ theme.name.zh }}（{{ zhTw.theme[theme.id].englishShortName }}）
             </h2>
             <p class="preview-desc m-0 text-[0.95rem] leading-[1.6] max-[23rem]:text-[0.9rem]">
               {{ theme.description.zh }}

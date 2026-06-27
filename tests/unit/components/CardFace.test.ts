@@ -44,4 +44,24 @@ describe('CardFace', () => {
       'max-[26rem]:text-[0.68rem]',
     )
   })
+
+  it.each([
+    ['attraction', 'attraction-bg-v1.webp', 'attraction-frame-v1.png'],
+    ['self', 'self-bg-v1.webp', 'self-frame-v1.png'],
+    ['interaction', 'interaction-bg-v1.webp', 'interaction-frame-v1.png'],
+    ['trust', 'trust-bg-v1.webp', 'trust-frame-v1.png'],
+    ['desire', 'desire-bg-v3.webp', 'desire-frame-v3.png'],
+  ])('%s 主題應使用指定版本的背景與外框圖片', (themeId, backgroundName, frameName) => {
+    const card = cardsData.cards.find((item) => item.theme === themeId)
+    if (card === undefined) {
+      throw new Error(`找不到測試主題卡牌：${themeId}`)
+    }
+
+    const wrapper = mount(CardFace, { props: { card } })
+
+    expect(wrapper.find('[data-test="card-background"]').attributes('src')).toContain(
+      backgroundName,
+    )
+    expect(wrapper.find('[data-test="card-frame"]').attributes('src')).toContain(frameName)
+  })
 })

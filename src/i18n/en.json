@@ -20,22 +20,27 @@
   "theme": {
     "attraction": {
       "name": "Attraction & Sparks",
+      "englishShortName": "Attraction",
       "description": "Return to the earliest moments of excitement."
     },
     "self": {
       "name": "Self & Exploration",
+      "englishShortName": "Self",
       "description": "Know yourself better and let your partner see you."
     },
     "interaction": {
       "name": "Interaction & Understanding",
+      "englishShortName": "Interaction",
       "description": "Make your communication patterns easier to understand."
     },
     "trust": {
       "name": "Trust & Growth",
+      "englishShortName": "Trust",
       "description": "Talk about trust, the future, and growing together."
     },
     "desire": {
       "name": "Desire & Physical Intimacy",
+      "englishShortName": "Desire",
       "description": "For adult partners to talk gently about body boundaries, intimacy invitations, sexual needs, consent, and safety."
     }
   },

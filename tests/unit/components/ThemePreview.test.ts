@@ -11,7 +11,7 @@ import type { CardsData, Theme } from '@/types'
  *
  * 驗證重點：
  * - theme=null 時浮層與 backdrop 皆不顯示
- * - 提供 theme 時顯示 name.zh 與 description.zh
+ * - 提供 theme 時顯示中文名稱、英文短名稱與中文描述
  * - CSS custom properties 注入 --color-card / --color-brand / --color-accent
  * - 點 CTA → emit start(theme)
  * - 點 backdrop 或 dismiss 按鈕 → emit dismiss
@@ -31,14 +31,29 @@ describe('ThemePreview', () => {
     expect(wrapper.find('[data-test="preview-backdrop"]').exists()).toBe(false)
   })
 
-  it('提供 theme 時顯示 name.zh 與 description.zh', () => {
+  it('提供 theme 時以「中文名稱（英文短名稱）」顯示標題與中文描述', () => {
     const theme = getAttractionTheme()
     const wrapper = mount(ThemePreview, { props: { theme } })
 
     const section = wrapper.find('[data-test="home-preview"]')
     expect(section.exists()).toBe(true)
-    expect(section.text()).toContain(theme.name.zh)
+    expect(wrapper.find('[data-test="preview-title"]').text()).toBe(
+      `${theme.name.zh}（${zhTw.theme.attraction.englishShortName}）`,
+    )
     expect(section.text()).toContain(theme.description.zh)
+  })
+
+  it.each([
+    ['self', '自我探索（Self）'],
+    ['interaction', '互動理解（Interaction）'],
+    ['trust', '信任成長（Trust）'],
+    ['desire', '慾望與身體親密（Desire）'],
+  ] as const)('%s 主題應顯示對應的雙語標題', (themeId, expectedTitle) => {
+    const dataset = cardsData as CardsData
+    const theme = dataset.themes.find((item) => item.id === themeId) as Theme
+    const wrapper = mount(ThemePreview, { props: { theme } })
+
+    expect(wrapper.find('[data-test="preview-title"]').text()).toBe(expectedTitle)
   })
 
   it('darkened backdrop 應顯示於 theme 提供時', () => {

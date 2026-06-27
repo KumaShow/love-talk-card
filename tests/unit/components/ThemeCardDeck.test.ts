@@ -72,4 +72,21 @@ describe('ThemeCardDeck', () => {
 
     expect(style).toMatch(/--color-card:\s*#5BA4C0/i)
   })
+
+  it.each([
+    ['attraction', 'attraction-bg-v1.webp', 'attraction-frame-v1.png'],
+    ['self', 'self-bg-v1.webp', 'self-frame-v1.png'],
+    ['interaction', 'interaction-bg-v1.webp', 'interaction-frame-v1.png'],
+    ['trust', 'trust-bg-v1.webp', 'trust-frame-v1.png'],
+    ['desire', 'desire-bg-v3.webp', 'desire-frame-v3.png'],
+  ])('%s 首頁卡堆應顯示指定背景與外框', (themeId, backgroundName, frameName) => {
+    const dataset = cardsData as CardsData
+    const theme = dataset.themes.find((item) => item.id === themeId) as Theme
+    const wrapper = mount(ThemeCardDeck, { props: { theme } })
+
+    expect(wrapper.find('[data-test="theme-card-background"]').attributes('src')).toContain(
+      backgroundName,
+    )
+    expect(wrapper.find('[data-test="theme-card-frame"]').attributes('src')).toContain(frameName)
+  })
 })

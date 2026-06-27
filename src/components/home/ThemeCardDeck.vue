@@ -8,10 +8,25 @@
     @click="$emit('select', theme)"
   >
     <div class="relative aspect-[3/4] w-full" aria-hidden="true">
-      <span class="stack-card stack-deep"></span>
-      <span class="stack-card stack-mid"></span>
+      <span class="stack-card stack-deep">
+        <img class="h-full w-full object-fill" :src="cardVisual.background" alt="" />
+      </span>
+      <span class="stack-card stack-mid">
+        <img class="h-full w-full object-fill" :src="cardVisual.background" alt="" />
+      </span>
       <span class="stack-card stack-top">
-        <span class="glyph flex aspect-square w-[60%] items-center justify-center rounded-[var(--radius-pill)] border border-white/40 text-[2.25rem] opacity-85 max-[23rem]:text-[1.85rem]">♥</span>
+        <img
+          class="absolute inset-0 h-full w-full object-fill"
+          :src="cardVisual.background"
+          alt=""
+          data-test="theme-card-background"
+        />
+        <img
+          class="absolute inset-0 h-full w-full object-fill"
+          :src="cardVisual.frame"
+          alt=""
+          data-test="theme-card-frame"
+        />
       </span>
     </div>
     <span class="font-serif text-[1.05rem] font-semibold text-ink">{{ zhName }}</span>
@@ -21,6 +36,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 
+import { CARD_VISUALS } from '@/assets/card-images'
 import type { Theme } from '@/types'
 
 const props = defineProps<{ theme: Theme }>()
@@ -30,6 +46,7 @@ defineEmits<{
 }>()
 
 const zhName = computed(() => props.theme.name.zh)
+const cardVisual = computed(() => CARD_VISUALS[props.theme.id])
 </script>
 
 <style scoped>
@@ -65,6 +82,7 @@ const zhName = computed(() => props.theme.name.zh)
   align-items: center;
   justify-content: center;
   color: white;
+  overflow: hidden;
 }
 
 .stack-deep {
@@ -81,12 +99,4 @@ const zhName = computed(() => props.theme.name.zh)
   transform: translate(0, 0) rotate(0);
 }
 
-/* 卡面光暈：徑向漸層保留 scoped */
-.glyph {
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(255, 255, 255, 0.25),
-    rgba(255, 255, 255, 0) 65%
-  );
-}
 </style>
