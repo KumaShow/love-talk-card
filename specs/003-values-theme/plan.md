@@ -150,12 +150,16 @@ tests/
 
 - `src/data/themes/values.json`（決策 2）。
 - i18n 新增 `theme.values`：`name` / `englishShortName` / `description`（zh-TW 與 en 皆真實）。
+  - **來源界定（F2）**：主題預覽描述實際由 `ThemePreview.vue` 渲染 `values.json` 的 `description.zh`（**非** i18n）；i18n 的 `theme.values.name` / `description` 目前全站無渲染出口，僅為結構對齊，故 values 名稱／描述／記憶點的**單一真實來源為 `values.json`**，i18n 不重複作為文案來源以免飄移。唯一被預覽渲染的 i18n 鍵是 `zh-TW.json` 的 `theme.values.englishShortName`（必備）。
 - 硬編數字修正（已全域掃描）：
   - `src/i18n/zh-TW.json` `home.description`「五個主題，五副蓋著的卡牌…」→ 改為與主題數無關的措辭（如「挑一副蓋著的卡牌，開始今晚的對話」），避免未來新增主題又要改字。
   - `src/i18n/en.json` `home.description`「Pick one of five relationship themes…」→ 同上，改為主題數中性措辭。
   - 保留不動：`intimateModeHint`「加入 5 張…／Add 5 prompts」屬 intimate 模式語意（僅前四主題），與主題總數無關，正確不需改。
 
-**(b) 元件邏輯改動：預期 0。** HomeView 主題清單、ThemePreview、GameView、EndView 皆以 `cardsData.themes` / i18n 鍵渲染，加入 values 後自動出現。若 tasks 階段實測發現任一元件對「主題數」或「每主題 20 張」有硬編假設，才在 tasks 逐項列出並說明理由；本計劃預設不改元件。
+**(b) 元件邏輯改動：預期 0。** HomeView 主題清單、ThemePreview、GameView、EndView 皆以 `cardsData.themes` / i18n 鍵渲染，加入 values 後自動出現。
+
+- **首頁定位（F1）**：`ThemeCardDeck.vue` 首頁主題卡只渲染 `name.zh`（不顯示每主題描述），與既有五主題一致；values 的六面向描述與「靈魂共振」記憶點落在主題預覽（`ThemePreview.vue` 渲染 `values.json.description`），對齊修訂後的 FR-003 / US1 AS#1，**首頁不新增描述區塊、不改元件**。
+- 若 tasks 階段實測發現任一元件對「主題數」或「每主題 20 張」有硬編假設，才在 tasks 逐項列出並說明理由；本計劃預設不改元件。
 
 ### 7. 既有測試盤點（區分兩類）
 

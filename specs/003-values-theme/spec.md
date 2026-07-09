@@ -34,11 +34,11 @@
 
 **Why this priority**: 這是新增第 6 主題的核心價值。價值觀對話是伴侶關係走向長期承諾前最關鍵、也最容易被日常迴避的一塊；若沒有一個清楚命名的入口，這類題目只會被稀釋進「認識自我 / 互動 / 信任」，失去焦點與情緒記憶點。使用者若在進入前無法辨識 values 的定位，主題獨立就失去意義。
 
-**Independent Test**: 可透過首頁、主題預覽與卡面獨立測試：使用者不需開始遊戲，就能從主題名稱、簡述與預覽文字辨識 values 是關於「價值選擇與未來想像」的主題，並理解它與其他五個主題的差異。
+**Independent Test**: 可透過首頁、主題預覽與卡面獨立測試：使用者不需開始遊戲，就能從首頁主題名稱與主題預覽文字辨識 values 是關於「價值選擇與未來想像」的主題，並理解它與其他五個主題的差異（首頁主題卡顯示名稱，完整描述與記憶點落在預覽）。
 
 **Acceptance Scenarios**:
 
-1. **Given** 使用者位於首頁，**When** 使用者瀏覽主題列表，**Then** 系統應顯示第 6 個主題 values，且其名稱與簡述明確傳達「價值觀與未來」而非一般戀愛聊天或身體親密。
+1. **Given** 使用者位於首頁，**When** 使用者瀏覽主題列表，**Then** 系統應顯示第 6 個主題 values，且其名稱可辨識為「價值觀與未來」而非一般戀愛聊天或身體親密；完整定位與「靈魂共振」記憶點於主題預覽呈現（比照既有五主題：首頁主題卡顯示名稱，描述落在預覽）。
 2. **Given** 使用者尚未進入 values 主題，**When** 使用者開啟 values 主題預覽，**Then** 系統應以溫和的語氣說明此主題涵蓋價值排序、金錢觀、家庭觀、生活方向、承諾觀與社交邊界，並傳達「在生活選擇裡看見彼此靈魂共振」的記憶點。
 3. **Given** 使用者正在比較不同主題，**When** 使用者閱讀 values 的介紹，**Then** 使用者應能理解 values 是獨立的第 6 主題，而不是 self、interaction 或 trust 的延伸或加強版。
 4. **Given** 使用者想進行一次「認真談未來」的對話，**When** 使用者在首頁尋找合適主題，**Then** 使用者能明確判斷 values 是最適合此情境的入口。
@@ -47,7 +47,7 @@
 
 ### User Story 2 - 在首頁、預覽與卡面理解這是價值選擇與未來想像的主題 (Priority: P2)
 
-使用者在首頁看到主題名稱與簡述、在主題預覽讀到面向說明、在遊戲中翻開卡面看到題目時，三個層次都應一致傳達 values 是「價值選擇與未來想像」的主題。卡面題目本身即應讓使用者感覺是在被邀請說出自己重視什麼、如何排序、想像什麼樣的共同未來，而非被考試或被要求證明相容。
+使用者在首頁看到主題名稱、在主題預覽讀到描述與面向說明、在遊戲中翻開卡面看到題目時，三個層次都應一致傳達 values 是「價值選擇與未來想像」的主題。卡面題目本身即應讓使用者感覺是在被邀請說出自己重視什麼、如何排序、想像什麼樣的共同未來，而非被考試或被要求證明相容。
 
 **Why this priority**: 主題價值要能被感知，必須在使用者實際會看到的三個接觸點（首頁、預覽、卡面）一致落地。若只有名稱到位、卡面卻像心理測驗或財務盤問，使用者對主題的理解與信任會斷裂。
 
@@ -55,7 +55,7 @@
 
 **Acceptance Scenarios**:
 
-1. **Given** 使用者在首頁，**When** 使用者看到 values 的名稱與簡述，**Then** 文案應以「價值觀與未來」為核心，並與其他主題明顯區隔。
+1. **Given** 使用者在首頁，**When** 使用者看到 values 的名稱（首頁）與主題預覽描述，**Then** 文案應以「價值觀與未來」為核心，並與其他主題明顯區隔。
 2. **Given** 使用者開啟 values 預覽，**When** 使用者閱讀主題說明，**Then** 說明應點出六個內容面向（價值排序、金錢與安全感、家庭與親密邊界、生活方向、承諾與未來、社交與邊界）的精神，而非逐條列出題目。
 3. **Given** 使用者在 values 主題中翻牌，**When** 使用者閱讀任一卡面題目，**Then** 題目應讀起來像邀請分享價值與想像未來，而非要求填寫資料、證明立場或接受相容性評分。
 4. **Given** 使用者切換次要語言，**When** 使用者閱讀 values 的核心 UI 與主題文案，**Then** 繁中與英文皆應可用且語氣一致。
@@ -101,7 +101,7 @@
 
 - 若使用者的價值觀在某題明顯衝突，主題應如何避免變成吵架或評分？題目與主題調性應把差異定位為「需要被理解的資訊」，允許保留與再談，不提供對錯或相容分數。
 - 若某張卡牌同時涉及自我覺察與共同價值，應如何歸類？以題目的主要對話任務判斷；若重點是兩人共同取捨與未來對齊，歸入 values；若重點是個人內省，歸入 self。
-- 若使用者只想輕鬆聊、還沒準備好談未來，應如何協助？首頁簡述與預覽應清楚傳達 values 偏向認真對話，讓使用者能自行選擇時機。
+- 若使用者只想輕鬆聊、還沒準備好談未來，應如何協助？首頁名稱與主題預覽描述應清楚傳達 values 偏向認真對話，讓使用者能自行選擇時機。
 - 若 values 文案被翻譯成英文或其他語言，應如何維持語氣一致？翻譯應保留「溫和、非審判、允許差異」的語氣，不因語言轉換而變得說教或審問。
 - 若未來新增更多主題，values 的邊界應如何避免漂移？任何新主題都以主要對話任務判斷，不應把 values 擴張成所有「認真話題」的總集合。
 - 若 values 為 25 張而其他主題為 20 張，遊玩與資料檢查應如何不被固定張數假設卡住？資料與測試應以「主題自身宣告的卡數」為準，而非硬編碼每主題 20 張或全站 100 張。
@@ -112,7 +112,7 @@
 
 - **FR-001**: System MUST define `values` as the sixth relationship theme, positioned around value priorities, money and security, family and intimacy boundaries, life direction, commitment and future, and social boundaries, with the emotional anchor of "seeing whether two souls resonate through everyday life choices."
 - **FR-002**: System MUST preserve the existing five themes (`attraction`, `self`, `interaction`, `trust`, `desire`) unchanged, including keeping the intimate mode of the first four themes and NOT renaming any existing card ids.
-- **FR-003**: System MUST make the value of `values` recognizable before entry across homepage name/description and theme preview, so users can tell `values` is about value choices and imagining a shared future rather than romance chat, self-discovery, daily interaction, trust repair, or physical intimacy. The emotional anchor ("seeing whether two souls resonate through everyday life choices") MUST surface in the homepage description and theme preview copy; individual card prompts keep an inviting tone but are NOT required to restate the anchor phrase literally.
+- **FR-003**: System MUST make the value of `values` recognizable before entry across the homepage theme name and the theme preview, so users can tell `values` is about value choices and imagining a shared future rather than romance chat, self-discovery, daily interaction, trust repair, or physical intimacy. The emotional anchor ("seeing whether two souls resonate through everyday life choices") MUST surface in the theme preview copy, sourced from the `values.json` theme `description` that the preview renders; the homepage theme card conveys `values`'s positioning through its name and card visual, consistent with the existing five themes (the homepage theme list renders the theme name, not a per-theme description). Individual card prompts keep an inviting tone but are NOT required to restate the anchor phrase literally.
 - **FR-004**: System MUST ship the initial `values` set as exactly 25 cards. The 25 cards SHOULD cover six content facets using this distribution as a planning target — value ranking (4), money & security (4), family & intimacy boundaries (4), life direction (4), commitment & future (4), and social & boundaries (5) — but per-facet counts MAY be adjusted by a small margin (±1) during authoring as long as the total stays exactly 25; only the total of 25 is a hard, testable invariant.
 - **FR-005**: System MUST NOT use intimate layering for `values`, and MUST NOT use `base` / `intimate` id suffixes; `values` is a single card pool with no intimate split (mirroring how `desire` avoids intimate layering).
 - **FR-006**: System MUST identify `values` cards with the id pattern `val-001` through `val-025`, without base/intimate suffixes.
@@ -127,7 +127,7 @@
 
 - **DR-001**: The shared card data rules MUST allow a `val-###` id pattern in addition to the existing `des-###` and `{prefix}-###-{base|intimate}` patterns, so `values` cards validate without a base/intimate suffix.
 - **DR-002**: The shared card data rules MUST allow `values` cards to omit the intimate flag (as `desire` already does), rather than requiring every non-desire theme to carry it.
-- **DR-003**: Data and test expectations MUST NOT assume a fixed 20 cards per theme or a fixed 100 cards site-wide; per-theme card counts MUST be validated against each theme's own declared size so a 25-card `values` theme is valid.
+- **DR-003**: Data and test expectations MUST NOT assume a fixed 20 cards per theme or a fixed 100 cards site-wide. Themes carry no explicit declared-count field — a theme's size is simply its own `cards` array length, and no global count constant exists at runtime — so per-theme counts MUST be validated individually against each theme's own expected size (e.g. `values` = 25) rather than a shared 20/100 constant, so a 25-card `values` theme is valid.
 - **DR-004**: This relaxation MUST be the minimum needed for the initial `values` 25-card set only; it MUST NOT introduce a Mix deck, MUST NOT remove intimate mode from the first four themes, and MUST NOT rename existing card ids.
 - **DR-005**: Existing per-theme invariants MUST remain intact where they still apply: the first four themes keep exactly 5 intimate cards each, and `desire` keeps its existing single-pool structure.
 
@@ -164,5 +164,5 @@
 - `values` is intended for couples willing to have a more intentional, forward-looking conversation; the product remains a conversation card game, not counseling, therapy, financial advice, or a compatibility test.
 - Traditional Chinese is the source language for product tone, with English maintained as a required supported language for core UI and theme copy in this feature; `th`/`ja` may follow the existing placeholder pattern.
 - The initial release scope is P1: add the `values` theme plus the minimum data-rule relaxation needed for its 25-card set. A Mix deck, removing intimate mode from the first four themes, and renaming existing card ids are explicitly out of scope.
-- Project documentation that currently states a fixed "100 cards = 5 themes × 20" invariant (including CLAUDE.md and the constitution) will need to be updated to reflect a sixth theme with 25 cards; that documentation update is a downstream task, not a change to this spec's intent.
+- Project documentation that currently states a fixed "100 cards = 5 themes × 20" invariant — notably CLAUDE.md, and README.md which still shows an even older "80 cards / 4 themes × 20" — will need to be updated to reflect a sixth theme with 25 cards; that documentation update is a downstream task, not a change to this spec's intent. The project constitution (`.specify/memory/constitution_zh-tw.md`) was verified to be principle-based and does NOT hardcode a 100-card or 20-per-theme count, so it is expected to need no change; if a hardcoded count is later found there, it MUST be synced bilingually with `constitution.md` per governance.
 - `values` uses `values` as its formal theme identifier and `val-###` as its card id pattern, with no base/intimate split.
