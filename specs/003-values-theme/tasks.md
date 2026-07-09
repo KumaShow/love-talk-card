@@ -23,9 +23,9 @@
 
 **Purpose**: 確認 `003-values-theme` 的實作基線、現有檔案落點與 hooks 狀態。
 
-- [ ] T001 確認 `003-values-theme` helper 指向正確 feature：執行 `.specify/scripts/powershell/setup-tasks.ps1 -Json`，確認 `FEATURE_DIR` 為 `specs/003-values-theme`，並在 [specs/003-values-theme/quickstart.md](./quickstart.md) 驗收區記錄結果。
-- [ ] T002 盤點受影響檔案落點（types / constants、data / themes / validators、schema / contracts、i18n、views / components、unit tests / e2e tests、docs / content rules），對照 [specs/003-values-theme/plan.md](./plan.md) §Project Structure 確認檔案存在或將新增。
-- [ ] T003 執行基線驗證 `npm run type-check` 與 `npm run test`，將目前測試狀態與覆蓋率摘要記錄於 [specs/003-values-theme/quickstart.md](./quickstart.md) 的驗收清單。
+- [X] T001 確認 `003-values-theme` helper 指向正確 feature：執行 `.specify/scripts/powershell/setup-tasks.ps1 -Json`，確認 `FEATURE_DIR` 為 `specs/003-values-theme`，並在 [specs/003-values-theme/quickstart.md](./quickstart.md) 驗收區記錄結果。
+- [X] T002 盤點受影響檔案落點（types / constants、data / themes / validators、schema / contracts、i18n、views / components、unit tests / e2e tests、docs / content rules），對照 [specs/003-values-theme/plan.md](./plan.md) §Project Structure 確認檔案存在或將新增。
+- [X] T003 執行基線驗證 `npm run type-check` 與 `npm run test`，將目前測試狀態與覆蓋率摘要記錄於 [specs/003-values-theme/quickstart.md](./quickstart.md) 的驗收清單。
 
 ---
 
@@ -35,15 +35,15 @@
 
 **CRITICAL**: 本階段完成前，不得開始 `values.json` 內容、i18n 或 UI 整合。
 
-- [ ] T004 [P] 新增 schema / contracts 測試：以 AJV 驗證 [specs/003-values-theme/contracts/values-theme.schema.json](./contracts/values-theme.schema.json) 接受 25 張 `val-###` 且拒絕 24 / 26 張、`val-001-base`、缺四語文案的測試資料，測試放在 `tests/unit/data/values-theme-contract.test.ts`。
-- [ ] T005 [P] 擴充 unit tests：在 `tests/unit/utils/cards-schema.test.ts` 新增 `ThemeCardSchema` 接受 `val-001` 並拒絕 `val-1`、`val-0001`、`val-001-base`、`att-001` 的紅燈測試。
-- [ ] T006 擴充 unit tests：在 `tests/unit/utils/cards-schema.test.ts` 新增 `ThemeFileSchema` 接受 `id: "values"` 且所有卡省略 `isIntimate` 的紅燈測試，並保留 `attraction` 省略 `isIntimate` 仍失敗的既有行為。（與 T005 共動 `cards-schema.test.ts`，須接續 T005、不可平行，故不標 [P]）
-- [ ] T007 [P] 擴充 unit tests：在 `tests/unit/data/cards-data.test.ts` 新增「逐主題個別斷言卡數」的紅燈測試（主題無 declared-count 欄位，卡數即各自 `cards` 陣列長度，執行期亦無全站卡數常數）：明確驗證既有四主題各 20 張、`desire` 20 張、未來 `values` 25 張，且不得以全站 100 張或每主題 20 張的共用常數阻擋（對齊 F7）。
-- [ ] T008 [P] 擴充 unit tests：在 `tests/unit/composables/useDeck.test.ts` 新增 `buildDeck('values', allCards, false)` 與 `buildDeck('values', allCards, true)` 都回傳同一組 25 張 `values` 卡的紅燈測試，驗證 values 不走 intimateMode / `isIntimate` 過濾。
-- [ ] T009 演進 data / themes / validators：在 `src/data/validators.ts` 將卡牌 id 正則放寬為接受 `val-\d{3}`，並拒絕 `val-###-{base|intimate}` 後綴；只修改 values 所需最小規則。
-- [ ] T010 演進 data / themes / validators：在 `src/data/validators.ts` 的 `ThemeFileSchema.superRefine` 將 `values` 與 `desire` 一樣豁免 `isIntimate` 必填，且不移除前四主題 intimate 規則。
-- [ ] T011 演進 types / constants：在 `src/types/index.ts` 的 `VALID_THEME_IDS` 加入 `'values'`，讓 `ThemeId`、`isValidThemeId`、router guard 與資料聚合可共同接受第 6 主題。
-- [ ] T012 同步 unit tests：在 `tests/unit/utils/cardsData.spec.ts` 與 `tests/unit/utils/cards-schema.test.ts` 同步內嵌 id 正則，確保全資料掃描接受 `des-###`、`val-###` 與既有 `{prefix}-###-{base|intimate}`。（因與 T005 / T006 共動 `cards-schema.test.ts`，不與其平行，故不標 [P]）
+- [X] T004 [P] 新增 schema / contracts 測試：以 AJV 驗證 [specs/003-values-theme/contracts/values-theme.schema.json](./contracts/values-theme.schema.json) 接受 25 張 `val-###` 且拒絕 24 / 26 張、`val-001-base`、缺四語文案的測試資料，測試放在 `tests/unit/data/values-theme-contract.test.ts`。
+- [X] T005 [P] 擴充 unit tests：在 `tests/unit/utils/cards-schema.test.ts` 新增 `ThemeCardSchema` 接受 `val-001` 並拒絕 `val-1`、`val-0001`、`val-001-base`、`att-001` 的紅燈測試。
+- [X] T006 擴充 unit tests：在 `tests/unit/utils/cards-schema.test.ts` 新增 `ThemeFileSchema` 接受 `id: "values"` 且所有卡省略 `isIntimate` 的紅燈測試，並保留 `attraction` 省略 `isIntimate` 仍失敗的既有行為。（與 T005 共動 `cards-schema.test.ts`，須接續 T005、不可平行，故不標 [P]）
+- [X] T007 [P] 擴充 unit tests：在 `tests/unit/data/cards-data.test.ts` 新增「逐主題個別斷言卡數」的紅燈測試（主題無 declared-count 欄位，卡數即各自 `cards` 陣列長度，執行期亦無全站卡數常數）：明確驗證既有四主題各 20 張、`desire` 20 張、未來 `values` 25 張，且不得以全站 100 張或每主題 20 張的共用常數阻擋（對齊 F7）。
+- [X] T008 [P] 擴充 unit tests：在 `tests/unit/composables/useDeck.test.ts` 新增 `buildDeck('values', allCards, false)` 與 `buildDeck('values', allCards, true)` 都回傳同一組 25 張 `values` 卡的紅燈測試，驗證 values 不走 intimateMode / `isIntimate` 過濾。
+- [X] T009 演進 data / themes / validators：在 `src/data/validators.ts` 將卡牌 id 正則放寬為接受 `val-\d{3}`，並拒絕 `val-###-{base|intimate}` 後綴；只修改 values 所需最小規則。
+- [X] T010 演進 data / themes / validators：在 `src/data/validators.ts` 的 `ThemeFileSchema.superRefine` 將 `values` 與 `desire` 一樣豁免 `isIntimate` 必填，且不移除前四主題 intimate 規則。
+- [X] T011 演進 types / constants：在 `src/types/index.ts` 的 `VALID_THEME_IDS` 加入 `'values'`，讓 `ThemeId`、`isValidThemeId`、router guard 與資料聚合可共同接受第 6 主題。
+- [X] T012 同步 unit tests：在 `tests/unit/utils/cardsData.spec.ts` 與 `tests/unit/utils/cards-schema.test.ts` 同步內嵌 id 正則，確保全資料掃描接受 `des-###`、`val-###` 與既有 `{prefix}-###-{base|intimate}`。（因與 T005 / T006 共動 `cards-schema.test.ts`，不與其平行，故不標 [P]）
 
 **Checkpoint**: 共用 schema / 型別 / validator 已可承接 `values` 25 張、`val-###`、省略 `isIntimate`，且既有五主題規則不退化。
 
@@ -57,20 +57,20 @@
 
 ### Tests for User Story 1（先寫，確保 Red）
 
-- [ ] T013 [P] [US1] 新增 data / themes 單元測試：`tests/unit/data/values-theme.test.ts` 驗證 `src/data/themes/values.json` 通過 `ThemeFileSchema`、總數恰 25、id 為 `val-001` 至 `val-025`、`level` 只為 1/2/3、所有卡省略 `isIntimate`。
-- [ ] T014 [P] [US1] 新增 data / themes 單元測試：在 `tests/unit/data/values-theme.test.ts` 驗證 25 張 values 卡的 `text.zh`、`text.en`、`text.th`、`text.ja` 皆非空（結構檢查）。`zh` / `en` 之真實文案（非 placeholder）驗證移至 US2 的 T024，避免 US1 MVP 依賴 US2 內容（見 F4）。
-- [ ] T015 [P] [US1] 新增 i18n 單元測試：在 `tests/unit/composables/useI18n.test.ts` 驗證 `theme.values.name`、`theme.values.englishShortName`、`theme.values.description` 於 `src/i18n/zh-TW.json` 與 `src/i18n/en.json` 皆存在且非空。**來源界定（F2）**：預覽實際渲染的是 `zh-TW.json` 的 `theme.values.englishShortName`（必備）；`name` / `description` 於 i18n 僅為結構對齊，values 名稱／描述／記憶點的單一真實來源為 `src/data/themes/values.json`（見 T016 / T023 / T029）。
-- [ ] T016 [P] [US1] 擴充 components 單元測試：在 `tests/unit/components/ThemePreview.test.ts` 驗證 values 預覽顯示價值排序、金錢與安全感、家庭與親密邊界、生活方向、承諾與未來、社交與邊界的精神，並顯示靈魂共振記憶點（來源為 `src/data/themes/values.json` 的 `description.zh`，即 `ThemePreview` 實際渲染欄位）。
-- [ ] T017 [P] [US1] 擴充 components 單元測試：在 `tests/unit/components/ThemeCardDeck.test.ts` 驗證首頁主題清單包含第 6 主題 values，且名稱 / 簡述可從 i18n 與主題資料外部化取得。
+- [X] T013 [P] [US1] 新增 data / themes 單元測試：`tests/unit/data/values-theme.test.ts` 驗證 `src/data/themes/values.json` 通過 `ThemeFileSchema`、總數恰 25、id 為 `val-001` 至 `val-025`、`level` 只為 1/2/3、所有卡省略 `isIntimate`。
+- [X] T014 [P] [US1] 新增 data / themes 單元測試：在 `tests/unit/data/values-theme.test.ts` 驗證 25 張 values 卡的 `text.zh`、`text.en`、`text.th`、`text.ja` 皆非空（結構檢查）。`zh` / `en` 之真實文案（非 placeholder）驗證移至 US2 的 T024，避免 US1 MVP 依賴 US2 內容（見 F4）。
+- [X] T015 [P] [US1] 新增 i18n 單元測試：在 `tests/unit/composables/useI18n.test.ts` 驗證 `theme.values.name`、`theme.values.englishShortName`、`theme.values.description` 於 `src/i18n/zh-TW.json` 與 `src/i18n/en.json` 皆存在且非空。**來源界定（F2）**：預覽實際渲染的是 `zh-TW.json` 的 `theme.values.englishShortName`（必備）；`name` / `description` 於 i18n 僅為結構對齊，values 名稱／描述／記憶點的單一真實來源為 `src/data/themes/values.json`（見 T016 / T023 / T029）。
+- [X] T016 [P] [US1] 擴充 components 單元測試：在 `tests/unit/components/ThemePreview.test.ts` 驗證 values 預覽顯示價值排序、金錢與安全感、家庭與親密邊界、生活方向、承諾與未來、社交與邊界的精神，並顯示靈魂共振記憶點（來源為 `src/data/themes/values.json` 的 `description.zh`，即 `ThemePreview` 實際渲染欄位）。
+- [X] T017 [P] [US1] 擴充 components 單元測試：在 `tests/unit/components/ThemeCardDeck.test.ts` 驗證首頁主題清單包含第 6 主題 values，且名稱 / 簡述可從 i18n 與主題資料外部化取得。
 
 ### Implementation for User Story 1
 
-- [ ] T018 [US1] 新增 data / themes：建立 `src/data/themes/values.json`，含 `id: "values"`、雙語 `name` / `description` / `endMessage`、6 個 hex 色票、25 張 `val-001` 至 `val-025` 卡、四語 `text`、`level` 1/2/3，且不寫入 `isIntimate`。
-- [ ] T019 [US1] 演進 data / themes：在 `src/data/index.ts` import `src/data/themes/values.json` 並加入 `themeFiles`，使 `cardsData.themes` 與 `cardsData.cards` 自動聚合 values。
-- [ ] T020 [P] [US1] 演進 i18n：在 `src/i18n/zh-TW.json` 新增 `theme.values` 的 `name`、`englishShortName`、`description`，並將 `home.description` 中「五個主題」改為不硬編主題數的繁中文案。
-- [ ] T021 [P] [US1] 演進 i18n：在 `src/i18n/en.json` 新增 `theme.values` 的 `name`、`englishShortName`、`description`，並將 `home.description` 中 `five relationship themes` 改為不硬編主題數的英文文案。
-- [ ] T022 [US1] 驗證 views / components：確認 `src/views/HomeView.vue` 與 `src/components/home/ThemeCardDeck.vue` 以 `cardsData.themes` / i18n 資料驅動顯示 values；若發現主題數硬編，改為資料驅動並保留 Tailwind v4 utility-first。
-- [ ] T023 [US1] 驗證 views / components：確認 `src/components/home/ThemePreview.vue` 對 values 使用外部化文案——主題描述取自 `values.json` 的 `description.zh`（實際渲染欄位）、英文短名取自 i18n `theme.values.englishShortName`；若發現 hardcoded 主題分支，改為資料驅動。
+- [X] T018 [US1] 新增 data / themes：建立 `src/data/themes/values.json`，含 `id: "values"`、雙語 `name` / `description` / `endMessage`、6 個 hex 色票、25 張 `val-001` 至 `val-025` 卡、四語 `text`、`level` 1/2/3，且不寫入 `isIntimate`。
+- [X] T019 [US1] 演進 data / themes：在 `src/data/index.ts` import `src/data/themes/values.json` 並加入 `themeFiles`，使 `cardsData.themes` 與 `cardsData.cards` 自動聚合 values。
+- [X] T020 [P] [US1] 演進 i18n：在 `src/i18n/zh-TW.json` 新增 `theme.values` 的 `name`、`englishShortName`、`description`，並將 `home.description` 中「五個主題」改為不硬編主題數的繁中文案。
+- [X] T021 [P] [US1] 演進 i18n：在 `src/i18n/en.json` 新增 `theme.values` 的 `name`、`englishShortName`、`description`，並將 `home.description` 中 `five relationship themes` 改為不硬編主題數的英文文案。
+- [X] T022 [US1] 驗證 views / components：確認 `src/views/HomeView.vue` 與 `src/components/home/ThemeCardDeck.vue` 以 `cardsData.themes` / i18n 資料驅動顯示 values；若發現主題數硬編，改為資料驅動並保留 Tailwind v4 utility-first。
+- [X] T023 [US1] 驗證 views / components：確認 `src/components/home/ThemePreview.vue` 對 values 使用外部化文案——主題描述取自 `values.json` 的 `description.zh`（實際渲染欄位）、英文短名取自 i18n `theme.values.englishShortName`；若發現 hardcoded 主題分支，改為資料驅動。
 
 **Checkpoint**: US1 可獨立驗證為 MVP：第 6 主題已註冊、資料通過 25 張規則、首頁名稱與主題預覽能辨識 values 定位（記憶點於預覽呈現）。
 

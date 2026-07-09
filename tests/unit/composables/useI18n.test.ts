@@ -3,6 +3,8 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { defineComponent, h, nextTick } from 'vue'
 
 import { useI18n } from '@/composables/useI18n'
+import en from '@/i18n/en.json'
+import zhTw from '@/i18n/zh-TW.json'
 
 /**
  * T050：useI18n composable 單元測試。
@@ -44,6 +46,27 @@ describe('useI18n', () => {
 
     expect(t('this.key.does.not.exist')).toBe('this.key.does.not.exist')
     expect(t('home.nonexistent')).toBe('home.nonexistent')
+  })
+
+  /**
+   * T015：theme.values 鍵於 zh-TW 與 en 皆存在且非空。
+   * 來源界定（F2）：預覽實際渲染的是 zh-TW.json 的 theme.values.englishShortName（必備）；
+   * name / description 於 i18n 僅為與其他主題的結構對齊，
+   * values 名稱／描述／記憶點的單一真實來源為 src/data/themes/values.json。
+   */
+  it.each([
+    ['zh-TW', zhTw],
+    ['en', en],
+  ] as const)('%s 的 theme.values 鍵應存在且 name / englishShortName / description 非空', (_locale, messages) => {
+    const valuesEntry = (messages.theme as Record<string, Record<string, string> | undefined>)
+      .values
+
+    expect(valuesEntry).toBeDefined()
+    for (const key of ['name', 'englishShortName', 'description'] as const) {
+      const value = valuesEntry?.[key]
+      expect(typeof value, `theme.values.${key} 應為字串`).toBe('string')
+      expect((value ?? '').trim().length, `theme.values.${key} 應非空`).toBeGreaterThan(0)
+    }
   })
 
   it('在模板中使用 t() 時，locale 變更會觸發重新渲染', async () => {

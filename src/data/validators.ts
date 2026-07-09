@@ -10,7 +10,7 @@ const CardTextSchema = z.object({
 
 /** 單張卡牌（無 theme 欄位，由 index.ts 聚合時注入） */
 export const ThemeCardSchema = z.object({
-  id: z.string().regex(/^(des-\d{3}|(?!des-)[a-z]+-\d{3}-(base|intimate))$/),
+  id: z.string().regex(/^(des-\d{3}|val-\d{3}|(?!des-|val-)[a-z]+-\d{3}-(base|intimate))$/),
   isIntimate: z.boolean().optional(),
   level: z.union([z.literal(1), z.literal(2), z.literal(3)]),
   text: CardTextSchema,
@@ -35,7 +35,7 @@ export const ThemeFileSchema = z.object({
   endMessage: z.object({ zh: z.string().min(1), en: z.string().min(1) }),
   cards: z.array(ThemeCardSchema).min(1),
 }).superRefine((themeFile, ctx) => {
-  if (themeFile.id === 'desire') {
+  if (themeFile.id === 'desire' || themeFile.id === 'values') {
     return
   }
 
@@ -46,7 +46,7 @@ export const ThemeFileSchema = z.object({
 
     ctx.addIssue({
       code: z.ZodIssueCode.custom,
-      message: '非 desire 主題的卡牌必須明確提供 isIntimate。',
+      message: '非 desire / values 主題的卡牌必須明確提供 isIntimate。',
       path: ['cards', index, 'isIntimate'],
     })
   })

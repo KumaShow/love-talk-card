@@ -5,7 +5,7 @@
   },
   "home": {
     "title": "挑選一副牌堆",
-    "description": "五個主題，五副蓋著的卡牌，點選一副就開始今晚的對話。",
+    "description": "挑一副蓋著的卡牌，開始今晚的對話。",
     "intimateMode": "私密模式",
     "intimateModeHint": "加入 5 張更貼近身體與情感的題目。",
     "startHint": "點選任一主題即可開始；成人親密主題會先請你確認。",
@@ -42,6 +42,11 @@
       "name": "慾望與身體親密",
       "englishShortName": "Desire",
       "description": "專為成年伴侶設計，溫柔談身體界線、親密邀請、性需求與同意安全。"
+    },
+    "values": {
+      "name": "價值觀與未來",
+      "englishShortName": "Values",
+      "description": "從價值排序、金錢與安全感，到家庭、生活方向、承諾與社交邊界，在生活選擇裡看見彼此靈魂共振。"
     }
   },
   "actions": {

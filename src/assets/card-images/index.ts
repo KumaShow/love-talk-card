@@ -38,4 +38,9 @@ export const CARD_VISUALS: Record<ThemeId, CardVisual> = {
     background: desireBackground,
     frame: desireFrame,
   },
+  // values 專屬卡面美術尚未產出，暫以 trust 視覺代用；正式資源到位後僅需替換此映射。
+  values: {
+    background: trustBackground,
+    frame: trustFrame,
+  },
 }
