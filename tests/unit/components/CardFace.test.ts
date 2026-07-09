@@ -64,4 +64,18 @@ describe('CardFace', () => {
     )
     expect(wrapper.find('[data-test="card-frame"]').attributes('src')).toContain(frameName)
   })
+
+  /**
+   * T026（US2）：values 卡面顯示目前語言文案，且不依賴 isIntimate 徽章 / 浮水印。
+   * values 無 intimate 分層，卡面不應出現私密指示元素。
+   */
+  it('values 卡面顯示卡牌 zh 文案，且不出現 intimate 徽章與浮水印', () => {
+    const card = findCard('val-001')
+
+    const wrapper = mount(CardFace, { props: { card } })
+
+    expect(wrapper.find('[data-test="card-primary-text"]').text()).toBe(card.text.zh)
+    expect(wrapper.find('[data-test="intimate-indicator"]').exists()).toBe(false)
+    expect(wrapper.find('[data-test="intimate-watermark"]').exists()).toBe(false)
+  })
 })

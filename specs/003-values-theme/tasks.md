@@ -84,16 +84,16 @@
 
 ### Tests for User Story 2（先寫，確保 Red）
 
-- [ ] T024 [P] [US2] 新增 content rules 單元測試：在 `tests/unit/data/values-theme.test.ts` 驗證 25 張 values 卡 `text.zh` / `text.en` 為真實文案（非 placeholder，承接自 T014 移出的斷言），且不含相容性分數、對錯評分、命令伴侶改變、逼迫表態等禁用措辭關鍵字（禁用字集與 T035 共用同一常數，見 F8）。
-- [ ] T025 [P] [US2] 新增 content rules 單元測試：在 `tests/unit/data/values-theme.test.ts` 驗證 values 卡 `level` 1/2/3 皆有分布，且測試不以 level 推導 intimate 或敏感題材分類。
-- [ ] T026 [P] [US2] 擴充 card UI 單元測試：在 `tests/unit/components/CardFace.test.ts` 驗證 values 卡面可顯示四語文字來源中的目前語言文案，且不依賴 `isIntimate` 徽章或 intimate 提示。
+- [X] T024 [P] [US2] 新增 content rules 單元測試：在 `tests/unit/data/values-theme.test.ts` 驗證 25 張 values 卡 `text.zh` / `text.en` 為真實文案（非 placeholder，承接自 T014 移出的斷言），且不含相容性分數、對錯評分、命令伴侶改變、逼迫表態等禁用措辭關鍵字（禁用字集與 T035 共用同一常數，見 F8）。
+- [X] T025 [P] [US2] 新增 content rules 單元測試：在 `tests/unit/data/values-theme.test.ts` 驗證 values 卡 `level` 1/2/3 皆有分布，且測試不以 level 推導 intimate 或敏感題材分類。
+- [X] T026 [P] [US2] 擴充 card UI 單元測試：在 `tests/unit/components/CardFace.test.ts` 驗證 values 卡面可顯示四語文字來源中的目前語言文案，且不依賴 `isIntimate` 徽章或 intimate 提示。
 
 ### Implementation for User Story 2
 
-- [ ] T027 [US2] 撰寫 data / themes 四語卡牌文案：完成 `src/data/themes/values.json` 25 張 values 卡，`zh` / `en` 為真實文案，`th` 比照現況填入可用文案或既有 placeholder 策略，`ja` 依既有模式以英文鏡射佔位。
-- [ ] T028 [US2] 校對 data / themes 內容覆蓋：在 `src/data/themes/values.json` 確認六面向皆有覆蓋（價值排序、金錢與安全感、家庭與親密邊界、生活方向、承諾與未來、社交與邊界），總數 25 為唯一硬檢，逐面向 4/4/4/4/4/5 僅作 ±1 規劃目標。
-- [ ] T029 [US2] 校對文案一致性：values 名稱與「靈魂共振」記憶點的權威來源為 `src/data/themes/values.json`（`description`，預覽渲染）；校對 `src/i18n/zh-TW.json`、`src/i18n/en.json` 的 `theme.values.name` / `englishShortName` 與 `home.description` 一致傳達「價值觀與未來」且無硬編主題總數。首頁主題卡僅顯示名稱（不含描述），故記憶點一致性以 `values.json` 與預覽為準（對齊 F1 / F2）。
-- [ ] T030 [US2] 建立 docs / content rules 審查記錄：新增 `specs/003-values-theme/content-review.md`，逐張記錄 25 張 values 卡通過「非審判、非測驗、允許差異、可保留、可再談」檢查。
+- [X] T027 [US2] 撰寫 data / themes 四語卡牌文案：完成 `src/data/themes/values.json` 25 張 values 卡，`zh` / `en` 為真實文案，`th` 比照現況填入可用文案或既有 placeholder 策略，`ja` 依既有模式以英文鏡射佔位。
+- [X] T028 [US2] 校對 data / themes 內容覆蓋：在 `src/data/themes/values.json` 確認六面向皆有覆蓋（價值排序、金錢與安全感、家庭與親密邊界、生活方向、承諾與未來、社交與邊界），總數 25 為唯一硬檢，逐面向 4/4/4/4/4/5 僅作 ±1 規劃目標。
+- [X] T029 [US2] 校對文案一致性：values 名稱與「靈魂共振」記憶點的權威來源為 `src/data/themes/values.json`（`description`，預覽渲染）；校對 `src/i18n/zh-TW.json`、`src/i18n/en.json` 的 `theme.values.name` / `englishShortName` 與 `home.description` 一致傳達「價值觀與未來」且無硬編主題總數。首頁主題卡僅顯示名稱（不含描述），故記憶點一致性以 `values.json` 與預覽為準（對齊 F1 / F2）。
+- [X] T030 [US2] 建立 docs / content rules 審查記錄：新增 `specs/003-values-theme/content-review.md`，逐張記錄 25 張 values 卡通過「非審判、非測驗、允許差異、可保留、可再談」檢查。
 
 **Checkpoint**: values 25 張卡牌與四語文案已可支撐卡面體驗，且首頁 / 預覽 / 卡面語氣一致。
 
