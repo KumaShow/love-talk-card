@@ -1,0 +1,81 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "values-theme.schema.json",
+  "title": "Values Theme File",
+  "description": "src/data/themes/values.json 的結構契約。沿用既有 ThemeFileSchema（主題層雙語 zh+en、6 色票、四語卡文），並落實 003-values-theme 的規則放寬：id 使用 val-NNN 無 base/intimate 後綴、isIntimate 省略（比照 desire）、卡數固定 25、level 為內容深度不作遊玩篩選。唯一 runtime 卡數下限為 ThemeFileSchema 的 min(1)；本契約以 minItems/maxItems=25 落實 values 專屬的總數硬檢。",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "name", "description", "colors", "endMessage", "cards"],
+  "properties": {
+    "id": { "const": "values" },
+    "name": { "$ref": "#/$defs/bilingual" },
+    "description": { "$ref": "#/$defs/bilingual" },
+    "endMessage": { "$ref": "#/$defs/bilingual" },
+    "colors": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["primary", "secondary", "background", "backgroundEnd", "text", "cardBack"],
+      "properties": {
+        "primary": { "$ref": "#/$defs/hex" },
+        "secondary": { "$ref": "#/$defs/hex" },
+        "background": { "$ref": "#/$defs/hex" },
+        "backgroundEnd": { "$ref": "#/$defs/hex" },
+        "text": { "$ref": "#/$defs/hex" },
+        "cardBack": { "$ref": "#/$defs/hex" }
+      }
+    },
+    "cards": {
+      "type": "array",
+      "minItems": 25,
+      "maxItems": 25,
+      "description": "values 初版固定 25 張（唯一硬檢的總數）；六面向 4/4/4/4/4/5 為規劃目標，容許 ±1，不逐面向硬檢",
+      "items": { "$ref": "#/$defs/valuesCard" }
+    }
+  },
+  "$defs": {
+    "bilingual": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["zh", "en"],
+      "properties": {
+        "zh": { "type": "string", "minLength": 1 },
+        "en": { "type": "string", "minLength": 1 }
+      }
+    },
+    "hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}$" },
+    "valuesCard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "level", "text"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^val-\\d{3}$",
+          "description": "values 卡 id，val-001～val-025，無 base/intimate 後綴（FR-006 / DR-001）"
+        },
+        "isIntimate": {
+          "type": "boolean",
+          "enum": [false],
+          "description": "選填；若出現必為 false。values 不使用 intimate 分層，建議直接省略此欄位（FR-005 / DR-002）"
+        },
+        "level": {
+          "type": "integer",
+          "enum": [1, 2, 3],
+          "description": "內容深度（情緒暴露／承諾重量），與題材敏感度脫鉤；level 3 不等於最敏感題材，不作遊玩篩選（FR-007）"
+        },
+        "text": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["zh", "en", "th", "ja"],
+          "description": "四語系必填且非空；zh/en 為權威真實內容，th 比照現況、ja 沿用英文鏡射佔位（FR-011 / research R-005）",
+          "properties": {
+            "zh": { "type": "string", "minLength": 1 },
+            "en": { "type": "string", "minLength": 1 },
+            "th": { "type": "string", "minLength": 1 },
+            "ja": { "type": "string", "minLength": 1 }
+          }
+        }
+      }
+    }
+  }
+}

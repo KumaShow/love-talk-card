@@ -47,6 +47,24 @@ describe('useDeck', () => {
     }
   })
 
+  it('buildDeck() 建立 values 牌組時不受私密模式影響，皆為同一組 25 張', () => {
+    const deck = useDeck()
+
+    const withoutIntimateMode = deck.buildDeck('values', allCards, false)
+    const withIntimateMode = deck.buildDeck('values', allCards, true)
+
+    for (const built of [withoutIntimateMode, withIntimateMode]) {
+      expect(built).toHaveLength(25)
+      expect(built.every((card) => card.theme === 'values')).toBe(true)
+      expect(built.some((card) => card.isIntimate === true)).toBe(false)
+    }
+
+    // values 不走 intimateMode / isIntimate 過濾：兩種模式必為同一組卡牌 id。
+    const idsWithoutIntimateMode = withoutIntimateMode.map((card) => card.id).sort()
+    const idsWithIntimateMode = withIntimateMode.map((card) => card.id).sort()
+    expect(idsWithIntimateMode).toEqual(idsWithoutIntimateMode)
+  })
+
   it('drawCard() 應將卡牌 ID 加入 drawnCardIds 並推進索引', () => {
     const deck = useDeck()
     const built = deck.buildDeck('interaction', allCards, false)

@@ -73,6 +73,25 @@ describe('ThemeCardDeck', () => {
     expect(style).toMatch(/--color-card:\s*#5BA4C0/i)
   })
 
+  /**
+   * T017：首頁主題清單包含第 6 主題 values。
+   * 名稱由主題資料（values.json 的 name.zh）外部化取得，
+   * 卡面背景與外框需有可用資源（初版可暫代既有視覺，故不硬檢特定檔名）。
+   */
+  it('首頁主題清單應包含第 6 主題 values，且名稱由主題資料外部化取得', () => {
+    const dataset = cardsData as CardsData
+    const valuesTheme = dataset.themes.find((t) => t.id === 'values')
+    expect(valuesTheme).toBeDefined()
+
+    const wrapper = mount(ThemeCardDeck, { props: { theme: valuesTheme as Theme } })
+
+    expect(wrapper.find('[data-test="theme-deck-values"]').exists()).toBe(true)
+    expect(wrapper.text()).toContain((valuesTheme as Theme).name.zh)
+    expect(wrapper.text()).toContain('價值觀與未來')
+    expect(wrapper.find('[data-test="theme-card-background"]').attributes('src')).toBeTruthy()
+    expect(wrapper.find('[data-test="theme-card-frame"]').attributes('src')).toBeTruthy()
+  })
+
   it.each([
     ['attraction', 'attraction-bg-v1.webp', 'attraction-frame-v1.png'],
     ['self', 'self-bg-v1.webp', 'self-frame-v1.png'],

@@ -1,6 +1,6 @@
 <template>
   <article
-    :class="cardFaceClass"
+    :class="[cardFaceClass, { 'values-card-face': card.theme === 'values' }]"
     :data-density="textDensity"
     data-test="card-face"
   >
@@ -46,7 +46,7 @@
       </span>
     </div>
     <p
-      :class="primaryTextClass"
+      :class="['card-primary', primaryTextClass]"
       data-test="card-primary-text"
       lang="zh-TW"
     >
@@ -154,12 +154,19 @@ const secondaryHtmlLang = computed(() => HTML_LANG_MAP[secondaryLang.value])
   -webkit-backface-visibility: hidden;
 }
 
+/* values 暫用 trust 卡面圖片；圖片中央為淺色，卡面文字需同步使用 trust 的深色文字。 */
+.values-card-face {
+  --color-ink: #2a1a3a;
+}
+
 /* meta 與次要文字：color-mix 半透明墨色，保留 scoped */
 .card-meta {
   color: color-mix(in srgb, var(--color-ink) 60%, transparent);
 }
 
+.card-primary,
 .card-secondary {
   color: color-mix(in srgb, var(--color-ink) 75%, transparent);
 }
+
 </style>

@@ -23,30 +23,31 @@ async function collectOffenders(page: Page, context: string): Promise<Offender[]
   await page.waitForLoadState('domcontentloaded')
   await page.waitForFunction(() => document.readyState === 'complete')
 
-  const rects = await page.$$eval('button, [role="button"], a', (nodes) =>
-    nodes.map((node) => {
-      const rect = node.getBoundingClientRect()
-      const style = window.getComputedStyle(node)
-      const visible =
-        rect.width > 0 &&
-        rect.height > 0 &&
-        style.visibility !== 'hidden' &&
-        style.display !== 'none'
-      const dataTest = node.getAttribute('data-test')
-      const label =
-        dataTest ??
-        node.getAttribute('aria-label') ??
-        node.textContent?.trim() ??
-        ''
-      return {
-        selector: `${node.tagName.toLowerCase()}${dataTest ? `[data-test="${dataTest}"]` : ''}`,
-        text: label.slice(0, 60),
-        w: rect.width,
-        h: rect.height,
-        visible,
-      }
-    }),
-  )
+  const interactiveElements = page.locator('button, [role="button"], a')
+  const interactiveCount = await interactiveElements.count()
+  const rects = []
+
+  // 逐一讀取 locator 的可見狀態與尺寸，避免使用 page.$$eval() 繞過 Playwright locator。
+  for (let index = 0; index < interactiveCount; index += 1) {
+    const element = interactiveElements.nth(index)
+    const box = await element.boundingBox()
+    const visible = (await element.isVisible()) && box !== null
+    if (!visible || box === null) {
+      continue
+    }
+
+    const dataTest = await element.getAttribute('data-test')
+    const ariaLabel = await element.getAttribute('aria-label')
+    const textContent = await element.innerText()
+    const label = dataTest ?? ariaLabel ?? textContent.trim()
+    rects.push({
+      selector: dataTest ? `[data-test="${dataTest}"]` : 'interactive element',
+      text: label.slice(0, 60),
+      w: box.width,
+      h: box.height,
+      visible,
+    })
+  }
 
   const visibleRects = rects.filter((entry) => entry.visible)
   expect(

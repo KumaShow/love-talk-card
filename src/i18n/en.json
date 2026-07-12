@@ -5,7 +5,7 @@
   },
   "home": {
     "title": "Choose the theme for tonight",
-    "description": "Pick one of five relationship themes that fits your mood.",
+    "description": "Pick the relationship theme that fits your mood tonight.",
     "intimateMode": "Intimate Mode",
     "intimateModeHint": "Add 5 prompts that go deeper into closeness and desire.",
     "startHint": "Tap any theme card to begin; the adult intimacy theme asks for confirmation first.",
@@ -42,6 +42,11 @@
       "name": "Desire & Physical Intimacy",
       "englishShortName": "Desire",
       "description": "For adult partners to talk gently about body boundaries, intimacy invitations, sexual needs, consent, and safety."
+    },
+    "values": {
+      "name": "Values & Future",
+      "englishShortName": "Values",
+      "description": "From value priorities, money and security, to family, life direction, commitment, and social boundaries—see your souls resonate in the choices of everyday life."
     }
   },
   "actions": {

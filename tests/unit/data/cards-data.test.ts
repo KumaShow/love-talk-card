@@ -30,6 +30,28 @@ describe('cards data', () => {
     }
   })
 
+  it('逐主題個別斷言卡數：既有四主題與 desire 各 20 張、values 25 張', () => {
+    // 主題沒有 declared-count 欄位、執行期也沒有全站卡數常數；
+    // 卡數即各主題 cards 陣列長度，因此逐主題明確列出期望值（對齊 F7），
+    // 不得以「全站 100 張」或「每主題 20 張」的共用常數斷言。
+    const expectedCardCounts: Record<string, number> = {
+      attraction: 20,
+      self: 20,
+      interaction: 20,
+      trust: 20,
+      desire: 20,
+      values: 25,
+    }
+
+    const actualThemeIds = cardsData.themes.map((theme) => theme.id).sort()
+    expect(actualThemeIds).toEqual(Object.keys(expectedCardCounts).sort())
+
+    for (const [themeId, expectedCount] of Object.entries(expectedCardCounts)) {
+      const themeCards = cardsData.cards.filter((card) => card.theme === themeId)
+      expect(themeCards, `主題 ${themeId} 的卡數應為 ${expectedCount}`).toHaveLength(expectedCount)
+    }
+  })
+
   it('既有四主題維持私密牌規則，desire 不使用私密分層', () => {
     const existingThemeIds = ['attraction', 'self', 'interaction', 'trust']
 
