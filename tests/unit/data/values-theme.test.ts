@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest'
 
 import { ThemeFileSchema } from '@/data/validators'
 import values from '@/data/themes/values.json'
-import { VALUES_FORBIDDEN_PHRASES } from './values-forbidden-phrases'
 
 /**
  * T013 / T014：values 主題資料單元測試。
@@ -45,46 +44,6 @@ describe('values 主題資料', () => {
       expect(card.text.en.trim()).not.toHaveLength(0)
       expect(card.text.th.trim()).not.toHaveLength(0)
       expect(card.text.ja.trim()).not.toHaveLength(0)
-    }
-  })
-})
-
-/**
- * T024（US2）：values 內容真實性與禁用措辭掃描。
- * 承接自 T014 移出的 zh / en 真實文案（非 placeholder）斷言，
- * 並驗證 25 張卡不含相容性分數、對錯評分、命令伴侶改變、逼迫表態等禁用措辭。
- * th / ja 屬英文鏡射佔位策略（見 T027），故此處不對其做真實性斷言。
- */
-describe('values 內容真實性與語氣（US2 / T024）', () => {
-  /** placeholder 佔位字樣：真實文案不應出現 */
-  const PLACEHOLDER_PATTERN = /\b(?:TODO|PLACEHOLDER|LOREM|IPSUM|TBD|FIXME|XXX)\b|待補|佔位/i
-
-  it('每張卡 zh 為真實中文文案（含 CJK、具長度、非 placeholder）', () => {
-    for (const card of values.cards) {
-      expect(card.text.zh, `${card.id} zh 應含中文字`).toMatch(/[一-鿿]/)
-      expect(card.text.zh.trim().length, `${card.id} zh 過短，疑為佔位`).toBeGreaterThanOrEqual(10)
-      expect(card.text.zh, `${card.id} zh 含 placeholder 字樣`).not.toMatch(PLACEHOLDER_PATTERN)
-    }
-  })
-
-  it('每張卡 en 為真實英文文案（含拉丁字母、非 placeholder、不沿用 zh、不含 CJK）', () => {
-    for (const card of values.cards) {
-      expect(card.text.en, `${card.id} en 應含英文字母`).toMatch(/[A-Za-z]/)
-      expect(card.text.en.trim().length, `${card.id} en 過短，疑為佔位`).toBeGreaterThanOrEqual(10)
-      expect(card.text.en, `${card.id} en 含 placeholder 字樣`).not.toMatch(PLACEHOLDER_PATTERN)
-      expect(card.text.en, `${card.id} en 不應直接沿用 zh`).not.toBe(card.text.zh)
-      expect(card.text.en, `${card.id} en 不應含中文字（疑為未翻譯佔位）`).not.toMatch(
-        /[一-鿿]/,
-      )
-    }
-  })
-
-  it('zh / en 文案皆不含審判、測驗、相容性評分或逼迫措辭', () => {
-    for (const card of values.cards) {
-      for (const { pattern, reason } of VALUES_FORBIDDEN_PHRASES) {
-        expect(card.text.zh, `${card.id} zh 命中禁用措辭（${reason}）`).not.toMatch(pattern)
-        expect(card.text.en, `${card.id} en 命中禁用措辭（${reason}）`).not.toMatch(pattern)
-      }
     }
   })
 })

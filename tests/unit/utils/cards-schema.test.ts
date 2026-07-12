@@ -142,6 +142,40 @@ describe('主題 JSON 檔 Zod 結構驗證', () => {
     expect(result.success).toBe(true)
   })
 
+  it('values 主題卡牌若標記 isIntimate 為 true，應無法通過 ThemeFileSchema 驗證', () => {
+    const invalidValuesThemeFile = {
+      id: 'values',
+      name: { zh: '價值觀與未來', en: 'Values & Future' },
+      description: { zh: '聊聊價值觀與未來想像', en: 'Talk about values and the future' },
+      colors: {
+        primary: '#5B6B9A',
+        secondary: '#8FA3C8',
+        background: '#1F2A44',
+        backgroundEnd: '#2E3C5C',
+        text: '#F5F7FB',
+        cardBack: '#31406B',
+      },
+      endMessage: { zh: '謝謝你們聊完這些選擇', en: 'Thank you for talking through these choices' },
+      cards: [
+        {
+          id: 'val-001',
+          isIntimate: true,
+          level: 1,
+          text: {
+            zh: '聊聊對你重要的事',
+            en: 'Talk about what matters to you',
+            th: 'Talk about what matters to you',
+            ja: 'Talk about what matters to you',
+          },
+        },
+      ],
+    }
+
+    const result = ThemeFileSchema.safeParse(invalidValuesThemeFile)
+
+    expect(result.success).toBe(false)
+  })
+
   it('非 desire 主題若省略 isIntimate，應無法通過 ThemeFileSchema 驗證', () => {
     const invalidAttraction = {
       ...attraction,

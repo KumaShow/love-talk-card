@@ -154,6 +154,11 @@ const secondaryHtmlLang = computed(() => HTML_LANG_MAP[secondaryLang.value])
   -webkit-backface-visibility: hidden;
 }
 
+/* values 暫用 trust 卡面圖片；圖片中央為淺色，卡面文字需同步使用 trust 的深色文字。 */
+.values-card-face {
+  --color-ink: #2a1a3a;
+}
+
 /* meta 與次要文字：color-mix 半透明墨色，保留 scoped */
 .card-meta {
   color: color-mix(in srgb, var(--color-ink) 60%, transparent);
@@ -164,13 +169,4 @@ const secondaryHtmlLang = computed(() => HTML_LANG_MAP[secondaryLang.value])
   color: color-mix(in srgb, var(--color-ink) 75%, transparent);
 }
 
-/* values 沿用淺色卡面視覺，文字比照其他淺色主題使用深黑色。 */
-.values-card-face .card-meta {
-  color: rgb(31 41 55 / 0.82);
-}
-
-.values-card-face .card-primary,
-.values-card-face .card-secondary {
-  color: #1f2937;
-}
 </style>

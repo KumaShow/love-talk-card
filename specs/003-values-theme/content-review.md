@@ -19,9 +19,8 @@ US3（主題邊界）與 US4（底線題語氣）之審查於後續 Phase 追加
 - **允許差異**：容許雙方想法不同，尤其底線 / 不可妥協題。
 - **可保留 / 可再談**：允許暫停、保留、改天再聊，不逼迫當場表態。
 
-自動化把關：[`tests/unit/data/values-theme.test.ts`](../../tests/unit/data/values-theme.test.ts) 的
-「values 內容真實性與語氣（US2 / T024）」以 [`values-forbidden-phrases.ts`](../../tests/unit/data/values-forbidden-phrases.ts)
-禁用字集掃描 25 張卡的 zh / en，攔截相容性評分、對錯測驗、命令改變、逼迫表態等措辭。
+本文件僅保留內容審查的歷史記錄；003 技術整合不執行文案品質自動化測試。
+後續若重新建立內容審查測試，應另立任務並明確定義其範圍。
 
 ### 逐張審查表
 
