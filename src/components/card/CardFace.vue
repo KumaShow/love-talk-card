@@ -1,6 +1,6 @@
 <template>
   <article
-    :class="cardFaceClass"
+    :class="[cardFaceClass, { 'values-card-face': card.theme === 'values' }]"
     :data-density="textDensity"
     data-test="card-face"
   >
@@ -46,7 +46,7 @@
       </span>
     </div>
     <p
-      :class="primaryTextClass"
+      :class="['card-primary', primaryTextClass]"
       data-test="card-primary-text"
       lang="zh-TW"
     >
@@ -159,7 +159,18 @@ const secondaryHtmlLang = computed(() => HTML_LANG_MAP[secondaryLang.value])
   color: color-mix(in srgb, var(--color-ink) 60%, transparent);
 }
 
+.card-primary,
 .card-secondary {
   color: color-mix(in srgb, var(--color-ink) 75%, transparent);
+}
+
+/* values 沿用淺色卡面視覺，文字比照其他淺色主題使用深黑色。 */
+.values-card-face .card-meta {
+  color: rgb(31 41 55 / 0.82);
+}
+
+.values-card-face .card-primary,
+.values-card-face .card-secondary {
+  color: #1f2937;
 }
 </style>

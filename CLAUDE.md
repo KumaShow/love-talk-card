@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Love Talk Card 是一款 Vue 3 + Vite + TypeScript 的 PWA 單頁應用，提供情侶/伴侶在手機上抽牌的對話卡牌遊戲。100 張靜態卡牌（5 主題 × 20 張；既有 4 主題各含 5 張私密牌，`desire` 為成人親密主題且無 intimate 分層）、無後端、無帳號、Mobile-First Portrait、部署到 GitHub Pages（Vue Router Hash mode）。
+Love Talk Card 是一款 Vue 3 + Vite + TypeScript 的 PWA 單頁應用，提供情侶/伴侶在手機上抽牌的對話卡牌遊戲。105 張靜態卡牌（6 主題；前四主題與 `desire` 各 20 張，`values` 25 張；前四主題含 5 張私密牌，`desire` 與 `values` 無 intimate 分層）、無後端、無帳號、Mobile-First Portrait、部署到 GitHub Pages（Vue Router Hash mode）。
 
 ## Commands
 
@@ -44,7 +44,7 @@ Husky hooks：`pre-commit` 跑 `eslint`；`commit-msg` 跑 `scripts/validate-com
 - **Utils**：`shuffle.ts`（Fisher-Yates，獨立以便測試）、`theme.ts`（`validThemeIds`、`isValidThemeId` 型別守衛；router `beforeEach` 用它把無效 `themeId` 路由導回首頁）。
 
 ### 關鍵不變量
-- **Filter 後再 Shuffle**：`useDeck.buildDeck` 先依 `themeId` + `intimateMode` 過濾，再對整體陣列洗牌。intimate 卡必須與基礎卡均勻混洗，絕對不可 append 到尾端（有對應的分布測試）。`desire` 無 intimate 分層，無論 intimateMode 設定為何都維持 20 張單一牌池。
+- **Filter 後再 Shuffle**：`useDeck.buildDeck` 先依 `themeId` + `intimateMode` 過濾，再對整體陣列洗牌。intimate 卡必須與基礎卡均勻混洗，絕對不可 append 到尾端（有對應的分布測試）。`desire` 維持 20 張、`values` 維持 25 張單一牌池，兩者無論 intimateMode 設定為何都不篩選卡牌。
 - **Session 固化**：進入 GameView 後 `gameStore.intimateModeAtStart` 與 `deckOrder` 決定一切；`settingsStore.intimateMode` 的後續變更不影響當前 session。
 - **Router**：`createWebHashHistory`（GitHub Pages 需求）；`/game/:themeId`、`/end/:themeId` 的 `meta.requiresValidThemeId` 交給 `beforeEach` 檢查。
 

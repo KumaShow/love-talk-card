@@ -60,4 +60,15 @@ describe('主題色彩 WCAG 2.1 AA 對比', () => {
     const ratio = contrastRatio(desire!.colors[fgKey], desire!.colors[bgKey])
     expect(ratio).toBeGreaterThanOrEqual(4.5)
   })
+
+  it.each(['background', 'backgroundEnd', 'cardBack'] as const)(
+    'values 的 text 對 %s 達到 AA 一般文字對比',
+    (backgroundKey) => {
+      const values = cardsData.themes.find((theme) => theme.id === 'values')
+      expect(values).toBeDefined()
+
+      const ratio = contrastRatio(values!.colors.text, values!.colors[backgroundKey])
+      expect(ratio).toBeGreaterThanOrEqual(4.5)
+    },
+  )
 })

@@ -36,7 +36,7 @@
 
 | 檔案 | 角色 |
 | --- | --- |
-| `src/data/themes/*.json` | 100 張靜態卡牌（5 主題 × 20 張；既有 4 主題各含 5 張 intimate，`desire` 無 intimate 分層） |
+| `src/data/themes/*.json` | 105 張靜態卡牌（6 主題；前四主題與 `desire` 各 20 張，`values` 25 張；`values` 無 intimate 分層） |
 | `src/data/index.ts` | 聚合各主題 JSON 成 `cardsData`，並補上卡牌的 `theme` 欄位 |
 | `src/types/index.ts` | 全域型別契約（`ThemeId`, `Card`, `GameSessionSnapshot` 等） |
 | `src/utils/theme.ts` | `validThemeIds` + `isValidThemeId` 型別守衛 |

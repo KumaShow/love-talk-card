@@ -28,4 +28,11 @@ describe('router theme guard', () => {
 
     expect(router.currentRoute.value.params.themeId).toBe('attraction')
   })
+
+  it.each(['/game/values', '/end/values'])('允許 values 路由：%s', async (path) => {
+    await router.push(path)
+    await router.isReady()
+
+    expect(router.currentRoute.value.path).toBe(path)
+  })
 })
