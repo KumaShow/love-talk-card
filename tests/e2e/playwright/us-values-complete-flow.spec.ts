@@ -1,6 +1,6 @@
 import { expect, Page, test } from '@playwright/test'
 
-const DECK_SIZE = 25
+const DECK_SIZE = 30
 
 async function waitForPickedNextReady(page: Page): Promise<void> {
   await page.locator('[data-test="picked-next"]:not([class*="picked-cta-enter"])').waitFor({ state: 'visible' })
@@ -13,8 +13,8 @@ async function drawCenterCardAndReadText(page: Page): Promise<string> {
   return ((await page.locator('[data-test="picked-view"] [data-test="card-primary-text"]').textContent()) ?? '').trim()
 }
 
-test.describe('US Values — 完整 25 張遊玩流程', () => {
-  test('抽完 25 張後進入 values 結束畫面', async ({ page }) => {
+test.describe('US Values — 完整 30 張遊玩流程', () => {
+  test('抽完 30 張後進入 values 結束畫面', async ({ page }) => {
     test.setTimeout(180_000)
     await page.goto('/')
     await page.getByTestId('theme-deck-values').click()

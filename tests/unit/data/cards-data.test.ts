@@ -30,7 +30,7 @@ describe('cards data', () => {
     }
   })
 
-  it('逐主題個別斷言卡數：既有四主題與 desire 各 20 張、values 25 張', () => {
+  it('逐主題個別斷言卡數：既有四主題與 desire 各 20 張、values 30 張', () => {
     // 主題沒有 declared-count 欄位、執行期也沒有全站卡數常數；
     // 卡數即各主題 cards 陣列長度，因此逐主題明確列出期望值（對齊 F7），
     // 不得以「全站 100 張」或「每主題 20 張」的共用常數斷言。
@@ -40,7 +40,7 @@ describe('cards data', () => {
       interaction: 20,
       trust: 20,
       desire: 20,
-      values: 25,
+      values: 30,
     }
 
     const actualThemeIds = cardsData.themes.map((theme) => theme.id).sort()

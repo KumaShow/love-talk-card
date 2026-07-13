@@ -5,8 +5,8 @@
     "en": "Values & Future"
   },
   "description": {
-    "zh": "從價值排序、金錢與安全感，到家庭、生活方向、承諾與社交邊界，在生活選擇裡看見彼此靈魂共振。",
-    "en": "From value priorities, money and security, to family, life direction, commitment, and social boundaries—see your souls resonate in the choices of everyday life."
+    "zh": "從核心價值、金錢與家庭，到生活方向、遠距、關係定位與社交界線，在生活選擇裡看見彼此有多合拍。",
+    "en": "From core values, money, and family to life direction, long distance, where you stand, and social boundaries—see how well you fit in the choices of everyday life."
   },
   "colors": {
     "primary": "#574A9E",
@@ -25,250 +25,300 @@
       "id": "val-001",
       "level": 1,
       "text": {
-        "zh": "如果要你排出目前人生最重要的三件事，會是哪三件？想聽聽每一件對你的意義。",
-        "en": "If you ranked the three things that matter most in your life right now, what would they be? I'd love to hear what each one means to you.",
-        "th": "If you ranked the three things that matter most in your life right now, what would they be? I'd love to hear what each one means to you.",
-        "ja": "If you ranked the three things that matter most in your life right now, what would they be? I'd love to hear what each one means to you."
+        "zh": "現在的你，最重視生活中的哪三件事？想聽聽它們為什麼重要。",
+        "en": "What are the three things you value most in life right now? I'd love to hear why each one matters.",
+        "th": "What are the three things you value most in life right now? I'd love to hear why each one matters.",
+        "ja": "What are the three things you value most in life right now? I'd love to hear why each one matters."
       }
     },
     {
       "id": "val-002",
       "level": 1,
       "text": {
-        "zh": "有沒有一個你一直很珍惜的原則或習慣，想讓我更了解它對你的意義？",
-        "en": "Is there a principle or habit you've always treasured that you'd like me to understand more deeply?",
-        "th": "Is there a principle or habit you've always treasured that you'd like me to understand more deeply?",
-        "ja": "Is there a principle or habit you've always treasured that you'd like me to understand more deeply?"
+        "zh": "對你來說，一段舒服的關係需要有哪些感覺？",
+        "en": "For you, what should a comfortable relationship feel like—what feelings does it need to have?",
+        "th": "For you, what should a comfortable relationship feel like—what feelings does it need to have?",
+        "ja": "For you, what should a comfortable relationship feel like—what feelings does it need to have?"
       }
     },
     {
       "id": "val-003",
-      "level": 2,
+      "level": 1,
       "text": {
-        "zh": "當工作、家人和我們的關係同時需要你，你通常怎麼取捨？你希望我怎麼陪你？",
-        "en": "When work, family, and our relationship all need you at once, how do you usually weigh them? And how would you like me to be there for you?",
-        "th": "When work, family, and our relationship all need you at once, how do you usually weigh them? And how would you like me to be there for you?",
-        "ja": "When work, family, and our relationship all need you at once, how do you usually weigh them? And how would you like me to be there for you?"
+        "zh": "現在的你，希望感情在生活裡占有什麼樣的位置？",
+        "en": "At this point in your life, what place would you like love to hold in it?",
+        "th": "At this point in your life, what place would you like love to hold in it?",
+        "ja": "At this point in your life, what place would you like love to hold in it?"
       }
     },
     {
       "id": "val-004",
-      "level": 3,
+      "level": 2,
       "text": {
-        "zh": "有沒有哪個價值對你來說幾乎不能退讓？如果我們剛好在這裡不一樣，你希望我們怎麼與這份差異相處？",
-        "en": "Is there a value you can hardly compromise on? If we happen to differ there, how would you like us to live with that difference?",
-        "th": "Is there a value you can hardly compromise on? If we happen to differ there, how would you like us to live with that difference?",
-        "ja": "Is there a value you can hardly compromise on? If we happen to differ there, how would you like us to live with that difference?"
+        "zh": "在一段關係裡，陪伴和個人自由如果有衝突，你希望彼此怎麼找到平衡？",
+        "en": "In a relationship, when time together and personal freedom pull in different directions, how would you like both sides to find a balance?",
+        "th": "In a relationship, when time together and personal freedom pull in different directions, how would you like both sides to find a balance?",
+        "ja": "In a relationship, when time together and personal freedom pull in different directions, how would you like both sides to find a balance?"
       }
     },
     {
       "id": "val-005",
-      "level": 1,
+      "level": 2,
       "text": {
-        "zh": "花錢的時候，什麼樣的消費會讓你覺得「真值得」？什麼又會讓你心疼？",
-        "en": "When it comes to spending, what feels truly worth it to you—and what makes you wince a little?",
-        "th": "When it comes to spending, what feels truly worth it to you—and what makes you wince a little?",
-        "ja": "When it comes to spending, what feels truly worth it to you—and what makes you wince a little?"
+        "zh": "過去的感情或人際經驗裡，有沒有一個你學到、現在很珍惜的原則？",
+        "en": "From past relationships or friendships, is there a principle you learned that you now hold dear?",
+        "th": "From past relationships or friendships, is there a principle you learned that you now hold dear?",
+        "ja": "From past relationships or friendships, is there a principle you learned that you now hold dear?"
       }
     },
     {
       "id": "val-006",
-      "level": 2,
+      "level": 3,
       "text": {
-        "zh": "對你來說，存到什麼程度、或過著什麼樣的生活，才算真正的「安全感」？",
-        "en": "For you, what amount of savings—or what kind of life—would feel like real security?",
-        "th": "For you, what amount of savings—or what kind of life—would feel like real security?",
-        "ja": "For you, what amount of savings—or what kind of life—would feel like real security?"
+        "zh": "有哪些對你很重要的價值，即使很喜歡一個人，也不希望自己勉強退讓？",
+        "en": "What values matter so much to you that even for someone you really like, you wouldn't want to force yourself to give them up?",
+        "th": "What values matter so much to you that even for someone you really like, you wouldn't want to force yourself to give them up?",
+        "ja": "What values matter so much to you that even for someone you really like, you wouldn't want to force yourself to give them up?"
       }
     },
     {
       "id": "val-007",
-      "level": 2,
+      "level": 1,
       "text": {
-        "zh": "如果我們的收入或花錢習慣差很多，你希望我們怎麼安排金錢，兩個人都能自在？",
-        "en": "If our incomes or spending habits turn out quite different, how could we arrange money so both of us feel at ease?",
-        "th": "If our incomes or spending habits turn out quite different, how could we arrange money so both of us feel at ease?",
-        "ja": "If our incomes or spending habits turn out quite different, how could we arrange money so both of us feel at ease?"
+        "zh": "什麼樣的花費會讓你覺得很值得？哪些事情你覺得夠用就好？",
+        "en": "What kind of spending feels truly worth it to you—and where is \"good enough\" simply enough?",
+        "th": "What kind of spending feels truly worth it to you—and where is \"good enough\" simply enough?",
+        "ja": "What kind of spending feels truly worth it to you—and where is \"good enough\" simply enough?"
       }
     },
     {
       "id": "val-008",
-      "level": 3,
+      "level": 1,
       "text": {
-        "zh": "你對「一起管錢」的想像是什麼？各管各的、部分共用，還是全部一起？可以先聊聊看，不用今天決定。",
-        "en": "How do you picture handling money together—keeping it separate, partly shared, or fully combined? We can simply explore it; nothing needs deciding today.",
-        "th": "How do you picture handling money together—keeping it separate, partly shared, or fully combined? We can simply explore it; nothing needs deciding today.",
-        "ja": "How do you picture handling money together—keeping it separate, partly shared, or fully combined? We can simply explore it; nothing needs deciding today."
+        "zh": "如果突然多了一筆可以自由運用的錢，你會比較想拿來享受生活、完成目標，還是留給未來？為什麼？",
+        "en": "If you suddenly had extra money to use freely, would you rather enjoy life with it, put it toward a goal, or save it for the future? Why?",
+        "th": "If you suddenly had extra money to use freely, would you rather enjoy life with it, put it toward a goal, or save it for the future? Why?",
+        "ja": "If you suddenly had extra money to use freely, would you rather enjoy life with it, put it toward a goal, or save it for the future? Why?"
       }
     },
     {
       "id": "val-009",
-      "level": 1,
+      "level": 2,
       "text": {
-        "zh": "你長大的家裡，有哪個相處方式是你想帶進我們的關係？有哪個是你想留在門外的？",
-        "en": "From the family you grew up in, what's one way of relating you'd like to bring into us—and one you'd rather leave at the door?",
-        "th": "From the family you grew up in, what's one way of relating you'd like to bring into us—and one you'd rather leave at the door?",
-        "ja": "From the family you grew up in, what's one way of relating you'd like to bring into us—and one you'd rather leave at the door?"
+        "zh": "你覺得一段關係發展到什麼程度，適合開始談收入、負債和儲蓄狀況？",
+        "en": "At what point in a relationship do you think it's right to start talking about income, debt, and savings?",
+        "th": "At what point in a relationship do you think it's right to start talking about income, debt, and savings?",
+        "ja": "At what point in a relationship do you think it's right to start talking about income, debt, and savings?"
       }
     },
     {
       "id": "val-010",
       "level": 2,
       "text": {
-        "zh": "逢年過節要去誰家、待多久，你心裡最理想的安排是什麼樣子？",
-        "en": "For holidays—whose family to visit and how long to stay—what arrangement feels most right in your heart?",
-        "th": "For holidays—whose family to visit and how long to stay—what arrangement feels most right in your heart?",
-        "ja": "For holidays—whose family to visit and how long to stay—what arrangement feels most right in your heart?"
+        "zh": "兩個人一起吃飯、旅行或生活時，怎麼分擔支出會讓你最舒服？",
+        "en": "When two people share meals, trips, or daily life, what way of splitting expenses feels most comfortable to you?",
+        "th": "When two people share meals, trips, or daily life, what way of splitting expenses feels most comfortable to you?",
+        "ja": "When two people share meals, trips, or daily life, what way of splitting expenses feels most comfortable to you?"
       }
     },
     {
       "id": "val-011",
-      "level": 2,
+      "level": 3,
       "text": {
-        "zh": "當家人對我們的生活有意見時，你希望我們站在哪裡？怎麼一起回應會讓你安心？",
-        "en": "When family members weigh in on our life, where would you like the two of us to stand—and how could we respond together in a way that reassures you?",
-        "th": "When family members weigh in on our life, where would you like the two of us to stand—and how could we respond together in a way that reassures you?",
-        "ja": "When family members weigh in on our life, where would you like the two of us to stand—and how could we respond together in a way that reassures you?"
+        "zh": "如果我們之中有人遇到財務困難，你覺得在開口借錢或出手幫忙之前，哪些事情需要先談清楚？",
+        "en": "If one of us ran into financial trouble, what would need to be talked through before asking for—or offering—money?",
+        "th": "If one of us ran into financial trouble, what would need to be talked through before asking for—or offering—money?",
+        "ja": "If one of us ran into financial trouble, what would need to be talked through before asking for—or offering—money?"
       }
     },
     {
       "id": "val-012",
       "level": 3,
       "text": {
-        "zh": "關於要不要小孩、什麼時候、想怎麼陪伴孩子長大，你現在最真實的想法是什麼？還沒有答案也完全可以。",
-        "en": "About having kids—whether, when, and how you'd want to raise them—what are your most honest thoughts right now? It's completely okay not to have an answer yet.",
-        "th": "About having kids—whether, when, and how you'd want to raise them—what are your most honest thoughts right now? It's completely okay not to have an answer yet.",
-        "ja": "About having kids—whether, when, and how you'd want to raise them—what are your most honest thoughts right now? It's completely okay not to have an answer yet."
+        "zh": "關於未來想不想有小孩，你現在真實的想法是什麼？還沒有答案、或有猶豫，也都想聽聽。",
+        "en": "About whether you'd want kids someday—what are your honest thoughts right now? No answer yet, or mixed feelings, are just as welcome.",
+        "th": "About whether you'd want kids someday—what are your honest thoughts right now? No answer yet, or mixed feelings, are just as welcome.",
+        "ja": "About whether you'd want kids someday—what are your honest thoughts right now? No answer yet, or mixed feelings, are just as welcome."
       }
     },
     {
       "id": "val-013",
-      "level": 1,
+      "level": 3,
       "text": {
-        "zh": "如果可以自由選擇，你最想住在什麼樣的地方、過什麼樣的日常？",
-        "en": "If you could choose freely, where would you most want to live, and what would your everyday look like?",
-        "th": "If you could choose freely, where would you most want to live, and what would your everyday look like?",
-        "ja": "If you could choose freely, where would you most want to live, and what would your everyday look like?"
+        "zh": "如果未來需要長期照顧或支援家人，你覺得哪些事情會自己決定，哪些會想和身邊的另一半一起討論？",
+        "en": "If you ever needed to support or care for family long-term, which decisions would you make on your own, and which would you want to talk through with your other half?",
+        "th": "If you ever needed to support or care for family long-term, which decisions would you make on your own, and which would you want to talk through with your other half?",
+        "ja": "If you ever needed to support or care for family long-term, which decisions would you make on your own, and which would you want to talk through with your other half?"
       }
     },
     {
       "id": "val-014",
       "level": 1,
       "text": {
-        "zh": "最近有沒有什麼新的興趣或夢想，正在你心裡慢慢發芽？想聽你說說。",
-        "en": "Has a new interest or dream been quietly taking root in you lately? I'd love to hear about it.",
-        "th": "Has a new interest or dream been quietly taking root in you lately? I'd love to hear about it.",
-        "ja": "Has a new interest or dream been quietly taking root in you lately? I'd love to hear about it."
+        "zh": "如果可以自由安排，你理想中的普通一天會怎麼度過？",
+        "en": "If you could arrange it freely, what would your ideal ordinary day look like?",
+        "th": "If you could arrange it freely, what would your ideal ordinary day look like?",
+        "ja": "If you could arrange it freely, what would your ideal ordinary day look like?"
       }
     },
     {
       "id": "val-015",
       "level": 2,
       "text": {
-        "zh": "想像五年後的我們，你看見什麼樣的畫面？哪一部分最讓你期待？",
-        "en": "When you picture us five years from now, what do you see? Which part excites you the most?",
-        "th": "When you picture us five years from now, what do you see? Which part excites you the most?",
-        "ja": "When you picture us five years from now, what do you see? Which part excites you the most?"
+        "zh": "如果重要的工作機會和感情發展無法同時兼顧，你做決定時最在意哪些事？",
+        "en": "If a big career opportunity and a growing relationship couldn't both fit, what would matter most to you in making the call?",
+        "th": "If a big career opportunity and a growing relationship couldn't both fit, what would matter most to you in making the call?",
+        "ja": "If a big career opportunity and a growing relationship couldn't both fit, what would matter most to you in making the call?"
       }
     },
     {
       "id": "val-016",
-      "level": 3,
+      "level": 2,
       "text": {
-        "zh": "如果有一天我們對生活方向想得不一樣——像是搬家、轉職、出國——你希望我們怎麼一起做決定？",
-        "en": "If one day we see our life direction differently—moving, changing careers, going abroad—how would you like us to make that decision together?",
-        "th": "If one day we see our life direction differently—moving, changing careers, going abroad—how would you like us to make that decision together?",
-        "ja": "If one day we see our life direction differently—moving, changing careers, going abroad—how would you like us to make that decision together?"
+        "zh": "遠距時，你希望彼此分享哪些日常，才會感覺有參與對方的生活，又不會失去自己的空間？",
+        "en": "In a long-distance stretch, what parts of daily life would you want to share so you both feel part of each other's world—without losing your own space?",
+        "th": "In a long-distance stretch, what parts of daily life would you want to share so you both feel part of each other's world—without losing your own space?",
+        "ja": "In a long-distance stretch, what parts of daily life would you want to share so you both feel part of each other's world—without losing your own space?"
       }
     },
     {
       "id": "val-017",
-      "level": 1,
+      "level": 3,
       "text": {
-        "zh": "對你來說，「承諾」在日常裡長什麼樣子？哪些小事會讓你感覺到自己被好好承諾著？",
-        "en": "What does commitment look like in everyday life for you? Which small things make you feel genuinely committed to?",
-        "th": "What does commitment look like in everyday life for you? Which small things make you feel genuinely committed to?",
-        "ja": "What does commitment look like in everyday life for you? Which small things make you feel genuinely committed to?"
+        "zh": "如果我們因為不同城市或國家而遠距，當關係越來越認真時，你覺得縮短距離需要哪些條件？",
+        "en": "If we were long-distance across cities or countries and things got serious, what would it take, in your view, to close the distance?",
+        "th": "If we were long-distance across cities or countries and things got serious, what would it take, in your view, to close the distance?",
+        "ja": "If we were long-distance across cities or countries and things got serious, what would it take, in your view, to close the distance?"
       }
     },
     {
       "id": "val-018",
-      "level": 2,
+      "level": 1,
       "text": {
-        "zh": "關於婚姻或長期關係的樣子，你心裡有什麼想像或猶豫？都可以慢慢說。",
-        "en": "About marriage, or the shape of a long-term relationship, what hopes or hesitations live in you? Take all the time you need.",
-        "th": "About marriage, or the shape of a long-term relationship, what hopes or hesitations live in you? Take all the time you need.",
-        "ja": "About marriage, or the shape of a long-term relationship, what hopes or hesitations live in you? Take all the time you need."
+        "zh": "對你來說，從聊天、約會到確認關係，哪些事情需要彼此明確說開，而不能只靠感覺猜？",
+        "en": "From chatting to dating to becoming official—which things do you think need to be said out loud, rather than left to guesswork?",
+        "th": "From chatting to dating to becoming official—which things do you think need to be said out loud, rather than left to guesswork?",
+        "ja": "From chatting to dating to becoming official—which things do you think need to be said out loud, rather than left to guesswork?"
       }
     },
     {
       "id": "val-019",
       "level": 2,
       "text": {
-        "zh": "你希望我們多久聊一次「我們接下來要去哪」？用什麼方式聊，你會最放鬆？",
-        "en": "How often would you like us to talk about where we're heading next—and in what setting would that feel most relaxed for you?",
-        "th": "How often would you like us to talk about where we're heading next—and in what setting would that feel most relaxed for you?",
-        "ja": "How often would you like us to talk about where we're heading next—and in what setting would that feel most relaxed for you?"
+        "zh": "哪些行程或社交安排，你會希望對方主動告訴你？哪些則屬於個人自由，不需要特別說明？",
+        "en": "Which plans or social events would you want the other person to mention upfront—and which count as personal freedom, no explanation needed?",
+        "th": "Which plans or social events would you want the other person to mention upfront—and which count as personal freedom, no explanation needed?",
+        "ja": "Which plans or social events would you want the other person to mention upfront—and which count as personal freedom, no explanation needed?"
       }
     },
     {
       "id": "val-020",
-      "level": 3,
+      "level": 2,
       "text": {
-        "zh": "如果未來某一天，我們其中一個人想放慢腳步或改變原本的計劃，你希望另一個人怎麼接住他？",
-        "en": "If someday one of us wants to slow down or change the plan we made, how would you like the other to catch and hold that?",
-        "th": "If someday one of us wants to slow down or change the plan we made, how would you like the other to catch and hold that?",
-        "ja": "If someday one of us wants to slow down or change the plan we made, how would you like the other to catch and hold that?"
+        "zh": "什麼樣的感覺或情況，會（或曾經）讓你決定專心對待一個人，不再考慮其他可能？",
+        "en": "What feeling or situation would—or once did—make you decide to focus on one person and stop considering other possibilities?",
+        "th": "What feeling or situation would—or once did—make you decide to focus on one person and stop considering other possibilities?",
+        "ja": "What feeling or situation would—or once did—make you decide to focus on one person and stop considering other possibilities?"
       }
     },
     {
       "id": "val-021",
-      "level": 1,
+      "level": 3,
       "text": {
-        "zh": "和朋友相處的時間跟只有我們兩個人的時光，你理想中的比例大概是多少？",
-        "en": "Between time with friends and time that's just ours, what balance feels ideal to you?",
-        "th": "Between time with friends and time that's just ours, what balance feels ideal to you?",
-        "ja": "Between time with friends and time that's just ours, what balance feels ideal to you?"
+        "zh": "如果認真相處一段時間後，發現彼此其實不太適合，你希望我們怎麼把這件事說開？",
+        "en": "If, after really trying, we found we weren't quite right for each other, how would you want us to talk about it openly?",
+        "th": "If, after really trying, we found we weren't quite right for each other, how would you want us to talk about it openly?",
+        "ja": "If, after really trying, we found we weren't quite right for each other, how would you want us to talk about it openly?"
       }
     },
     {
       "id": "val-022",
       "level": 1,
       "text": {
-        "zh": "有沒有哪種社交場合，你特別希望我在你身邊？或者反而想自己去就好？",
-        "en": "Are there social situations where you especially want me by your side—or ones you'd honestly rather go to on your own?",
-        "th": "Are there social situations where you especially want me by your side—or ones you'd honestly rather go to on your own?",
-        "ja": "Are there social situations where you especially want me by your side—or ones you'd honestly rather go to on your own?"
+        "zh": "和別人互動時，什麼對你來說只是友善，什麼會開始像曖昧？",
+        "en": "In interactions with others, what reads as simply friendly to you—and where does it start to feel like flirting?",
+        "th": "In interactions with others, what reads as simply friendly to you—and where does it start to feel like flirting?",
+        "ja": "In interactions with others, what reads as simply friendly to you—and where does it start to feel like flirting?"
       }
     },
     {
       "id": "val-023",
       "level": 2,
       "text": {
-        "zh": "關於和朋友之間的界線——尤其可能被誤會的那種——你自在的範圍在哪裡？我們可以慢慢對齊，不用一次講完。",
-        "en": "About boundaries with friends—especially the kind that could be misread—where does your comfort zone sit? We can align bit by bit; it doesn't have to be settled in one talk.",
-        "th": "About boundaries with friends—especially the kind that could be misread—where does your comfort zone sit? We can align bit by bit; it doesn't have to be settled in one talk.",
-        "ja": "About boundaries with friends—especially the kind that could be misread—where does your comfort zone sit? We can align bit by bit; it doesn't have to be settled in one talk."
+        "zh": "如果我們一個是秒回型、一個是慢回型，你希望彼此怎麼理解對方的節奏，而不是用回覆速度衡量在不在乎？",
+        "en": "If one of us replies instantly and the other slowly, how could we come to understand each other's rhythm—without measuring care by reply speed?",
+        "th": "If one of us replies instantly and the other slowly, how could we come to understand each other's rhythm—without measuring care by reply speed?",
+        "ja": "If one of us replies instantly and the other slowly, how could we come to understand each other's rhythm—without measuring care by reply speed?"
       }
     },
     {
       "id": "val-024",
       "level": 2,
       "text": {
-        "zh": "在社群上公開我們的關係到什麼程度，對你來說是剛剛好的？",
-        "en": "How much of our relationship feels just right to share on social media, for you?",
-        "th": "How much of our relationship feels just right to share on social media, for you?",
-        "ja": "How much of our relationship feels just right to share on social media, for you?"
+        "zh": "如果我們確認了關係，和可能互相吸引的人保持聯絡時，哪些界線會讓你覺得安心又合理？",
+        "en": "If we were official, what boundaries would feel both safe and fair to you when staying in touch with someone there could be mutual attraction with?",
+        "th": "If we were official, what boundaries would feel both safe and fair to you when staying in touch with someone there could be mutual attraction with?",
+        "ja": "If we were official, what boundaries would feel both safe and fair to you when staying in touch with someone there could be mutual attraction with?"
       }
     },
     {
       "id": "val-025",
+      "level": 2,
+      "text": {
+        "zh": "如果社群上的互動讓我們其中一個人不安，你覺得可以先了解什麼，再討論要不要調整？",
+        "en": "If something on social media made one of us uneasy, what would be worth understanding first, before discussing whether anything should change?",
+        "th": "If something on social media made one of us uneasy, what would be worth understanding first, before discussing whether anything should change?",
+        "ja": "If something on social media made one of us uneasy, what would be worth understanding first, before discussing whether anything should change?"
+      }
+    },
+    {
+      "id": "val-026",
       "level": 3,
       "text": {
-        "zh": "當你需要獨處或自己的空間時，想用什麼方式讓我知道？我可以怎麼回應，讓你完全不需要感到抱歉？",
-        "en": "When you need solitude or space of your own, how would you like to let me know—and how can I respond so you never feel sorry for asking?",
-        "th": "When you need solitude or space of your own, how would you like to let me know—and how can I respond so you never feel sorry for asking?",
-        "ja": "When you need solitude or space of your own, how would you like to let me know—and how can I respond so you never feel sorry for asking?"
+        "zh": "如果一方覺得只是朋友，另一方卻感覺像曖昧，你希望彼此怎麼把真正介意的行為說清楚？",
+        "en": "If one person sees \"just friends\" where the other senses flirting, how would you want the two of you to name the specific behaviors that actually bother you?",
+        "th": "If one person sees \"just friends\" where the other senses flirting, how would you want the two of you to name the specific behaviors that actually bother you?",
+        "ja": "If one person sees \"just friends\" where the other senses flirting, how would you want the two of you to name the specific behaviors that actually bother you?"
+      }
+    },
+    {
+      "id": "val-027",
+      "level": 2,
+      "text": {
+        "zh": "當我們重視的事情不一樣時，你會怎麼判斷哪些需要彼此調整，哪些可以保留差異？",
+        "en": "When we care about different things, how do you decide what needs adjusting on both sides—and what can simply stay different?",
+        "th": "When we care about different things, how do you decide what needs adjusting on both sides—and what can simply stay different?",
+        "ja": "When we care about different things, how do you decide what needs adjusting on both sides—and what can simply stay different?"
+      }
+    },
+    {
+      "id": "val-028",
+      "level": 2,
+      "text": {
+        "zh": "如果一個人想快點確認方向，另一個人還需要時間，你覺得怎麼安排會對彼此公平？",
+        "en": "If one person wants clarity soon and the other still needs time, what arrangement would feel fair to both?",
+        "th": "If one person wants clarity soon and the other still needs time, what arrangement would feel fair to both?",
+        "ja": "If one person wants clarity soon and the other still needs time, what arrangement would feel fair to both?"
+      }
+    },
+    {
+      "id": "val-029",
+      "level": 3,
+      "text": {
+        "zh": "對你來說，「善意的隱瞞」和「說謊」的界線在哪裡？什麼樣的不說你可以理解，什麼樣的會過不去？",
+        "en": "Where's the line for you between kind discretion and lying? What kinds of not-telling can you understand—and which would you struggle to get past?",
+        "th": "Where's the line for you between kind discretion and lying? What kinds of not-telling can you understand—and which would you struggle to get past?",
+        "ja": "Where's the line for you between kind discretion and lying? What kinds of not-telling can you understand—and which would you struggle to get past?"
+      }
+    },
+    {
+      "id": "val-030",
+      "level": 3,
+      "text": {
+        "zh": "如果一方坦白說某些互動讓自己不安，你覺得怎麼分辨這是需要彼此調整的界線，還是需要自己消化的不安全感？",
+        "en": "If someone admits certain interactions make them uneasy, how would you tell whether it's a boundary to adjust together—or an insecurity to work through alone?",
+        "th": "If someone admits certain interactions make them uneasy, how would you tell whether it's a boundary to adjust together—or an insecurity to work through alone?",
+        "ja": "If someone admits certain interactions make them uneasy, how would you tell whether it's a boundary to adjust together—or an insecurity to work through alone?"
       }
     }
   ]

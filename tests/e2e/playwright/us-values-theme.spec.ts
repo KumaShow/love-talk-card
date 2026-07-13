@@ -11,6 +11,6 @@ test.describe('US Values — 首頁、預覽與進入遊戲', () => {
     await page.getByTestId('preview-cta').click()
     await expect(page).toHaveURL(/#\/game\/values$/)
     await expect(page.getByTestId('fan-deck')).toBeVisible()
-    await expect(page.getByTestId('app-header-remaining')).toContainText('25')
+    await expect(page.getByTestId('app-header-remaining')).toContainText('30')
   })
 })

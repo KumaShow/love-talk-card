@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "values-theme.schema.json",
   "title": "Values Theme File",
-  "description": "src/data/themes/values.json 的結構契約。沿用既有 ThemeFileSchema（主題層雙語 zh+en、6 色票、四語卡文），並落實 003-values-theme 的規則放寬：id 使用 val-NNN 無 base/intimate 後綴、isIntimate 省略（比照 desire）、卡數固定 25、level 為內容深度不作遊玩篩選。唯一 runtime 卡數下限為 ThemeFileSchema 的 min(1)；本契約以 minItems/maxItems=25 落實 values 專屬的總數硬檢。",
+  "description": "src/data/themes/values.json 的結構契約。沿用既有 ThemeFileSchema（主題層雙語 zh+en、6 色票、四語卡文），並落實 003-values-theme 的規則放寬：id 使用 val-NNN 無 base/intimate 後綴、isIntimate 省略（比照 desire）、卡數固定 30（v6 題庫改版由 25 擴為 30）、level 為內容深度不作遊玩篩選。唯一 runtime 卡數下限為 ThemeFileSchema 的 min(1)；本契約以 minItems/maxItems=30 落實 values 專屬的總數硬檢。",
   "type": "object",
   "additionalProperties": false,
   "required": ["id", "name", "description", "colors", "endMessage", "cards"],
@@ -26,9 +26,9 @@
     },
     "cards": {
       "type": "array",
-      "minItems": 25,
-      "maxItems": 25,
-      "description": "values 初版固定 25 張（唯一硬檢的總數）；六面向 4/4/4/4/4/5 為規劃目標，容許 ±1，不逐面向硬檢",
+      "minItems": 30,
+      "maxItems": 30,
+      "description": "values v6 題庫固定 30 張（唯一硬檢的總數）；七類別 6/5/2/4/4/5/4 為規劃目標，容許 ±1，不逐類別硬檢",
       "items": { "$ref": "#/$defs/valuesCard" }
     }
   },
@@ -51,7 +51,7 @@
         "id": {
           "type": "string",
           "pattern": "^val-\\d{3}$",
-          "description": "values 卡 id，val-001～val-025，無 base/intimate 後綴（FR-006 / DR-001）"
+          "description": "values 卡 id，val-001～val-030，無 base/intimate 後綴（FR-006 / DR-001）"
         },
         "isIntimate": {
           "type": "boolean",
