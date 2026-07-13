@@ -8,6 +8,8 @@ import selfBackground from './self-bg-v1.webp'
 import selfFrame from './self-frame-v1.png'
 import trustBackground from './trust-bg-v1.webp'
 import trustFrame from './trust-frame-v1.png'
+import valuesBackground from './values-bg-v1.webp'
+import valuesFrame from './values-frame-v1.png'
 
 import type { ThemeId } from '@/types'
 
@@ -38,9 +40,8 @@ export const CARD_VISUALS: Record<ThemeId, CardVisual> = {
     background: desireBackground,
     frame: desireFrame,
   },
-  // values 專屬卡面美術尚未產出，暫以 trust 視覺代用；正式資源到位後僅需替換此映射。
   values: {
-    background: trustBackground,
-    frame: trustFrame,
+    background: valuesBackground,
+    frame: valuesFrame,
   },
 }
