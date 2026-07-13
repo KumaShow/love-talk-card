@@ -77,7 +77,6 @@ describe('CardFace', () => {
     expect(wrapper.find('[data-test="card-primary-text"]').text()).toBe(card.text.zh)
     expect(wrapper.find('[data-test="intimate-indicator"]').exists()).toBe(false)
     expect(wrapper.find('[data-test="intimate-watermark"]').exists()).toBe(false)
-    expect(wrapper.find('[data-test="card-face"]').classes()).toContain('values-card-face')
     expect(wrapper.find('[data-test="values-copy-shade"]').exists()).toBe(false)
   })
 })

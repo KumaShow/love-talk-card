@@ -1,6 +1,6 @@
 <template>
   <article
-    :class="[cardFaceClass, { 'values-card-face': card.theme === 'values' }]"
+    :class="cardFaceClass"
     :data-density="textDensity"
     data-test="card-face"
   >
