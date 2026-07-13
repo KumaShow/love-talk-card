@@ -1,6 +1,6 @@
 # Love Talk Card 💞
 
-情侶／伴侶在手機上抽牌的對話卡牌遊戲。105 張靜態卡牌（6 主題；前四主題與 desire 各 20 張，values 25 張），純前端、無帳號、Mobile-First Portrait、可安裝為 PWA 離線遊玩。
+情侶／伴侶在手機上抽牌的對話卡牌遊戲。110 張靜態卡牌（6 主題；前四主題與 desire 各 20 張，values 30 張），純前端、無帳號、Mobile-First Portrait、可安裝為 PWA 離線遊玩。
 
 > 「每一張卡牌，是一次願意靠近彼此的邀請。」
 
@@ -111,7 +111,7 @@ love-talk-card/
 ├── src/
 │   ├── components/        # Vue 元件（home/, card/, layout/, ui/）
 │   ├── composables/       # 可測試邏輯（useCard, useDeck, useTheme, useAudio, useI18n, useOrientation）
-│   ├── data/themes/*.json # 各主題的靜態卡牌資料（共 105 張）
+│   ├── data/themes/*.json # 各主題的靜態卡牌資料（共 110 張）
 │   ├── i18n/              # UI 字串（zh-TW、en）
 │   ├── stores/            # Pinia（gameStore, settingsStore）
 │   ├── types/index.ts     # TypeScript 型別總入口
