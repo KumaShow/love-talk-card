@@ -5,7 +5,7 @@ import values from '@/data/themes/values.json'
 
 /**
  * T013 / T014：values 主題資料單元測試。
- * 驗證 values.json 通過 ThemeFileSchema、總數恰 25、id 為 val-001～val-025、
+ * 驗證 values.json 通過 ThemeFileSchema、總數恰 30、id 為 val-001～val-030、
  * level 僅 1/2/3、所有卡省略 isIntimate，且四語文字皆非空（結構檢查）。
  * zh / en 真實文案（非 placeholder）之內容檢查屬 US2（T024），不在本檔。
  */
@@ -16,11 +16,11 @@ describe('values 主題資料', () => {
     expect(result.success).toBe(true)
   })
 
-  it('應剛好包含 25 張卡牌，id 依序為 val-001 至 val-025', () => {
-    expect(values.cards).toHaveLength(25)
+  it('應剛好包含 30 張卡牌，id 依序為 val-001 至 val-030', () => {
+    expect(values.cards).toHaveLength(30)
 
     const expectedIds = Array.from(
-      { length: 25 },
+      { length: 30 },
       (_, index) => `val-${String(index + 1).padStart(3, '0')}`,
     )
     expect(values.cards.map((card) => card.id)).toEqual(expectedIds)

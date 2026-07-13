@@ -47,14 +47,14 @@ describe('useDeck', () => {
     }
   })
 
-  it('buildDeck() 建立 values 牌組時不受私密模式影響，皆為同一組 25 張', () => {
+  it('buildDeck() 建立 values 牌組時不受私密模式影響，皆為同一組 30 張', () => {
     const deck = useDeck()
 
     const withoutIntimateMode = deck.buildDeck('values', allCards, false)
     const withIntimateMode = deck.buildDeck('values', allCards, true)
 
     for (const built of [withoutIntimateMode, withIntimateMode]) {
-      expect(built).toHaveLength(25)
+      expect(built).toHaveLength(30)
       expect(built.every((card) => card.theme === 'values')).toBe(true)
       expect(built.some((card) => card.isIntimate === true)).toBe(false)
     }

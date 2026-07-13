@@ -7,8 +7,8 @@ import Ajv from 'ajv'
 
 /**
  * T004：values 主題契約測試。
- * 以 ajv 驗證 contracts/values-theme.schema.json 能接受 25 張 val-### 的合法資料，
- * 並拒絕 24 / 26 張、帶 base 後綴的卡牌 id 與缺四語文案的測試資料。
+ * 以 ajv 驗證 contracts/values-theme.schema.json 能接受 30 張 val-### 的合法資料，
+ * 並拒絕 29 / 31 張、帶 base 後綴的卡牌 id 與缺四語文案的測試資料。
  */
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const schemaPath = resolve(
@@ -55,20 +55,20 @@ describe('values-theme.schema.json 契約驗證', () => {
   const ajv = new Ajv({ allErrors: true, strict: false })
   const validate = ajv.compile(valuesSchema)
 
-  it('接受 25 張 val-### 且四語文案完整的資料', () => {
-    const ok = validate(makeValuesThemeFile(25))
+  it('接受 30 張 val-### 且四語文案完整的資料', () => {
+    const ok = validate(makeValuesThemeFile(30))
     if (!ok) {
       console.error(validate.errors)
     }
     expect(ok).toBe(true)
   })
 
-  it.each([24, 26])('拒絕 %i 張卡牌的資料（總數必須恰為 25）', (cardCount) => {
+  it.each([29, 31])('拒絕 %i 張卡牌的資料（總數必須恰為 30）', (cardCount) => {
     expect(validate(makeValuesThemeFile(cardCount))).toBe(false)
   })
 
   it('拒絕帶 base 後綴的卡牌 id（val-001-base）', () => {
-    const themeFile = makeValuesThemeFile(25)
+    const themeFile = makeValuesThemeFile(30)
     const cards = themeFile.cards as Array<Record<string, unknown>>
     cards[0] = { ...cards[0], id: 'val-001-base' }
 
@@ -76,7 +76,7 @@ describe('values-theme.schema.json 契約驗證', () => {
   })
 
   it.each(['zh', 'en', 'th', 'ja'] as const)('拒絕缺 %s 文案的卡牌', (lang) => {
-    const themeFile = makeValuesThemeFile(25)
+    const themeFile = makeValuesThemeFile(30)
     const cards = themeFile.cards as Array<Record<string, unknown>>
     const text = { ...(cards[0].text as Record<string, string>) }
     delete text[lang]

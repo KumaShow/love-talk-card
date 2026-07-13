@@ -138,8 +138,8 @@ describe('ThemePreview', () => {
   /**
    * T016：values 主題預覽。
    * 描述來源為 values.json 的 description.zh（ThemePreview 實際渲染欄位），
-   * 應涵蓋六面向（價值排序、金錢與安全感、家庭與親密邊界、生活方向、
-   * 承諾與未來、社交與邊界）的精神，並帶出「在生活選擇裡看見彼此靈魂共振」記憶點；
+   * 應涵蓋 v6 題庫七類別（核心價值、金錢、家庭、生活方向與遠距、
+   * 關係定位、社交界線、差異協商）的精神，並帶出「在生活選擇裡看見彼此有多合拍」記憶點；
    * 英文短名取自 i18n theme.values.englishShortName。
    */
   describe('values 主題預覽', () => {
@@ -157,7 +157,7 @@ describe('ThemePreview', () => {
       expect(wrapper.find('[data-test="preview-title"]').text()).toBe('價值觀與未來（Values）')
     })
 
-    it('描述取自 values.json 的 description.zh，且涵蓋六面向精神與靈魂共振記憶點', () => {
+    it('描述取自 values.json 的 description.zh，且涵蓋七類別精神與合拍記憶點', () => {
       const theme = getValuesTheme()
       expect(theme).toBeDefined()
 
@@ -166,12 +166,12 @@ describe('ThemePreview', () => {
 
       expect(sectionText).toContain(theme.description.zh)
 
-      for (const facetKeyword of ['價值排序', '金錢', '安全感', '家庭', '生活方向', '承諾', '社交']) {
+      for (const facetKeyword of ['核心價值', '金錢', '家庭', '生活方向', '遠距', '關係定位', '社交']) {
         expect(theme.description.zh, `description.zh 應涵蓋「${facetKeyword}」`).toContain(
           facetKeyword,
         )
       }
-      expect(sectionText).toContain('在生活選擇裡看見彼此靈魂共振')
+      expect(sectionText).toContain('在生活選擇裡看見彼此有多合拍')
     })
 
     it('預覽 values 主題時不應顯示成人內容提示', () => {
