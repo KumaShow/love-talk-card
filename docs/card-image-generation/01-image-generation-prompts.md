@@ -1,6 +1,6 @@
 # 戀愛卡牌圖片生成提示詞
 
-本文件用於後續以 `gpt-image-2.0` 產生卡牌視覺素材。目標是把五個主題的視覺氛圍圖片化，但保留卡牌文字、題號、主題名稱與互動狀態由前端 UI 呈現，避免圖片內文字影響繁中與英文在地化。
+本文件用於後續以 `gpt-image-2.0` 產生卡牌視覺素材。目標是把六個主題的視覺氛圍圖片化，但保留卡牌文字、題號、主題名稱與互動狀態由前端 UI 呈現，避免圖片內文字影響繁中與英文在地化。
 
 ## 生成策略
 
@@ -53,6 +53,9 @@ docs/card-image-generation/output/
   desire/
     desire-bg-v1.webp
     desire-frame-v1.png
+  values/
+    values-bg-v1.webp
+    values-frame-v1.png
 ```
 
 ## 共用負面限制
@@ -272,11 +275,146 @@ Composition: decoration only along the borders and corners, with a completely tr
 No text, no letters, no numbers, no logo, no watermark, no readable typography, no UI mockup, no human faces, no nudity, no body silhouettes, no explicit sexual content, no lips, no roses, no candles, no lace, no flames.
 ```
 
+## `values`｜價值觀與未來（配色提案）
+
+主題核心：價值排序、生活方式、金錢與安全感、家庭與未來、承諾選擇，以及社交界線。畫面應該讓人感覺「一起看見人生要往哪裡走」，而不是把重點放在戀愛火花、衝突修復或單純的安全感。
+
+目前程式中的基準色票如下；以下三個方向都可以先用同一組構圖提示詞各生成 3 張背景圖與 2 張透明框，再比較主題辨識度與文字可讀性：
+
+```text
+primary: #574A9E
+secondary: #8F84C9
+background: #221C3F
+backgroundEnd: #2E2857
+text: #F2F1FA
+cardBack: #3B3170
+```
+
+所有提案均可在 prompt 最後接上本文件的「共用負面限制」。
+
+### 選項 A：深靛藍 × 暖金｜共同方向與人生藍圖
+
+這是最接近目前實作色票的方向。深靛藍帶出思考、遠景與原則，少量暖金象徵共同決策中被照亮的重點；和 `trust` 的薰衣草紫相比更理性、更有方向感。
+
+建議色票：`#574A9E`、`#8F84C9`、`#221C3F`、`#2E2857`、`#F2F1FA`、`#D8B66A`
+
+#### 背景圖 Prompt
+
+```text
+Create a premium vertical card background for a relationship conversation card game.
+
+Theme: values and future direction in a relationship. The image should feel thoughtful, grounded, and quietly expansive, like two people placing different life priorities on the same table and discovering how they might build a life together.
+
+Visual style: sophisticated editorial illustration, deep indigo atmosphere, tactile matte paper texture, subtle grain, restrained metallic-gold light, layered translucent planes, and elegant abstract geometry. Use deep indigo, muted periwinkle, midnight blue, warm ivory, and very small touches of antique gold. The palette should harmonize with #574A9E, #8F84C9, #221C3F, #2E2857, #F2F1FA, and #D8B66A.
+
+Composition: vertical card ratio, a calm low-contrast center for overlaid card text, with richer symbolic details near the borders and corners. Include abstract paths, constellation-like points, balanced scales without literal scale objects, intersecting horizon lines, and small illuminated markers suggesting priorities, choices, and a shared direction. Keep the symbolism open-ended and avoid literal maps or business graphics.
+
+Mood: intentional, mature, hopeful, clear-minded, quietly intimate, not corporate, not mystical, not ceremonial.
+
+No text, no letters, no numbers, no logo, no watermark, no readable typography, no UI mockup, no human faces, no wedding imagery, no money or banknote imagery, no harsh contrast, no clutter in the center.
+```
+
+#### 透明裝飾框 Prompt
+
+```text
+Create a transparent PNG decorative frame overlay for a premium vertical relationship conversation card.
+
+Theme: shared values, life direction, meaningful choices, and a future built through everyday decisions.
+
+Visual style: refined fine-line ornament in deep indigo, muted periwinkle, warm ivory, and restrained antique-gold accents. Use abstract paths, small constellation-like points, balanced geometric segments, horizon lines, and subtle illuminated markers. The frame should feel thoughtful and mature, with a sense of direction but no literal map or business symbolism.
+
+Composition: border and corner decoration only, completely transparent center area for long bilingual card text, with generous negative space and low visual noise.
+
+No text, no letters, no numbers, no logo, no watermark, no readable typography, no UI mockup, no human faces, no wedding imagery, no money symbols, no literal scales.
+```
+
+### 選項 B：墨綠 × 陶土｜日常選擇與生活根基
+
+這個方向最貼近「價值觀如何落在日常生活」。墨綠與陶土比 `interaction` 的清新薄荷綠更厚實、更有生活感；適合金錢、家庭、家務、生活節奏與社交界線等題目。
+
+建議色票：`#34483F`、`#788C73`、`#17241F`、`#263A31`、`#F3EBDD`、`#B86F52`
+
+#### 背景圖 Prompt
+
+```text
+Create a premium vertical card background for a relationship conversation card game.
+
+Theme: values and future choices expressed through everyday life. The image should feel grounded and warm, like two people considering home, time, family, money, community, and personal freedom while making room for each other's priorities.
+
+Visual style: elevated editorial illustration, earthy low-saturation palette, tactile handmade paper texture, soft diffused daylight, subtle grain, layered organic shapes, and quiet architectural rhythms. Use deep forest green, sage-grey, warm clay, muted terracotta, parchment ivory, and soft shadow. The palette should harmonize with #34483F, #788C73, #17241F, #263A31, #F3EBDD, and #B86F52.
+
+Composition: vertical card ratio, spacious readable center with gentle contrast, richer detail near the edges. Include abstract floor-plan-like lines without becoming an actual floor plan, overlapping circles, rooted forms, small doorway shapes, and repeated paths suggesting habits, boundaries, home, and different ways of moving forward. Keep the image symbolic and emotionally inviting.
+
+Mood: grounded, warm, practical, reflective, quietly optimistic, not rustic branding, not domestic advertising, not instructional.
+
+No text, no letters, no numbers, no logo, no watermark, no readable typography, no UI mockup, no human faces, no literal house interior, no banknotes, no wedding imagery, no harsh contrast, no clutter in the center.
+```
+
+#### 透明裝飾框 Prompt
+
+```text
+Create a transparent PNG decorative frame overlay for a premium vertical relationship conversation card.
+
+Theme: everyday values, life foundations, personal boundaries, and the many small choices that shape a shared future.
+
+Visual style: refined fine-line ornament in deep forest green, sage-grey, warm parchment, and muted terracotta accents. Use rooted organic lines, doorway-like openings, overlapping circles, gentle path motifs, and small architectural marks without forming literal houses or floor plans. The frame should feel tactile, grounded, and mature.
+
+Composition: border and corner decoration only, completely transparent center area for long bilingual card text. Keep the decoration asymmetrical but balanced, with generous breathing room.
+
+No text, no letters, no numbers, no logo, no watermark, no readable typography, no UI mockup, no human faces, no literal house, no banknotes, no wedding imagery.
+```
+
+### 選項 C：午夜藍 × 米白｜開放視野與共同未來
+
+這個方向最輕、最現代，也最容易讓「未來」感覺開闊。午夜藍保留深度，米白與少量霧藍讓畫面不會像 `desire` 的低光親密，也不會像 `trust` 的紫色承諾。
+
+建議色票：`#24344A`、`#6E8EAA`、`#111B29`、`#1B293B`、`#F4F0E8`、`#C59A62`
+
+#### 背景圖 Prompt
+
+```text
+Create a premium vertical card background for a relationship conversation card game.
+
+Theme: values, possibilities, and the future a couple may choose together. The image should feel open, spacious, and thoughtful, like looking toward a wide horizon while remaining present with the person beside you.
+
+Visual style: modern editorial abstraction, midnight blue field, soft misty layers, tactile matte paper texture, delicate grain, pale ivory light, and restrained brushed-brass accents. Use midnight blue, slate blue, mist blue, warm ivory, and a small amount of muted brass. The palette should harmonize with #24344A, #6E8EAA, #111B29, #1B293B, #F4F0E8, and #C59A62.
+
+Composition: vertical card ratio, a very calm center with soft tonal transitions for overlaid card text, and more movement near the borders. Include abstract horizon bands, branching but converging lines, open circular forms, subtle windows of light, and distant points suggesting possibility, choice, and a future that remains co-created. Avoid literal landscapes and navigation interfaces.
+
+Mood: spacious, contemporary, curious, intentional, hopeful, emotionally mature, not cold, not futuristic technology, not celestial fantasy.
+
+No text, no letters, no numbers, no logo, no watermark, no readable typography, no UI mockup, no human faces, no literal landscape, no compass, no map, no wedding imagery, no harsh contrast, no clutter in the center.
+```
+
+#### 透明裝飾框 Prompt
+
+```text
+Create a transparent PNG decorative frame overlay for a premium vertical relationship conversation card.
+
+Theme: shared possibilities, personal freedom, values in motion, and a future shaped by mutual choices.
+
+Visual style: refined fine-line ornament in midnight blue, slate blue, warm ivory, and restrained brushed-brass accents. Use open circular forms, branching lines that gently converge, horizon bands, window-like openings, and tiny points of light. The frame should feel spacious, contemporary, and quietly hopeful rather than celestial or technological.
+
+Composition: border and corner decoration only, completely transparent center area for long bilingual card text. Keep the lines light, with generous negative space and no heavy symmetrical crest.
+
+No text, no letters, no numbers, no logo, no watermark, no readable typography, no UI mockup, no human faces, no literal landscape, no compass, no map, no wedding imagery.
+```
+
+#### 選擇建議
+
+| 選項 | 最強的主題印象 | 適合的題目感受 | 主要風險 |
+|---|---|---|---|
+| A 深靛藍 × 暖金 | 原則、方向、共同藍圖 | 價值排序、未來規劃、承諾選擇 | 可能略偏理性或像高級品牌視覺 |
+| B 墨綠 × 陶土 | 生活根基、日常實踐 | 金錢、家庭、生活方式、社交界線 | 可能與 `interaction` 的綠色系相近 |
+| C 午夜藍 × 米白 | 開放可能、共同探索 | 未來想像、自由與界線、人生選擇 | 可能與 `self` 的冷色反思感接近 |
+
+若優先考慮和現有六個主題一起陳列時的辨識度，建議先測試選項 A；若希望 values 更貼近日常生活與具體選擇，則測試選項 B。
+
 ## 批次生成建議
 
 1. 每個主題先生成 3 張背景圖與 2 張透明裝飾框。
 2. 先挑出「主題辨識度最高」與「中央文字可讀性最好」的版本。
-3. 確認五個主題放在一起時，不要只像同一套設計換色；每個主題要有自己的構圖語彙，尤其需確認 `desire` 不會被誤認為深色版 `attraction`。
+3. 確認六個主題放在一起時，不要只像同一套設計換色；每個主題要有自己的構圖語彙，尤其需確認 `desire` 不會被誤認為深色版 `attraction`，`values` 也不要被誤認為 `trust` 的變體。
 4. 選定風格後，再用同一組 prompt 產生 `v2`、`v3` 作為替代款。
 5. 實作進前端前，先用繁中長句與英文長句各測一次疊字效果。
 
