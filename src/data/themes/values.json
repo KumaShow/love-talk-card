@@ -27,7 +27,7 @@
       "text": {
         "zh": "現在的你，最重視生活中的哪三件事？想聽聽它們為什麼重要。",
         "en": "What are the three things you value most in life right now? I'd love to hear why each one matters.",
-        "th": "What are the three things you value most in life right now? I'd love to hear why each one matters.",
+        "th": "ตอนนี้สามสิ่งที่คุณให้ความสำคัญที่สุดในชีวิตคืออะไรบ้าง? อยากฟังว่าทำไมแต่ละอย่างถึงสำคัญกับคุณ",
         "ja": "What are the three things you value most in life right now? I'd love to hear why each one matters."
       }
     },
@@ -36,8 +36,8 @@
       "level": 1,
       "text": {
         "zh": "對你來說，一段舒服的關係需要有哪些感覺？",
-        "en": "For you, what should a comfortable relationship feel like—what feelings does it need to have?",
-        "th": "For you, what should a comfortable relationship feel like—what feelings does it need to have?",
+        "en": "What does a comfortable relationship feel like to you?",
+        "th": "สำหรับคุณ ความสัมพันธ์ที่อยู่แล้วสบายใจ ต้องมีความรู้สึกแบบไหนบ้าง?",
         "ja": "For you, what should a comfortable relationship feel like—what feelings does it need to have?"
       }
     },
@@ -46,8 +46,8 @@
       "level": 1,
       "text": {
         "zh": "現在的你，希望感情在生活裡占有什麼樣的位置？",
-        "en": "At this point in your life, what place would you like love to hold in it?",
-        "th": "At this point in your life, what place would you like love to hold in it?",
+        "en": "At this point in your life, what role would you like a romantic relationship to play?",
+        "th": "ในช่วงชีวิตตอนนี้ คุณอยากให้ความรักมีที่ทางแบบไหนในชีวิตของคุณ?",
         "ja": "At this point in your life, what place would you like love to hold in it?"
       }
     },
@@ -57,7 +57,7 @@
       "text": {
         "zh": "在一段關係裡，陪伴和個人自由如果有衝突，你希望彼此怎麼找到平衡？",
         "en": "In a relationship, when time together and personal freedom pull in different directions, how would you like both sides to find a balance?",
-        "th": "In a relationship, when time together and personal freedom pull in different directions, how would you like both sides to find a balance?",
+        "th": "ในความสัมพันธ์ ถ้าเวลาที่อยู่ด้วยกันกับอิสระส่วนตัวขัดกันขึ้นมา คุณอยากให้เราสองคนหาจุดสมดุลกันอย่างไร?",
         "ja": "In a relationship, when time together and personal freedom pull in different directions, how would you like both sides to find a balance?"
       }
     },
@@ -67,7 +67,7 @@
       "text": {
         "zh": "過去的感情或人際經驗裡，有沒有一個你學到、現在很珍惜的原則？",
         "en": "From past relationships or friendships, is there a principle you learned that you now hold dear?",
-        "th": "From past relationships or friendships, is there a principle you learned that you now hold dear?",
+        "th": "จากประสบการณ์ความรักหรือความสัมพันธ์กับผู้คนในอดีต มีหลักคิดอะไรไหมที่คุณได้เรียนรู้และยังให้ความสำคัญมาจนถึงตอนนี้?",
         "ja": "From past relationships or friendships, is there a principle you learned that you now hold dear?"
       }
     },
@@ -76,8 +76,8 @@
       "level": 3,
       "text": {
         "zh": "有哪些對你很重要的價值，即使很喜歡一個人，也不希望自己勉強退讓？",
-        "en": "What values matter so much to you that even for someone you really like, you wouldn't want to force yourself to give them up?",
-        "th": "What values matter so much to you that even for someone you really like, you wouldn't want to force yourself to give them up?",
+        "en": "Which values matter so much to you that, even for someone you really like, you wouldn't want to compromise on them?",
+        "th": "มีค่านิยมอะไรบ้างที่สำคัญกับคุณมาก จนต่อให้ชอบใครสักคนมากแค่ไหน คุณก็ไม่อยากฝืนประนีประนอม?",
         "ja": "What values matter so much to you that even for someone you really like, you wouldn't want to force yourself to give them up?"
       }
     },
@@ -87,7 +87,7 @@
       "text": {
         "zh": "什麼樣的花費會讓你覺得很值得？哪些事情你覺得夠用就好？",
         "en": "What kind of spending feels truly worth it to you—and where is \"good enough\" simply enough?",
-        "th": "What kind of spending feels truly worth it to you—and where is \"good enough\" simply enough?",
+        "th": "การใช้จ่ายแบบไหนที่คุณรู้สึกว่าคุ้มค่า? แล้วเรื่องไหนที่คุณคิดว่ามีเท่าที่จำเป็นก็เพียงพอแล้ว?",
         "ja": "What kind of spending feels truly worth it to you—and where is \"good enough\" simply enough?"
       }
     },
@@ -97,7 +97,7 @@
       "text": {
         "zh": "如果突然多了一筆可以自由運用的錢，你會比較想拿來享受生活、完成目標，還是留給未來？為什麼？",
         "en": "If you suddenly had extra money to use freely, would you rather enjoy life with it, put it toward a goal, or save it for the future? Why?",
-        "th": "If you suddenly had extra money to use freely, would you rather enjoy life with it, put it toward a goal, or save it for the future? Why?",
+        "th": "ถ้าจู่ ๆ คุณมีเงินก้อนหนึ่งที่ใช้ได้อย่างอิสระ คุณอยากนำไปใช้เพื่อความสุขในชีวิต ทำเป้าหมายให้สำเร็จ หรือเก็บไว้เพื่ออนาคตมากกว่ากัน? เพราะอะไร?",
         "ja": "If you suddenly had extra money to use freely, would you rather enjoy life with it, put it toward a goal, or save it for the future? Why?"
       }
     },
@@ -107,7 +107,7 @@
       "text": {
         "zh": "你覺得一段關係發展到什麼程度，適合開始談收入、負債和儲蓄狀況？",
         "en": "At what point in a relationship do you think it's right to start talking about income, debt, and savings?",
-        "th": "At what point in a relationship do you think it's right to start talking about income, debt, and savings?",
+        "th": "คุณคิดว่าความสัมพันธ์ควรไปถึงขั้นไหน ถึงเหมาะจะเริ่มคุยเรื่องรายได้ หนี้สิน และเงินเก็บของกันและกัน?",
         "ja": "At what point in a relationship do you think it's right to start talking about income, debt, and savings?"
       }
     },
@@ -116,8 +116,8 @@
       "level": 2,
       "text": {
         "zh": "兩個人一起吃飯、旅行或生活時，怎麼分擔支出會讓你最舒服？",
-        "en": "When two people share meals, trips, or daily life, what way of splitting expenses feels most comfortable to you?",
-        "th": "When two people share meals, trips, or daily life, what way of splitting expenses feels most comfortable to you?",
+        "en": "When sharing meals, trips, or daily expenses with a partner, how would you feel most comfortable splitting the costs?",
+        "th": "เวลาสองคนกินข้าว ไปเที่ยว หรือใช้ชีวิตด้วยกัน วิธีแบ่งค่าใช้จ่ายแบบไหนที่ทำให้คุณรู้สึกสบายใจที่สุด?",
         "ja": "When two people share meals, trips, or daily life, what way of splitting expenses feels most comfortable to you?"
       }
     },
@@ -127,7 +127,7 @@
       "text": {
         "zh": "如果我們之中有人遇到財務困難，你覺得在開口借錢或出手幫忙之前，哪些事情需要先談清楚？",
         "en": "If one of us ran into financial trouble, what would need to be talked through before asking for—or offering—money?",
-        "th": "If one of us ran into financial trouble, what would need to be talked through before asking for—or offering—money?",
+        "th": "ถ้าคนใดคนหนึ่งในเราสองคนเจอปัญหาการเงิน คุณคิดว่าก่อนจะเอ่ยปากขอยืมหรือยื่นมือเข้าช่วย มีเรื่องอะไรบ้างที่ควรคุยกันให้ชัดก่อน?",
         "ja": "If one of us ran into financial trouble, what would need to be talked through before asking for—or offering—money?"
       }
     },
@@ -136,8 +136,8 @@
       "level": 3,
       "text": {
         "zh": "關於未來想不想有小孩，你現在真實的想法是什麼？還沒有答案、或有猶豫，也都想聽聽。",
-        "en": "About whether you'd want kids someday—what are your honest thoughts right now? No answer yet, or mixed feelings, are just as welcome.",
-        "th": "About whether you'd want kids someday—what are your honest thoughts right now? No answer yet, or mixed feelings, are just as welcome.",
+        "en": "How do you honestly feel right now about having children someday? It's okay if you don't have an answer yet or feel unsure—I'd still love to hear your thoughts.",
+        "th": "ตอนนี้คุณคิดอย่างไรจริง ๆ เรื่องการมีลูกในอนาคต? ถ้ายังไม่มีคำตอบหรือยังลังเลอยู่ ก็อยากฟังเหมือนกัน",
         "ja": "About whether you'd want kids someday—what are your honest thoughts right now? No answer yet, or mixed feelings, are just as welcome."
       }
     },
@@ -146,8 +146,8 @@
       "level": 3,
       "text": {
         "zh": "如果未來需要長期照顧或支援家人，你覺得哪些事情會自己決定，哪些會想和身邊的另一半一起討論？",
-        "en": "If you ever needed to support or care for family long-term, which decisions would you make on your own, and which would you want to talk through with your other half?",
-        "th": "If you ever needed to support or care for family long-term, which decisions would you make on your own, and which would you want to talk through with your other half?",
+        "en": "If you ever needed to support or care for family long-term, which decisions would you make on your own, and which would you want to discuss with your partner?",
+        "th": "ถ้าวันหนึ่งคุณต้องดูแลหรือช่วยเหลือครอบครัวในระยะยาว คุณคิดว่าเรื่องไหนจะตัดสินใจด้วยตัวเอง และเรื่องไหนอยากปรึกษากับคนรักของคุณด้วย?",
         "ja": "If you ever needed to support or care for family long-term, which decisions would you make on your own, and which would you want to talk through with your other half?"
       }
     },
@@ -157,7 +157,7 @@
       "text": {
         "zh": "如果可以自由安排，你理想中的普通一天會怎麼度過？",
         "en": "If you could arrange it freely, what would your ideal ordinary day look like?",
-        "th": "If you could arrange it freely, what would your ideal ordinary day look like?",
+        "th": "ถ้าจัดสรรเวลาได้อย่างอิสระ วันธรรมดา ๆ ในอุดมคติของคุณจะเป็นแบบไหน?",
         "ja": "If you could arrange it freely, what would your ideal ordinary day look like?"
       }
     },
@@ -166,8 +166,8 @@
       "level": 2,
       "text": {
         "zh": "如果重要的工作機會和感情發展無法同時兼顧，你做決定時最在意哪些事？",
-        "en": "If a big career opportunity and a growing relationship couldn't both fit, what would matter most to you in making the call?",
-        "th": "If a big career opportunity and a growing relationship couldn't both fit, what would matter most to you in making the call?",
+        "en": "If you had to choose between an important career opportunity and a growing relationship, what would matter most in your decision?",
+        "th": "ถ้าโอกาสสำคัญในหน้าที่การงานกับความสัมพันธ์ที่กำลังพัฒนาไม่อาจไปด้วยกันได้ เวลาตัดสินใจคุณให้ความสำคัญกับอะไรมากที่สุด?",
         "ja": "If a big career opportunity and a growing relationship couldn't both fit, what would matter most to you in making the call?"
       }
     },
@@ -176,8 +176,8 @@
       "level": 2,
       "text": {
         "zh": "遠距時，你希望彼此分享哪些日常，才會感覺有參與對方的生活，又不會失去自己的空間？",
-        "en": "In a long-distance stretch, what parts of daily life would you want to share so you both feel part of each other's world—without losing your own space?",
-        "th": "In a long-distance stretch, what parts of daily life would you want to share so you both feel part of each other's world—without losing your own space?",
+        "en": "In a long-distance relationship, what parts of daily life would you want to share so you can feel involved in each other's lives without losing your own space?",
+        "th": "ในช่วงที่ต้องคบกันทางไกล คุณอยากแบ่งปันเรื่องอะไรในชีวิตประจำวันให้กันบ้าง เพื่อให้รู้สึกว่าต่างฝ่ายต่างมีส่วนร่วมในชีวิตของกันและกัน โดยไม่เสียพื้นที่ส่วนตัวของตัวเองไป?",
         "ja": "In a long-distance stretch, what parts of daily life would you want to share so you both feel part of each other's world—without losing your own space?"
       }
     },
@@ -187,7 +187,7 @@
       "text": {
         "zh": "如果我們因為不同城市或國家而遠距，當關係越來越認真時，你覺得縮短距離需要哪些條件？",
         "en": "If we were long-distance across cities or countries and things got serious, what would it take, in your view, to close the distance?",
-        "th": "If we were long-distance across cities or countries and things got serious, what would it take, in your view, to close the distance?",
+        "th": "ถ้าเราต้องคบกันทางไกลเพราะอยู่คนละเมืองหรือคนละประเทศ เมื่อความสัมพันธ์จริงจังมากขึ้น คุณคิดว่าต้องมีเงื่อนไขอะไรบ้างจึงจะลดระยะห่างลงได้?",
         "ja": "If we were long-distance across cities or countries and things got serious, what would it take, in your view, to close the distance?"
       }
     },
@@ -197,7 +197,7 @@
       "text": {
         "zh": "對你來說，從聊天、約會到確認關係，哪些事情需要彼此明確說開，而不能只靠感覺猜？",
         "en": "From chatting to dating to becoming official—which things do you think need to be said out loud, rather than left to guesswork?",
-        "th": "From chatting to dating to becoming official—which things do you think need to be said out loud, rather than left to guesswork?",
+        "th": "สำหรับคุณ ตั้งแต่ช่วงคุยกัน เดตกัน ไปจนถึงตกลงเป็นแฟนกัน มีเรื่องอะไรบ้างที่ต้องพูดกันให้ชัด ไม่ใช่ปล่อยให้เดาใจกันเอาเอง?",
         "ja": "From chatting to dating to becoming official—which things do you think need to be said out loud, rather than left to guesswork?"
       }
     },
@@ -207,7 +207,7 @@
       "text": {
         "zh": "哪些行程或社交安排，你會希望對方主動告訴你？哪些則屬於個人自由，不需要特別說明？",
         "en": "Which plans or social events would you want the other person to mention upfront—and which count as personal freedom, no explanation needed?",
-        "th": "Which plans or social events would you want the other person to mention upfront—and which count as personal freedom, no explanation needed?",
+        "th": "แผนหรือนัดสังสรรค์แบบไหนที่คุณอยากให้อีกฝ่ายบอกคุณเองก่อน? แล้วแบบไหนที่ถือเป็นอิสระส่วนตัว ไม่ต้องอธิบายอะไรเป็นพิเศษ?",
         "ja": "Which plans or social events would you want the other person to mention upfront—and which count as personal freedom, no explanation needed?"
       }
     },
@@ -217,7 +217,7 @@
       "text": {
         "zh": "什麼樣的感覺或情況，會（或曾經）讓你決定專心對待一個人，不再考慮其他可能？",
         "en": "What feeling or situation would—or once did—make you decide to focus on one person and stop considering other possibilities?",
-        "th": "What feeling or situation would—or once did—make you decide to focus on one person and stop considering other possibilities?",
+        "th": "ความรู้สึกหรือสถานการณ์แบบไหนที่จะทำให้ (หรือเคยทำให้) คุณตัดสินใจทุ่มเทให้ใครสักคนเพียงคนเดียว และเลิกมองความเป็นไปได้อื่น ๆ?",
         "ja": "What feeling or situation would—or once did—make you decide to focus on one person and stop considering other possibilities?"
       }
     },
@@ -227,7 +227,7 @@
       "text": {
         "zh": "如果認真相處一段時間後，發現彼此其實不太適合，你希望我們怎麼把這件事說開？",
         "en": "If, after really trying, we found we weren't quite right for each other, how would you want us to talk about it openly?",
-        "th": "If, after really trying, we found we weren't quite right for each other, how would you want us to talk about it openly?",
+        "th": "ถ้าคบกันอย่างจริงจังไปสักพักแล้วพบว่าเราสองคนไม่ค่อยเหมาะกันจริง ๆ คุณอยากให้เราเปิดใจคุยเรื่องนี้กันอย่างไร?",
         "ja": "If, after really trying, we found we weren't quite right for each other, how would you want us to talk about it openly?"
       }
     },
@@ -237,7 +237,7 @@
       "text": {
         "zh": "和別人互動時，什麼對你來說只是友善，什麼會開始像曖昧？",
         "en": "In interactions with others, what reads as simply friendly to you—and where does it start to feel like flirting?",
-        "th": "In interactions with others, what reads as simply friendly to you—and where does it start to feel like flirting?",
+        "th": "เวลามีปฏิสัมพันธ์กับคนอื่น สำหรับคุณแบบไหนคือแค่ความเป็นมิตร แล้วแบบไหนที่เริ่มดูเหมือนการจีบกัน?",
         "ja": "In interactions with others, what reads as simply friendly to you—and where does it start to feel like flirting?"
       }
     },
@@ -247,7 +247,7 @@
       "text": {
         "zh": "如果我們一個是秒回型、一個是慢回型，你希望彼此怎麼理解對方的節奏，而不是用回覆速度衡量在不在乎？",
         "en": "If one of us replies instantly and the other slowly, how could we come to understand each other's rhythm—without measuring care by reply speed?",
-        "th": "If one of us replies instantly and the other slowly, how could we come to understand each other's rhythm—without measuring care by reply speed?",
+        "th": "ถ้าเราคนหนึ่งตอบแชตไว อีกคนตอบช้า คุณอยากให้เราทำความเข้าใจจังหวะของกันและกันอย่างไร โดยไม่เอาความเร็วในการตอบมาวัดว่าใส่ใจกันแค่ไหน?",
         "ja": "If one of us replies instantly and the other slowly, how could we come to understand each other's rhythm—without measuring care by reply speed?"
       }
     },
@@ -256,8 +256,8 @@
       "level": 2,
       "text": {
         "zh": "如果我們確認了關係，和可能互相吸引的人保持聯絡時，哪些界線會讓你覺得安心又合理？",
-        "en": "If we were official, what boundaries would feel both safe and fair to you when staying in touch with someone there could be mutual attraction with?",
-        "th": "If we were official, what boundaries would feel both safe and fair to you when staying in touch with someone there could be mutual attraction with?",
+        "en": "If we were in an official relationship, what boundaries would feel both reassuring and reasonable when either of us stays in touch with someone where the attraction might be mutual?",
+        "th": "ถ้าเราตกลงเป็นแฟนกันแล้ว และฝ่ายใดฝ่ายหนึ่งยังติดต่อกับคนที่อาจต่างฝ่ายต่างรู้สึกดึงดูดกัน ขอบเขตแบบไหนที่จะทำให้คุณรู้สึกทั้งสบายใจและสมเหตุสมผล?",
         "ja": "If we were official, what boundaries would feel both safe and fair to you when staying in touch with someone there could be mutual attraction with?"
       }
     },
@@ -267,7 +267,7 @@
       "text": {
         "zh": "如果社群上的互動讓我們其中一個人不安，你覺得可以先了解什麼，再討論要不要調整？",
         "en": "If something on social media made one of us uneasy, what would be worth understanding first, before discussing whether anything should change?",
-        "th": "If something on social media made one of us uneasy, what would be worth understanding first, before discussing whether anything should change?",
+        "th": "ถ้าการมีปฏิสัมพันธ์บนโซเชียลทำให้คนใดคนหนึ่งในเราสองคนรู้สึกไม่สบายใจ คุณคิดว่าควรทำความเข้าใจอะไรก่อน แล้วค่อยคุยกันว่าต้องปรับอะไรไหม?",
         "ja": "If something on social media made one of us uneasy, what would be worth understanding first, before discussing whether anything should change?"
       }
     },
@@ -277,7 +277,7 @@
       "text": {
         "zh": "如果一方覺得只是朋友，另一方卻感覺像曖昧，你希望彼此怎麼把真正介意的行為說清楚？",
         "en": "If one person sees \"just friends\" where the other senses flirting, how would you want the two of you to name the specific behaviors that actually bother you?",
-        "th": "If one person sees \"just friends\" where the other senses flirting, how would you want the two of you to name the specific behaviors that actually bother you?",
+        "th": "ถ้าฝ่ายหนึ่งมองว่าเป็นแค่เพื่อน แต่อีกฝ่ายรู้สึกว่าเหมือนกำลังจีบกัน คุณอยากให้เราพูดคุยกันอย่างไร เพื่อให้ชัดเจนว่าจริง ๆ แล้วพฤติกรรมไหนที่ทำให้ไม่สบายใจ?",
         "ja": "If one person sees \"just friends\" where the other senses flirting, how would you want the two of you to name the specific behaviors that actually bother you?"
       }
     },
@@ -287,7 +287,7 @@
       "text": {
         "zh": "當我們重視的事情不一樣時，你會怎麼判斷哪些需要彼此調整，哪些可以保留差異？",
         "en": "When we care about different things, how do you decide what needs adjusting on both sides—and what can simply stay different?",
-        "th": "When we care about different things, how do you decide what needs adjusting on both sides—and what can simply stay different?",
+        "th": "เวลาที่เราสองคนให้ความสำคัญกับเรื่องต่างกัน คุณตัดสินอย่างไรว่าเรื่องไหนที่ทั้งคู่ควรปรับเข้าหากัน และเรื่องไหนที่ปล่อยให้แตกต่างกันได้?",
         "ja": "When we care about different things, how do you decide what needs adjusting on both sides—and what can simply stay different?"
       }
     },
@@ -297,7 +297,7 @@
       "text": {
         "zh": "如果一個人想快點確認方向，另一個人還需要時間，你覺得怎麼安排會對彼此公平？",
         "en": "If one person wants clarity soon and the other still needs time, what arrangement would feel fair to both?",
-        "th": "If one person wants clarity soon and the other still needs time, what arrangement would feel fair to both?",
+        "th": "ถ้าคนหนึ่งอยากรู้ทิศทางของความสัมพันธ์ให้ชัดเร็ว ๆ แต่อีกคนยังต้องการเวลา คุณคิดว่าจัดการอย่างไรถึงจะยุติธรรมกับทั้งสองฝ่าย?",
         "ja": "If one person wants clarity soon and the other still needs time, what arrangement would feel fair to both?"
       }
     },
@@ -306,8 +306,8 @@
       "level": 3,
       "text": {
         "zh": "對你來說，「善意的隱瞞」和「說謊」的界線在哪裡？什麼樣的不說你可以理解，什麼樣的會過不去？",
-        "en": "Where's the line for you between kind discretion and lying? What kinds of not-telling can you understand—and which would you struggle to get past?",
-        "th": "Where's the line for you between kind discretion and lying? What kinds of not-telling can you understand—and which would you struggle to get past?",
+        "en": "Where do you draw the line between a well-intentioned omission and a lie? What kinds of omissions could you understand, and which would be hard for you to move past?",
+        "th": "สำหรับคุณ เส้นแบ่งระหว่าง \"การปิดบังด้วยความหวังดี\" กับ \"การโกหก\" อยู่ตรงไหน? การไม่บอกแบบไหนที่คุณพอเข้าใจได้ และแบบไหนที่คุณรู้สึกว่ายากจะก้าวข้ามไปได้?",
         "ja": "Where's the line for you between kind discretion and lying? What kinds of not-telling can you understand—and which would you struggle to get past?"
       }
     },
@@ -316,8 +316,8 @@
       "level": 3,
       "text": {
         "zh": "如果一方坦白說某些互動讓自己不安，你覺得怎麼分辨這是需要彼此調整的界線，還是需要自己消化的不安全感？",
-        "en": "If someone admits certain interactions make them uneasy, how would you tell whether it's a boundary to adjust together—or an insecurity to work through alone?",
-        "th": "If someone admits certain interactions make them uneasy, how would you tell whether it's a boundary to adjust together—or an insecurity to work through alone?",
+        "en": "If one person admits that certain interactions make them uneasy, how would you tell whether it's a boundary to adjust together or something they need to process themselves?",
+        "th": "ถ้าฝ่ายหนึ่งเปิดใจบอกว่าปฏิสัมพันธ์บางอย่างทำให้ตัวเองไม่สบายใจ คุณคิดว่าจะแยกแยะอย่างไรว่านี่คือขอบเขตที่ทั้งคู่ควรปรับร่วมกัน หรือเป็นความรู้สึกไม่มั่นคงที่ต้องจัดการด้วยตัวเอง?",
         "ja": "If someone admits certain interactions make them uneasy, how would you tell whether it's a boundary to adjust together—or an insecurity to work through alone?"
       }
     }
